@@ -211,7 +211,7 @@ struct ContestPokemon
     /*0x00*/ u16 species;
     /*0x02*/ u8 nickname[POKEMON_NAME_LENGTH + 1];
     /*0x0D*/ u8 trainerName[PLAYER_NAME_LENGTH + 1];
-    /*0x15*/ u8 trainerGfxId;
+    /*0x15*/ u16 trainerGfxId;
     /*0x18*/ u32 aiChecks;
     /*0x1C*/ u8 whichRank:2; // 0x1 0x2
     u8 aiPool_Cool:1; // 0x4

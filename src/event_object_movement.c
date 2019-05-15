@@ -1442,7 +1442,7 @@ u8 SpawnSpecialEventObject(struct EventObjectTemplate *eventObjectTemplate)
     return TrySpawnEventObjectTemplate(eventObjectTemplate, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, cameraX, cameraY);
 }
 
-u8 SpawnSpecialEventObjectParameterized(u8 graphicsId, u8 movementBehavior, u8 localId, s16 x, s16 y, u8 z)
+u8 SpawnSpecialEventObjectParameterized(u16 graphicsId, u8 movementBehavior, u8 localId, s16 x, s16 y, u8 z)
 {
     struct EventObjectTemplate eventObjectTemplate;
 
@@ -1450,7 +1450,6 @@ u8 SpawnSpecialEventObjectParameterized(u8 graphicsId, u8 movementBehavior, u8 l
     y -= 7;
     eventObjectTemplate.localId = localId;
     eventObjectTemplate.graphicsId = graphicsId;
-    eventObjectTemplate.unk2 = 0;
     eventObjectTemplate.x = x;
     eventObjectTemplate.y = y;
     eventObjectTemplate.elevation = z;
@@ -1524,7 +1523,7 @@ u8 AddPseudoEventObject(u16 graphicsId, void (*callback)(struct Sprite *), s16 x
     return spriteId;
 }
 
-u8 sprite_new(u8 graphicsId, u8 a1, s16 x, s16 y, u8 z, u8 direction)
+u8 sprite_new(u16 graphicsId, u8 a1, s16 x, s16 y, u8 z, u8 direction)
 {
     u8 spriteId;
     struct Sprite *sprite;
@@ -1760,7 +1759,7 @@ static void SetPlayerAvatarEventObjectIdAndObjectId(u8 eventObjectId, u8 spriteI
     SetPlayerAvatarExtraStateTransition(gEventObjects[eventObjectId].graphicsId, 0x20);
 }
 
-void EventObjectSetGraphicsId(struct EventObject *eventObject, u8 graphicsId)
+void EventObjectSetGraphicsId(struct EventObject *eventObject, u16 graphicsId)
 {
     const struct EventObjectGraphicsInfo *graphicsInfo;
     struct Sprite *sprite;
@@ -1801,7 +1800,7 @@ void EventObjectSetGraphicsId(struct EventObject *eventObject, u8 graphicsId)
     }
 }
 
-void EventObjectSetGraphicsIdByLocalIdAndMap(u8 localId, u8 mapNum, u8 mapGroup, u8 graphicsId)
+void EventObjectSetGraphicsIdByLocalIdAndMap(u8 localId, u8 mapNum, u8 mapGroup, u16 graphicsId)
 {
     u8 eventObjectId;
 
@@ -1860,7 +1859,7 @@ static void get_berry_tree_graphics(struct EventObject *eventObject, struct Spri
     }
 }
 
-const struct EventObjectGraphicsInfo *GetEventObjectGraphicsInfo(u8 graphicsId)
+const struct EventObjectGraphicsInfo *GetEventObjectGraphicsInfo(u16 graphicsId)
 {
     u8 bard;
 
@@ -8711,7 +8710,7 @@ void sub_8097B78(u8 var1, u8 var2)
         StartSpriteAnim(&gSprites[spriteId], GetFaceDirectionAnimNum(var2));
 }
 
-void sub_8097BB4(u8 var1, u8 graphicsId)
+void sub_8097BB4(u8 var1, u16 graphicsId)
 {
     int spriteId = sub_8097B2C(var1);
 

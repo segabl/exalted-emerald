@@ -28,7 +28,7 @@ static void sub_81356C4(void);
 static void sub_8135714(void);
 
 // text
-bool8 CheckObjectGraphicsInFrontOfPlayer(u8 graphicsId)
+bool8 CheckObjectGraphicsInFrontOfPlayer(u16 graphicsId)
 {
     u8 eventObjId;
 

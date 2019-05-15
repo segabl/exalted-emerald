@@ -575,7 +575,7 @@ static void SetupRoomEventObjects(void)
         objGfx1 = EVENT_OBJ_GFX_LINK_RECEPTIONIST;
         break;
     case PIKE_ROOM_NPC:
-        objGfx1 = (u8)(GetNPCRoomGraphicsId());
+        objGfx1 = GetNPCRoomGraphicsId();
         break;
     case PIKE_ROOM_STATUS:
         objGfx1 = EVENT_OBJ_GFX_GENTLEMAN;

@@ -767,12 +767,12 @@ static void LoadCableCarSprites(void)
     u8 spriteId;
     u8 i;
 
-    u8 playerGraphicsIds[2] = {
+    u16 playerGraphicsIds[2] = {
         EVENT_OBJ_GFX_RIVAL_BRENDAN_NORMAL,
         EVENT_OBJ_GFX_RIVAL_MAY_NORMAL
     };
     u16 rval = Random();
-    u8 hikerGraphicsIds[4] = {
+    u16 hikerGraphicsIds[4] = {
         EVENT_OBJ_GFX_HIKER,
         EVENT_OBJ_GFX_CAMPER,
         EVENT_OBJ_GFX_PICNICKER,
