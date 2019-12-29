@@ -2295,8 +2295,8 @@ static void HandleReplaceMoveInput(u8 taskId)
                 u32 var1;
                 StopPokemonAnimations();
                 PlaySE(SE_SELECT);
-                sUnknown_0203CF21 = 4;
-                gSpecialVar_0x8005 = 4;
+                sMoveSlotToReplace = MAX_MON_MOVES;
+                gSpecialVar_0x8005 = MAX_MON_MOVES;
                 BeginCloseSummaryScreen(taskId);
             }
         }
