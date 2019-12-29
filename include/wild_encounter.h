@@ -6,6 +6,8 @@
 #define ROCK_WILD_COUNT     5
 #define FISH_WILD_COUNT     10
 
+#define WILD_DOUBLE_CHANCE  5120 // how many of 65536 are doubles
+
 struct WildPokemon
 {
     u8 minLevel;
