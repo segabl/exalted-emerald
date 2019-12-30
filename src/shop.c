@@ -1109,9 +1109,15 @@ static void Task_ReturnToItemListAfterItemPurchase(u8 taskId)
     if (gMain.newKeys & (A_BUTTON | B_BUTTON))
     {
         PlaySE(SE_SELECT);
-        if (tItemId == ITEM_POKE_BALL && tItemCount > 9 && AddBagItem(ITEM_PREMIER_BALL, 1) == TRUE)
+        if (tItemId == ITEM_POKE_BALL && tItemCount > 9)
         {
-            BuyMenuDisplayMessage(taskId, gText_ThrowInPremierBall, BuyMenuReturnToItemList);
+            u8 count = tItemCount / 10;
+            if (AddBagItem(ITEM_PREMIER_BALL, count) == TRUE)
+            {
+                CopyItemNameHandlePlural(ITEM_PREMIER_BALL, gStringVar1, count);
+                ConvertIntToDecimalStringN(gStringVar2, count, STR_CONV_MODE_LEFT_ALIGN, 2);
+                BuyMenuDisplayMessage(taskId, gText_ThrowInVar2Var1, BuyMenuReturnToItemList);
+            }
         }
         else
         {

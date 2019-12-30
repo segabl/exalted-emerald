@@ -92,12 +92,13 @@ void CopyItemName(u16 itemId, u8 *dst)
 
 void CopyItemNameHandlePlural(u16 itemId, u8 *dst, u32 quantity)
 {
-    if (itemId == ITEM_POKE_BALL)
+    if (itemId >= ITEM_MASTER_BALL && itemId <= ITEM_PREMIER_BALL)
     {
-        if (quantity < 2)
-            StringCopy(dst, ItemId_GetName(ITEM_POKE_BALL));
-        else
-            StringCopy(dst, gText_PokeBalls);
+        StringCopy(dst, ItemId_GetName(itemId));
+        if (quantity > 1) {
+            const u8 plural[] = _("S");
+            StringAppend(dst, plural);
+        }
     }
     else
     {

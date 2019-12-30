@@ -118,7 +118,6 @@ extern const u8 gText_DecorationWillBeDiscarded[];
 extern const u8 gText_CantThrowAwayInUse[];
 extern const u8 gText_DecorationThrownAway[];
 
-extern const u8 gText_PokeBalls[];
 extern const u8 gText_Berries[];
 extern const u8 gText_Berry[];
 
@@ -988,7 +987,7 @@ extern const u8 gText_NoMoreRoomForThis[];
 extern const u8 gText_ThankYouIllSendItHome[];
 extern const u8 gText_ThanksIllSendItHome[];
 extern const u8 gText_SpaceForVar1Full[];
-extern const u8 gText_ThrowInPremierBall[];
+extern const u8 gText_ThrowInVar2Var1[];
 extern const u8 gText_ShopBuy[];
 extern const u8 gText_ShopSell[];
 extern const u8 gText_ShopQuit[];
