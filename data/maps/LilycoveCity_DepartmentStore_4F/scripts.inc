@@ -2,7 +2,7 @@ LilycoveCity_DepartmentStore_4F_MapScripts:: @ 821FDEA
 	.byte 0
 
 LilycoveCity_DepartmentStore_4F_EventScript_Gentleman:: @ 821FDEB
-	msgbox LilycoveCity_DepartmentStore_4F_Text_AttackOrDefenseTM, MSGBOX_NPC
+	msgbox LilycoveCity_DepartmentStore_4F_Text_EvolutionStones, MSGBOX_NPC
 	end
 
 LilycoveCity_DepartmentStore_4F_EventScript_Woman:: @ 821FDF4
@@ -18,17 +18,21 @@ LilycoveCity_DepartmentStore_4F_EventScript_ClerkLeft:: @ 821FE06
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
-	pokemart LilycoveCity_DepartmentStore_4F_Pokemart_AttackTMs
+	pokemart LilycoveCity_DepartmentStore_4F_Pokemart_TMs
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
 	.align 2
-LilycoveCity_DepartmentStore_4F_Pokemart_AttackTMs: @ 821FE20
+LilycoveCity_DepartmentStore_4F_Pokemart_TMs: @ 821FE20
 	.2byte ITEM_TM38  @ Fire Blast
 	.2byte ITEM_TM25  @ Thunder
 	.2byte ITEM_TM14  @ Blizzard
 	.2byte ITEM_TM15  @ Hyper Beam
+	.2byte ITEM_TM17  @ Protect
+	.2byte ITEM_TM20  @ Safeguard
+	.2byte ITEM_TM33  @ Reflect
+	.2byte ITEM_TM16  @ Light Screen
 	.2byte ITEM_NONE
 	release
 	end
@@ -38,27 +42,29 @@ LilycoveCity_DepartmentStore_4F_EventScript_ClerkRight:: @ 821FE2C
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
-	pokemart LilycoveCity_DepartmentStore_4F_Pokemart_DefenseTMs
+	pokemart LilycoveCity_DepartmentStore_4F_Pokemart_Stones
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
 	.align 2
-LilycoveCity_DepartmentStore_4F_Pokemart_DefenseTMs: @ 821FE44
-	.2byte ITEM_TM17  @ Protect
-	.2byte ITEM_TM20  @ Safeguard
-	.2byte ITEM_TM33  @ Reflect
-	.2byte ITEM_TM16  @ Light Screen
+LilycoveCity_DepartmentStore_4F_Pokemart_Stones: @ 821FE44
+	.2byte ITEM_SUN_STONE
+	.2byte ITEM_MOON_STONE
+	.2byte ITEM_FIRE_STONE
+	.2byte ITEM_THUNDER_STONE
+	.2byte ITEM_WATER_STONE
+	.2byte ITEM_LEAF_STONE
 	.2byte ITEM_NONE
 	release
 	end
 
-LilycoveCity_DepartmentStore_4F_Text_AttackOrDefenseTM: @ 821FE50
+LilycoveCity_DepartmentStore_4F_Text_EvolutionStones: @ 821FE50
 	.string "Hmm…\p"
-	.string "An attacking move…\n"
-	.string "Or a defensive move…\p"
-	.string "It's no easy matter to decide which TM\n"
-	.string "moves should be taught to POKéMON…$"
+	.string "I'm not sure wether to buy\n"
+	.string "a FIRE STONE, a THUNDER STONE or\l"
+	.string "a WATER STONE to evolve my EEVEE...\p"
+	.string "Maybe I shouldn't evolve it at all?$"
 
 LilycoveCity_DepartmentStore_4F_Text_FiftyDifferentTMs: @ 821FEC7
 	.string "There are so many different kinds of\n"
