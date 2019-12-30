@@ -100,7 +100,7 @@ static bool8 TrySetPyramidEventObjectPositionInSquare(u8 arg0, u8 *floorLayoutOf
 static bool8 TrySetPyramidEventObjectPositionAtCoords(bool8 objType, u8 x, u8 y, u8 *floorLayoutOffsets, u8 squareId, u8 eventObjectId);
 
 // Const rom data.
-#define ABILITY_RANDOM 2 // For wild mons data.
+#define ABILITY_RANDOM 3 // For wild mons data.
 
 #include "data/battle_frontier/battle_pyramid_level_50_wild_mons.h"
 #include "data/battle_frontier/battle_pyramid_open_level_wild_mons.h"
@@ -1380,6 +1380,7 @@ void GenerateBattlePyramidWildMon(void)
     {
     case 0:
     case 1:
+    case 2:
         SetMonData(&gEnemyParty[0], MON_DATA_ABILITY_NUM, &wildMons[id].abilityNum);
         break;
     case ABILITY_RANDOM:

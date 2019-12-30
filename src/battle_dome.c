@@ -5189,10 +5189,7 @@ static u16 GetWinningMove(int winnerTournamentId, int loserTournamentId, u8 roun
 
                 targetSpecies = gFacilityTrainerMons[gSaveBlock2Ptr->frontier.domeMonIds[loserTournamentId][k]].species;
 
-                if (personality & 1)
-                    targetAbility = gBaseStats[targetSpecies].abilities[1];
-                else
-                    targetAbility = gBaseStats[targetSpecies].abilities[0];
+                targetAbility = gBaseStats[targetSpecies].abilities[personality & 2];
 
                 typeMultiplier = CalcPartyMonTypeEffectivenessMultiplier(moveIds[i * 4 + j], targetSpecies, targetAbility);
                 if (typeMultiplier == UQ_4_12(0))

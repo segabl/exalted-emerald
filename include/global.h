@@ -256,8 +256,7 @@ struct BattleTowerPokemon
     u32 speedIV:5;
     u32 spAttackIV:5;
     u32 spDefenseIV:5;
-    u32 gap:1;
-    u32 abilityNum:1;
+    u32 abilityNum:2;
     u32 personality;
     u8 nickname[POKEMON_NAME_LENGTH + 1];
     u8 friendship;
@@ -429,7 +428,7 @@ struct PlayersApprentice
     /*0xB1*/ u8 questionsAnswered:4;
     /*0xB1*/ u8 leadMonId:2;
     /*0xB2*/ u8 party:3;
-    /*0xB2*/ u8 saveId:2; 
+    /*0xB2*/ u8 saveId:2;
     /*0xB3*/ u8 unused;
     /*0xB4*/ u8 speciesIds[MULTI_PARTY_SIZE];
     /*0xB8*/ struct ApprenticeQuestion questions[APPRENTICE_MAX_QUESTIONS];

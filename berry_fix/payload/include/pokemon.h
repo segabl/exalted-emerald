@@ -48,8 +48,7 @@ struct PokemonSubstruct3
     /*0x05*/ u32 speedIV:5;
     /*0x05*/ u32 spAttackIV:5;
     /*0x06*/ u32 spDefenseIV:5;
-    /*0x07*/ u32 isEgg:1;
-    /*0x07*/ u32 altAbility:1;
+    /*0x07*/ u32 abilityNum:2;
 
     /*0x08*/ u32 coolRibbon:3;
     /*0x08*/ u32 beautyRibbon:3;
@@ -68,7 +67,8 @@ struct PokemonSubstruct3
     /*0x0B*/ u32 giftRibbon5:1;
     /*0x0B*/ u32 giftRibbon6:1;
     /*0x0B*/ u32 giftRibbon7:1;
-    /*0x0B*/ u32 fatefulEncounter:5; // unused in Ruby/Sapphire, but the high bit must be set for Mew/Deoxys to obey in FR/LG/Emerald
+    /*0x0B*/ u32 fatefulEncounter:4;
+    /*0x0B*/ u32 isEgg:1;
 };
 
 union PokemonSubstruct
@@ -136,8 +136,7 @@ struct BattleTowerPokemon
     /*0x19*/u32 speedIV:5;
     /*0x1A*/u32 spAttackIV:5;
     /*0x1A*/u32 spDefenseIV:5;
-    /*0x1B*/u32 gap:1;
-    /*0x1B*/u32 altAbility:1;
+    /*0x1B*/u32 abilityNum:2;
     /*0x1C*/u32 personality;
     /*0x20*/u8 nickname[POKEMON_NAME_LENGTH + 1];
     /*0x2B*/u8 friendship;
