@@ -1052,10 +1052,10 @@ Route104_Text_LikeFillingMouthWithSeedsTakeThis: @ 81ED838
 	.string "a move for firing seeds rapidly.$"
 
 Route104_Text_TMsAreOneTimeUse: @ 81ED8E7
-	.string "A TM, TECHNICAL MACHINE, can\n"
-	.string "be used as much as you like.\n"
-	.string "So you can teach its move to.\n"
-	.string "multiple of your POKéMON!$"
+	.string "A TM, TECHNICAL MACHINE, has an\n"
+	.string "infinite amount of uses.\p"
+	.string "You can teach it to as many\n"
+	.string "POKéMON as you like!$"
 
 Route104_Text_DontNeedThisTakeIt: @ 81ED96A
 	.string "This FLOWER SHOP started selling\n"

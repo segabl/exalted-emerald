@@ -205,7 +205,7 @@ RustboroCity_Gym_Text_ReceivedStoneBadge: @ 82137EC
 
 RustboroCity_Gym_Text_StoneBadgeInfoTakeThis: @ 8213816
 	.string "The STONE BADGE enables your\n"
-	.string "POKéMON to use the HM move\n"
+	.string "POKéMON to use the HM move\l"
 	.string "CUT outside of battle.\p"
 	.string "Please take this with you, too.$"
 
