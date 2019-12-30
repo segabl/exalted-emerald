@@ -228,7 +228,7 @@ static void ApplyDaycareExperience(struct Pokemon *mon)
         {
             // Teach the mon new moves it learned while in the daycare.
             firstMove = TRUE;
-            while ((learnedMove = MonTryLearningNewMove(mon, firstMove)) != 0)
+            while ((learnedMove = MonTryLearningNewMove(mon, firstMove, FALSE)) != 0)
             {
                 firstMove = FALSE;
                 if (learnedMove == MON_HAS_MAX_MOVES)
@@ -915,7 +915,7 @@ static bool8 TryProduceOrHatchEgg(struct DayCare *daycare)
 
                 SetMonData(&gPlayerParty[i], MON_DATA_FRIENDSHIP, &steps);
             }
-            else 
+            else
             {
                 gSpecialVar_0x8004 = i;
                 return TRUE;
