@@ -1429,9 +1429,17 @@
 	.4byte \value
 	.endm
 
-	@.byte 0xcd
+	@ REMOVED
+	.macro setmonobedient slot:req
+	.byte 0xcd
+	.2byte \slot
+	.endm
 
-	@.byte 0xce
+	@ REMOVED
+	.macro checkmonobedience slot:req
+	.byte 0xce
+	.2byte \slot
+	.endm
 
 	@ Depending on factors I haven't managed to understand yet, this command may cause script execution to jump to the offset specified by the pointer at 0x020375C0.
 	.macro gotoram
