@@ -1429,17 +1429,9 @@
 	.4byte \value
 	.endm
 
-	@ Makes the Pokemon in the specified slot of the player's party obedient. It will not randomly disobey orders in battle.
-	.macro setmonobedient slot:req
-	.byte 0xcd
-	.2byte \slot
-	.endm
+	@.byte 0xcd
 
-	@ Checks if the Pokemon in the specified slot of the player's party is obedient. If the Pokemon is disobedient, VAR_RESULT is TRUE. If the Pokemon is obedient (or if the specified slot is empty or invalid), VAR_RESULT is FALSE.
-	.macro checkmonobedience slot:req
-	.byte 0xce
-	.2byte \slot
-	.endm
+	@.byte 0xce
 
 	@ Depending on factors I haven't managed to understand yet, this command may cause script execution to jump to the offset specified by the pointer at 0x020375C0.
 	.macro gotoram
@@ -1574,7 +1566,7 @@
 
 	.macro goto_if_lt dest:req @ LESS THAN
 	goto_if 0, \dest
-	.endm	
+	.endm
 
 	.macro goto_if_eq dest:req @ EQUAL
 	goto_if 1, \dest
@@ -1608,7 +1600,7 @@
 
 	.macro call_if_lt dest:req @ LESS THAN
 	call_if 0, \dest
-	.endm	
+	.endm
 
 	.macro call_if_eq dest:req @ EQUAL
 	call_if 1, \dest

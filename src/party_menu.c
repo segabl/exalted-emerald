@@ -3525,9 +3525,8 @@ static void CursorCb_Register(u8 taskId)
 {
     u16 species2 = GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_SPECIES2);
     u16 species = GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_SPECIES);
-    u8 obedience = GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_OBEDIENCE);
 
-    switch (CanRegisterMonForTradingBoard(*(struct UnkLinkRfuStruct_02022B14Substruct *)sub_800F7DC(), species2, species, obedience))
+    switch (CanRegisterMonForTradingBoard(*(struct UnkLinkRfuStruct_02022B14Substruct *)sub_800F7DC(), species2, species))
     {
     case CANT_REGISTER_MON:
         StringExpandPlaceholders(gStringVar4, gText_PkmnCantBeTradedNow);
@@ -3552,8 +3551,7 @@ static void CursorCb_Trade1(u8 taskId)
 {
     u16 species2 = GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_SPECIES2);
     u16 species = GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_SPECIES);
-    u8 obedience = GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_OBEDIENCE);
-    u32 stringId = GetUnionRoomTradeMessageId(*(struct UnkLinkRfuStruct_02022B14Substruct *)sub_800F7DC(), gUnknown_02022C38, species2, gUnionRoomOfferedSpecies, gUnionRoomRequestedMonType, species, obedience);
+    u32 stringId = GetUnionRoomTradeMessageId(*(struct UnkLinkRfuStruct_02022B14Substruct *)sub_800F7DC(), gUnknown_02022C38, species2, gUnionRoomOfferedSpecies, gUnionRoomRequestedMonType, species);
 
     if (stringId != UR_TRADE_MSG_NONE)
     {

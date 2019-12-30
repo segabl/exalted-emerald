@@ -2564,14 +2564,6 @@ void sub_80686FC(struct Pokemon *mon, struct BattleTowerPokemon *dest)
     GetMonData(mon, MON_DATA_NICKNAME, dest->nickname);
 }
 
-void CreateObedientMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId)
-{
-    bool32 obedient = TRUE;
-
-    CreateMon(mon, species, level, fixedIV, hasFixedPersonality, fixedPersonality, otIdType, fixedOtId);
-    SetMonData(mon, MON_DATA_OBEDIENCE, &obedient);
-}
-
 bool8 sub_80688F8(u8 caseId, u8 battlerId)
 {
     switch (caseId)
@@ -2701,23 +2693,6 @@ u16 sub_8068BB0(void)
     arrId = gLinkPlayers[linkId].trainerId & 7;
     arrId |= gLinkPlayers[linkId].gender << 3;
     return gFacilityClassToTrainerClass[gLinkPlayerFacilityClasses[arrId]];
-}
-
-void CreateObedientEnemyMon(void)
-{
-    s32 species = gSpecialVar_0x8004;
-    s32 level = gSpecialVar_0x8005;
-    s32 itemId = gSpecialVar_0x8006;
-
-    ZeroEnemyPartyMons();
-    CreateObedientMon(&gEnemyParty[0], species, level, 32, 0, 0, 0, 0);
-    if (itemId)
-    {
-        u8 heldItem[2];
-        heldItem[0] = itemId;
-        heldItem[1] = itemId >> 8;
-        SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, heldItem);
-    }
 }
 
 static u16 CalculateBoxMonChecksum(struct BoxPokemon *boxMon)
@@ -3597,9 +3572,6 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
     case MON_DATA_FATEFUL_ENCOUNTER:
         retVal = substruct3->fatefulEncounter;
         break;
-    case MON_DATA_OBEDIENCE:
-        retVal = substruct3->obedient;
-        break;
     case MON_DATA_SPECIES2:
         retVal = substruct0->species;
         if (substruct0->species && (substruct3->isEgg || boxMon->isBadEgg))
@@ -3975,9 +3947,6 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         break;
     case MON_DATA_FATEFUL_ENCOUNTER:
         SET8(substruct3->fatefulEncounter);
-        break;
-    case MON_DATA_OBEDIENCE:
-        SET8(substruct3->obedient);
         break;
     case MON_DATA_IVS:
     {

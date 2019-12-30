@@ -1199,7 +1199,7 @@ static void QueueLinkTradeData(void)
 {
     if (sTradeMenuData->playerLinkFlagChoseAction && sTradeMenuData->partnerLinkFlagChoseAction)
     {
-        if (sTradeMenuData->playerLinkFlagChoseAction == WANTS_TO_TRADE 
+        if (sTradeMenuData->playerLinkFlagChoseAction == WANTS_TO_TRADE
             && sTradeMenuData->partnerLinkFlagChoseAction == WANTS_TO_TRADE)
         {
             sTradeMenuData->tradeMenuFunc = TRADEMENUFUNC_BOTH_MONS_SELECTED;
@@ -1208,7 +1208,7 @@ static void QueueLinkTradeData(void)
             QueueAction(QUEUE_DELAY_DATA, QUEUE_SEND_DATA);
             sTradeMenuData->playerLinkFlagChoseAction = sTradeMenuData->partnerLinkFlagChoseAction = 0;
         }
-        else if (sTradeMenuData->playerLinkFlagChoseAction == WANTS_TO_TRADE 
+        else if (sTradeMenuData->playerLinkFlagChoseAction == WANTS_TO_TRADE
               && sTradeMenuData->partnerLinkFlagChoseAction == WANTS_TO_CANCEL)
         {
             PrintTradeMessage(TRADE_MSG_CANCELED);
@@ -1219,7 +1219,7 @@ static void QueueLinkTradeData(void)
             sTradeMenuData->playerLinkFlagChoseAction = sTradeMenuData->partnerLinkFlagChoseAction = 0;
             sTradeMenuData->tradeMenuFunc = TRADEMENUFUNC_REDRAW_MAIN_MENU;
         }
-        else if (sTradeMenuData->playerLinkFlagChoseAction == WANTS_TO_CANCEL 
+        else if (sTradeMenuData->playerLinkFlagChoseAction == WANTS_TO_CANCEL
               && sTradeMenuData->partnerLinkFlagChoseAction == WANTS_TO_TRADE)
         {
             PrintTradeMessage(TRADE_MSG_FRIEND_WANTS_TO_TRADE);
@@ -1230,7 +1230,7 @@ static void QueueLinkTradeData(void)
             sTradeMenuData->playerLinkFlagChoseAction = sTradeMenuData->partnerLinkFlagChoseAction = 0;
             sTradeMenuData->tradeMenuFunc = TRADEMENUFUNC_REDRAW_MAIN_MENU;
         }
-        else if (sTradeMenuData->playerLinkFlagChoseAction == WANTS_TO_CANCEL 
+        else if (sTradeMenuData->playerLinkFlagChoseAction == WANTS_TO_CANCEL
               && sTradeMenuData->partnerLinkFlagChoseAction == WANTS_TO_CANCEL)
         {
             sTradeMenuData->linkData[0] = LINKCMD_CANCEL_TRADE;
@@ -1244,7 +1244,7 @@ static void QueueLinkTradeData(void)
 
     if (sTradeMenuData->playerLinkFlagStatus && sTradeMenuData->partnerLinkFlagStatus)
     {
-        if (sTradeMenuData->playerLinkFlagStatus == INITIATE_TRADE 
+        if (sTradeMenuData->playerLinkFlagStatus == INITIATE_TRADE
          && sTradeMenuData->partnerLinkFlagStatus == INITIATE_TRADE)
         {
             sTradeMenuData->linkData[0] = LINKCMD_START_TRADE;
@@ -1255,7 +1255,7 @@ static void QueueLinkTradeData(void)
             sTradeMenuData->tradeMenuFunc = TRADEMENUFUNC_LINK_TRADE_FADE_OUT;
         }
 
-        if (sTradeMenuData->playerLinkFlagStatus == CANCEL_TRADE 
+        if (sTradeMenuData->playerLinkFlagStatus == CANCEL_TRADE
          || sTradeMenuData->partnerLinkFlagStatus == CANCEL_TRADE)
         {
             PrintTradeMessage(TRADE_MSG_CANCELED);
@@ -1487,13 +1487,6 @@ static u8 CheckValidityOfTradeMons(u8 *aliveMons, u8 playerPartyCount, u8 player
     partnerMonIdx %= PARTY_SIZE;
     partnerSpecies = GetMonData(&gEnemyParty[partnerMonIdx], MON_DATA_SPECIES);
 
-    // Partner cant trade illegitimate Deoxys or Mew
-    if (partnerSpecies == SPECIES_DEOXYS || partnerSpecies == SPECIES_MEW)
-    {
-        if (!GetMonData(&gEnemyParty[partnerMonIdx], MON_DATA_OBEDIENCE))
-            return PARTNER_MON_INVALID;
-    }
-
     // Partner cant trade Egg or non-Hoenn mon if player doesn't have National Dex
     if (!IsNationalPokedexEnabled())
     {
@@ -1504,7 +1497,7 @@ static u8 CheckValidityOfTradeMons(u8 *aliveMons, u8 playerPartyCount, u8 player
     if (hasLiveMon)
         hasLiveMon = BOTH_MONS_VALID;
 
-    return hasLiveMon; //PLAYER_MON_INVALID or BOTH_MONS_VALID 
+    return hasLiveMon; //PLAYER_MON_INVALID or BOTH_MONS_VALID
 }
 
 // Returns TRUE if the partner's selected mon is invalid, FALSE otherwise
@@ -1841,10 +1834,10 @@ static void DrawTradeMenuParty(u8 whichParty)
         sTradeMenuData->drawPartyState[whichParty]++;
         break;
     case 4:
-        DrawTradeMenuPartyMonInfo(whichParty, partyIdx, 
-            sTradeMenuPartyMonBoxDimensions[whichParty][0] + 4, 
-            sTradeMenuPartyMonBoxDimensions[whichParty][1] + 1, 
-            sTradeMenuPartyMonBoxDimensions[whichParty][0], 
+        DrawTradeMenuPartyMonInfo(whichParty, partyIdx,
+            sTradeMenuPartyMonBoxDimensions[whichParty][0] + 4,
+            sTradeMenuPartyMonBoxDimensions[whichParty][1] + 1,
+            sTradeMenuPartyMonBoxDimensions[whichParty][0],
             sTradeMenuPartyMonBoxDimensions[whichParty][1]);
         sTradeMenuData->drawPartyState[whichParty]++;
         break;
@@ -2028,7 +2021,7 @@ static void ResetTradeMenuPartyPositions(u8 whichParty)
 static void PrintNicknamesForTradeMenu(void)
 {
     rbox_fill_rectangle(1);
-  //PrintPartyNicknamesForTradeMenu(TRADE_PLAYER); ?  
+  //PrintPartyNicknamesForTradeMenu(TRADE_PLAYER); ?
     PrintPartyNicknamesForTradeMenu(TRADE_PARTNER);
 }
 
@@ -2328,12 +2321,6 @@ static u32 CanTradeSelectedMon(struct Pokemon *playerParty, int partyCount, int 
         }
     }
 
-    if (species[monIdx] == SPECIES_DEOXYS || species[monIdx] == SPECIES_MEW)
-    {
-        if (!GetMonData(&playerParty[monIdx], MON_DATA_OBEDIENCE))
-            return CANT_TRADE_INVALID_MON;
-    }
-
     // Make Eggs not count for numMonsLeft
     for (i = 0; i < partyCount; i++)
     {
@@ -2395,17 +2382,7 @@ s32 GetGameProgressForLinkTrade(void)
     return TRADE_BOTH_PLAYERS_READY;
 }
 
-static bool32 IsDeoxysOrMewUntradable(u16 species, bool8 isObedientBitSet)
-{
-    if (species == SPECIES_DEOXYS || species == SPECIES_MEW)
-    {
-        if (!isObedientBitSet)
-            return TRUE;
-    }
-    return FALSE;
-}
-
-int GetUnionRoomTradeMessageId(struct UnkLinkRfuStruct_02022B14Substruct rfuPlayer, struct UnkLinkRfuStruct_02022B14Substruct rfuPartner, u16 playerSpecies2, u16 partnerSpecies, u8 requestedType, u16 playerSpecies, u8 isObedientBitSet)
+int GetUnionRoomTradeMessageId(struct UnkLinkRfuStruct_02022B14Substruct rfuPlayer, struct UnkLinkRfuStruct_02022B14Substruct rfuPartner, u16 playerSpecies2, u16 partnerSpecies, u8 requestedType, u16 playerSpecies)
 {
     bool8 playerHasNationalDex = rfuPlayer.hasNationalDex;
     bool8 playerIsChampion = rfuPlayer.isChampion;
@@ -2423,11 +2400,6 @@ int GetUnionRoomTradeMessageId(struct UnkLinkRfuStruct_02022B14Substruct rfuPlay
         {
             return UR_TRADE_MSG_CANT_TRADE_WITH_PARTNER_2;
         }
-    }
-
-    if (IsDeoxysOrMewUntradable(playerSpecies, isObedientBitSet))
-    {
-        return UR_TRADE_MSG_MON_CANT_BE_TRADED_2;
     }
 
     if (partnerSpecies == SPECIES_EGG)
@@ -2476,24 +2448,9 @@ int GetUnionRoomTradeMessageId(struct UnkLinkRfuStruct_02022B14Substruct rfuPlay
     return UR_TRADE_MSG_NONE;
 }
 
-int CanRegisterMonForTradingBoard(struct UnkLinkRfuStruct_02022B14Substruct rfuPlayer, u16 species2, u16 species, u8 isObedientBitSet)
+int CanRegisterMonForTradingBoard(struct UnkLinkRfuStruct_02022B14Substruct rfuPlayer, u16 species2, u16 species)
 {
-    bool8 hasNationalDex = rfuPlayer.hasNationalDex;
-
-    if (IsDeoxysOrMewUntradable(species, isObedientBitSet))
-        return CANT_REGISTER_MON;
-
-    if (hasNationalDex)
-        return CAN_REGISTER_MON;
-
-    // Eggs can only be traded if the player has the National Dex
-    if (species2 == SPECIES_EGG)
-        return CANT_REGISTER_EGG;
-
-    if (IsSpeciesInHoennDex(species2))
-        return CAN_REGISTER_MON;
-
-    return CANT_REGISTER_MON;
+    return CAN_REGISTER_MON;
 }
 
 // Spin Trade wasnt fully implemented, but this checks if a mon would be valid to Spin Trade
@@ -4539,8 +4496,8 @@ static void CB2_TryFinishTrade(void)
     else
     {
         UpdateTradeFinishFlags();
-        if (mpId == 0 
-            && sTradeData->playerLinkFlagFinishTrade == READY_FINISH_TRADE 
+        if (mpId == 0
+            && sTradeData->playerLinkFlagFinishTrade == READY_FINISH_TRADE
             && sTradeData->partnerLinkFlagFinishTrade == READY_FINISH_TRADE)
         {
             sTradeData->linkData[0] = LINKCMD_CONFIRM_FINISH_TRADE;

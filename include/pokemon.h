@@ -51,8 +51,7 @@ struct PokemonSubstruct3
  /* 0x05 */ u32 speedIV:5;
  /* 0x05 */ u32 spAttackIV:5;
  /* 0x06 */ u32 spDefenseIV:5;
- /* 0x07 */ u32 isEgg:1;
- /* 0x07 */ u32 abilityNum:1;
+ /* 0x07 */ u32 abilityNum:2;
 
  /* 0x08 */ u32 coolRibbon:3;
  /* 0x08 */ u32 beautyRibbon:3;
@@ -72,7 +71,7 @@ struct PokemonSubstruct3
  /* 0x0B */ u32 giftRibbon6:1;
  /* 0x0B */ u32 giftRibbon7:1;
  /* 0x0B */ u32 fatefulEncounter:4;
- /* 0x0B */ u32 obedient:1;
+ /* 0x0B */ u32 isEgg:1;
 };
 
 union PokemonSubstruct
@@ -277,12 +276,10 @@ void CreateBattleTowerMon2(struct Pokemon *mon, struct BattleTowerPokemon *src, 
 void CreateApprenticeMon(struct Pokemon *mon, const struct Apprentice *src, u8 monId);
 void CreateMonWithEVSpreadNatureOTID(struct Pokemon *mon, u16 species, u8 level, u8 nature, u8 fixedIV, u8 evSpread, u32 otId);
 void sub_80686FC(struct Pokemon *mon, struct BattleTowerPokemon *dest);
-void CreateObedientMon(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId);
 bool8 sub_80688F8(u8 caseId, u8 battlerId);
 void SetDeoxysStats(void);
 u16 sub_8068B48(void);
 u16 sub_8068BB0(void);
-void CreateObedientEnemyMon(void);
 void CalculateMonStats(struct Pokemon *mon);
 void BoxMonToMon(const struct BoxPokemon *src, struct Pokemon *dest);
 u8 GetLevelFromMonExp(struct Pokemon *mon);
