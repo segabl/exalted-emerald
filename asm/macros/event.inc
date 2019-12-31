@@ -1429,10 +1429,11 @@
 	.4byte \value
 	.endm
 
-	@ REMOVED
-	.macro setmonobedient slot:req
+	@ Sets the ability number of the selected mon
+	.macro setmonabilitynum index:req value:req
 	.byte 0xcd
-	.2byte \slot
+	.byte \index
+	.byte \value
 	.endm
 
 	@ REMOVED

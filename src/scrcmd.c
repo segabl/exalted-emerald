@@ -2239,6 +2239,16 @@ bool8 ScrCmd_setmonmetlocation(struct ScriptContext *ctx)
     return FALSE;
 }
 
+bool8 ScrCmd_setmonabilitynum(struct ScriptContext *ctx)
+{
+    u8 partyIndex = ScriptReadByte(ctx);
+    u8 ability = ScriptReadByte(ctx);
+
+    if (partyIndex < PARTY_SIZE)
+        SetMonData(&gPlayerParty[partyIndex], MON_DATA_ABILITY_NUM, &ability);
+    return FALSE;
+}
+
 static void CloseBrailleWindow(void)
 {
     ClearStdWindowAndFrame(gBrailleWindowId, 1);
