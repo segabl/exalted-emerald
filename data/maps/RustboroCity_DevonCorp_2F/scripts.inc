@@ -158,7 +158,7 @@ RustboroCity_DevonCorp_2F_EventScript_AnorithReady:: @ 8211A2C
 
 RustboroCity_DevonCorp_2F_EventScript_ReceiveLileep:: @ 8211A3E
 	setvar VAR_TEMP_1, SPECIES_LILEEP
-	givemon SPECIES_LILEEP, 20, ITEM_NONE
+	givemon SPECIES_LILEEP, 20, ITEM_NONE, 0xFFFFFFFF, 0xFFFFFFFF, 0xFF
 	compare VAR_RESULT, 0
 	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_ReceiveLileepParty
 	compare VAR_RESULT, 1
@@ -207,7 +207,7 @@ RustboroCity_DevonCorp_2F_EventScript_FinishReceivingLileep:: @ 8211AD7
 
 RustboroCity_DevonCorp_2F_EventScript_ReceiveAnorith:: @ 8211AE1
 	setvar VAR_TEMP_1, SPECIES_ANORITH
-	givemon SPECIES_ANORITH, 20, ITEM_NONE
+	givemon SPECIES_ANORITH, 20, ITEM_NONE, 0xFFFFFFFF, 0xFFFFFFFF, 0xFF
 	compare VAR_RESULT, 0
 	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_ReceiveAnorithParty
 	compare VAR_RESULT, 1

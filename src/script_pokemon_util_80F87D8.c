@@ -299,8 +299,8 @@ u8 GiveMonArtistRibbon(void)
     u8 hasArtistRibbon;
 
     hasArtistRibbon = GetMonData(&gPlayerParty[gContestMonPartyIndex], MON_DATA_ARTIST_RIBBON);
-    if (!hasArtistRibbon 
-        && gContestFinalStandings[gContestPlayerMonIndex] == 0 
+    if (!hasArtistRibbon
+        && gContestFinalStandings[gContestPlayerMonIndex] == 0
         && gSpecialVar_ContestRank == CONTEST_RANK_MASTER
         && gUnknown_02039F08[gContestPlayerMonIndex] >= 800)
     {
@@ -417,8 +417,8 @@ static void Task_ShowContestEntryMonPic(u8 taskId)
 
 void ScriptGetMultiplayerId(void)
 {
-    if ((gLinkContestFlags & LINK_CONTEST_FLAG_IS_LINK) 
-        && gNumLinkContestPlayers == CONTESTANT_COUNT 
+    if ((gLinkContestFlags & LINK_CONTEST_FLAG_IS_LINK)
+        && gNumLinkContestPlayers == CONTESTANT_COUNT
         && !(gLinkContestFlags & LINK_CONTEST_FLAG_IS_WIRELESS))
         gSpecialVar_Result = GetMultiplayerId();
     else
@@ -560,14 +560,23 @@ void HealPlayerParty(void)
     }
 }
 
-u8 ScriptGiveMon(u16 species, u8 level, u16 item, u32 unused1, u32 unused2, u8 unused3)
+u8 ScriptGiveMon(u16 species, u8 level, u16 item, u32 personality, u32 ivs, u8 abilityNum)
 {
     u16 nationalDexNum;
     int sentToPc;
     u8 heldItem[2];
     struct Pokemon mon;
 
-    CreateMon(&mon, species, level, 32, 0, 0, OT_ID_PLAYER_ID, 0);
+    CreateMon(&mon, species, level, 32, personality != 0xFFFFFFF, personality, OT_ID_PLAYER_ID, 0);
+    if (ivs != 0xFFFFFFFF)
+    {
+        SetMonData(&mon, MON_DATA_IVS, &ivs);
+    }
+    if (abilityNum < 3)
+    {
+        SetMonData(&mon, MON_DATA_ABILITY_NUM, &abilityNum);
+    }
+    CalculateMonStats(&mon);
     heldItem[0] = item;
     heldItem[1] = item >> 8;
     SetMonData(&mon, MON_DATA_HELD_ITEM, heldItem);

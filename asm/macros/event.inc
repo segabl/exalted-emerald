@@ -901,14 +901,14 @@
 	.endm
 
 	@ Gives the player one of the specified (species) Pokemon at level level holding item. The trailing 0s are unused parameters
-	.macro givemon species:req, level:req, item:req
+	.macro givemon species:req, level:req, item:req, personality:req, ivs:req, ability:req
 	.byte 0x79
 	.2byte \species
 	.byte \level
 	.2byte \item
-	.4byte 0x0
-	.4byte 0x0
-	.byte 0
+	.4byte \personality
+	.4byte \ivs
+	.byte \ability
 	.endm
 
 	.macro giveegg species:req
