@@ -567,16 +567,16 @@ u8 ScriptGiveMon(u16 species, u8 level, u16 item, u32 personality, u32 ivs, u8 a
     u8 heldItem[2];
     struct Pokemon mon;
 
-    CreateMon(&mon, species, level, 32, personality != 0xFFFFFFF, personality, OT_ID_PLAYER_ID, 0);
-    if (ivs != 0xFFFFFFFF)
+    CreateMon(&mon, species, level, 32, personality != 0xFFFFFFFF, personality, OT_ID_PLAYER_ID, 0);
+    if (ivs <= 0x3FFFFFFF)
     {
         SetMonData(&mon, MON_DATA_IVS, &ivs);
+        CalculateMonStats(&mon);
     }
     if (abilityNum < 3)
     {
         SetMonData(&mon, MON_DATA_ABILITY_NUM, &abilityNum);
     }
-    CalculateMonStats(&mon);
     heldItem[0] = item;
     heldItem[1] = item >> 8;
     SetMonData(&mon, MON_DATA_HELD_ITEM, heldItem);

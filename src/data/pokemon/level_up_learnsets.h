@@ -1,5 +1,4 @@
 #define LEVEL_UP_MOVE(lvl, moveLearned) {.move = moveLearned, .level = lvl}
-#define LEVEL_UP_END (0xffff)
 
 // Level up moves at lvl 0 are learned at evolution
 
