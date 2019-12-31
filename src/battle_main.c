@@ -1806,7 +1806,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 {
     u32 nameHash = 0;
     u32 personalityValue;
-    u8 fixedIV;
+    u8 abilityNum;
     s32 i, j;
     u8 monsCount;
 
@@ -1851,24 +1851,50 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             {
                 const struct TrainerMonNoItemDefaultMoves *partyData = gTrainers[trainerNum].party.NoItemDefaultMoves;
 
-                for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
-                    nameHash += gSpeciesNames[partyData[i].species][j];
+                if (partyData[i].personality)
+                {
+                    personalityValue = partyData[i].personality;
+                }
+                else
+                {
+                    for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
+                        nameHash += gSpeciesNames[partyData[i].species][j];
 
-                personalityValue += nameHash << 8;
-                fixedIV = partyData[i].iv * 31 / 255;
-                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                    personalityValue += nameHash << 8;
+                }
+
+                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, partyData[i].iv, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+
+                abilityNum = partyData[i].abilityNum;
+                if (abilityNum < 3)
+                {
+                    SetMonData(&party[i], MON_DATA_ABILITY_NUM, &abilityNum);
+                }
                 break;
             }
             case F_TRAINER_PARTY_CUSTOM_MOVESET:
             {
                 const struct TrainerMonNoItemCustomMoves *partyData = gTrainers[trainerNum].party.NoItemCustomMoves;
 
-                for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
-                    nameHash += gSpeciesNames[partyData[i].species][j];
+                if (partyData[i].personality)
+                {
+                    personalityValue = partyData[i].personality;
+                }
+                else
+                {
+                    for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
+                        nameHash += gSpeciesNames[partyData[i].species][j];
 
-                personalityValue += nameHash << 8;
-                fixedIV = partyData[i].iv * 31 / 255;
-                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                    personalityValue += nameHash << 8;
+                }
+
+                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, partyData[i].iv, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+
+                abilityNum = partyData[i].abilityNum;
+                if (abilityNum < 3)
+                {
+                    SetMonData(&party[i], MON_DATA_ABILITY_NUM, &abilityNum);
+                }
 
                 for (j = 0; j < MAX_MON_MOVES; j++)
                 {
@@ -1881,12 +1907,25 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             {
                 const struct TrainerMonItemDefaultMoves *partyData = gTrainers[trainerNum].party.ItemDefaultMoves;
 
-                for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
-                    nameHash += gSpeciesNames[partyData[i].species][j];
+                if (partyData[i].personality)
+                {
+                    personalityValue = partyData[i].personality;
+                }
+                else
+                {
+                    for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
+                        nameHash += gSpeciesNames[partyData[i].species][j];
 
-                personalityValue += nameHash << 8;
-                fixedIV = partyData[i].iv * 31 / 255;
-                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                    personalityValue += nameHash << 8;
+                }
+
+                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, partyData[i].iv, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+
+                abilityNum = partyData[i].abilityNum;
+                if (abilityNum < 3)
+                {
+                    SetMonData(&party[i], MON_DATA_ABILITY_NUM, &abilityNum);
+                }
 
                 SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
                 break;
@@ -1895,12 +1934,25 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             {
                 const struct TrainerMonItemCustomMoves *partyData = gTrainers[trainerNum].party.ItemCustomMoves;
 
-                for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
-                    nameHash += gSpeciesNames[partyData[i].species][j];
+                if (partyData[i].personality)
+                {
+                    personalityValue = partyData[i].personality;
+                }
+                else
+                {
+                    for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
+                        nameHash += gSpeciesNames[partyData[i].species][j];
 
-                personalityValue += nameHash << 8;
-                fixedIV = partyData[i].iv * 31 / 255;
-                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                    personalityValue += nameHash << 8;
+                }
+
+                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, partyData[i].iv, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+
+                abilityNum = partyData[i].abilityNum;
+                if (abilityNum < 3)
+                {
+                    SetMonData(&party[i], MON_DATA_ABILITY_NUM, &abilityNum);
+                }
 
                 SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
 

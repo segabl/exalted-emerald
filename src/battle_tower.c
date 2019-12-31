@@ -2678,7 +2678,7 @@ static void sub_8164DCC(void)
 static void SetMultiPartnerGfx(void)
 {
     // 0xF below means use VAR_OBJ_GFX_ID_E
-    SetBattleFacilityTrainerGfxId(gSaveBlock2Ptr->frontier.trainerIds[17], 0xF); 
+    SetBattleFacilityTrainerGfxId(gSaveBlock2Ptr->frontier.trainerIds[17], 0xF);
 }
 
 static void SetTowerInterviewData(void)
@@ -2972,6 +2972,7 @@ static void FillPartnerParty(u16 trainerId)
     u32 friendship;
     u16 monSetId;
     u32 otID;
+    u8 abilityNum;
     u8 trainerName[(PLAYER_NAME_LENGTH * 3) + 1];
     SetFacilityPtrsGetLevel();
 
@@ -2987,7 +2988,7 @@ static void FillPartnerParty(u16 trainerId)
                       sStevenMons[i].species,
                       sStevenMons[i].level,
                       sStevenMons[i].fixedIV,
-                      TRUE, i, // BUG: personality was stored in the 'j' variable. As a result, Steven's pokemon do not have the intended natures.
+                      TRUE, j,
                       OT_ID_PRESET, STEVEN_OTID);
             for (j = 0; j < PARTY_SIZE; j++)
                 SetMonData(&gPlayerParty[3 + i], MON_DATA_HP_EV + j, &sStevenMons[i].evs[j]);
@@ -3019,14 +3020,30 @@ static void FillPartnerParty(u16 trainerId)
             {
                 const struct TrainerMonNoItemDefaultMoves *partyData = gTrainers[trainerId - TRAINER_CUSTOM_PARTNER].party.NoItemDefaultMoves;
 
-                CreateMon(&gPlayerParty[i + 3], partyData[i].species, partyData[i].lvl, partyData[i].iv * 31 / 255, TRUE, j, TRUE, otID);
+                if (partyData[i].personality)
+                    j = partyData[i].personality;
+                CreateMon(&gPlayerParty[i + 3], partyData[i].species, partyData[i].lvl, partyData[i].iv, TRUE, j, TRUE, otID);
+
+                abilityNum = partyData[i].abilityNum;
+                if (abilityNum < 3)
+                {
+                    SetMonData(&gPlayerParty[i + 3], MON_DATA_ABILITY_NUM, &abilityNum);
+                }
                 break;
             }
             case F_TRAINER_PARTY_CUSTOM_MOVESET:
             {
                 const struct TrainerMonNoItemCustomMoves *partyData = gTrainers[trainerId - TRAINER_CUSTOM_PARTNER].party.NoItemCustomMoves;
 
-                CreateMon(&gPlayerParty[i + 3], partyData[i].species, partyData[i].lvl, partyData[i].iv * 31 / 255, TRUE, j, TRUE, otID);
+                if (partyData[i].personality)
+                    j = partyData[i].personality;
+                CreateMon(&gPlayerParty[i + 3], partyData[i].species, partyData[i].lvl, partyData[i].iv, TRUE, j, TRUE, otID);
+
+                abilityNum = partyData[i].abilityNum;
+                if (abilityNum < 3)
+                {
+                    SetMonData(&gPlayerParty[i + 3], MON_DATA_ABILITY_NUM, &abilityNum);
+                }
 
                 for (j = 0; j < 4; j++)
                 {
@@ -3039,7 +3056,15 @@ static void FillPartnerParty(u16 trainerId)
             {
                 const struct TrainerMonItemDefaultMoves *partyData = gTrainers[trainerId - TRAINER_CUSTOM_PARTNER].party.ItemDefaultMoves;
 
-                CreateMon(&gPlayerParty[i + 3], partyData[i].species, partyData[i].lvl, partyData[i].iv * 31 / 255, TRUE, j, TRUE, otID);
+                if (partyData[i].personality)
+                    j = partyData[i].personality;
+                CreateMon(&gPlayerParty[i + 3], partyData[i].species, partyData[i].lvl, partyData[i].iv, TRUE, j, TRUE, otID);
+
+                abilityNum = partyData[i].abilityNum;
+                if (abilityNum < 3)
+                {
+                    SetMonData(&gPlayerParty[i + 3], MON_DATA_ABILITY_NUM, &abilityNum);
+                }
 
                 SetMonData(&gPlayerParty[i + 3], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
                 break;
@@ -3048,7 +3073,15 @@ static void FillPartnerParty(u16 trainerId)
             {
                 const struct TrainerMonItemCustomMoves *partyData = gTrainers[trainerId - TRAINER_CUSTOM_PARTNER].party.ItemCustomMoves;
 
-                CreateMon(&gPlayerParty[i + 3], partyData[i].species, partyData[i].lvl, partyData[i].iv * 31 / 255, TRUE, j, TRUE, otID);
+                if (partyData[i].personality)
+                    j = partyData[i].personality;
+                CreateMon(&gPlayerParty[i + 3], partyData[i].species, partyData[i].lvl, partyData[i].iv, TRUE, j, TRUE, otID);
+
+                abilityNum = partyData[i].abilityNum;
+                if (abilityNum < 3)
+                {
+                    SetMonData(&gPlayerParty[i + 3], MON_DATA_ABILITY_NUM, &abilityNum);
+                }
 
                 SetMonData(&gPlayerParty[i + 3], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
 
