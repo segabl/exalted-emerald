@@ -806,10 +806,7 @@ static void SetBattlerData(u8 battlerId)
         if (BATTLE_HISTORY->abilities[battlerId] != ABILITY_NONE)
             gBattleMons[battlerId].ability = BATTLE_HISTORY->abilities[battlerId];
         // Check if mon can only have one ability.
-        else if ((gBaseStats[gBattleMons[battlerId].species].abilities[1] == ABILITY_NONE
-        && gBaseStats[gBattleMons[battlerId].species].abilities[2] == ABILITY_NONE)
-        || (gBaseStats[gBattleMons[battlerId].species].abilities[1] == gBaseStats[gBattleMons[battlerId].species].abilities[0]
-        && gBaseStats[gBattleMons[battlerId].species].abilities[2] == gBaseStats[gBattleMons[battlerId].species].abilities[0]))
+        else if (gBaseStats[gBattleMons[battlerId].species].abilities[1] == gBaseStats[gBattleMons[battlerId].species].abilities[0])
             gBattleMons[battlerId].ability = gBaseStats[gBattleMons[battlerId].species].abilities[0];
         // The ability is unknown.
         else
@@ -1618,22 +1615,24 @@ static s32 AI_GetAbility(u32 battlerId, bool32 guess)
     || gBattleMons[battlerId].ability == ABILITY_ARENA_TRAP)
         return gBattleMons[battlerId].ability;
 
-    if (gBaseStats[gBattleMons[battlerId].species].abilities[0] != ABILITY_NONE)
+    if (gBaseStats[gBattleMons[battlerId].species].abilities[0] == gBaseStats[gBattleMons[battlerId].species].abilities[1]
+    && gBaseStats[gBattleMons[battlerId].species].abilities[2] == ABILITY_NONE)
     {
-        if (gBaseStats[gBattleMons[battlerId].species].abilities[1] != ABILITY_NONE)
-        {
-            if (gBaseStats[gBattleMons[battlerId].species].abilities[2] != ABILITY_NONE)
-            {
-                // AI has no knowledge of opponent, so it guesses which ability.
-                if (guess)
-                    return gBaseStats[gBattleMons[battlerId].species].abilities[Random() & 2];
-            }
-            else
-            {
-                return gBaseStats[gBattleMons[battlerId].species].abilities[0]; // It's definitely ability 1.
-            }
-        }
+        return gBaseStats[gBattleMons[battlerId].species].abilities[0]; // It's definitely ability 1.
     }
+    else if (guess)
+    {
+        if (gBaseStats[gBattleMons[battlerId].species].abilities[2] == ABILITY_NONE)
+        {
+            return gBaseStats[gBattleMons[battlerId].species].abilities[Random() & 1];
+        }
+        else
+        {
+            return gBaseStats[gBattleMons[battlerId].species].abilities[Random() & 2];
+        }
+
+    }
+
     return -1; // Unknown.
 }
 

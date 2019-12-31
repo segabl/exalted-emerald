@@ -1142,10 +1142,10 @@ bool32 TryGenerateBattlePikeWildMon(bool8 checkKeenEyeIntimidate)
                MON_DATA_EXP,
                &gExperienceTables[gBaseStats[wildMons[headerId][pikeMonId].species].growthRate][monLevel]);
 
-    if (gBaseStats[wildMons[headerId][pikeMonId].species].abilities[1])
-        abilityNum = Random() % 2;
+    if (gBaseStats[wildMons[headerId][pikeMonId].species].abilities[2])
+        abilityNum = Random() % 3;
     else
-        abilityNum = 0;
+        abilityNum = Random() % 2;
     SetMonData(&gEnemyParty[0], MON_DATA_ABILITY_NUM, &abilityNum);
     for (i = 0; i < MAX_MON_MOVES; i++)
         SetMonMoveSlot(&gEnemyParty[0], wildMons[headerId][pikeMonId].moves[i], i);
