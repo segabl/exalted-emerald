@@ -115,18 +115,6 @@ SafariZone_South_Movement_MoveExitAttendantEast: @ 823D38D
 	walk_in_place_fastest_up
 	step_end
 
-SafariZone_South_EventScript_ConstructionWorker1:: @ 823D390
-	msgbox SafariZone_South_Text_AreaOffLimits1, MSGBOX_NPC
-	end
-
-SafariZone_Southeast_EventScript_ExpansionZoneAttendant:: @ 823D399
-	msgbox SafariZone_Southeast_Text_ExpansionIsFinished, MSGBOX_NPC
-	end
-
-SafariZone_South_EventScript_ConstructionWorker2:: @ 823D3A2
-	msgbox SafariZone_South_Text_AreaOffLimits2, MSGBOX_NPC
-	end
-
 SafariZone_Southeast_EventScript_LittleGirl:: @ 823D3AB
 	msgbox SafariZone_Southeast_Text_LittleGirl, MSGBOX_NPC
 	end
