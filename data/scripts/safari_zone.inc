@@ -120,9 +120,8 @@ Route121_SafariZoneEntrance_Text_FirstTimeInfo: @ 82A4EA1
 	.string "When you enter the SAFARI ZONE, you\n"
 	.string "start with 30 SAFARI BALLS for\l"
 	.string "catching POKéMON.\p"
-	.string "The SAFARI Game is over when you run\n"
-	.string "out of SAFARI BALLS, or when you've\l"
-	.string "walked 500 steps.\p"
+	.string "The SAFARI Game is over when you\n"
+	.string "run out of SAFARI BALLS.\p"
 	.string "Come in and enjoy the SAFARI ZONE!$"
 
 Route121_SafariZoneEntrance_Text_WouldYouLikeToPlay: @ 82A4F74
@@ -167,8 +166,8 @@ Route121_SafariZoneEntrance_Text_YouNeedPokeblockCase: @ 82A5105
 	.string "the LILYCOVE CONTEST HALL.$"
 
 SafariZone_South_Text_StillHaveTimeExit: @ 82A51D4
-	.string "You still have time left. Would you like\n"
-	.string "to exit the SAFARI ZONE now?$"
+	.string "You still have SAFARI BALLS left.\n"
+	.string "Would you like to exit the SAFARI ZONE?$"
 
 SafariZone_South_Text_EnjoyTheRestOfYourAdventure: @ 82A521A
 	.string "Please enjoy the rest of your wild\n"

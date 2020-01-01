@@ -80,12 +80,7 @@ bool8 SafariZoneTakeStep(void)
     }
 
     DecrementFeederStepCounters();
-    sSafariZoneStepCounter--;
-    if (sSafariZoneStepCounter == 0)
-    {
-        ScriptContext1_SetupScript(SafariZone_EventScript_TimesUp);
-        return TRUE;
-    }
+
     return FALSE;
 }
 
