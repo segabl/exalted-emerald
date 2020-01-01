@@ -2249,7 +2249,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     {
         value = personality % 2;
     }
-    //SetBoxMonData(boxMon, MON_DATA_ABILITY_NUM, &value);
+    SetBoxMonData(boxMon, MON_DATA_ABILITY_NUM, &value);
 
     GiveBoxMonInitialMoveset(boxMon);
 }
