@@ -447,11 +447,13 @@ static s32 GetParentToInheritNature(struct DayCare *daycare)
             parent = 1;
     }
 
-    // Don't inherit nature if not holding Everstone
-    if (GetBoxMonData(&daycare->mons[parent].mon, MON_DATA_HELD_ITEM) != ITEM_EVERSTONE
-        || Random() >= USHRT_MAX / 2)
+    // search for Everstone and don't inherit nature if not holding one
+    if (GetBoxMonData(&daycare->mons[parent].mon, MON_DATA_HELD_ITEM) != ITEM_EVERSTONE)
     {
-        return -1;
+        if (GetBoxMonData(&daycare->mons[!parent].mon, MON_DATA_HELD_ITEM) == ITEM_EVERSTONE)
+            parent = !parent;
+        else
+            return -1;
     }
 
     return parent;
