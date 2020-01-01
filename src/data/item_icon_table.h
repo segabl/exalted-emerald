@@ -244,8 +244,8 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_METAL_POWDER] = {gItemIcon_MetalPowder, gItemIconPalette_MetalPowder},
     [ITEM_THICK_CLUB] = {gItemIcon_ThickClub, gItemIconPalette_ThickClub},
     [ITEM_STICK] = {gItemIcon_Stick, gItemIconPalette_Stick},
+    [ITEM_DESTINY_KNOT] = {gItemIcon_DestinyKnot, gItemIconPalette_DestinyKnot},
     // ????????
-    [ITEM_0E2] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_0E3] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_0E4] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_0E5] = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},

@@ -2227,15 +2227,15 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
 
             do
             {
-                u8 shift = 5 * (Random() % 6);
+                u8 shift = 5 * (Random() % NUM_STATS);
                 value |= 0x1F << shift;
                 numMaxed = 0;
-                for (i = 0; i < 6; i++)
+                for (i = 0; i < NUM_STATS; i++)
                 {
                     if (((value >> (5 * i)) & 0x1F) == 0x1F)
                         numMaxed++;
                 }
-            } while (numMaxed < 6 && numMaxed < numMaxedIvs);
+            } while (numMaxed < NUM_STATS && numMaxed < numMaxedIvs);
         }
 
         SetBoxMonData(boxMon, MON_DATA_IVS, &value);
