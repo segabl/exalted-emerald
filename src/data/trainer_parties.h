@@ -4155,7 +4155,7 @@ static const struct TrainerMonItemCustomMoves sParty_Sidney[] = {
     .lvl = 46,
     .species = SPECIES_MIGHTYENA,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = 1,
+    .abilityNum = 0,
     .heldItem = ITEM_NONE,
     .moves = MOVE_ROAR, MOVE_DOUBLE_EDGE, MOVE_TAUNT, MOVE_CRUNCH
     },
