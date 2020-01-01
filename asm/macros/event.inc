@@ -900,7 +900,7 @@
 	.4byte \text
 	.endm
 
-	@ Gives the player one of the specified (species) Pokemon at level level holding item. The trailing 0s are unused parameters
+	@ Gives the player one of the specified (species) Pokemon at level level holding item.
 	.macro givemon species:req, level:req, item:req, personality:req, ivs:req, ability:req
 	.byte 0x79
 	.2byte \species
@@ -1429,17 +1429,14 @@
 	.4byte \value
 	.endm
 
-	@ Sets the ability number of the selected mon
-	.macro setmonabilitynum index:req value:req
+	@ OBSOLETE
+	.macro unused1
 	.byte 0xcd
-	.byte \index
-	.byte \value
 	.endm
 
-	@ REMOVED
-	.macro checkmonobedience slot:req
+	@ OBSOLETE
+	.macro unused2
 	.byte 0xce
-	.2byte \slot
 	.endm
 
 	@ Depending on factors I haven't managed to understand yet, this command may cause script execution to jump to the offset specified by the pointer at 0x020375C0.
