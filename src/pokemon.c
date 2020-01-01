@@ -2208,37 +2208,37 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     }
     else
     {
-        u32 iv;
+        u16 numMaxedIvs;
 
         value = Random32();
-        iv = (value & 0x1F)
+        value = (value & 0x1F)
                | (value & (0x1F << 5))
                | (value & (0x1F << 10))
                | (value & (0x1F << 15))
                | (value & (0x1F << 20))
                | (value & (0x1F << 25));
 
-        if (FlagGet(FLAG_NUM_MAXED_IVS))
+        numMaxedIvs = VarGet(VAR_NUM_MAXED_IVS);
+        if (numMaxedIvs > 0)
         {
-            u8 numMaxed, numMaxedTotal, i;
+            u8 numMaxed, i;
 
-            numMaxedTotal = VarGet(VAR_NUM_MAXED_IVS);
-            FlagClear(FLAG_NUM_MAXED_IVS);
+            VarSet(VAR_NUM_MAXED_IVS, 0);
 
-            numMaxed = 0;
-            while (numMaxed < numMaxedTotal && numMaxed < 6)
+            do
             {
                 u8 shift = 5 * (Random() % 6);
-                iv |= 0x1F << shift;
+                value |= 0x1F << shift;
                 numMaxed = 0;
                 for (i = 0; i < 6; i++)
                 {
-                    if (((iv >> (5 * i)) & 0x1F) == 0x1F)
+                    if (((value >> (5 * i)) & 0x1F) == 0x1F)
                         numMaxed++;
                 }
-            }
+            } while (numMaxed < 6 && numMaxed < numMaxedIvs);
         }
-        SetBoxMonData(boxMon, MON_DATA_IVS, &iv);
+
+        SetBoxMonData(boxMon, MON_DATA_IVS, &value);
     }
 
     if (FlagGet(FLAG_SYS_SAFARI_MODE) && gBaseStats[species].abilities[2])
@@ -2249,7 +2249,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     {
         value = personality % 2;
     }
-    SetBoxMonData(boxMon, MON_DATA_ABILITY_NUM, &value);
+    //SetBoxMonData(boxMon, MON_DATA_ABILITY_NUM, &value);
 
     GiveBoxMonInitialMoveset(boxMon);
 }
