@@ -901,7 +901,7 @@
 	.endm
 
 	@ Gives the player one of the specified (species) Pokemon at level level holding item.
-	.macro givemon species:req, level:req, item:req, personality:req, ivs:req, ability:req
+	.macro givemon species:req, level:req, item=ITEM_NONE, personality=0xFFFFFFFF, ivs=0xFFFFFFFF, ability=0xFF
 	.byte 0x79
 	.2byte \species
 	.byte \level
