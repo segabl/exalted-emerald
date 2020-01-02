@@ -36,7 +36,7 @@ const u8 gItemEffect_MaxPotion[7] = {
 
 const u8 gItemEffect_HyperPotion[7] = {
     [4] = ITEM4_HEAL_HP,
-    [6] = 200,
+    [6] = 100,
 };
 
 const u8 gItemEffect_SuperPotion[7] = {

@@ -173,7 +173,7 @@ static const u8 sMaxPotionDesc[] = _(
 static const u8 sHyperPotionDesc[] = _(
     "Restores the HP of\n"
     "a POKéMON by\n"
-    "200 points.");
+    "100 points.");
 
 static const u8 sSuperPotionDesc[] = _(
     "Restores the HP of\n"
