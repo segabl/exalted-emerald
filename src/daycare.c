@@ -23,6 +23,7 @@
 #include "constants/moves.h"
 #include "constants/region_map_sections.h"
 #include "constants/species.h"
+#include "data/pokemon/egg_moves.h"
 
 // this file's functions
 static void ClearDaycareMonMail(struct DayCareMail *mail);
@@ -36,8 +37,6 @@ EWRAM_DATA static u16 sHatchedEggFatherMoves[MAX_MON_MOVES] = {0};
 EWRAM_DATA static u16 sHatchedEggFinalMoves[MAX_MON_MOVES] = {0};
 EWRAM_DATA static u16 sHatchedEggEggMoves[EGG_MOVES_ARRAY_COUNT] = {0};
 EWRAM_DATA static u16 sHatchedEggMotherMoves[MAX_MON_MOVES] = {0};
-
-#include "data/pokemon/egg_moves.h"
 
 static const struct WindowTemplate sDaycareLevelMenuWindowTemplate =
 {
@@ -660,47 +659,12 @@ static void BuildEggMoveset(struct Pokemon *egg, struct BoxPokemon *father, stru
     for (i = 0; i < EGG_LVL_UP_MOVES_ARRAY_COUNT; i++)
         sHatchedEggLevelUpMoves[i] = MOVE_NONE;
 
+    // Pass down moves that both parents know
     numLevelUpMoves = GetLevelUpMovesBySpecies(GetMonData(egg, MON_DATA_SPECIES), sHatchedEggLevelUpMoves);
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
         sHatchedEggFatherMoves[i] = GetBoxMonData(father, MON_DATA_MOVE1 + i);
         sHatchedEggMotherMoves[i] = GetBoxMonData(mother, MON_DATA_MOVE1 + i);
-    }
-
-    numEggMoves = GetEggMoves(egg, sHatchedEggEggMoves);
-
-    for (i = 0; i < MAX_MON_MOVES; i++)
-    {
-        if (sHatchedEggFatherMoves[i] != MOVE_NONE)
-        {
-            for (j = 0; j < numEggMoves; j++)
-            {
-                if (sHatchedEggFatherMoves[i] == sHatchedEggEggMoves[j])
-                {
-                    if (GiveMoveToMon(egg, sHatchedEggFatherMoves[i]) == MON_HAS_MAX_MOVES)
-                        DeleteFirstMoveAndGiveMoveToMon(egg, sHatchedEggFatherMoves[i]);
-                    break;
-                }
-            }
-        }
-        else
-        {
-            break;
-        }
-    }
-    for (i = 0; i < MAX_MON_MOVES; i++)
-    {
-        if (sHatchedEggFatherMoves[i] != MOVE_NONE)
-        {
-            for (j = 0; j < NUM_TECHNICAL_MACHINES + NUM_HIDDEN_MACHINES; j++)
-            {
-                if (sHatchedEggFatherMoves[i] == ItemIdToBattleMoveId(ITEM_TM01 + j) && CanMonLearnTMHM(egg, j))
-                {
-                    if (GiveMoveToMon(egg, sHatchedEggFatherMoves[i]) == MON_HAS_MAX_MOVES)
-                        DeleteFirstMoveAndGiveMoveToMon(egg, sHatchedEggFatherMoves[i]);
-                }
-            }
-        }
     }
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
@@ -712,7 +676,6 @@ static void BuildEggMoveset(struct Pokemon *egg, struct BoxPokemon *father, stru
                 sHatchedEggFinalMoves[numSharedParentMoves++] = sHatchedEggFatherMoves[i];
         }
     }
-
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
         if (sHatchedEggFinalMoves[i] == MOVE_NONE)
@@ -725,6 +688,34 @@ static void BuildEggMoveset(struct Pokemon *egg, struct BoxPokemon *father, stru
                     DeleteFirstMoveAndGiveMoveToMon(egg, sHatchedEggFinalMoves[i]);
                 break;
             }
+        }
+    }
+
+    // Pass down egg moves from the parents
+    numEggMoves = GetEggMoves(egg, sHatchedEggEggMoves);
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
+        if (sHatchedEggFatherMoves[i] != MOVE_NONE || sHatchedEggMotherMoves[i] != MOVE_NONE)
+        {
+            for (j = 0; j < numEggMoves; j++)
+            {
+                if (sHatchedEggFatherMoves[i] == sHatchedEggEggMoves[j])
+                {
+                    if (GiveMoveToMon(egg, sHatchedEggFatherMoves[i]) == MON_HAS_MAX_MOVES)
+                        DeleteFirstMoveAndGiveMoveToMon(egg, sHatchedEggFatherMoves[i]);
+                    break;
+                }
+                else if (sHatchedEggMotherMoves[i] == sHatchedEggEggMoves[j])
+                {
+                    if (GiveMoveToMon(egg, sHatchedEggMotherMoves[i]) == MON_HAS_MAX_MOVES)
+                        DeleteFirstMoveAndGiveMoveToMon(egg, sHatchedEggMotherMoves[i]);
+                    break;
+                }
+            }
+        }
+        else
+        {
+            break;
         }
     }
 }
