@@ -127,7 +127,7 @@ Route115_EventScript_ItemPPUp:: @ 8290E6B
 	end
 
 Route116_EventScript_ItemXSpecial:: @ 8290E78
-	finditem_std ITEM_X_SPECIAL
+	finditem_std ITEM_X_SP_ATK
 	end
 
 Route116_EventScript_ItemEther:: @ 8290E85
@@ -315,8 +315,7 @@ MauvilleCity_EventScript_ItemXSpeed:: @ 82910CE
 	end
 
 RustboroCity_EventScript_ItemXDefend:: @ 82910DB
-	finditem_std ITEM_X_DEFEND
-	end
+	finditem_std ITEM_X_DEFENSE
 
 LilycoveCity_EventScript_ItemMaxRepel:: @ 82910E8
 	finditem_std ITEM_MAX_REPEL

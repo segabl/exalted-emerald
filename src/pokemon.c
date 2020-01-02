@@ -4304,7 +4304,7 @@ bool8 ExecuteTableBasedItemEffect(struct Pokemon *mon, u16 item, u8 partyIndex, 
 bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 moveIndex, u8 e)
 {
     u32 dataUnsigned;
-    s32 dataSigned;
+    s32 dataSigned, evCap;
     s32 friendship;
     s32 cmdIndex;
     bool8 retVal = TRUE;
@@ -4512,11 +4512,17 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                         {
                             if (evCount >= MAX_TOTAL_EVS)
                                 return TRUE;
-                            if (dataSigned >= EV_ITEM_RAISE_LIMIT)
+
+                            if (itemEffect[10] & ITEM10_IS_VITAMIN)
+                                evCap = EV_ITEM_RAISE_LIMIT;
+                            else
+                                evCap = 252;
+
+                            if (dataSigned >= evCap)
                                 break;
 
-                            if (dataSigned + r2 > EV_ITEM_RAISE_LIMIT)
-                                r5 = EV_ITEM_RAISE_LIMIT - (dataSigned + r2) + r2;
+                            if (dataSigned + r2 > evCap)
+                                r5 = evCap - (dataSigned + r2) + r2;
                             else
                                 r5 = r2;
 
@@ -4716,11 +4722,17 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                         {
                             if (evCount >= MAX_TOTAL_EVS)
                                 return TRUE;
-                            if (dataSigned >= EV_ITEM_RAISE_LIMIT)
+
+                            if (itemEffect[10] & ITEM10_IS_VITAMIN)
+                                evCap = EV_ITEM_RAISE_LIMIT;
+                            else
+                                evCap = 252;
+
+                            if (dataSigned >= evCap)
                                 break;
 
-                            if (dataSigned + r2 > EV_ITEM_RAISE_LIMIT)
-                                r5 = EV_ITEM_RAISE_LIMIT - (dataSigned + r2) + r2;
+                            if (dataSigned + r2 > evCap)
+                                r5 = evCap - (dataSigned + r2) + r2;
                             else
                                 r5 = r2;
 
