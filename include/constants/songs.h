@@ -323,7 +323,7 @@
 #define MUS_TEST4 396           // Contest Test 4
 #define MUS_TEST 397            // Encounter! Gentleman
 #define MUS_GOMACHI0 398        // Verdanturf Town
-#define MUS_GOTOWN 399          // Rustboro/Mauville/Mossdeep City
+#define MUS_GOTOWN 399          // Rustboro/Mauville
 #define MUS_POKECEN 400         // Pokémon Center
 #define MUS_NEXTROAD 401        // Route 104
 #define MUS_GRANROAD 402        // Route 119
@@ -351,7 +351,7 @@
 #define MUS_KACHI4 424          // Victory! Aqua/Magma Grunt
 #define MUS_ROPEWAY 425         // Cable Car
 #define MUS_CASINO 426          // Game Corner
-#define MUS_HIGHTOWN 427        // Dewford Town
+#define MUS_HIGHTOWN 427        // Dewford Town/Mossdeep City
 #define MUS_SAFARI 428          // Safari Zone
 #define MUS_C_ROAD 429          // Victory Road
 #define MUS_AJITO 430           // Aqua/Magma Hideout
