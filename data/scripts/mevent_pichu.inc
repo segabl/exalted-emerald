@@ -30,6 +30,7 @@ SurfPichu_FullParty: @ 8674D73
 	end
 
 SurfPichu_GiveEgg: @ 8674D7E
+	setvar VAR_NUM_MAXED_IVS, 3
 	giveegg SPECIES_PICHU
 	setmonmetlocation VAR_EVENT_PICHU_SLOT, METLOC_FATEFUL_ENCOUNTER
 	compare VAR_EVENT_PICHU_SLOT, 1
