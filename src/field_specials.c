@@ -1996,33 +1996,29 @@ void BufferVarsForIVRater(void)
     ivStorage[STAT_SPATK] = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPATK_IV);
     ivStorage[STAT_SPDEF] = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPDEF_IV);
 
-    gSpecialVar_0x8005 = 0;
+    gSpecialVar_0x8004 = 0;
 
     for (i = 0; i < NUM_STATS; i++)
     {
-        gSpecialVar_0x8005 += ivStorage[i];
+        gSpecialVar_0x8004 += ivStorage[i];
     }
 
-    gSpecialVar_0x8006 = 0;
-    gSpecialVar_0x8007 = ivStorage[STAT_HP];
+    gSpecialVar_0x8005 = ivStorage[0];
 
     for (i = 1; i < NUM_STATS; i++)
     {
-        if (ivStorage[gSpecialVar_0x8006] < ivStorage[i])
+        if (gSpecialVar_0x8005 < ivStorage[i])
         {
-            gSpecialVar_0x8006 = i;
-            gSpecialVar_0x8007 = ivStorage[i];
-        }
-        else if (ivStorage[gSpecialVar_0x8006] == ivStorage[i])
-        {
-            u16 randomNumber = Random();
-            if (randomNumber & 1)
-            {
-                gSpecialVar_0x8006 = i;
-                gSpecialVar_0x8007 = ivStorage[i];
-            }
+            gSpecialVar_0x8005 = ivStorage[i];
         }
     }
+
+    gSpecialVar_0x8006 = ivStorage[0];
+    gSpecialVar_0x8007 = ivStorage[1];
+    gSpecialVar_0x8008 = ivStorage[2];
+    gSpecialVar_0x8009 = ivStorage[3];
+    gSpecialVar_0x800A = ivStorage[4];
+    gSpecialVar_0x800B = ivStorage[5];
 }
 
 bool8 UsedPokemonCenterWarp(void)

@@ -29,21 +29,21 @@ BattleFrontier_Lounge1_EventScript_AlreadyMetBreeder:: @ 825E7B6
 	return
 
 @ BufferVarsForIVRater buffers the following values
-@ VAR_0x8005: Sum of the mons IVs
-@ VAR_0x8006: Stat id of highest IV stat
-@ VAR_0x8007: IV of the highest IV stat
+@ VAR_0x8004: Sum of the mons IVs
+@ VAR_0x8005: IV of the highest IV stat
+@ VAR_0x8006, VAR_0x8007, VAR_0x8008, VAR_0x8009, VAR_0x800A, VAR_0x800B: IVs
 BattleFrontier_Lounge1_EventScript_ShowMonToBreeder:: @ 825E7BF
 	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
 	compare VAR_RESULT, SPECIES_EGG
 	goto_if_eq BattleFrontier_Lounge1_EventScript_ShowEggToBreeder
 	special BufferVarsForIVRater
-	compare VAR_0x8005, 90   @ Average of 15
+	compare VAR_0x8004, 90   @ Average of 15
 	goto_if_le BattleFrontier_Lounge1_EventScript_AverageTotalIVs
-	compare VAR_0x8005, 120  @ Average of 20
+	compare VAR_0x8004, 120  @ Average of 20
 	goto_if_le BattleFrontier_Lounge1_EventScript_AboveAverageTotalIVs
-	compare VAR_0x8005, 150  @ Average of 25
+	compare VAR_0x8004, 150  @ Average of 25
 	goto_if_le BattleFrontier_Lounge1_EventScript_HighTotalIVs
-	compare VAR_0x8005, 151  @ Average of > 25
+	compare VAR_0x8004, 151  @ Average of > 25
 	goto_if_ge BattleFrontier_Lounge1_EventScript_VeryHighTotalIVs
 	end
 
@@ -54,35 +54,59 @@ BattleFrontier_Lounge1_EventScript_ShowEggToBreeder:: @ 825E7FF
 
 @ Comment on the highest IV stat
 BattleFrontier_Lounge1_EventScript_HighestIVStat:: @ 825E80D
-	compare VAR_0x8006, STAT_HP
-	goto_if_eq BattleFrontier_Lounge1_EventScript_HighestIVHP
-	compare VAR_0x8006, STAT_ATK
-	goto_if_eq BattleFrontier_Lounge1_EventScript_HighestIVAtk
-	compare VAR_0x8006, STAT_DEF
-	goto_if_eq BattleFrontier_Lounge1_EventScript_HighestIVDef
-	compare VAR_0x8006, STAT_SPEED
-	goto_if_eq BattleFrontier_Lounge1_EventScript_HighestIVSpeed
-	compare VAR_0x8006, STAT_SPATK
-	goto_if_eq BattleFrontier_Lounge1_EventScript_HighestIVSpAtk
-	compare VAR_0x8006, STAT_SPDEF
-	goto_if_eq BattleFrontier_Lounge1_EventScript_HighestIVSpDef
+	setvar VAR_0x8003, 0
+	bufferstring 0, BattleFrontier_Lounge1_Text_BestAspectHP
+	compare_var_to_var VAR_0x8005, VAR_0x8006
+	call_if_eq BattleFrontier_Lounge1_EventScript_HighestIV
+	bufferstring 0, BattleFrontier_Lounge1_Text_BestAspectAtk
+	compare_var_to_var VAR_0x8005, VAR_0x8007
+	call_if_eq BattleFrontier_Lounge1_EventScript_HighestIV
+	bufferstring 0, BattleFrontier_Lounge1_Text_BestAspectDef
+	compare_var_to_var VAR_0x8005, VAR_0x8008
+	call_if_eq BattleFrontier_Lounge1_EventScript_HighestIV
+	bufferstring 0, BattleFrontier_Lounge1_Text_BestAspectSpeed
+	compare_var_to_var VAR_0x8005, VAR_0x8009
+	call_if_eq BattleFrontier_Lounge1_EventScript_HighestIV
+	bufferstring 0, BattleFrontier_Lounge1_Text_BestAspectSpAtk
+	compare_var_to_var VAR_0x8005, VAR_0x800A
+	call_if_eq BattleFrontier_Lounge1_EventScript_HighestIV
+	bufferstring 0, BattleFrontier_Lounge1_Text_BestAspectSpDef
+	compare_var_to_var VAR_0x8005, VAR_0x800B
+	call_if_eq BattleFrontier_Lounge1_EventScript_HighestIV
+	setvar VAR_0x8001, 0
+	bufferstring 0, BattleFrontier_Lounge1_Text_BestAspectHP
+	compare VAR_0x8006, 0
+	call_if_eq BattleFrontier_Lounge1_EventScript_WorstIV
+	bufferstring 0, BattleFrontier_Lounge1_Text_BestAspectAtk
+	compare VAR_0x8007, 0
+	call_if_eq BattleFrontier_Lounge1_EventScript_WorstIV
+	bufferstring 0, BattleFrontier_Lounge1_Text_BestAspectDef
+	compare VAR_0x8008, 0
+	call_if_eq BattleFrontier_Lounge1_EventScript_WorstIV
+	bufferstring 0, BattleFrontier_Lounge1_Text_BestAspectSpeed
+	compare VAR_0x8009, 0
+	call_if_eq BattleFrontier_Lounge1_EventScript_WorstIV
+	bufferstring 0, BattleFrontier_Lounge1_Text_BestAspectSpAtk
+	compare VAR_0x800A, 0
+	call_if_eq BattleFrontier_Lounge1_EventScript_WorstIV
+	bufferstring 0, BattleFrontier_Lounge1_Text_BestAspectSpDef
+	compare VAR_0x800B, 0
+	call_if_eq BattleFrontier_Lounge1_EventScript_WorstIV
+	release
 	end
 
 @ Comment on the highest IV value
-BattleFrontier_Lounge1_EventScript_HighestIVValue:: @ 825E850
-	compare VAR_0x8007, 15
-	goto_if_le BattleFrontier_Lounge1_EventScript_HighestIVLow
-	compare VAR_0x8007, 25
-	goto_if_le BattleFrontier_Lounge1_EventScript_HighestIVMid
-	compare VAR_0x8007, 30
-	goto_if_le BattleFrontier_Lounge1_EventScript_HighestIVHigh
-	compare VAR_0x8007, 31
-	goto_if_ge BattleFrontier_Lounge1_EventScript_HighestIVMax
-	end
-
-BattleFrontier_Lounge1_EventScript_EndBreederComments:: @ 825E87D
-	release
-	end
+BattleFrontier_Lounge1_EventScript_HighestIVValue::
+	copyvar VAR_0x8002, VAR_0x8005
+	compare VAR_0x8002, 15
+	call_if_le BattleFrontier_Lounge1_EventScript_HighestIVLow
+	compare VAR_0x8002, 25
+	call_if_le BattleFrontier_Lounge1_EventScript_HighestIVMid
+	compare VAR_0x8002, 30
+	call_if_le BattleFrontier_Lounge1_EventScript_HighestIVHigh
+	compare VAR_0x8002, 31
+	call_if_eq BattleFrontier_Lounge1_EventScript_HighestIVMax
+	return
 
 BattleFrontier_Lounge1_EventScript_AverageTotalIVs:: @ 825E87F
 	msgbox BattleFrontier_Lounge1_Text_AverageAbility, MSGBOX_DEFAULT
@@ -104,55 +128,58 @@ BattleFrontier_Lounge1_EventScript_VeryHighTotalIVs:: @ 825E8A9
 	goto BattleFrontier_Lounge1_EventScript_HighestIVStat
 	end
 
-BattleFrontier_Lounge1_EventScript_HighestIVHP:: @ 825E8B7
-	msgbox BattleFrontier_Lounge1_Text_BestAspectHP, MSGBOX_DEFAULT
-	goto BattleFrontier_Lounge1_EventScript_HighestIVValue
-	end
+BattleFrontier_Lounge1_EventScript_HighestIV:: @ 825E8B7
+	compare VAR_0x8003, 1
+	call_if_eq BattleFrontier_Lounge1_EventScript_HighestIVAlso
+	compare VAR_0x8003, 0
+	call_if_eq BattleFrontier_Lounge1_EventScript_HighestIVFirst
+	return
 
-BattleFrontier_Lounge1_EventScript_HighestIVAtk:: @ 825E8C5
-	msgbox BattleFrontier_Lounge1_Text_BestAspectAtk, MSGBOX_DEFAULT
-	goto BattleFrontier_Lounge1_EventScript_HighestIVValue
-	end
+BattleFrontier_Lounge1_EventScript_HighestIVFirst:: @ 825E8B7
+	msgbox BattleFrontier_Lounge1_Text_BestAspect, MSGBOX_DEFAULT
+	setvar VAR_0x8003, 1
+	call BattleFrontier_Lounge1_EventScript_HighestIVValue
+	return
 
-BattleFrontier_Lounge1_EventScript_HighestIVDef:: @ 825E8D3
-	msgbox BattleFrontier_Lounge1_Text_BestAspectDef, MSGBOX_DEFAULT
-	goto BattleFrontier_Lounge1_EventScript_HighestIVValue
-	end
+BattleFrontier_Lounge1_EventScript_HighestIVAlso:: @ 825E8B7
+	msgbox BattleFrontier_Lounge1_Text_BestAspectAlso, MSGBOX_DEFAULT
+	return
 
-BattleFrontier_Lounge1_EventScript_HighestIVSpeed:: @ 825E8E1
-	msgbox BattleFrontier_Lounge1_Text_BestAspectSpeed, MSGBOX_DEFAULT
-	goto BattleFrontier_Lounge1_EventScript_HighestIVValue
-	end
+BattleFrontier_Lounge1_EventScript_WorstIV:: @ 825E8B7
+	compare VAR_0x8001, 1
+	call_if_eq BattleFrontier_Lounge1_EventScript_WorstIVAlso
+	compare VAR_0x8001, 0
+	call_if_eq BattleFrontier_Lounge1_EventScript_WorstIVFirst
+	return
 
-BattleFrontier_Lounge1_EventScript_HighestIVSpAtk:: @ 825E8EF
-	msgbox BattleFrontier_Lounge1_Text_BestAspectSpAtk, MSGBOX_DEFAULT
-	goto BattleFrontier_Lounge1_EventScript_HighestIVValue
-	end
+BattleFrontier_Lounge1_EventScript_WorstIVFirst:: @ 825E8B7
+	msgbox BattleFrontier_Lounge1_Text_WorstAspect, MSGBOX_DEFAULT
+	setvar VAR_0x8001, 1
+	return
 
-BattleFrontier_Lounge1_EventScript_HighestIVSpDef:: @ 825E8FD
-	msgbox BattleFrontier_Lounge1_Text_BestAspectSpDef, MSGBOX_DEFAULT
-	goto BattleFrontier_Lounge1_EventScript_HighestIVValue
-	end
+BattleFrontier_Lounge1_EventScript_WorstIVAlso:: @ 825E8B7
+	msgbox BattleFrontier_Lounge1_Text_WorstAspectAlso, MSGBOX_DEFAULT
+	return
 
 BattleFrontier_Lounge1_EventScript_HighestIVLow:: @ 825E90B
 	msgbox BattleFrontier_Lounge1_Text_StatRelativelyGood, MSGBOX_DEFAULT
-	goto BattleFrontier_Lounge1_EventScript_EndBreederComments
-	end
+	setvar VAR_0x8002, 0xFF
+	return
 
 BattleFrontier_Lounge1_EventScript_HighestIVMid:: @ 825E919
 	msgbox BattleFrontier_Lounge1_Text_StatImpressive, MSGBOX_DEFAULT
-	goto BattleFrontier_Lounge1_EventScript_EndBreederComments
-	end
+	setvar VAR_0x8002, 0xFF
+	return
 
 BattleFrontier_Lounge1_EventScript_HighestIVHigh:: @ 825E927
 	msgbox BattleFrontier_Lounge1_Text_StatOutstanding, MSGBOX_DEFAULT
-	goto BattleFrontier_Lounge1_EventScript_EndBreederComments
-	end
+	setvar VAR_0x8002, 0xFF
+	return
 
 BattleFrontier_Lounge1_EventScript_HighestIVMax:: @ 825E935
 	msgbox BattleFrontier_Lounge1_Text_StatFlawless, MSGBOX_DEFAULT
-	goto BattleFrontier_Lounge1_EventScript_EndBreederComments
-	end
+	setvar VAR_0x8002, 0xFF
+	return
 
 BattleFrontier_Lounge1_EventScript_CancelMonSelect:: @ 825E943
 	msgbox BattleFrontier_Lounge1_Text_NoTimeForMyAdvice, MSGBOX_DEFAULT
@@ -200,29 +227,37 @@ BattleFrontier_Lounge1_Text_OutstandingAbility: @ 825EB6F
 	.string "This one, overall, I would say is\n"
 	.string "wonderfully outstanding in ability!$"
 
-BattleFrontier_Lounge1_Text_BestAspectHP: @ 825EBBB
+BattleFrontier_Lounge1_Text_BestAspect:
 	.string "Incidentally, the best aspect of it,\n"
-	.string "I would say, is its HP…$"
+	.string "I would say, is its {STR_VAR_1}…$"
 
-BattleFrontier_Lounge1_Text_BestAspectAtk: @ 825EBF8
-	.string "Incidentally, the best aspect of it,\n"
-	.string "I would say, is its ATTACK…$"
+BattleFrontier_Lounge1_Text_BestAspectAlso:
+	.string "And its {STR_VAR_1} is equally good.$"
 
-BattleFrontier_Lounge1_Text_BestAspectDef: @ 825EC39
-	.string "Incidentally, the best aspect of it,\n"
-	.string "I would say, is its DEFENSE…$"
+BattleFrontier_Lounge1_Text_WorstAspect:
+	.string "However, its {STR_VAR_1} is\n"
+	.string "absolutely terrible.$"
 
-BattleFrontier_Lounge1_Text_BestAspectSpAtk: @ 825EC7B
-	.string "Incidentally, the best aspect of it,\n"
-	.string "I would say, is its SPECIAL ATTACK…$"
+BattleFrontier_Lounge1_Text_WorstAspectAlso:
+	.string "And its {STR_VAR_1} is bad aswell.$"
 
-BattleFrontier_Lounge1_Text_BestAspectSpDef: @ 825ECC4
-	.string "Incidentally, the best aspect of it,\n"
-	.string "I would say, is its SPECIAL DEFENSE…$"
+BattleFrontier_Lounge1_Text_BestAspectHP:
+	.string "HP$"
 
-BattleFrontier_Lounge1_Text_BestAspectSpeed: @ 825ED0E
-	.string "Incidentally, the best aspect of it,\n"
-	.string "I would say, is its SPEED…$"
+BattleFrontier_Lounge1_Text_BestAspectAtk:
+	.string "ATTACK$"
+
+BattleFrontier_Lounge1_Text_BestAspectDef:
+	.string "DEFENSE$"
+
+BattleFrontier_Lounge1_Text_BestAspectSpAtk:
+	.string "SPECIAL ATTACK$"
+
+BattleFrontier_Lounge1_Text_BestAspectSpDef:
+	.string "SPECIAL DEFENSE$"
+
+BattleFrontier_Lounge1_Text_BestAspectSpeed:
+	.string "SPEED$"
 
 BattleFrontier_Lounge1_Text_StatRelativelyGood: @ 825ED4E
 	.string "That stat is relatively good.\n"
