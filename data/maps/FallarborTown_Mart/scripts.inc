@@ -20,6 +20,7 @@ FallarborTown_Mart_Pokemart: @ 81FFCD8
 	.2byte ITEM_ESCAPE_ROPE
 	.2byte ITEM_SUPER_REPEL
 	.2byte ITEM_X_SP_ATK
+	.2byte ITEM_X_SP_DEF
 	.2byte ITEM_X_SPEED
 	.2byte ITEM_X_ATTACK
 	.2byte ITEM_X_DEFENSE

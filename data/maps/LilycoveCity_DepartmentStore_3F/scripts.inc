@@ -36,6 +36,7 @@ LilycoveCity_DepartmentStore_3F_EventScript_ClerkRight:: @ 821FC8C
 LilycoveCity_DepartmentStore_3F_Pokemart_StatBoosters: @ 821FCA4
 	.2byte ITEM_X_SPEED
 	.2byte ITEM_X_SP_ATK
+	.2byte ITEM_X_SP_DEF
 	.2byte ITEM_X_ATTACK
 	.2byte ITEM_X_DEFENSE
 	.2byte ITEM_DIRE_HIT

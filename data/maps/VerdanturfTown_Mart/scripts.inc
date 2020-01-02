@@ -23,6 +23,7 @@ VerdanturfTown_Mart_Pokemart: @ 82025A0
 	.2byte ITEM_ICE_HEAL
 	.2byte ITEM_REPEL
 	.2byte ITEM_X_SP_ATK
+	.2byte ITEM_X_SP_DEF
 	.2byte ITEM_FLUFFY_TAIL
 	.2byte ITEM_NONE
 	release
