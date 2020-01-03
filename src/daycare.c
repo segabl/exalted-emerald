@@ -32,10 +32,10 @@ static u8 GetDaycareCompatibilityScore(struct DayCare *daycare);
 static void DaycarePrintMonInfo(u8 windowId, s32 daycareSlotId, u8 y);
 
 // RAM buffers used to assist with BuildEggMoveset()
-EWRAM_DATA static u16 sHatchedEggLevelUpMoves[EGG_LVL_UP_MOVES_ARRAY_COUNT] = {0};
+EWRAM_DATA static u16 sHatchedEggLevelUpMoves[MAX_MON_MOVES_LEVELUP] = {0};
 EWRAM_DATA static u16 sHatchedEggFatherMoves[MAX_MON_MOVES] = {0};
 EWRAM_DATA static u16 sHatchedEggFinalMoves[MAX_MON_MOVES] = {0};
-EWRAM_DATA static u16 sHatchedEggEggMoves[EGG_MOVES_ARRAY_COUNT] = {0};
+EWRAM_DATA static u16 sHatchedEggEggMoves[MAX_MON_MOVES_EGG] = {0};
 EWRAM_DATA static u16 sHatchedEggMotherMoves[MAX_MON_MOVES] = {0};
 
 static const struct WindowTemplate sDaycareLevelMenuWindowTemplate =
@@ -625,7 +625,7 @@ static u8 GetEggMoves(struct Pokemon *pokemon, u16 *eggMoves)
         }
     }
 
-    for (i = 0; i < EGG_MOVES_ARRAY_COUNT; i++)
+    for (i = 0; i < MAX_MON_MOVES_EGG; i++)
     {
         if (gEggMoves[eggMoveIdx + i] > EGG_MOVES_SPECIES_OFFSET)
         {
@@ -654,9 +654,9 @@ static void BuildEggMoveset(struct Pokemon *egg, struct BoxPokemon *father, stru
         sHatchedEggFatherMoves[i] = MOVE_NONE;
         sHatchedEggFinalMoves[i] = MOVE_NONE;
     }
-    for (i = 0; i < EGG_MOVES_ARRAY_COUNT; i++)
+    for (i = 0; i < MAX_MON_MOVES_EGG; i++)
         sHatchedEggEggMoves[i] = MOVE_NONE;
-    for (i = 0; i < EGG_LVL_UP_MOVES_ARRAY_COUNT; i++)
+    for (i = 0; i < MAX_MON_MOVES_LEVELUP; i++)
         sHatchedEggLevelUpMoves[i] = MOVE_NONE;
 
     // Pass down moves that both parents know

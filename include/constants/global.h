@@ -58,6 +58,8 @@
 
 #define TRAINER_ID_LENGTH 4
 #define MAX_MON_MOVES 4
+#define MAX_MON_MOVES_LEVELUP 30 // Assumed max amount of level up moves
+#define MAX_MON_MOVES_EGG 17  // Assumed max amount of egg moves any mon can have
 
 // party sizes
 #define PARTY_SIZE 6
