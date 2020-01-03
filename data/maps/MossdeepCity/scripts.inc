@@ -13,7 +13,7 @@ MossdeepCity_OnTransition: @ 81E4A9C
 MossdeepCity_EventScript_PokefanF:: @ 81E4AB2
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_HM08, MossdeepCity_EventScript_PokefanFMagmaGone
+	goto_if_set FLAG_RECEIVED_HM07, MossdeepCity_EventScript_PokefanFMagmaGone
 	msgbox MossdeepCity_Text_SpaceCenterReceivedLetter, MSGBOX_DEFAULT
 	release
 	end
@@ -26,7 +26,7 @@ MossdeepCity_EventScript_PokefanFMagmaGone:: @ 81E4AC7
 MossdeepCity_EventScript_Sailor:: @ 81E4AD1
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_HM08, MossdeepCity_EventScript_SailorMagmaGone
+	goto_if_set FLAG_RECEIVED_HM07, MossdeepCity_EventScript_SailorMagmaGone
 	msgbox MossdeepCity_Text_MossdeepTargetedByMagma, MSGBOX_DEFAULT
 	release
 	end

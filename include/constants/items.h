@@ -503,114 +503,113 @@
 #define ITEM_STORAGE_KEY 480
 #define ITEM_DEVON_SCOPE 481
 // TMs/HMs
-#define ITEM_TM01 482 // FOCUS_PUNCH
-#define ITEM_TM02 483 // DRAGON_CLAW
-#define ITEM_TM03 484 // WATER_PULSE
-#define ITEM_TM04 485 // CALM_MIND
-#define ITEM_TM05 486 // ROAR
-#define ITEM_TM06 487 // TOXIC
-#define ITEM_TM07 488 // HAIL
-#define ITEM_TM08 489 // BULK_UP
-#define ITEM_TM09 490 // BULLET_SEED
-#define ITEM_TM10 491 // HIDDEN_POWER
-#define ITEM_TM11 492 // SUNNY_DAY
-#define ITEM_TM12 493 // TAUNT
-#define ITEM_TM13 494 // ICE_BEAM
-#define ITEM_TM14 495 // BLIZZARD
-#define ITEM_TM15 496 // HYPER_BEAM
-#define ITEM_TM16 497 // LIGHT_SCREEN
-#define ITEM_TM17 498 // PROTECT
-#define ITEM_TM18 499 // RAIN_DANCE
-#define ITEM_TM19 500 // GIGA_DRAIN
-#define ITEM_TM20 501 // SAFEGUARD
-#define ITEM_TM21 502 // FRUSTRATION
-#define ITEM_TM22 503 // SOLARBEAM
-#define ITEM_TM23 504 // IRON_TAIL
-#define ITEM_TM24 505 // THUNDERBOLT
-#define ITEM_TM25 506 // THUNDER
-#define ITEM_TM26 507 // EARTHQUAKE
-#define ITEM_TM27 508 // RETURN
-#define ITEM_TM28 509 // DIG
-#define ITEM_TM29 510 // PSYCHIC
-#define ITEM_TM30 511 // SHADOW_BALL
-#define ITEM_TM31 512 // BRICK_BREAK
-#define ITEM_TM32 513 // DOUBLE_TEAM
-#define ITEM_TM33 514 // REFLECT
-#define ITEM_TM34 515 // SHOCK_WAVE
-#define ITEM_TM35 516 // FLAMETHROWER
-#define ITEM_TM36 517 // SLUDGE_BOMB
-#define ITEM_TM37 518 // SANDSTORM
-#define ITEM_TM38 519 // FIRE_BLAST
-#define ITEM_TM39 520 // ROCK_TOMB
-#define ITEM_TM40 521 // AERIAL_ACE
-#define ITEM_TM41 522 // TORMENT
-#define ITEM_TM42 523 // FACADE
-#define ITEM_TM43 524 // SECRET_POWER
-#define ITEM_TM44 525 // REST
-#define ITEM_TM45 526 // ATTRACT
-#define ITEM_TM46 527 // THIEF
-#define ITEM_TM47 528 // STEEL_WING
-#define ITEM_TM48 529 // SKILL_SWAP
-#define ITEM_TM49 530 // SNATCH
-#define ITEM_TM50 531 // OVERHEAT
-#define ITEM_TM51 532
-#define ITEM_TM52 533
-#define ITEM_TM53 534
-#define ITEM_TM54 535
-#define ITEM_TM55 536
-#define ITEM_TM56 537
-#define ITEM_TM57 538
-#define ITEM_TM58 539
-#define ITEM_TM59 540
-#define ITEM_TM60 541
-#define ITEM_TM61 542
-#define ITEM_TM62 543
-#define ITEM_TM63 544
-#define ITEM_TM64 545
-#define ITEM_TM65 546
-#define ITEM_TM66 547
-#define ITEM_TM67 548
-#define ITEM_TM68 549
-#define ITEM_TM69 550
-#define ITEM_TM70 551
-#define ITEM_TM71 552
-#define ITEM_TM72 553
-#define ITEM_TM73 554
-#define ITEM_TM74 555
-#define ITEM_TM75 556
-#define ITEM_TM76 557
-#define ITEM_TM77 558
-#define ITEM_TM78 559
-#define ITEM_TM79 560
-#define ITEM_TM80 561
-#define ITEM_TM81 562
-#define ITEM_TM82 563
-#define ITEM_TM83 564
-#define ITEM_TM84 565
-#define ITEM_TM85 566
-#define ITEM_TM86 567
-#define ITEM_TM87 568
-#define ITEM_TM88 569
-#define ITEM_TM89 570
-#define ITEM_TM90 571
-#define ITEM_TM91 572
-#define ITEM_TM92 573
-#define ITEM_TM93 574
-#define ITEM_TM94 575
-#define ITEM_TM95 576
-#define ITEM_TM96 577
-#define ITEM_TM97 578
-#define ITEM_TM98 579
-#define ITEM_TM99 580
-#define ITEM_TM100 581
-#define ITEM_HM01 532 // CUT
-#define ITEM_HM02 533 // FLY
-#define ITEM_HM03 534 // SURF
-#define ITEM_HM04 535 // STRENGTH
-#define ITEM_HM05 536 // FLASH
-#define ITEM_HM06 537 // ROCK_SMASH
-#define ITEM_HM07 538 // WATERFALL
-#define ITEM_HM08 539 // DIVE
+#define ITEM_TM01 482 // Hone Claws
+#define ITEM_TM02 483 // Dragon Claw
+#define ITEM_TM03 484 // Psyshock
+#define ITEM_TM04 485 // Calm Mind
+#define ITEM_TM05 486 // Roar
+#define ITEM_TM06 487 // Toxic
+#define ITEM_TM07 488 // Hail
+#define ITEM_TM08 489 // Bulk Up
+#define ITEM_TM09 490 // Venoshock
+#define ITEM_TM10 491 // Hidden Power
+#define ITEM_TM11 492 // Sunny Day
+#define ITEM_TM12 493 // Taunt
+#define ITEM_TM13 494 // Ice Beam
+#define ITEM_TM14 495 // Blizzard
+#define ITEM_TM15 496 // Hyper Beam
+#define ITEM_TM16 497 // Light Screen
+#define ITEM_TM17 498 // Protect
+#define ITEM_TM18 499 // Rain Dance
+#define ITEM_TM19 500 // Roost
+#define ITEM_TM20 501 // Safeguard
+#define ITEM_TM21 502 // Frustration
+#define ITEM_TM22 503 // Solar Beam
+#define ITEM_TM23 504 // Smack Down
+#define ITEM_TM24 505 // Thunderbolt
+#define ITEM_TM25 506 // Thunder
+#define ITEM_TM26 507 // Earthquake
+#define ITEM_TM27 508 // Return
+#define ITEM_TM28 509 // Dig
+#define ITEM_TM29 510 // Psychic
+#define ITEM_TM30 511 // Shadow Ball
+#define ITEM_TM31 512 // Brick Break
+#define ITEM_TM32 513 // Double Team
+#define ITEM_TM33 514 // Reflect
+#define ITEM_TM34 515 // Sludge Wave
+#define ITEM_TM35 516 // Flamethrower
+#define ITEM_TM36 517 // Sludge Bomb
+#define ITEM_TM37 518 // Sandstorm
+#define ITEM_TM38 519 // Fire Blast
+#define ITEM_TM39 520 // Rock Tomb
+#define ITEM_TM40 521 // Aerial Ace
+#define ITEM_TM41 522 // Torment
+#define ITEM_TM42 523 // Facade
+#define ITEM_TM43 524 // Flame Charge
+#define ITEM_TM44 525 // Rest
+#define ITEM_TM45 526 // Attract
+#define ITEM_TM46 527 // Thief
+#define ITEM_TM47 528 // Low Sweep
+#define ITEM_TM48 529 // Round
+#define ITEM_TM49 530 // Echoed Voice
+#define ITEM_TM50 531 // Overheat
+#define ITEM_TM51 532 // Steel Wing
+#define ITEM_TM52 533 // Focus Blast
+#define ITEM_TM53 534 // Energy Ball
+#define ITEM_TM54 535 // False Swipe
+#define ITEM_TM55 536 // Scald
+#define ITEM_TM56 537 // Fling
+#define ITEM_TM57 538 // Charge Beam
+#define ITEM_TM58 539 // Sky Drop
+#define ITEM_TM59 540 // Incinerate
+#define ITEM_TM60 541 // Quash
+#define ITEM_TM61 542 // Will-O-Wisp
+#define ITEM_TM62 543 // Acrobatics
+#define ITEM_TM63 544 // Embargo
+#define ITEM_TM64 545 // Explosion
+#define ITEM_TM65 546 // Shadow Claw
+#define ITEM_TM66 547 // Payback
+#define ITEM_TM67 548 // Retaliate
+#define ITEM_TM68 549 // Giga Impact
+#define ITEM_TM69 550 // Rock Polish
+#define ITEM_TM70 551 // Flash
+#define ITEM_TM71 552 // Stone Edge
+#define ITEM_TM72 553 // Volt Switch
+#define ITEM_TM73 554 // Thunder Wave
+#define ITEM_TM74 555 // Gyro Ball
+#define ITEM_TM75 556 // Swords Dance
+#define ITEM_TM76 557 // Struggle Bug
+#define ITEM_TM77 558 // Psych Up
+#define ITEM_TM78 559 // Bulldoze
+#define ITEM_TM79 560 // Frost Breath
+#define ITEM_TM80 561 // Rock Slide
+#define ITEM_TM81 562 // X-Scissor
+#define ITEM_TM82 563 // Dragon Tail
+#define ITEM_TM83 564 // Infestation
+#define ITEM_TM84 565 // Poison Jab
+#define ITEM_TM85 566 // Dream Eater
+#define ITEM_TM86 567 // Grass Knot
+#define ITEM_TM87 568 // Swagger
+#define ITEM_TM88 569 // Sleep Talk
+#define ITEM_TM89 570 // U-turn
+#define ITEM_TM90 571 // Substitute
+#define ITEM_TM91 572 // Flash Cannon
+#define ITEM_TM92 573 // Trick Room
+#define ITEM_TM93 574 // Wild Charge
+#define ITEM_TM94 575 // Secret Power
+#define ITEM_TM95 576 // Snarl
+#define ITEM_TM96 577 // Nature Power
+#define ITEM_TM97 578 // Dark Pulse
+#define ITEM_TM98 579 // Power-Up Punch
+#define ITEM_TM99 580 // Dazzling Gleam
+#define ITEM_TM100 581 // Confide
+#define ITEM_HM01 582 // CUT
+#define ITEM_HM02 583 // FLY
+#define ITEM_HM03 584 // SURF
+#define ITEM_HM04 585 // STRENGTH
+#define ITEM_HM05 586 // WATERFALL
+#define ITEM_HM06 587 // ROCK_SMASH
+#define ITEM_HM07 588 // DIVE
 // FireRed/LeafGreen
 #define ITEM_OAKS_PARCEL 590
 #define ITEM_POKE_FLUTE 591
@@ -666,8 +665,8 @@
 
 #define ITEM_TO_BERRY(itemId)(((itemId - FIRST_BERRY_INDEX) + 1))
 
-#define NUM_TECHNICAL_MACHINES 50
-#define NUM_HIDDEN_MACHINES 8
+#define NUM_TECHNICAL_MACHINES 100
+#define NUM_HIDDEN_MACHINES 7
 
 // Check if the item is one that can be used on a Pokemon.
 #define ITEM_HAS_EFFECT(item) ((item) >= ITEM_POTION && (item) <= LAST_BERRY_INDEX)

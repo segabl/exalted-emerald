@@ -1348,7 +1348,7 @@ SootopolisCity_EventScript_Wallace:: @ 81E6446
 	faceplayer
 	compare VAR_SOOTOPOLIS_CITY_STATE, 4
 	goto_if_eq SootopolisCity_EventScript_GoToSkyPillar
-	goto_if_set FLAG_RECEIVED_HM07, SootopolisCity_EventScript_GoToGym
+	goto_if_set FLAG_RECEIVED_HM05, SootopolisCity_EventScript_GoToGym
 	goto_if_set FLAG_SOOTOPOLIS_ARCHIE_MAXIE_LEAVE, SootopolisCity_EventScript_GiveWaterfall
 	msgbox SootopolisCity_Text_AquaMagmaDidntMeanHarm, MSGBOX_DEFAULT
 	release
@@ -1356,8 +1356,8 @@ SootopolisCity_EventScript_Wallace:: @ 81E6446
 
 SootopolisCity_EventScript_GiveWaterfall:: @ 81E646F
 	msgbox SootopolisCity_Text_ThankYouForHelpAcceptThis, MSGBOX_DEFAULT
-	giveitem_std ITEM_HM07
-	setflag FLAG_RECEIVED_HM07
+	giveitem_std ITEM_HM05
+	setflag FLAG_RECEIVED_HM05
 	msgbox SootopolisCity_Text_ExplainWaterfallGoToGym, MSGBOX_DEFAULT
 	closemessage
 	compare VAR_FACING, DIR_NORTH
