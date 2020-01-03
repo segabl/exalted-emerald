@@ -719,7 +719,7 @@ enum
     FIELD_MOVE_FLASH,
 };
 
-static const u8 sFieldMoveBadgeOffsets[] = { 0, 2, 3, 4, 5, 6 }
+static const u8 sFieldMoveBadgeOffsets[] = { 0, 2, 3, 4, 5, 6 };
 
 // What a weird choice of table termination;
 #define FIELD_MOVE_TERMINATOR MOVE_SWORDS_DANCE

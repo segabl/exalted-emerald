@@ -33,5 +33,5 @@ GraniteCave_1F_Text_ExplainFlash: @ 822DBB7
 	.string "Teach that move FLASH to\n"
 	.string "a POKéMON and use it.\p"
 	.string "It lights up even the inky darkness\n"
-	.string "of caves.\$"
+	.string "of caves.$"
 
