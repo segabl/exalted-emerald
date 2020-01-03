@@ -5779,7 +5779,7 @@ u32 CanSpeciesLearnTMHM(u16 species, u8 tm)
         return 0;
     if (species >= SPECIES_OLD_UNOWN_B && species <= SPECIES_OLD_UNOWN_Z)
         return CanSpeciesLearnTMHM(SPECIES_UNOWN, tm);
-    return gTMHMLearnsets[species][tm / 32] & (1 << (tm % 32));
+    return gTMHMLearnsets[species][tm / 32] & ((u32)1 << (tm % 32));
 }
 
 u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
