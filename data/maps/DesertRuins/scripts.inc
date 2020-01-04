@@ -66,6 +66,7 @@ DesertRuins_EventScript_Regirock:: @ 822DA02
 	playmoncry SPECIES_REGIROCK, 2
 	delay 40
 	waitmoncry
+	setvar VAR_NUM_MAXED_IVS, 3
 	setwildbattle SPECIES_REGIROCK, 40, ITEM_NONE
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special StartRegiBattle
