@@ -3712,14 +3712,14 @@
                 "species": "SPECIES_DUSKULL"
               },
               {
-                "max_level": 30,
-                "min_level": 29,
-                "species": "SPECIES_SHUPPET"
+                "max_level": 28,
+                "min_level": 22,
+                "species": "SPECIES_MISDREAVUS"
               },
               {
-                "max_level": 30,
-                "min_level": 29,
-                "species": "SPECIES_DUSKULL"
+                "max_level": 28,
+                "min_level": 22,
+                "species": "SPECIES_GASTLY"
               },
               {
                 "max_level": 28,
@@ -3781,14 +3781,14 @@
                 "species": "SPECIES_DUSKULL"
               },
               {
-                "max_level": 30,
-                "min_level": 29,
-                "species": "SPECIES_SHUPPET"
+                "max_level": 28,
+                "min_level": 22,
+                "species": "SPECIES_MISDREAVUS"
               },
               {
-                "max_level": 30,
-                "min_level": 29,
-                "species": "SPECIES_DUSKULL"
+                "max_level": 28,
+                "min_level": 22,
+                "species": "SPECIES_GASTLY"
               },
               {
                 "max_level": 28,
@@ -3850,14 +3850,14 @@
                 "species": "SPECIES_DUSKULL"
               },
               {
-                "max_level": 30,
-                "min_level": 29,
-                "species": "SPECIES_SHUPPET"
+                "max_level": 28,
+                "min_level": 22,
+                "species": "SPECIES_MISDREAVUS"
               },
               {
-                "max_level": 30,
-                "min_level": 29,
-                "species": "SPECIES_DUSKULL"
+                "max_level": 28,
+                "min_level": 22,
+                "species": "SPECIES_GASTLY"
               },
               {
                 "max_level": 28,
@@ -3919,14 +3919,9 @@
                 "species": "SPECIES_DUSKULL"
               },
               {
-                "max_level": 30,
-                "min_level": 29,
-                "species": "SPECIES_SHUPPET"
-              },
-              {
-                "max_level": 30,
-                "min_level": 29,
-                "species": "SPECIES_DUSKULL"
+                "max_level": 28,
+                "min_level": 22,
+                "species": "SPECIES_MISDREAVUS"
               },
               {
                 "max_level": 28,
@@ -3937,6 +3932,11 @@
                 "max_level": 28,
                 "min_level": 22,
                 "species": "SPECIES_MISDREAVUS"
+              },
+              {
+                "max_level": 28,
+                "min_level": 22,
+                "species": "SPECIES_GASTLY"
               }
             ]
           },
@@ -3988,14 +3988,9 @@
                 "species": "SPECIES_DUSKULL"
               },
               {
-                "max_level": 30,
-                "min_level": 29,
-                "species": "SPECIES_SHUPPET"
-              },
-              {
-                "max_level": 30,
-                "min_level": 29,
-                "species": "SPECIES_DUSKULL"
+                "max_level": 28,
+                "min_level": 22,
+                "species": "SPECIES_MISDREAVUS"
               },
               {
                 "max_level": 28,
@@ -4006,6 +4001,11 @@
                 "max_level": 28,
                 "min_level": 22,
                 "species": "SPECIES_MISDREAVUS"
+              },
+              {
+                "max_level": 28,
+                "min_level": 22,
+                "species": "SPECIES_GASTLY"
               }
             ]
           },
@@ -4057,14 +4057,9 @@
                 "species": "SPECIES_DUSKULL"
               },
               {
-                "max_level": 30,
-                "min_level": 29,
-                "species": "SPECIES_SHUPPET"
-              },
-              {
-                "max_level": 30,
-                "min_level": 29,
-                "species": "SPECIES_DUSKULL"
+                "max_level": 28,
+                "min_level": 22,
+                "species": "SPECIES_MISDREAVUS"
               },
               {
                 "max_level": 28,
@@ -4075,6 +4070,11 @@
                 "max_level": 28,
                 "min_level": 22,
                 "species": "SPECIES_MISDREAVUS"
+              },
+              {
+                "max_level": 28,
+                "min_level": 22,
+                "species": "SPECIES_GASTLY"
               }
             ]
           },
