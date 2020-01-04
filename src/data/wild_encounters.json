@@ -10328,54 +10328,54 @@
                                 "species": "SPECIES_SPHEAL"
                             },
                             {
-                                "max_level": 28,
-                                "min_level": 28,
-                                "species": "SPECIES_ZUBAT"
-                            },
-                            {
-                                "max_level": 28,
+                                "max_level": 30,
                                 "min_level": 28,
                                 "species": "SPECIES_SPHEAL"
                             },
                             {
-                                "max_level": 30,
-                                "min_level": 30,
-                                "species": "SPECIES_ZUBAT"
-                            },
-                            {
-                                "max_level": 30,
-                                "min_level": 30,
-                                "species": "SPECIES_SPHEAL"
-                            },
-                            {
-                                "max_level": 26,
+                                "max_level": 28,
                                 "min_level": 26,
-                                "species": "SPECIES_SNORUNT"
-                            },
-                            {
-                                "max_level": 32,
-                                "min_level": 32,
                                 "species": "SPECIES_SPHEAL"
                             },
                             {
-                                "max_level": 30,
-                                "min_level": 30,
-                                "species": "SPECIES_GOLBAT"
-                            },
-                            {
-                                "max_level": 28,
+                                "max_level": 32,
                                 "min_level": 28,
                                 "species": "SPECIES_SNORUNT"
                             },
                             {
-                                "max_level": 32,
-                                "min_level": 32,
-                                "species": "SPECIES_GOLBAT"
+                                "max_level": 30,
+                                "min_level": 28,
+                                "species": "SPECIES_SNORUNT"
                             },
                             {
                                 "max_level": 30,
-                                "min_level": 30,
-                                "species": "SPECIES_SNORUNT"
+                                "min_level": 26,
+                                "species": "SPECIES_SNEASEL"
+                            },
+                            {
+                                "max_level": 32,
+                                "min_level": 28,
+                                "species": "SPECIES_JYNX"
+                            },
+                            {
+                                "max_level": 32,
+                                "min_level": 28,
+                                "species": "SPECIES_SWINUB"
+                            },
+                            {
+                                "max_level": 32,
+                                "min_level": 28,
+                                "species": "SPECIES_SWINUB"
+                            },
+                            {
+                                "max_level": 32,
+                                "min_level": 28,
+                                "species": "SPECIES_DELIBIRD"
+                            },
+                            {
+                                "max_level": 32,
+                                "min_level": 28,
+                                "species": "SPECIES_DELIBIRD"
                             }
                         ]
                     },
