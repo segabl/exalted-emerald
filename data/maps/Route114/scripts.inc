@@ -52,8 +52,6 @@ Route114_EventScript_RoarGentleman:: @ 81F25D1
 	goto_if_set FLAG_RECEIVED_TM05, Route114_EventScript_ReceivedRoar
 	msgbox Route114_Text_AllMyMonDoesIsRoarTakeThis, MSGBOX_DEFAULT
 	giveitem_std ITEM_TM05
-	compare VAR_RESULT, FALSE
-	goto_if_eq Common_EventScript_ShowBagIsFull
 	setflag FLAG_RECEIVED_TM05
 	msgbox Route114_Text_ExplainRoar, MSGBOX_DEFAULT
 	release

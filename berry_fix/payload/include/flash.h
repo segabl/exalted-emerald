@@ -49,7 +49,5 @@ bool32 flash_maincb_ident_is_valid(void);
 bool8 flash_maincb_read_save(u32);
 void msg_load_gfx(void);
 void msg_display(enum MsgBoxUpdateMessage);
-bool32 flash_maincb_check_need_reset_pacifidlog_tm(void);
-bool32 flash_maincb_reset_pacifidlog_tm(void);
 
 #endif //GUARD_FLASH_H

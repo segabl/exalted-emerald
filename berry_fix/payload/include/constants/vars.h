@@ -165,7 +165,7 @@
 #define VAR_METEOR_FALLS_STATE               0x40BF
 #define VAR_GAME_CORNER_STATE                0x40C0
 #define VAR_TRICK_HOUSE_PRIZE_PICKUP         0x40C1
-#define VAR_PACIFIDLOG_TM_RECEIVED_DAY       0x40C2
+#define VAR_UNUSED_0x40C2                    0x40C2 // Unused var
 #define VAR_VICTORY_ROAD_1F_STATE            0x40C3
 #define VAR_FOSSIL_RESURRECTION_STATE        0x40C4
 #define VAR_WHICH_FOSSIL_REVIVED             0x40C5

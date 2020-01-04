@@ -53,7 +53,6 @@ MossdeepCity_Gym_EventScript_TateAndLiza:: @ 8220898
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	compare VAR_RESULT, TRUE
 	goto_if_eq MossdeepCity_Gym_EventScript_TateAndLizaRematch
-	goto_if_unset FLAG_RECEIVED_TM04, MossdeepCity_Gym_EventScript_GiveCalmMind2
 	msgbox MossdeepCity_Gym_Text_TateAndLizaPostBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -90,19 +89,8 @@ MossdeepCity_Gym_EventScript_TateAndLizaDefeated:: @ 82208D1
 	release
 	end
 
-MossdeepCity_Gym_EventScript_GiveCalmMind2:: @ 8220937
-	giveitem_std ITEM_TM04
-	compare VAR_RESULT, 0
-	goto_if_eq Common_EventScript_ShowBagIsFull
-	msgbox MossdeepCity_Gym_Text_ExplainCalmMind, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM04
-	release
-	end
-
 MossdeepCity_Gym_EventScript_GiveCalmMind:: @ 822095B
 	giveitem_std ITEM_TM04
-	compare VAR_RESULT, 0
-	goto_if_eq Common_EventScript_BagIsFull
 	msgbox MossdeepCity_Gym_Text_ExplainCalmMind, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_TM04
 	return

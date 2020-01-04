@@ -366,14 +366,8 @@ PetalburgCity_Gym_EventScript_NormanPostBattle:: @ 8204D80
 	call PetalburgCity_Gym_EventScript_ShouldGiveEnigmaBerry
 	compare VAR_RESULT, TRUE
 	goto_if_eq PetalburgCity_Gym_EventScript_GiveEnigmaBerry
-	goto_if_unset FLAG_RECEIVED_TM67, PetalburgCity_Gym_EventScript_GiveRetaliate2
 	goto_if_set FLAG_SYS_GAME_CLEAR, PetalburgCity_Gym_EventScript_NoAmountOfTrainingIsEnough
 	msgbox PetalburgCity_Gym_Text_DadGoingToKeepTraining, MSGBOX_DEFAULT
-	release
-	end
-
-PetalburgCity_Gym_EventScript_GiveRetaliate2:: @ 8204DAC
-	call PetalburgCity_Gym_EventScript_GiveRetaliate
 	release
 	end
 
@@ -445,8 +439,6 @@ PetalburgCity_Gym_EventScript_NormanBattle:: @ 8204E3B
 
 PetalburgCity_Gym_EventScript_GiveRetaliate:: @ 8204ED2
 	giveitem_std ITEM_TM67
-	compare VAR_RESULT, 0
-	goto_if_eq Common_EventScript_BagIsFull
 	setflag FLAG_RECEIVED_TM67
 	msgbox PetalburgCity_Gym_Text_ExplainRetaliate, MSGBOX_DEFAULT
 	return

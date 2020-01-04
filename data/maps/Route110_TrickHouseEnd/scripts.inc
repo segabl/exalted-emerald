@@ -113,8 +113,6 @@ Route110_TrickHouseEnd_EventScript_CompletedPuzzle5:: @ 826AE74
 	msgbox Route110_TrickHouseEnd_Text_YouHaveEarnedThisReward, MSGBOX_DEFAULT
 	setvar VAR_TRICK_HOUSE_PRIZE_PICKUP, 0
 	giveitem_std ITEM_TM12
-	compare VAR_RESULT, FALSE
-	call_if_eq Route110_TrickHouseEnd_EventScript_BagFull
 	msgbox Route110_TrickHouseEnd_Text_MakeNewTricksToStumpYou, MSGBOX_DEFAULT
 	closemessage
 	call Route110_TrickHouseEnd_EventScript_TrickMasterExit

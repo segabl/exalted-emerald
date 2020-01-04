@@ -6,7 +6,6 @@ RustboroCity_Gym_EventScript_Roxanne:: @ 8212F31
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	compare VAR_RESULT, TRUE
 	goto_if_eq RustboroCity_Gym_EventScript_RoxanneRematch
-	goto_if_unset FLAG_RECEIVED_TM39, RustboroCity_Gym_EventScript_GiveRockTomb
 	msgbox RustboroCity_Gym_Text_RoxannePostBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -29,8 +28,6 @@ RustboroCity_Gym_EventScript_RoxanneDefeated:: @ 8212F66
 
 RustboroCity_Gym_EventScript_GiveRockTomb:: @ 8212FA4
 	giveitem_std ITEM_TM39
-	compare VAR_RESULT, 0
-	goto_if_eq Common_EventScript_ShowBagIsFull
 	setflag FLAG_RECEIVED_TM39
 	msgbox RustboroCity_Gym_Text_ExplainRockTomb, MSGBOX_DEFAULT
 	release

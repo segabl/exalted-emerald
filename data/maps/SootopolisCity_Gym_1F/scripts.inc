@@ -87,7 +87,6 @@ SootopolisCity_Gym_1F_EventScript_Juan:: @ 8224F44
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	compare VAR_RESULT, TRUE
 	goto_if_eq SootopolisCity_Gym_1F_EventScript_JuanRematch
-	goto_if_unset FLAG_RECEIVED_TM03, SootopolisCity_Gym_1F_EventScript_GiveWaterPulse2
 	goto_if_unset FLAG_BADGE06_GET, SootopolisCity_Gym_1F_EventScript_GoGetFortreeBadge
 	msgbox SootopolisCity_Gym_1F_Text_JuanPostBattle, MSGBOX_DEFAULT
 	release
@@ -121,20 +120,9 @@ SootopolisCity_Gym_1F_EventScript_JuanDefeated:: @ 8224F82
 
 SootopolisCity_Gym_1F_EventScript_GiveWaterPulse:: @ 8224FD4
 	giveitem_std ITEM_TM03
-	compare VAR_RESULT, 0
-	goto_if_eq Common_EventScript_BagIsFull
 	msgbox SootopolisCity_Gym_1F_Text_ExplainWaterPulse, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_TM03
 	return
-
-SootopolisCity_Gym_1F_EventScript_GiveWaterPulse2:: @ 8224FF7
-	giveitem_std ITEM_TM03
-	compare VAR_RESULT, 0
-	goto_if_eq Common_EventScript_ShowBagIsFull
-	msgbox SootopolisCity_Gym_1F_Text_ExplainWaterPulse, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM03
-	release
-	end
 
 SootopolisCity_Gym_1F_EventScript_GoGetFortreeBadge:: @ 822501B
 	msgbox SootopolisCity_Gym_1F_Text_GoGetFortreeBadge, MSGBOX_DEFAULT

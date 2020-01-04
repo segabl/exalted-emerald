@@ -7,8 +7,6 @@ SSTidalRooms_EventScript_EmbargoGiver:: @ 823C9F2
 	goto_if_set FLAG_RECEIVED_TM63, SSTidalRooms_EventScript_ExplainEmbargo
 	msgbox SSTidalRooms_Text_NotSuspiciousTakeThis, MSGBOX_DEFAULT
 	giveitem_std ITEM_TM63
-	compare VAR_RESULT, FALSE
-	goto_if_eq Common_EventScript_ShowBagIsFull
 	setflag FLAG_RECEIVED_TM63
 	msgbox SSTidalRooms_Text_ExplainEmbargo, MSGBOX_DEFAULT
 	release

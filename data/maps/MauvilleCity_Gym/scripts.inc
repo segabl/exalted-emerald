@@ -78,7 +78,6 @@ MauvilleCity_Gym_EventScript_Wattson:: @ 820DEEB
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	compare VAR_RESULT, TRUE
 	goto_if_eq MauvilleCity_Gym_EventScript_WattsonRematch
-	goto_if_unset FLAG_RECEIVED_TM34, MauvilleCity_Gym_EventScript_GiveShockWave2
 	compare VAR_NEW_MAUVILLE_STATE, 2
 	goto_if_eq MauvilleCity_Gym_EventScript_CompletedNewMauville
 	msgbox MauvilleCity_Gym_Text_WattsonPostBattle, MSGBOX_DEFAULT
@@ -102,7 +101,7 @@ MauvilleCity_Gym_EventScript_WattsonDefeated:: @ 820DF2B
 	special MauvilleGymDeactivatePuzzle
 	special DrawWholeMapView
 	playse SE_KI_GASYAN
-	call MauvilleCity_Gym_EventScript_GiveShockWave
+	call MauvilleCity_Gym_EventScript_GiveVoltSwitch
 	closemessage
 	delay 30
 	playfanfare MUS_ME_TORE_EYE
@@ -114,21 +113,10 @@ MauvilleCity_Gym_EventScript_WattsonDefeated:: @ 820DF2B
 	release
 	end
 
-MauvilleCity_Gym_EventScript_GiveShockWave2:: @ 820DF8D
-	giveitem_std ITEM_TM34
-	compare VAR_RESULT, 0
-	goto_if_eq Common_EventScript_ShowBagIsFull
-	msgbox MauvilleCity_Gym_Text_ExplainShockWave, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM34
-	release
-	end
-
-MauvilleCity_Gym_EventScript_GiveShockWave:: @ 820DFB1
-	giveitem_std ITEM_TM34
-	compare VAR_RESULT, 0
-	goto_if_eq Common_EventScript_BagIsFull
-	msgbox MauvilleCity_Gym_Text_ExplainShockWave, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM34
+MauvilleCity_Gym_EventScript_GiveVoltSwitch:: @ 820DFB1
+	giveitem_std ITEM_TM72
+	msgbox MauvilleCity_Gym_Text_ExplainVoltSwitch, MSGBOX_DEFAULT
+	setflag FLAG_RECEIVED_TM72
 	return
 
 MauvilleCity_Gym_EventScript_CompletedNewMauville:: @ 820DFD4
@@ -370,11 +358,13 @@ MauvilleCity_Gym_Text_ExplainDynamoBadgeTakeThis: @ 820E7AA
 	.string "Hmm…\n"
 	.string "You should take this, too!$"
 
-MauvilleCity_Gym_Text_ExplainShockWave: @ 820E844
-	.string "That TM34 there contains SHOCK WAVE.\p"
-	.string "It's a trustworthy move that never\n"
-	.string "misses! You can count on it!\p"
-	.string "… … … … … …$"
+MauvilleCity_Gym_Text_ExplainVoltSwitch: @ 820E844
+	.string "That TM72 there contains VOLT SWITCH.\p"
+	.string "After your POKéMON attacked,\n"
+	.string "it switches places with an ally.\p"
+	.string "It's the perfect move if you need\n"
+	.string "to deal some damage before\l"
+	.string "switching out your POKéMON!$"
 
 MauvilleCity_Gym_Text_RegisteredWattson: @ 820E8B5
 	.string "Registered GYM LEADER WATTSON\n"

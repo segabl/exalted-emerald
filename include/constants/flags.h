@@ -180,7 +180,7 @@
 #define FLAG_TOUGH_PAINTING_MADE             0xA4
 #define FLAG_RECEIVED_TM39                   0xA5
 #define FLAG_RECEIVED_TM08                   0xA6
-#define FLAG_RECEIVED_TM34                   0xA7
+#define FLAG_RECEIVED_TM72                   0xA7
 #define FLAG_RECEIVED_TM50                   0xA8
 #define FLAG_RECEIVED_TM67                   0xA9
 #define FLAG_RECEIVED_TM99                   0xAA
@@ -244,7 +244,7 @@
 #define FLAG_RECEIVED_STARTER_DOLL           0xE2
 #define FLAG_RECEIVED_GOOD_ROD               0xE3
 #define FLAG_REGI_DOORS_OPENED               0xE4
-#define FLAG_RECEIVED_TM27                   0xE5
+#define FLAG_RETURNED_METEORITE              0xE5
 #define FLAG_RECEIVED_TM36                   0xE6
 #define FLAG_RECEIVED_TM05                   0xE7
 #define FLAG_RECEIVED_TM19                   0xE8
@@ -316,7 +316,9 @@
 #define FLAG_PETALBURG_MART_EXPANDED_ITEMS   0x128
 #define FLAG_RECEIVED_MIRACLE_SEED           0x129
 #define FLAG_RECEIVED_BELDUM                 0x12A
-#define FLAG_RECEIVED_FANCLUB_TM_THIS_WEEK   0x12B
+
+#define FLAG_UNUSED_0x12B                    0x12B  // Unused flag
+
 #define FLAG_MET_FANCLUB_YOUNGER_BROTHER     0x12C
 #define FLAG_RIVAL_LEFT_FOR_ROUTE103         0x12D
 #define FLAG_OMIT_DIVE_FROM_STEVEN_LETTER    0x12E
@@ -449,10 +451,8 @@
 #define FLAG_REMATCH_GLACIA                  0x1A7
 #define FLAG_REMATCH_DRAKE                   0x1A8
 #define FLAG_REMATCH_WALLACE                 0x1A9
-
-#define FLAG_UNUSED_0x1AA                    0x1AA // Unused Flag
-#define FLAG_UNUSED_0x1AB                    0x1AB // Unused Flag
-
+#define FLAG_RECEIVED_TM27                   0x1AA
+#define FLAG_RECEIVED_TM21                   0x1AB
 #define FLAG_DEFEATED_DEOXYS                 0x1AC
 #define FLAG_BATTLED_DEOXYS                  0x1AD
 #define FLAG_HAS_EON_TICKET                  0x1AE

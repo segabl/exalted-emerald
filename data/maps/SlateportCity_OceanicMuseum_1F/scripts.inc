@@ -152,8 +152,6 @@ SlateportCity_OceanicMuseum_1F_EventScript_FamiliarGrunt:: @ 820AEF8
 	waitmovement 0
 	msgbox SlateportCity_OceanicMuseum_1F_Text_RememberMeTakeThis, MSGBOX_DEFAULT
 	giveitem_std ITEM_TM46
-	compare VAR_RESULT, 0
-	goto_if_eq SlateportCity_OceanicMuseum_1F_EventScript_NoRoomForThief
 	setflag FLAG_RECEIVED_TM46
 	msgbox SlateportCity_OceanicMuseum_1F_Text_HopeINeverSeeYouAgain, MSGBOX_DEFAULT
 	closemessage
@@ -191,11 +189,6 @@ SlateportCity_OceanicMuseum_1F_EventScript_FamiliarGruntExited:: @ 820AFAA
 	setflag FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_FAMILIAR_AQUA_GRUNT
 	playse SE_KAIDAN
 	removeobject 13
-	release
-	end
-
-SlateportCity_OceanicMuseum_1F_EventScript_NoRoomForThief:: @ 820AFB5
-	msgbox SlateportCity_OceanicMuseum_1F_Text_YouHaveToTakeThis, MSGBOX_DEFAULT
 	release
 	end
 
@@ -307,10 +300,6 @@ SlateportCity_OceanicMuseum_1F_Text_HopeINeverSeeYouAgain: @ 820B449
 	.string "does me.\p"
 	.string "Hope I never see you again!\n"
 	.string "Wahahaha!$"
-
-SlateportCity_OceanicMuseum_1F_Text_YouHaveToTakeThis: @ 820B49B
-	.string "Awww, come on!\n"
-	.string "You have to take this and let me go!$"
 
 SlateportCity_OceanicMuseum_1F_Text_WhirlpoolExperiment: @ 820B4CF
 	.string "A blue fluid is spiraling inside\n"

@@ -216,8 +216,6 @@ void main_callback(u32 * state, void * unused1, void * unused2)
             {
                 if (year == 0)
                     ++(*state); // MAINCB_FIX_DATE
-                else
-                    *state = MAINCB_CHECK_PACIFIDLOG_TM;
             }
             else
             {
@@ -230,23 +228,6 @@ void main_callback(u32 * state, void * unused1, void * unused2)
         case MAINCB_FIX_DATE:
             rtc_maincb_fix_date();
             gUpdateSuccessful |= 1;
-            *state = MAINCB_CHECK_PACIFIDLOG_TM;
-            break;
-        case MAINCB_CHECK_PACIFIDLOG_TM:
-            if (flash_maincb_check_need_reset_pacifidlog_tm() == TRUE)
-                *state = MAINCB_FINISHED;
-            else
-                *state = MAINCB_FIX_PACIFIDLOG_TM;
-            break;
-        case MAINCB_FIX_PACIFIDLOG_TM:
-            msg_display(MSGBOX_UPDATING);
-            if (flash_maincb_reset_pacifidlog_tm() == TRUE)
-            {
-                gUpdateSuccessful |= 1;
-                *state = MAINCB_FINISHED;
-            }
-            else
-                *state = MAINCB_ERROR;
             break;
         case MAINCB_FINISHED:
             if (gUpdateSuccessful == 0)

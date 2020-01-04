@@ -439,8 +439,6 @@ MauvilleCity_EventScript_BegunNewMauville:: @ 81DF77A
 MauvilleCity_EventScript_CompletedNewMauville:: @ 81DF784
 	msgbox MauvilleCity_Text_WattsonThanksTakeTM, MSGBOX_DEFAULT
 	giveitem_std ITEM_TM24
-	compare VAR_RESULT, FALSE
-	goto_if_eq Common_EventScript_ShowBagIsFull
 	setflag FLAG_GOT_TM24_FROM_WATTSON
 	msgbox MauvilleCity_Text_WattsonYoungTakeCharge, MSGBOX_DEFAULT
 	release

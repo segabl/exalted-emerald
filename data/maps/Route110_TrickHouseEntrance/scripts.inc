@@ -410,8 +410,6 @@ Route110_TrickHouseEntrance_EventScript_GivePuzzle5Reward:: @ 8269F9F
 	giveitem_std ITEM_TM12
 	compare VAR_RESULT, TRUE
 	goto_if_eq Route110_TrickHouseEntrance_EventScript_GotReward
-	compare VAR_RESULT, FALSE
-	call_if_eq Common_EventScript_BagIsFull
 	msgbox Route110_TrickHouseEntrance_Text_DidYouNotComeToClaimReward, MSGBOX_DEFAULT
 	releaseall
 	end

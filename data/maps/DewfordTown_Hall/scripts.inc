@@ -255,8 +255,6 @@ DewfordTown_Hall_EventScript_SludgeBombMan:: @ 81FD7DA
 	goto_if_set FLAG_RECEIVED_TM36, DewfordTown_Hall_EventScript_ReceivedSludgeBomb
 	msgbox DewfordTown_Hall_Text_GiveYouSludgeBomb, MSGBOX_DEFAULT
 	giveitem_std ITEM_TM36
-	compare VAR_RESULT, FALSE
-	goto_if_eq Common_EventScript_ShowBagIsFull
 	setflag FLAG_RECEIVED_TM36
 	release
 	end

@@ -725,28 +725,3 @@ u16 * get_var_addr(u16 a0)
         return &gSaveBlock1.vars[a0 - VARS_START];
     return NULL;
 }
-
-bool32 flash_maincb_check_need_reset_pacifidlog_tm(void)
-{
-    u8 sp0;
-    u16 * data = get_var_addr(VAR_PACIFIDLOG_TM_RECEIVED_DAY);
-    rtc_maincb_is_time_since_last_berry_update_positive(&sp0);
-    if (*data <= gRtcUTCTime.days)
-        return TRUE;
-    else
-        return FALSE;
-}
-
-bool32 flash_maincb_reset_pacifidlog_tm(void)
-{
-    u8 sp0;
-    if (flash_maincb_check_need_reset_pacifidlog_tm() == TRUE)
-        return TRUE;
-    rtc_maincb_is_time_since_last_berry_update_positive(&sp0);
-    if (gRtcUTCTime.days < 0)
-        return FALSE;
-    *get_var_addr(VAR_PACIFIDLOG_TM_RECEIVED_DAY) = 1;
-    if (flash_write_save_block_chunks_check_damage(0) != TRUE)
-        return FALSE;
-    return TRUE;
-}

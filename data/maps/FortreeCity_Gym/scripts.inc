@@ -20,7 +20,6 @@ FortreeCity_Gym_EventScript_Winona:: @ 82165C8
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	compare VAR_RESULT, TRUE
 	goto_if_eq FortreeCity_Gym_EventScript_WinonaRematch
-	goto_if_unset FLAG_RECEIVED_TM19, FortreeCity_Gym_EventScript_GiveRoost2
 	msgbox FortreeCity_Gym_Text_WinonaPostBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -48,19 +47,8 @@ FortreeCity_Gym_EventScript_WinonaDefeated:: @ 82165FD
 	release
 	end
 
-FortreeCity_Gym_EventScript_GiveRoost2:: @ 8216646
-	giveitem_std ITEM_TM19
-	compare VAR_RESULT, 0
-	goto_if_eq Common_EventScript_ShowBagIsFull
-	msgbox FortreeCity_Gym_Text_ExplainRoost, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM19
-	release
-	end
-
 FortreeCity_Gym_EventScript_GiveRoost:: @ 821666A
 	giveitem_std ITEM_TM19
-	compare VAR_RESULT, 0
-	goto_if_eq Common_EventScript_BagIsFull
 	msgbox FortreeCity_Gym_Text_ExplainRoost, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_TM19
 	return

@@ -45,8 +45,6 @@ Route111_EventScript_SecretPowerMan:: @ 82765FF
 
 Route111_EventScript_GiveSecretPower:: @ 827661E
 	giveitem_std ITEM_TM94
-	compare VAR_RESULT, FALSE
-	goto_if_eq Route111_EventScript_NoRoomForSecretPower
 	msgbox Route111_Text_ExplainSecretPower, MSGBOX_DEFAULT
 	closemessage
 	setflag FLAG_RECEIVED_SECRET_POWER
@@ -69,11 +67,6 @@ Route111_EventScript_SecretPowerManExitNorth:: @ 8276675
 	applymovement VAR_LAST_TALKED, Route111_Movement_SecretPowerManExitNorth
 	waitmovement 0
 	return
-
-Route111_EventScript_NoRoomForSecretPower:: @ 8276680
-	msgbox Route111_Text_DontHaveAnyRoom, MSGBOX_DEFAULT
-	release
-	end
 
 Route111_Movement_SecretPowerManExit: @ 827668A
 	walk_down

@@ -155,7 +155,6 @@ DewfordTown_Gym_EventScript_Brawly:: @ 81FC7C2
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	compare VAR_RESULT, TRUE
 	goto_if_eq DewfordTown_Gym_EventScript_BrawlyRematch
-	goto_if_unset FLAG_RECEIVED_TM08, DewfordTown_Gym_EventScript_GiveBulkUp2
 	msgbox DewfordTown_Gym_Text_BrawlyPostBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -189,20 +188,9 @@ DewfordTown_Gym_EventScript_BrawlyDefeated:: @ 81FC7F7
 
 DewfordTown_Gym_EventScript_GiveBulkUp:: @ 81FC855
 	giveitem_std ITEM_TM08
-	compare VAR_RESULT, 0
-	goto_if_eq Common_EventScript_BagIsFull
 	msgbox DewfordTown_Gym_Text_ExplainBulkUp, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_TM08
 	return
-
-DewfordTown_Gym_EventScript_GiveBulkUp2: @ 81FC878
-	giveitem_std ITEM_TM08
-	compare VAR_RESULT, 0
-	goto_if_eq Common_EventScript_ShowBagIsFull
-	msgbox DewfordTown_Gym_Text_ExplainBulkUp, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM08
-	release
-	end
 
 DewfordTown_Gym_EventScript_BrawlyRematch:: @ 81FC89C
 	trainerbattle_rematch_double TRAINER_BRAWLY_1, DewfordTown_Gym_Text_BrawlyPreRematch, DewfordTown_Gym_Text_BrawlyRematchDefeat, DewfordTown_Gym_Text_BrawlyRematchNeedTwoMons

@@ -341,8 +341,6 @@ Route104_EventScript_Boy2:: @ 81ED057
 	goto_if_set FLAG_RECEIVED_TM49, Route104_EventScript_ReceivedEchoedVoice
 	msgbox Route104_Text_NoEchoDownHere, MSGBOX_DEFAULT
 	giveitem_std ITEM_TM49
-	compare VAR_RESULT, FALSE
-	goto_if_eq Common_EventScript_ShowBagIsFull
 	setflag FLAG_RECEIVED_TM49
 	release
 	end
