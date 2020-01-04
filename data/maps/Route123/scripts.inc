@@ -6,29 +6,30 @@ Route123_OnTransition: @ 81F614D
 	special SetRoute123Weather
 	end
 
-Route123_EventScript_GigaDrainGirl:: @ 81F6151
+Route123_EventScript_DazzlingGleamGirl:: @ 81F6151
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_TM19, Route123_EventScript_ReceivedGigaDrain
-	msgbox Route123_Text_LoveGrassMonsHaveAny, MSGBOX_DEFAULT
-	special IsGrassTypeInParty
+	goto_if_set FLAG_RECEIVED_TM99, Route123_EventScript_ReceivedDazzlingGleam
+	msgbox Route123_Text_LoveFairyMonsHaveAny, MSGBOX_DEFAULT
+	setvar VAR_0x8000, TYPE_FAIRY
+	special IsTypeInParty
 	compare VAR_RESULT, FALSE
-	goto_if_eq Route123_EventScript_NoGrassMons
-	msgbox Route123_Text_YouLikeGrassMonsTooHaveThis, MSGBOX_DEFAULT
-	giveitem_std ITEM_TM19
+	goto_if_eq Route123_EventScript_NoFairyMons
+	msgbox Route123_Text_YouLikeFairyMonsTooHaveThis, MSGBOX_DEFAULT
+	giveitem_std ITEM_TM99
 	compare VAR_RESULT, FALSE
 	goto_if_eq Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_TM19
-	msgbox Route123_Text_CheckTreesWithMyGrassMon, MSGBOX_DEFAULT
+	setflag FLAG_RECEIVED_TM99
+	msgbox Route123_Text_StrollsWithMyFairyMon, MSGBOX_DEFAULT
 	release
 	end
 
-Route123_EventScript_NoGrassMons:: @ 81F619E
+Route123_EventScript_NoFairyMons:: @ 81F619E
 	release
 	end
 
-Route123_EventScript_ReceivedGigaDrain:: @ 81F61A0
-	msgbox Route123_Text_CheckTreesWithMyGrassMon, MSGBOX_DEFAULT
+Route123_EventScript_ReceivedDazzlingGleam:: @ 81F61A0
+	msgbox Route123_Text_StrollsWithMyFairyMon, MSGBOX_DEFAULT
 	release
 	end
 
@@ -175,19 +176,19 @@ Route123_EventScript_RematchFernando:: @ 81F6407
 	msgbox Route123_Text_FernandoPostRematch, MSGBOX_AUTOCLOSE
 	end
 
-Route123_Text_LoveGrassMonsHaveAny: @ 81F641E
-	.string "I love GRASS-type POKéMON!\p"
-	.string "Do you have any GRASS-type POKéMON?$"
+Route123_Text_LoveFairyMonsHaveAny: @ 81F641E
+	.string "I love FAIRY-type POKéMON!\p"
+	.string "Do you have any FAIRY-type POKéMON?$"
 
-Route123_Text_YouLikeGrassMonsTooHaveThis: @ 81F645D
+Route123_Text_YouLikeFairyMonsTooHaveThis: @ 81F645D
 	.string "Oh?\p"
-	.string "You like GRASS-type POKéMON, too,\n"
+	.string "You like FAIRY-type POKéMON, too,\n"
 	.string "don't you?\p"
 	.string "I'm so happy, you can have this!\n"
 	.string "It's a token of our friendship.$"
 
-Route123_Text_CheckTreesWithMyGrassMon: @ 81F64CF
-	.string "I check trees with my GRASS-type\n"
+Route123_Text_StrollsWithMyFairyMon: @ 81F64CF
+	.string "I love strolls with my FAIRY-type\n"
 	.string "POKéMON. I'm like a tree doctor.$"
 
 Route123_Text_RouteSign: @ 81F6511

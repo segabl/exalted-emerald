@@ -299,16 +299,16 @@
       "flag": "FLAG_ITEM_ROUTE_123_CALCIUM"
     },
     {
-      "graphics_id": "EVENT_OBJ_GFX_GIRL_3",
-      "x": 108,
-      "y": 13,
+      "graphics_id": "EVENT_OBJ_GFX_GIRL_2",
+      "x": 114,
+      "y": 15,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 6,
+      "movement_range_y": 2,
       "trainer_type": "0",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route123_EventScript_GigaDrainGirl",
+      "script": "Route123_EventScript_DazzlingGleamGirl",
       "flag": "0"
     },
     {

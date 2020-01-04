@@ -1,21 +1,21 @@
 SSTidalRooms_MapScripts:: @ 823C9F1
 	.byte 0
 
-SSTidalRooms_EventScript_SnatchGiver:: @ 823C9F2
+SSTidalRooms_EventScript_EmbargoGiver:: @ 823C9F2
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_TM49, SSTidalRooms_EventScript_ExplainSnatch
+	goto_if_set FLAG_RECEIVED_TM63, SSTidalRooms_EventScript_ExplainEmbargo
 	msgbox SSTidalRooms_Text_NotSuspiciousTakeThis, MSGBOX_DEFAULT
-	giveitem_std ITEM_TM49
+	giveitem_std ITEM_TM63
 	compare VAR_RESULT, FALSE
 	goto_if_eq Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_TM49
-	msgbox SSTidalRooms_Text_ExplainSnatch, MSGBOX_DEFAULT
+	setflag FLAG_RECEIVED_TM63
+	msgbox SSTidalRooms_Text_ExplainEmbargo, MSGBOX_DEFAULT
 	release
 	end
 
-SSTidalRooms_EventScript_ExplainSnatch:: @ 823CA29
-	msgbox SSTidalRooms_Text_ExplainSnatch, MSGBOX_DEFAULT
+SSTidalRooms_EventScript_ExplainEmbargo:: @ 823CA29
+	msgbox SSTidalRooms_Text_ExplainEmbargo, MSGBOX_DEFAULT
 	release
 	end
 
@@ -163,14 +163,13 @@ SSTidalRooms_Text_NaomiPostBattle: @ 823D013
 	.string "side to touring HOENN by ferry.$"
 
 SSTidalRooms_Text_NotSuspiciousTakeThis: @ 823D098
-	.string "Uh… Hi! I… I'm not acting suspicious!\n"
-	.string "Uh… You can have this! For free!\p"
-	.string "It… Honestly, I didn't SNATCH it from\n"
-	.string "someone! I'd never do such a thing!\l"
-	.string "It's clean! You can use it!$"
+	.string "Uh… While I was out looking for POKéMON\n"
+	.string "someone seized all the items from my room!\p"
+	.string "Everything is gone, I only have this\n"
+	.string "thing left…\p"
+	.string "Here, you can have it…$"
 
-SSTidalRooms_Text_ExplainSnatch: @ 823D145
-	.string "SNATCH steals the beneficial effects\n"
-	.string "of certain moves before they can be\l"
-	.string "used by a foe or ally.$"
+SSTidalRooms_Text_ExplainEmbargo: @ 823D145
+	.string "EMBARGO prevents the targeted POKéMON\n"
+	.string "from using its held item for five turns.$"
 

@@ -366,14 +366,14 @@ PetalburgCity_Gym_EventScript_NormanPostBattle:: @ 8204D80
 	call PetalburgCity_Gym_EventScript_ShouldGiveEnigmaBerry
 	compare VAR_RESULT, TRUE
 	goto_if_eq PetalburgCity_Gym_EventScript_GiveEnigmaBerry
-	goto_if_unset FLAG_RECEIVED_TM42, PetalburgCity_Gym_EventScript_GiveFacade2
+	goto_if_unset FLAG_RECEIVED_TM67, PetalburgCity_Gym_EventScript_GiveRetaliate2
 	goto_if_set FLAG_SYS_GAME_CLEAR, PetalburgCity_Gym_EventScript_NoAmountOfTrainingIsEnough
 	msgbox PetalburgCity_Gym_Text_DadGoingToKeepTraining, MSGBOX_DEFAULT
 	release
 	end
 
-PetalburgCity_Gym_EventScript_GiveFacade2:: @ 8204DAC
-	call PetalburgCity_Gym_EventScript_GiveFacade
+PetalburgCity_Gym_EventScript_GiveRetaliate2:: @ 8204DAC
+	call PetalburgCity_Gym_EventScript_GiveRetaliate
 	release
 	end
 
@@ -429,7 +429,7 @@ PetalburgCity_Gym_EventScript_NormanBattle:: @ 8204E3B
 	clearflag FLAG_HIDE_DEWFORD_HALL_SLUDGE_BOMB_MAN
 	call PetalburgCity_Gym_EventScript_UnlockAllDoors
 	special DrawWholeMapView
-	call PetalburgCity_Gym_EventScript_GiveFacade
+	call PetalburgCity_Gym_EventScript_GiveRetaliate
 	delay 30
 	msgbox PetalburgCity_Gym_Text_DadHappyAndSad, MSGBOX_DEFAULT
 	closemessage
@@ -443,12 +443,12 @@ PetalburgCity_Gym_EventScript_NormanBattle:: @ 8204E3B
 	case DIR_EAST, PetalburgCity_Gym_EventScript_WallysUncleArrivesEast
 	end
 
-PetalburgCity_Gym_EventScript_GiveFacade:: @ 8204ED2
-	giveitem_std ITEM_TM42
+PetalburgCity_Gym_EventScript_GiveRetaliate:: @ 8204ED2
+	giveitem_std ITEM_TM67
 	compare VAR_RESULT, 0
 	goto_if_eq Common_EventScript_BagIsFull
-	setflag FLAG_RECEIVED_TM42
-	msgbox PetalburgCity_Gym_Text_ExplainFacade, MSGBOX_DEFAULT
+	setflag FLAG_RECEIVED_TM67
+	msgbox PetalburgCity_Gym_Text_ExplainRetaliate, MSGBOX_DEFAULT
 	return
 
 PetalburgCity_Gym_EventScript_WallysUncleArrivesNorth:: @ 8204EF5
@@ -1391,11 +1391,11 @@ PetalburgCity_Gym_Text_ExplainBalanceBadgeTakeThis: @ 820618A
 	.string "This is my gift to you. {PLAYER}, I'm\n"
 	.string "sure you can use it correctly.$"
 
-PetalburgCity_Gym_Text_ExplainFacade: @ 8206254
-	.string "DAD: TM42 contains FACADE.\p"
-	.string "It doubles the power of moves if\n"
-	.string "the POKéMON is poisoned, paralyzed,\l"
-	.string "or burned.\p"
+PetalburgCity_Gym_Text_ExplainRetaliate: @ 8206254
+	.string "DAD: TM67 contains RETALIATE.\p"
+	.string "It doubles the power of the move\n"
+	.string "if an ally was fainted in the\l"
+	.string "previous turn.\p"
 	.string "It might be able to turn a bad\n"
 	.string "situation into an advantage.$"
 

@@ -377,8 +377,8 @@ FieryPath_EventScript_ItemTM06:: @ 829119E
 	finditem_std ITEM_TM06
 	end
 
-MeteorFalls_1F_1R_EventScript_ItemTM23:: @ 82911AB
-	finditem_std ITEM_TM23
+MeteorFalls_1F_1R_EventScript_ItemStarPiece:: @ 82911AB
+	finditem_std ITEM_STAR_PIECE
 	end
 
 MeteorFalls_1F_1R_EventScript_ItemFullHeal:: @ 82911B8
@@ -505,8 +505,8 @@ MtPyre_Exterior_EventScript_ItemMaxPotion:: @ 829133E
 	finditem_std ITEM_MAX_POTION
 	end
 
-MtPyre_Exterior_EventScript_ItemTM48:: @ 829134B
-	finditem_std ITEM_TM48
+MtPyre_Exterior_EventScript_ItemTM61:: @ 829134B
+	finditem_std ITEM_TM61
 	end
 
 AquaHideout_B1F_EventScript_ItemMasterBall:: @ 8291358

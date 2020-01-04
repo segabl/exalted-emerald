@@ -338,17 +338,17 @@ Route104_EventScript_Woman:: @ 81ED04E
 Route104_EventScript_Boy2:: @ 81ED057
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_TM09, Route104_EventScript_ReceivedBulletSeed
-	msgbox Route104_Text_LikeFillingMouthWithSeedsTakeThis, MSGBOX_DEFAULT
-	giveitem_std ITEM_TM09
+	goto_if_set FLAG_RECEIVED_TM49, Route104_EventScript_ReceivedEchoedVoice
+	msgbox Route104_Text_NoEchoDownHere, MSGBOX_DEFAULT
+	giveitem_std ITEM_TM49
 	compare VAR_RESULT, FALSE
 	goto_if_eq Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_TM09
+	setflag FLAG_RECEIVED_TM49
 	release
 	end
 
-Route104_EventScript_ReceivedBulletSeed:: @ 81ED086
-	msgbox Route104_Text_TMsAreOneTimeUse, MSGBOX_DEFAULT
+Route104_EventScript_ReceivedEchoedVoice:: @ 81ED086
+	msgbox Route104_Text_TMsAreInfiniteUse, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1044,14 +1044,15 @@ Route104_Text_ImNotATrainer: @ 81ED7A2
 	.string "If you don't want to battle, stay out\n"
 	.string "of their sight.$"
 
-Route104_Text_LikeFillingMouthWithSeedsTakeThis: @ 81ED838
-	.string "I like filling my mouth with seeds,\n"
-	.string "then spitting them out fast!\p"
+Route104_Text_NoEchoDownHere: @ 81ED838
+	.string "There is no echo here like\n"
+	.string "in caves or in the mountains,\l"
+	.string "that's why I like this move!\p"
 	.string "You can have this, so you try it out!\p"
-	.string "Use it on a POKéMON, and it will learn\n"
-	.string "a move for firing seeds rapidly.$"
+	.string "Use it on a POKéMON, and it will be\n"
+	.string "able to create an echoing sound.$"
 
-Route104_Text_TMsAreOneTimeUse: @ 81ED8E7
+Route104_Text_TMsAreInfiniteUse: @ 81ED8E7
 	.string "A TM, TECHNICAL MACHINE, has an\n"
 	.string "infinite amount of uses.\p"
 	.string "You can teach it to as many\n"

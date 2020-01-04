@@ -20,7 +20,7 @@ FortreeCity_Gym_EventScript_Winona:: @ 82165C8
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	compare VAR_RESULT, TRUE
 	goto_if_eq FortreeCity_Gym_EventScript_WinonaRematch
-	goto_if_unset FLAG_RECEIVED_TM40, FortreeCity_Gym_EventScript_GiveAerialAce2
+	goto_if_unset FLAG_RECEIVED_TM19, FortreeCity_Gym_EventScript_GiveRoost2
 	msgbox FortreeCity_Gym_Text_WinonaPostBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -34,7 +34,7 @@ FortreeCity_Gym_EventScript_WinonaDefeated:: @ 82165FD
 	setflag FLAG_BADGE06_GET
 	setvar VAR_0x8008, 6
 	call Common_EventScript_SetGymTrainers
-	call FortreeCity_Gym_EventScript_GiveAerialAce
+	call FortreeCity_Gym_EventScript_GiveRoost
 	closemessage
 	delay 30
 	playfanfare MUS_ME_TORE_EYE
@@ -48,21 +48,21 @@ FortreeCity_Gym_EventScript_WinonaDefeated:: @ 82165FD
 	release
 	end
 
-FortreeCity_Gym_EventScript_GiveAerialAce2:: @ 8216646
-	giveitem_std ITEM_TM40
+FortreeCity_Gym_EventScript_GiveRoost2:: @ 8216646
+	giveitem_std ITEM_TM19
 	compare VAR_RESULT, 0
 	goto_if_eq Common_EventScript_ShowBagIsFull
-	msgbox FortreeCity_Gym_Text_ExplainAerialAce, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM40
+	msgbox FortreeCity_Gym_Text_ExplainRoost, MSGBOX_DEFAULT
+	setflag FLAG_RECEIVED_TM19
 	release
 	end
 
-FortreeCity_Gym_EventScript_GiveAerialAce:: @ 821666A
-	giveitem_std ITEM_TM40
+FortreeCity_Gym_EventScript_GiveRoost:: @ 821666A
+	giveitem_std ITEM_TM19
 	compare VAR_RESULT, 0
 	goto_if_eq Common_EventScript_BagIsFull
-	msgbox FortreeCity_Gym_Text_ExplainAerialAce, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM40
+	msgbox FortreeCity_Gym_Text_ExplainRoost, MSGBOX_DEFAULT
+	setflag FLAG_RECEIVED_TM19
 	return
 
 FortreeCity_Gym_EventScript_WinonaRematch:: @ 821668D
@@ -263,11 +263,12 @@ FortreeCity_Gym_Text_ExplainFeatherBadgeTakeThis: @ 8216F17
 	.string "And this…\n"
 	.string "This is a gift from me.$"
 
-FortreeCity_Gym_Text_ExplainAerialAce: @ 8216FEC
-	.string "TM40 contains AERIAL ACE.\p"
-	.string "Its speed…\n"
-	.string "No POKéMON should be able to avoid it.\p"
-	.string "… … … … … …$"
+FortreeCity_Gym_Text_ExplainRoost: @ 8216FEC
+	.string "TM19 contains ROOST.\p"
+	.string "It allows the POKéMON to land\n"
+	.string "and recover some of its HP.\p"
+	.string "Keep in mind that it loses its.\n"
+	.string "FLYING type for one turn though.$"
 
 FortreeCity_Gym_Text_RegisteredWinona: @ 8217044
 	.string "Registered GYM LEADER WINONA\n"

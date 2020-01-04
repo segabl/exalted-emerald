@@ -115,8 +115,8 @@
       "movement_range_y": 1,
       "trainer_type": "0",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SSTidalRooms_EventScript_SnatchGiver",
-      "flag": "FLAG_HIDE_SS_TIDAL_ROOMS_SNATCH_GIVER"
+      "script": "SSTidalRooms_EventScript_EmbargoGiver",
+      "flag": "0"
     }
   ],
   "warp_events": [
