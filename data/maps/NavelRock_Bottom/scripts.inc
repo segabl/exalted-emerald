@@ -52,7 +52,7 @@ NavelRock_Bottom_EventScript_Lugia:: @ 82692A2
 	playmoncry SPECIES_LUGIA, 2
 	waitmoncry
 	delay 20
-	setflag VAR_NUM_MAXED_IVS, 3
+	setvar VAR_NUM_MAXED_IVS, 3
 	setwildbattle SPECIES_LUGIA, 70, ITEM_NONE
 	dowildbattle
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
