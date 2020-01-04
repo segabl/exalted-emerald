@@ -29,6 +29,30 @@ MauvilleCity_Mart_Pokemart: @ 8211100
 	release
 	end
 
+MauvilleCity_Mart_EventScript_Clerk2::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart MauvilleCity_Mart_Pokemart2
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+MauvilleCity_Mart_Pokemart2:
+	.2byte ITEM_TM09 @ Venoshock
+	.2byte ITEM_TM40 @ Aerial Ace
+	.2byte ITEM_TM42 @ Facade
+	.2byte ITEM_TM47 @ Low Sweep
+	.2byte ITEM_TM57 @ Charge Beam
+	.2byte ITEM_TM78 @ Bulldoze
+	.2byte ITEM_TM82 @ Dragon Tail
+	.2byte ITEM_TM98 @ Power-Up Punch
+	.2byte ITEM_NONE
+	release
+	end
+
 MauvilleCity_Mart_EventScript_ExpertM:: @ 821111C
 	msgbox MauvilleCity_Mart_Text_ItemsToTemporarilyElevateStats, MSGBOX_NPC
 	end
