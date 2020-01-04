@@ -136,6 +136,7 @@ FarawayIsland_Interior_EventScript_Mew:: @ 8267DF2
 	special sub_81D4BEC
 	delay 40
 	waitmoncry
+	setflag VAR_NUM_MAXED_IVS, 3
 	setwildbattle SPECIES_MEW, 30, ITEM_NONE
 	dowildbattle
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
