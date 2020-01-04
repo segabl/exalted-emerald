@@ -3056,7 +3056,10 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 gDisableStructs[gBattlerAttacker].truantCounter ^= 1;
                 break;
             case ABILITY_BAD_DREAMS:
-                if (gBattleMons[BATTLE_OPPOSITE(battler)].status1 & STATUS1_SLEEP || gBattleMons[BATTLE_OPPOSITE(battler)].status1 & STATUS1_SLEEP)
+                if (gBattleMons[battler].status1 & STATUS1_SLEEP
+                    || gBattleMons[BATTLE_OPPOSITE(battler)].status1 & STATUS1_SLEEP
+                    || GetBattlerAbility(battler) == ABILITY_COMATOSE
+                    || GetBattlerAbility(BATTLE_OPPOSITE(battler)) == ABILITY_COMATOSE)
                 {
                     BattleScriptPushCursorAndCallback(BattleScript_BadDreamsActivates);
                     effect++;
@@ -3084,13 +3087,11 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
             gBattlescriptCurrInstr = BattleScript_SoundproofProtected;
             effect = 1;
         }
-        else if (((gLastUsedAbility == ABILITY_DAZZLING
-                   || (IsBattlerAlive(battler ^= BIT_FLANK) && GetBattlerAbility(battler) == ABILITY_DAZZLING)
-                   )
-                   || (gLastUsedAbility == ABILITY_QUEENLY_MAJESTY
-                   || (IsBattlerAlive(battler ^= BIT_FLANK) && GetBattlerAbility(battler) == ABILITY_QUEENLY_MAJESTY)
+        else if ((((gLastUsedAbility == ABILITY_DAZZLING || gLastUsedAbility == ABILITY_QUEENLY_MAJESTY
+                   || (IsBattlerAlive(battler ^= BIT_FLANK)
+                       && ((GetBattlerAbility(battler) == ABILITY_DAZZLING) || GetBattlerAbility(battler) == ABILITY_QUEENLY_MAJESTY)))
                    ))
-                 && GetChosenMovePriority(battler) > 0
+                 && GetChosenMovePriority(gBattlerAttacker) > 0
                  && GetBattlerSide(gBattlerAttacker) != GetBattlerSide(battler))
         {
             if (gBattleMons[gBattlerAttacker].status2 & STATUS2_MULTIPLETURNS)
@@ -5203,7 +5204,7 @@ static u16 CalcMoveBasePower(u16 move, u8 battlerAtk, u8 battlerDef)
         basePower = gNaturalGiftTable[ITEM_TO_BERRY(gBattleMons[battlerAtk].item)].power;
         break;
     case EFFECT_WAKE_UP_SLAP:
-        if (gBattleMons[battlerDef].status1 & STATUS1_SLEEP)
+        if (gBattleMons[battlerDef].status1 & STATUS1_SLEEP || GetBattlerAbility(battlerDef) == ABILITY_COMATOSE)
             basePower *= 2;
         break;
     case EFFECT_SMELLINGSALT:
@@ -5214,7 +5215,7 @@ static u16 CalcMoveBasePower(u16 move, u8 battlerAtk, u8 battlerDef)
         basePower = 120 * gBattleMons[battlerDef].hp / gBattleMons[battlerDef].maxHP;
         break;
     case EFFECT_HEX:
-        if (gBattleMons[battlerDef].status1 & STATUS1_ANY)
+        if (gBattleMons[battlerDef].status1 & STATUS1_ANY || GetBattlerAbility(battlerDef) == ABILITY_COMATOSE)
             basePower *= 2;
         break;
     case EFFECT_ASSURANCE:
@@ -6262,13 +6263,34 @@ bool32 CanMegaEvolve(u8 battlerId)
     return TRUE;
 }
 
-void UndoMegaEvolution(u8 monId)
+void UndoMegaEvolution(u32 monId)
 {
     if (gBattleStruct->mega.evolvedPartyIds[B_SIDE_PLAYER] & gBitTable[monId])
     {
         gBattleStruct->mega.evolvedPartyIds[B_SIDE_PLAYER] &= ~(gBitTable[monId]);
         SetMonData(&gPlayerParty[monId], MON_DATA_SPECIES, &gBattleStruct->mega.playerEvolvedSpecies);
         CalculateMonStats(&gPlayerParty[monId]);
+    }
+}
+
+void UndoFormChange(u32 monId, u32 side)
+{
+    u32 i, currSpecies;
+    struct Pokemon *party = (side == B_SIDE_PLAYER) ? gPlayerParty : gEnemyParty;
+    static const u16 species[][2] = // changed form id, default form id
+    {
+        {SPECIES_AEGISLASH_BLADE, SPECIES_AEGISLASH},
+    };
+
+    currSpecies = GetMonData(&party[monId], MON_DATA_SPECIES, NULL);
+    for (i = 0; i < ARRAY_COUNT(species); i++)
+    {
+        if (currSpecies == species[i][0])
+        {
+            SetMonData(&party[monId], MON_DATA_SPECIES, &species[i][1]);
+            CalculateMonStats(&party[monId]);
+            break;
+        }
     }
 }
 
