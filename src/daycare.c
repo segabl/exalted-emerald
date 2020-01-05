@@ -804,6 +804,20 @@ static u16 DetermineEggSpeciesAndParentSlots(struct DayCare *daycare, u8 *parent
     return eggSpecies;
 }
 
+static void InheritAbility(struct Pokemon *mon, struct DayCare *daycare, u8 *parentSlots)
+{
+    u8 abilityNum;
+    u16 chance;
+    if (GetBoxMonData(&daycare->mons[parentSlots[0]].mon, MON_DATA_SPECIES) == SPECIES_DITTO)
+        abilityNum = GetBoxMonData(&daycare->mons[parentSlots[1]].mon, MON_DATA_ABILITY_NUM);
+    else
+        abilityNum = GetBoxMonData(&daycare->mons[parentSlots[0]].mon, MON_DATA_ABILITY_NUM);
+
+    chance = abilityNum == 2 ? 60 : 80; // 60% chance to pass down hidden ability, 80% else
+    if (Random() % 100 < chance)
+        SetMonData(mon, MON_DATA_ABILITY_NUM, &abilityNum);
+}
+
 static void _GiveEggFromDaycare(struct DayCare *daycare)
 {
     struct Pokemon egg;
@@ -815,6 +829,7 @@ static void _GiveEggFromDaycare(struct DayCare *daycare)
     AlterEggSpeciesWithIncenseItem(&species, daycare);
     SetInitialEggData(&egg, species, daycare);
     InheritIVs(&egg, daycare);
+    InheritAbility(&egg, daycare, parentSlots);
     BuildEggMoveset(&egg, &daycare->mons[parentSlots[1]].mon, &daycare->mons[parentSlots[0]].mon);
 
     if (species == SPECIES_PICHU)
