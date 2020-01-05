@@ -596,11 +596,17 @@ bool8 StandardWildEncounter(u16 currMetaTileBehavior, u16 previousMetaTileBehavi
                 // try a regular wild land encounter
                 if (TryGenerateWildMon(gWildMonHeaders[headerId].landMonsInfo, WILD_AREA_LAND, WILD_CHECK_REPEL | WILD_CHECK_KEEN_EYE) == TRUE)
                 {
-                    if (Random() < WILD_DOUBLE_CHANCE && !GetSafariZoneFlag() && GetMonsStateToDoubles() == PLAYER_HAS_TWO_USABLE_MONS)
+                    if ((Random() % WILD_DOUBLE_CHANCE) == 0 && !GetSafariZoneFlag() && GetMonsStateToDoubles() == PLAYER_HAS_TWO_USABLE_MONS)
                     {
+                        u32 haNum = 2;
                         struct Pokemon mon1 = gEnemyParty[0];
                         TryGenerateWildMon(gWildMonHeaders[headerId].landMonsInfo, WILD_AREA_LAND, WILD_CHECK_KEEN_EYE);
                         gEnemyParty[1] = mon1;
+                        // Wild double battles have a chance for hidden abilities
+                        if ((Random() % WILD_DOUBLE_HA_CHANCE) == 0 && gBaseStats[GetMonData(gEnemyParty, MON_DATA_SPECIES)].abilities[haNum])
+                            SetMonData(gEnemyParty, MON_DATA_ABILITY_NUM, &haNum);
+                        if ((Random() % WILD_DOUBLE_HA_CHANCE) == 0 && gBaseStats[GetMonData(gEnemyParty + 1, MON_DATA_SPECIES)].abilities[haNum])
+                            SetMonData(gEnemyParty + 1, MON_DATA_ABILITY_NUM, &haNum);
                         BattleSetup_StartDoubleWildBattle();
                     }
                     else

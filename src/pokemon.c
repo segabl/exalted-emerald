@@ -2242,13 +2242,9 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     }
 
     if (FlagGet(FLAG_SYS_SAFARI_MODE) && gBaseStats[species].abilities[2])
-    {
         value = personality % 3; // Safari zone has hidden abilities
-    }
     else
-    {
         value = personality % 2;
-    }
     SetBoxMonData(boxMon, MON_DATA_ABILITY_NUM, &value);
 
     GiveBoxMonInitialMoveset(boxMon);

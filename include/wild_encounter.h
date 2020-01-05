@@ -6,7 +6,8 @@
 #define ROCK_WILD_COUNT     5
 #define FISH_WILD_COUNT     10
 
-#define WILD_DOUBLE_CHANCE  5120 // how many of 65536 are doubles
+#define WILD_DOUBLE_CHANCE      20 // 1 in X chance for a wild double ancounter
+#define WILD_DOUBLE_HA_CHANCE   10 // 1 in X chance for a mon to have its hidden ability in a double encounter
 
 struct WildPokemon
 {
