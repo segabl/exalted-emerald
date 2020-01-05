@@ -186,8 +186,8 @@ Route123_Text_YouLikeFairyMonsTooHaveThis: @ 81F645D
 	.string "It's a token of our friendship.$"
 
 Route123_Text_StrollsWithMyFairyMon: @ 81F64CF
-	.string "I love strolls with my FAIRY-type\n"
-	.string "POKéMON. I'm like a tree doctor.$"
+	.string "I love strolls with my FAIRY POKéMON.\n"
+	.string "They are really adorable and cute.$"
 
 Route123_Text_RouteSign: @ 81F6511
 	.string "{RIGHT_ARROW} ROUTE 123\n"
