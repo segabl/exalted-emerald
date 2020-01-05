@@ -19,6 +19,7 @@ This is a decompilation of Pokémon Emerald with various patches applied to upda
 ## Minor and QoL changes
 
 - Lets you use a new repel directly after the old one runs out (DizzyEgg's repel)
+- Lets you run indoors
 - Adds evolution stones to the Lilicove shop
 - Removes the extra overwrite question when saving the game
 - When buying more than 19 Poké Balls, you're given Premier Balls based on the amount of balls you bought instead of only one
