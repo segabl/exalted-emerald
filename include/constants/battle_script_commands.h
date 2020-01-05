@@ -19,7 +19,7 @@
 #define sSTATCHANGER gBattleScripting + 0x1A
 #define sSTAT_ANIM_PLAYED gBattleScripting + 0x1B
 #define sGIVEEXP_STATE gBattleScripting + 0x1C
-#define sBATTLE_STYLE gBattleScripting + 0x1D
+#define sDIFFICULTY gBattleScripting + 0x1D
 #define sLVLBOX_STATE gBattleScripting + 0x1E
 #define sLEARNMOVE_STATE gBattleScripting + 0x1F
 #define sSAVED_BATTLER gBattleScripting + 0x20

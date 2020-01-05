@@ -1814,10 +1814,24 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
     if (trainerNum == TRAINER_SECRET_BASE)
         return 0;
 
-    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && !(gBattleTypeFlags & (BATTLE_TYPE_FRONTIER
-                                                                        | BATTLE_TYPE_EREADER_TRAINER
-                                                                        | BATTLE_TYPE_TRAINER_HILL)))
+    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && !(gBattleTypeFlags & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_TRAINER_HILL)))
     {
+        // If difficulty is set to hard, trainer levels are scaled based on the players max level mon
+        u8 levelMin = 0;
+        if (gSaveBlock2Ptr->optionsDifficulty > 1)
+        {
+            for (i = 0; i < PARTY_SIZE; i++)
+            {
+                u32 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2);
+                if (species != SPECIES_EGG && species != SPECIES_NONE)
+                {
+                    u8 lvl = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
+                    if (lvl > levelMin)
+                        levelMin = lvl;
+                }
+            }
+        }
+
         if (firstTrainer == TRUE)
             ZeroEnemyPartyMons();
 
@@ -1835,6 +1849,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
         for (i = 0; i < monsCount; i++)
         {
+            u8 level;
 
             if (gTrainers[trainerNum].doubleBattle == TRUE)
                 personalityValue = 0x80;
@@ -1864,7 +1879,8 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                     personalityValue += nameHash << 8;
                 }
 
-                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, partyData[i].iv, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                level = partyData[i].lvl > levelMin ? partyData[i].lvl : partyData[i].lvl + (levelMin - partyData[i].lvl) / monsCount;
+                CreateMon(&party[i], partyData[i].species, level, partyData[i].iv, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
                 abilityNum = partyData[i].abilityNum;
                 if (abilityNum < 3)
@@ -1889,7 +1905,8 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                     personalityValue += nameHash << 8;
                 }
 
-                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, partyData[i].iv, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                level = partyData[i].lvl > levelMin ? partyData[i].lvl : partyData[i].lvl + (levelMin - partyData[i].lvl) / monsCount;
+                CreateMon(&party[i], partyData[i].species, level, partyData[i].iv, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
                 abilityNum = partyData[i].abilityNum;
                 if (abilityNum < 3)
@@ -1920,7 +1937,8 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                     personalityValue += nameHash << 8;
                 }
 
-                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, partyData[i].iv, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                level = partyData[i].lvl > levelMin ? partyData[i].lvl : partyData[i].lvl + (levelMin - partyData[i].lvl) / monsCount;
+                CreateMon(&party[i], partyData[i].species, level, partyData[i].iv, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
                 abilityNum = partyData[i].abilityNum;
                 if (abilityNum < 3)
@@ -1947,7 +1965,8 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                     personalityValue += nameHash << 8;
                 }
 
-                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, partyData[i].iv, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                level = partyData[i].lvl > levelMin ? partyData[i].lvl : partyData[i].lvl + (levelMin - partyData[i].lvl) / monsCount;
+                CreateMon(&party[i], partyData[i].species, level, partyData[i].iv, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
                 abilityNum = partyData[i].abilityNum;
                 if (abilityNum < 3)
@@ -2977,9 +2996,9 @@ static void BattleStartClearSetData(void)
         gHitMarker |= HITMARKER_NO_ANIMATIONS;
     }
 
-    gBattleScripting.battleStyle = gSaveBlock2Ptr->optionsBattleStyle;
-	gBattleScripting.expOnCatch = (B_EXP_CATCH >= GEN_6);
-	gBattleScripting.monCaught = FALSE;
+    gBattleScripting.difficulty = gSaveBlock2Ptr->optionsDifficulty;
+    gBattleScripting.expOnCatch = (B_EXP_CATCH >= GEN_6);
+    gBattleScripting.monCaught = FALSE;
 
     gMultiHitCounter = 0;
     gBattleOutcome = 0;
