@@ -1730,11 +1730,8 @@ static bool8 Fishing1(struct Task *task)
 static bool8 Fishing2(struct Task *task)
 {
     struct EventObject *playerEventObj;
-    const s16 arr1[] = {1, 1, 1};
-    const s16 arr2[] = {1, 3, 6};
 
     task->tRoundsPlayed = 0;
-    task->tMinRoundsRequired = arr1[task->tFishingRod] + (Random() % arr2[task->tFishingRod]);
     task->tPlayerGfxId = gEventObjects[gPlayerAvatar.eventObjectId].graphicsId;
     playerEventObj = &gEventObjects[gPlayerAvatar.eventObjectId];
     EventObjectClearHeldMovementIfActive(playerEventObj);
@@ -1763,11 +1760,8 @@ static bool8 Fishing4(struct Task *task)
     task->tStep++;
     task->tFrameCounter = 0;
     task->tNumDots = 0;
-    randVal = Random();
-    randVal %= 10;
-    task->tDotsRequired = randVal + 1;
-    if (task->tRoundsPlayed == 0)
-        task->tDotsRequired = randVal + 4;
+    randVal = Random() % 10;
+    task->tDotsRequired = randVal + 4;
     if (task->tDotsRequired >= 10)
         task->tDotsRequired = 10;
     return TRUE;
@@ -1869,7 +1863,7 @@ static bool8 Fishing7(struct Task *task)
 // We have a bite. Now, wait for the player to press A, or the timer to expire.
 static bool8 Fishing8(struct Task *task)
 {
-    const s16 reelTimeouts[3] = {36, 33, 30};
+    const s16 reelTimeouts[3] = {50, 45, 40};
 
     AlignFishingAnimationFrames();
     task->tFrameCounter++;
@@ -1880,30 +1874,11 @@ static bool8 Fishing8(struct Task *task)
     return FALSE;
 }
 
-// Determine if we're going to play the dot game again
+// First bite is it!
 static bool8 Fishing9(struct Task *task)
 {
-    const s16 arr[][2] =
-    {
-        {0, 0},
-        {40, 10},
-        {70, 30}
-    };
-
     AlignFishingAnimationFrames();
     task->tStep++;
-    if (task->tRoundsPlayed < task->tMinRoundsRequired)
-    {
-        task->tStep = FISHING_START_ROUND;
-    }
-    else if (task->tRoundsPlayed < 2)
-    {
-        // probability of having to play another round
-        s16 probability = Random() % 100;
-
-        if (arr[task->tFishingRod][task->tRoundsPlayed] > probability)
-            task->tStep = FISHING_START_ROUND;
-    }
     return FALSE;
 }
 
