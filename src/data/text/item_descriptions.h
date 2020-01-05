@@ -2294,7 +2294,7 @@ static const u8 sLaggingTailDesc[] = _(
     "move slower.");
 
 static const u8 sDestinyKnotDesc[] = _(
-    "If the holder becomes\n"
+    "If the holder gets\n"
     "infatuated, the\n"
     "foe does too.");
 
