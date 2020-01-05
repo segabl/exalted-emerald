@@ -945,8 +945,7 @@ static void Task_BuyMenu(u8 taskId)
             if (ItemId_GetPocket(itemId) == POCKET_TM_HM && CheckBagHasItem(itemId, 1))
             {
                 CopyItemName(itemId, gStringVar1);
-                StringCopy(gStringVar2, gMoveNames[ItemIdToBattleMoveId(itemId)]);
-                BuyMenuDisplayMessage(taskId, gText_AlreadyOwnVar1Var2, BuyMenuReturnToItemList);
+                BuyMenuDisplayMessage(taskId, gText_AlreadyOwnVar1, BuyMenuReturnToItemList);
             }
             else if (!IsEnoughMoney(&gSaveBlock1Ptr->money, gShopDataPtr->totalCost))
             {

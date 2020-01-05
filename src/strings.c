@@ -293,7 +293,7 @@ const u8 *const gPocketNamesStringsTable[] =
 };
 
 const u8 gText_NumberVar1Clear7Var2[] = _("{NO}{STR_VAR_1}{CLEAR 0x07}{STR_VAR_2}");
-const u8 gText_ClearTo11Var1Clear5Var2[] = _("{CLEAR_TO 0x11}{STR_VAR_1}{CLEAR 0x05}{STR_VAR_2}");
+const u8 gText_ClearTo11Var1Clear5Var2[] = _("{CLEAR_TO 0x14}{STR_VAR_1}{CLEAR 0x07}{STR_VAR_2}");
 const u8 gText_SizeSlash[] = _("SIZE /");
 const u8 gText_FirmSlash[] = _("FIRM /");
 const u8 gText_Var1DotVar2[] = _("{STR_VAR_1}.{STR_VAR_2}”");
@@ -351,7 +351,7 @@ const u8 gText_ThanksIllSendItHome[] = _("Thanks!\nI'll send it to your PC at ho
 const u8 gText_YouDontHaveMoney[] = _("You don't have enough money.{PAUSE_UNTIL_PRESS}");
 const u8 gText_NoMoreRoomForThis[] = _("You have no more room for this\nitem.{PAUSE_UNTIL_PRESS}");
 const u8 gText_SpaceForVar1Full[] = _("The space for {STR_VAR_1} is full.{PAUSE_UNTIL_PRESS}");
-const u8 gText_AlreadyOwnVar1Var2[] = _("You already own {STR_VAR_1} {STR_VAR_2}.{PAUSE_UNTIL_PRESS}");
+const u8 gText_AlreadyOwnVar1[] = _("You already own {STR_VAR_1}.{PAUSE_UNTIL_PRESS}");
 const u8 gText_AnythingElseICanHelp[] = _("Is there anything else I can help\nyou with?");
 const u8 gText_CanIHelpWithAnythingElse[] = _("Can I help you with anything else?");
 const u8 gText_ThrowInVar2Var1[] = _("I'll throw in {STR_VAR_2} {STR_VAR_1}, too.{PAUSE_UNTIL_PRESS}");
