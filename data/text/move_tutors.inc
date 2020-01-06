@@ -1,7 +1,3 @@
-MoveTutor_Text_ThisMoveCanOnlyBeLearnedOnce: @ 82C6E05
-	.string "This move can be learned only\n"
-	.string "once. Is that okay?$"
-
 MoveTutor_Text_SwaggerTeach: @ 82C6E37
 	.string "Heh! My POKéMON totally rules!\n"
 	.string "It's cooler than any POKéMON!\p"
