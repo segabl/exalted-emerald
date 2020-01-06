@@ -106,7 +106,7 @@ SootopolisCity_Gym_1F_EventScript_JuanDefeated:: @ 8224F82
 	clearflag FLAG_HIDE_SOOTOPOLIS_CITY_MAN_1
 	setvar VAR_0x8008, 8
 	call Common_EventScript_SetGymTrainers
-	call SootopolisCity_Gym_1F_EventScript_GiveWaterPulse
+	call SootopolisCity_Gym_1F_EventScript_GiveScald
 	closemessage
 	delay 30
 	playfanfare MUS_ME_TORE_EYE
@@ -118,10 +118,9 @@ SootopolisCity_Gym_1F_EventScript_JuanDefeated:: @ 8224F82
 	release
 	end
 
-SootopolisCity_Gym_1F_EventScript_GiveWaterPulse:: @ 8224FD4
-	giveitem_std ITEM_TM03
-	msgbox SootopolisCity_Gym_1F_Text_ExplainWaterPulse, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM03
+SootopolisCity_Gym_1F_EventScript_GiveScald:: @ 8224FD4
+	giveitem_std ITEM_TM55
+	msgbox SootopolisCity_Gym_1F_Text_ExplainScald, MSGBOX_DEFAULT
 	return
 
 SootopolisCity_Gym_1F_EventScript_GoGetFortreeBadge:: @ 822501B
@@ -240,11 +239,11 @@ SootopolisCity_Gym_1F_Text_ExplainRainBadgeTakeThis: @ 82255BE
 	.string "And, so that you never forget the\n"
 	.string "battle we shared, take this…$"
 
-SootopolisCity_Gym_1F_Text_ExplainWaterPulse: @ 82256C1
+SootopolisCity_Gym_1F_Text_ExplainScald: @ 82256C1
 	.string "The TECHNICAL MACHINE I handed you\n"
-	.string "contains WATER PULSE.\p"
-	.string "In use, it will occasionally confuse\n"
-	.string "the target with ultrasonic waves.\p"
+	.string "contains SCALD.\p"
+	.string "In use, it will occasionally burn\n"
+	.string "the target with steaming hot water.\p"
 	.string "… … … … … …$"
 
 SootopolisCity_Gym_1F_Text_RegisteredJuan: @ 822574D

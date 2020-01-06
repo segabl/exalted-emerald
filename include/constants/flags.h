@@ -185,7 +185,7 @@
 #define FLAG_RECEIVED_TM67                   0xA9
 #define FLAG_RECEIVED_TM99                   0xAA
 #define FLAG_RECEIVED_TM04                   0xAB
-#define FLAG_RECEIVED_TM03                   0xAC
+#define FLAG_UNUSED_0xAC                     0xAC
 #define FLAG_DECORATION_0                    0xAD
 #define FLAG_DECORATION_1                    0xAE
 #define FLAG_DECORATION_2                    0xAF
