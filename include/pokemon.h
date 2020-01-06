@@ -42,7 +42,8 @@ struct PokemonSubstruct3
 
  /* 0x02 */ u16 metLevel:7;
  /* 0x02 */ u16 metGame:4;
- /* 0x03 */ u16 pokeball:4;
+ /* 0x03 */ u16 unused:3;
+ /* 0x03 */ u16 isEgg:1;
  /* 0x03 */ u16 otGender:1;
 
  /* 0x04 */ u32 hpIV:5;
@@ -70,8 +71,7 @@ struct PokemonSubstruct3
  /* 0x0B */ u32 giftRibbon5:1;
  /* 0x0B */ u32 giftRibbon6:1;
  /* 0x0B */ u32 giftRibbon7:1;
- /* 0x0B */ u32 fatefulEncounter:4;
- /* 0x0B */ u32 isEgg:1;
+ /* 0x0B */ u32 pokeball:5;
 };
 
 union PokemonSubstruct

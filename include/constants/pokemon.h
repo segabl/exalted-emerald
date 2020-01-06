@@ -196,15 +196,14 @@
 #define MON_DATA_GIFT_RIBBON_5     76
 #define MON_DATA_GIFT_RIBBON_6     77
 #define MON_DATA_GIFT_RIBBON_7     78
-#define MON_DATA_FATEFUL_ENCOUNTER 79
-#define MON_DATA_KNOWN_MOVES       80
-#define MON_DATA_RIBBON_COUNT      81
-#define MON_DATA_RIBBONS           82
-#define MON_DATA_ATK2              83
-#define MON_DATA_DEF2              84
-#define MON_DATA_SPEED2            85
-#define MON_DATA_SPATK2            86
-#define MON_DATA_SPDEF2            87
+#define MON_DATA_KNOWN_MOVES       79
+#define MON_DATA_RIBBON_COUNT      80
+#define MON_DATA_RIBBONS           81
+#define MON_DATA_ATK2              82
+#define MON_DATA_DEF2              83
+#define MON_DATA_SPEED2            84
+#define MON_DATA_SPATK2            85
+#define MON_DATA_SPDEF2            86
 
 #define MIN_LEVEL 1
 #define MAX_LEVEL 100

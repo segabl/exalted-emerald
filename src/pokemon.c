@@ -3583,9 +3583,6 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
     case MON_DATA_GIFT_RIBBON_7:
         retVal = substruct3->giftRibbon7;
         break;
-    case MON_DATA_FATEFUL_ENCOUNTER:
-        retVal = substruct3->fatefulEncounter;
-        break;
     case MON_DATA_SPECIES2:
         retVal = substruct0->species;
         if (substruct0->species && (substruct3->isEgg || boxMon->isBadEgg))
@@ -3958,9 +3955,6 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         break;
     case MON_DATA_GIFT_RIBBON_7:
         SET8(substruct3->giftRibbon7);
-        break;
-    case MON_DATA_FATEFUL_ENCOUNTER:
-        SET8(substruct3->fatefulEncounter);
         break;
     case MON_DATA_IVS:
     {
