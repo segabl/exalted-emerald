@@ -3216,11 +3216,21 @@ static void BufferTradeSceneStrings(void)
     }
     else
     {
-        ingameTrade = &sIngameTrades[gSpecialVar_0x8004];
-        StringCopy(gStringVar1, ingameTrade->otName);
-        StringCopy10(gStringVar3, ingameTrade->nickname);
-        GetMonData(&gPlayerParty[gSpecialVar_0x8005], MON_DATA_NICKNAME, name);
-        StringCopy10(gStringVar2, name);
+        if (gSpecialVar_0x8004 == 0xFFFF)
+        {
+            GetMonData(&gPlayerParty[gSpecialVar_0x8005], MON_DATA_NICKNAME, name);
+            StringCopy(gStringVar1, gSaveBlock2Ptr->playerName);
+            StringCopy10(gStringVar3, name);
+            StringCopy10(gStringVar2, name);
+        }
+        else
+        {
+            ingameTrade = &sIngameTrades[gSpecialVar_0x8004];
+            StringCopy(gStringVar1, ingameTrade->otName);
+            StringCopy10(gStringVar3, ingameTrade->nickname);
+            GetMonData(&gPlayerParty[gSpecialVar_0x8005], MON_DATA_NICKNAME, name);
+            StringCopy10(gStringVar2, name);
+        }
     }
 }
 
@@ -4460,7 +4470,10 @@ u16 GetTradeSpecies(void)
 
 void CreateInGameTradePokemon(void)
 {
-    _CreateInGameTradePokemon(gSpecialVar_0x8005, gSpecialVar_0x8004);
+    if (gSpecialVar_0x8004 == 0xFFFF)
+        gEnemyParty[0] = gPlayerParty[gSpecialVar_0x8005];
+    else
+        _CreateInGameTradePokemon(gSpecialVar_0x8005, gSpecialVar_0x8004);
 }
 
 static void CB2_UpdateLinkTrade(void)

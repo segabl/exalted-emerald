@@ -59,6 +59,65 @@ RustboroCity_DevonCorp_2F_EventScript_PokemonDreamsScientist:: @ 82118DA
 	release
 	end
 
+RustboroCity_DevonCorp_2F_EventScript_TradeScientist::
+	lock
+	faceplayer
+	compare VAR_FOSSIL_RESURRECTION_STATE, 1
+	call_if_eq RustboroCity_DevonCorp_2F_EventScript_SetFossilReady
+	msgbox RustboroCity_DevonCorp_2F_Text_DeviceToSimulateTrades, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_TradeScientistDoTrade
+	goto RustboroCity_DevonCorp_2F_EventScript_TradeScientistDeclineTrade
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_TradeScientistDeclineTrade::
+	msgbox RustboroCity_DevonCorp_2F_Text_SimulateTradeDecline
+	release
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_TradeScientistDoTrade::
+	msgbox RustboroCity_DevonCorp_2F_Text_WhichMonToTrade
+	special ChoosePartyMon
+	waitstate
+	compare VAR_0x8004, 255 @ VAR_0x8004 has pokemon number
+	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_TradeScientistDeclineTrade
+	copyvar VAR_0x8005, VAR_0x8004
+	specialvar VAR_0x8006, GetTradeSpecies
+	compare VAR_0x8006, SPECIES_POLIWHIRL
+	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_TradeScientistDoTrade2
+	compare VAR_0x8006, SPECIES_KADABRA
+	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_TradeScientistDoTrade2
+	compare VAR_0x8006, SPECIES_MACHOKE
+	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_TradeScientistDoTrade2
+	compare VAR_0x8006, SPECIES_GRAVELER
+	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_TradeScientistDoTrade2
+	compare VAR_0x8006, SPECIES_HAUNTER
+	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_TradeScientistDoTrade2
+	compare VAR_0x8006, SPECIES_SLOWPOKE
+	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_TradeScientistDoTrade2
+	compare VAR_0x8006, SPECIES_HAUNTER
+	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_TradeScientistDoTrade2
+	compare VAR_0x8006, SPECIES_ONIX
+	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_TradeScientistDoTrade2
+	compare VAR_0x8006, SPECIES_SEADRA
+	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_TradeScientistDoTrade2
+	compare VAR_0x8006, SPECIES_SCYTHER
+	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_TradeScientistDoTrade2
+	compare VAR_0x8006, SPECIES_PORYGON
+	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_TradeScientistDoTrade2
+	msgbox RustboroCity_DevonCorp_2F_Text_ThisIsNoTradeEvolution
+	release
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_TradeScientistDoTrade2::
+	setvar VAR_0x8004, 0xFFFF
+	special CreateInGameTradePokemon
+	special DoInGameTradeScene
+	waitstate
+	msgbox RustboroCity_DevonCorp_2F_Text_SimulateTradeDone
+	release
+	end
+
 RustboroCity_DevonCorp_2F_EventScript_FossilScientist:: @ 82118F1
 	lock
 	faceplayer
@@ -267,6 +326,45 @@ RustboroCity_DevonCorp_2F_Text_DeviceForTalkingToPokemon: @ 8211BFB
 	.string "We're developing a device for talking\n"
 	.string "with POKéMON.\p"
 	.string "But we haven't had much success…$"
+
+RustboroCity_DevonCorp_2F_Text_DeviceToSimulateTrades:
+	.string "I'm working on a device that can\n"
+	.string "simulate POKéMON trades.\p"
+	.string "As you might know, normally, certain\n"
+	.string "POKéMON only evolve when they are\l"
+	.string "traded with another person.\p"
+	.string "This device creates a setting\n"
+	.string "similar to the trading environment…\p"
+	.string "I think it is working but it still\n"
+	.string "needs some more testing…\p"
+	.string "Say…\n"
+	.string "Do you want to simulate a trade?$"
+
+RustboroCity_DevonCorp_2F_Text_WhichMonToTrade:
+	.string "Excellent!\p"
+	.string "Which POKéMON do you want to use\n"
+	.string "to simulate the trade?$"
+
+RustboroCity_DevonCorp_2F_Text_ThisIsNoTradeEvolution:
+	.string "My device only works on POKéMON\n"
+	.string "that evolve through trading…\p"
+	.string "In theory…$"
+
+RustboroCity_DevonCorp_2F_Text_SimulateTradeDecline:
+	.string "Oh…\n"
+	.string "I understand…\p"
+	.string "On second thought, it does\n"
+	.string "seem kind of risky, doesn't it?$"
+
+RustboroCity_DevonCorp_2F_Text_SimulateTradeDone:
+	.string "Now let's see here…\p"
+	.string "This parameter looks normal…\p"
+	.string "Although…\p"
+	.string "Oh…\n"
+	.string "It's done already?\p"
+	.string "Did it work?\p"
+	.string "I was so busy monitoring the device\n"
+	.string "that I missed the action…$"
 
 RustboroCity_DevonCorp_2F_Text_DevelopingNewBalls: @ 8211C50
 	.string "I'm developing new kinds of\n"
