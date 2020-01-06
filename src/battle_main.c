@@ -1890,7 +1890,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
                 level = partyData[i].lvl;
                 if (level < levelMin)
-                    level += (100 * (levelMin - level)) / (100 + partyCountMod * 20 + badgeMod * 20);
+                    level += (100 * (levelMin - level)) / (100 + partyCountMod * 10 + badgeMod * 25);
                 CreateMon(&party[i], partyData[i].species, level, partyData[i].iv, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
                 abilityNum = partyData[i].abilityNum;
@@ -1918,7 +1918,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
                 level = partyData[i].lvl;
                 if (level < levelMin)
-                    level += (100 * (levelMin - level)) / (100 + partyCountMod * 20 + badgeMod * 20);
+                    level += (100 * (levelMin - level)) / (100 + partyCountMod * 10 + badgeMod * 25);
                 CreateMon(&party[i], partyData[i].species, level, partyData[i].iv, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
                 abilityNum = partyData[i].abilityNum;
@@ -1952,7 +1952,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
                 level = partyData[i].lvl;
                 if (level < levelMin)
-                    level += (100 * (levelMin - level)) / (100 + partyCountMod * 20 + badgeMod * 20);
+                    level += (100 * (levelMin - level)) / (100 + partyCountMod * 10 + badgeMod * 25);
                 CreateMon(&party[i], partyData[i].species, level, partyData[i].iv, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
                 abilityNum = partyData[i].abilityNum;
@@ -1982,7 +1982,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
                 level = partyData[i].lvl;
                 if (level < levelMin)
-                    level += (100 * (levelMin - level)) / (100 + partyCountMod * 20 + badgeMod * 20);
+                    level += (100 * (levelMin - level)) / (100 + partyCountMod * 10 + badgeMod * 25);
                 CreateMon(&party[i], partyData[i].species, level, partyData[i].iv, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
                 abilityNum = partyData[i].abilityNum;
