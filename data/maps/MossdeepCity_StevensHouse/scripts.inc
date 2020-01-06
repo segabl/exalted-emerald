@@ -43,6 +43,15 @@ MossdeepCity_StevensHouse_EventScript_StevenGivesDive:: @ 82227CA
 	setflag FLAG_OMIT_DIVE_FROM_STEVEN_LETTER
 	msgbox MossdeepCity_StevensHouse_Text_ExplainDive, MSGBOX_DEFAULT
 	closemessage
+	playse SE_PIN
+	applymovement 5, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement 5, Common_Movement_Delay48
+	waitmovement 0
+	msgbox MossdeepCity_StevensHouse_Text_OneMoreThing, MSGBOX_DEFAULT
+	giveitem_std ITEM_OLD_AMBER
+	msgbox MossdeepCity_StevensHouse_Text_OneMoreThingExplain, MSGBOX_DEFAULT
+	closemessage
 	delay 20
 	applymovement 1, MossdeepCity_StevensHouse_Movement_StevenReturn
 	waitmovement 0
@@ -173,6 +182,18 @@ MossdeepCity_StevensHouse_Text_ExplainDive: @ 8222A0E
 	.string "DIVE again.\p"
 	.string "In some places, it won't be possible\n"
 	.string "for you to surface, though.$"
+
+MossdeepCity_StevensHouse_Text_OneMoreThing:
+	.string "Oh I almost forgot, one more thing…\p"
+	.string "I want you to have this stone.\p"
+	.string "It's an OLD AMBER, containing\n"
+	.string "the DNA of an ancient POKéMON.$"
+
+MossdeepCity_StevensHouse_Text_OneMoreThingExplain:
+	.string "Apparently, the DEVON CORPORATION\n"
+	.string "managed to create a machine that\l"
+	.string "can revive POKéMON from FOSSILS…\p"
+	.string "Maybe you want to give it a try?$"
 
 MossdeepCity_StevensHouse_Text_UnderwateCavernBetweenMossdeepSootopolis: @ 8222B11
 	.string "STEVEN: Apparently, there's an\n"

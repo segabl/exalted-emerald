@@ -26,11 +26,18 @@ DesertUnderpass_EventScript_GiveRootFossil:: @ 823AF68
 	release
 	end
 
-@ Unused
-DesertUnderpass_Text_FoundRootFossil:: @ 823AF79
-	.string "{PLAYER} found the ROOT FOSSIL.$"
+DesertUnderpass_EventScript_GiveHelixFossil::
+	lock
+	faceplayer
+	giveitem_std ITEM_HELIX_FOSSIL
+	removeobject 2
+	release
+	end
 
-@ Unused
-DesertUnderpass_Text_FoundClawFossil:: @ 823AF93
-	.string "{PLAYER} found the CLAW FOSSIL.$"
-
+DesertUnderpass_EventScript_GiveDomeFossil::
+	lock
+	faceplayer
+	giveitem_std ITEM_DOME_FOSSIL
+	removeobject 3
+	release
+	end

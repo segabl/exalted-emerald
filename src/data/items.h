@@ -5494,19 +5494,6 @@ const struct Item gItems[] =
         .secondaryId = 0,
     },
 
-    [ITEM_OLD_AMBER] =
-    {
-        .name = _("OLD AMBER"),
-        .itemId = ITEM_OLD_AMBER,
-        .price = 0,
-        .description = sOldAmberDesc,
-        .importance = 1,
-        .pocket = POCKET_KEY_ITEMS,
-        .type = 4,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .secondaryId = 0,
-    },
-
     [ITEM_CARD_KEY] =
     {
         .name = _("CARD KEY"),
@@ -5537,7 +5524,7 @@ const struct Item gItems[] =
     {
         .name = _("ARMOR FOSSIL"),
         .itemId = ITEM_ARMOR_FOSSIL,
-        .price = 0,
+        .price = 1000,
         .description = sArmorFossilDesc,
         .importance = 0,
         .pocket = POCKET_ITEMS,
@@ -5550,7 +5537,7 @@ const struct Item gItems[] =
     {
         .name = _("SKULL FOSSIL"),
         .itemId = ITEM_SKULL_FOSSIL,
-        .price = 0,
+        .price = 1000,
         .description = sSkullFossilDesc,
         .importance = 0,
         .pocket = POCKET_ITEMS,
@@ -5563,7 +5550,7 @@ const struct Item gItems[] =
     {
         .name = _("HELIX FOSSIL"),
         .itemId = ITEM_HELIX_FOSSIL,
-        .price = 0,
+        .price = 1000,
         .description = sHelixFossilDesc,
         .importance = 0,
         .pocket = POCKET_ITEMS,
@@ -5576,8 +5563,21 @@ const struct Item gItems[] =
     {
         .name = _("DOME FOSSIL"),
         .itemId = ITEM_DOME_FOSSIL,
-        .price = 0,
+        .price = 1000,
         .description = sDomeFossilDesc,
+        .importance = 0,
+        .pocket = POCKET_ITEMS,
+        .type = 4,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = 0,
+    },
+
+    [ITEM_OLD_AMBER] =
+    {
+        .name = _("OLD AMBER"),
+        .itemId = ITEM_OLD_AMBER,
+        .price = 1000,
+        .description = sOldAmberDesc,
         .importance = 0,
         .pocket = POCKET_ITEMS,
         .type = 4,
@@ -5589,7 +5589,7 @@ const struct Item gItems[] =
     {
         .name = _("ROOT FOSSIL"),
         .itemId = ITEM_ROOT_FOSSIL,
-        .price = 0,
+        .price = 1000,
         .description = sRootFossilDesc,
         .importance = 0,
         .pocket = POCKET_ITEMS,
@@ -5602,7 +5602,7 @@ const struct Item gItems[] =
     {
         .name = _("CLAW FOSSIL"),
         .itemId = ITEM_CLAW_FOSSIL,
-        .price = 0,
+        .price = 1000,
         .description = sClawFossilDesc,
         .importance = 0,
         .pocket = POCKET_ITEMS,
@@ -5615,7 +5615,7 @@ const struct Item gItems[] =
     {
         .name = _("COVER FOSSIL"),
         .itemId = ITEM_COVER_FOSSIL,
-        .price = 0,
+        .price = 1000,
         .description = sCoverFossilDesc,
         .importance = 0,
         .pocket = POCKET_ITEMS,
@@ -5628,7 +5628,7 @@ const struct Item gItems[] =
     {
         .name = _("PLUME FOSSIL"),
         .itemId = ITEM_PLUME_FOSSIL,
-        .price = 0,
+        .price = 1000,
         .description = sPlumeFossilDesc,
         .importance = 0,
         .pocket = POCKET_ITEMS,
@@ -5641,7 +5641,7 @@ const struct Item gItems[] =
     {
         .name = _("JAW FOSSIL"),
         .itemId = ITEM_JAW_FOSSIL,
-        .price = 0,
+        .price = 1000,
         .description = sJawFossilDesc,
         .importance = 0,
         .pocket = POCKET_ITEMS,
@@ -5654,7 +5654,7 @@ const struct Item gItems[] =
     {
         .name = _("SAIL FOSSIL"),
         .itemId = ITEM_SAIL_FOSSIL,
-        .price = 0,
+        .price = 1000,
         .description = sSailFossilDesc,
         .importance = 0,
         .pocket = POCKET_ITEMS,
