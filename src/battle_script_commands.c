@@ -4680,6 +4680,7 @@ static void Cmd_moveend(void)
 
                 if (gBattleMoves[gCurrentMove].target == MOVE_TARGET_FOES_AND_ALLY)
                 {
+                    gHitMarker |= HITMARKER_NO_PPDEDUCT;
                     for (battlerId = gBattlerTarget + 1; battlerId < gBattlersCount; battlerId++)
                     {
                         if (battlerId == gBattlerAttacker)
@@ -4707,6 +4708,7 @@ static void Cmd_moveend(void)
                 else
                 {
                     gHitMarker |= HITMARKER_NO_ATTACKSTRING;
+                    gHitMarker &= ~(HITMARKER_NO_PPDEDUCT);
                 }
             }
             gBattleScripting.moveendState++;
