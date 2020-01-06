@@ -116,7 +116,6 @@ MauvilleCity_Gym_EventScript_WattsonDefeated:: @ 820DF2B
 MauvilleCity_Gym_EventScript_GiveVoltSwitch:: @ 820DFB1
 	giveitem_std ITEM_TM72
 	msgbox MauvilleCity_Gym_Text_ExplainVoltSwitch, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM72
 	return
 
 MauvilleCity_Gym_EventScript_CompletedNewMauville:: @ 820DFD4

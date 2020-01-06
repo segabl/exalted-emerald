@@ -439,7 +439,6 @@ PetalburgCity_Gym_EventScript_NormanBattle:: @ 8204E3B
 
 PetalburgCity_Gym_EventScript_GiveRetaliate:: @ 8204ED2
 	giveitem_std ITEM_TM67
-	setflag FLAG_RECEIVED_TM67
 	msgbox PetalburgCity_Gym_Text_ExplainRetaliate, MSGBOX_DEFAULT
 	return
 

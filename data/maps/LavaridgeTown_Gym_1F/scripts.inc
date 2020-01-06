@@ -90,7 +90,6 @@ LavaridgeTown_Gym_1F_EventScript_FlanneryDefeated:: @ 81FE7C1
 LavaridgeTown_Gym_1F_EventScript_GiveOverheat:: @ 81FE841
 	giveitem_std ITEM_TM50
 	msgbox LavaridgeTown_Gym_1F_Text_ExplainOverheat, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM50
 	return
 
 LavaridgeTown_Gym_1F_EventScript_FlanneryRematch:: @ 81FE864

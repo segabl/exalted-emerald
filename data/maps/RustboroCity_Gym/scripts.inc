@@ -28,7 +28,6 @@ RustboroCity_Gym_EventScript_RoxanneDefeated:: @ 8212F66
 
 RustboroCity_Gym_EventScript_GiveRockTomb:: @ 8212FA4
 	giveitem_std ITEM_TM39
-	setflag FLAG_RECEIVED_TM39
 	msgbox RustboroCity_Gym_Text_ExplainRockTomb, MSGBOX_DEFAULT
 	release
 	end

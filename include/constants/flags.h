@@ -178,14 +178,16 @@
 #define FLAG_CUTE_PAINTING_MADE              0xA2
 #define FLAG_SMART_PAINTING_MADE             0xA3
 #define FLAG_TOUGH_PAINTING_MADE             0xA4
-#define FLAG_RECEIVED_TM39                   0xA5
-#define FLAG_RECEIVED_TM08                   0xA6
-#define FLAG_RECEIVED_TM72                   0xA7
-#define FLAG_RECEIVED_TM50                   0xA8
-#define FLAG_RECEIVED_TM67                   0xA9
-#define FLAG_RECEIVED_TM99                   0xAA
-#define FLAG_RECEIVED_TM04                   0xAB
-#define FLAG_UNUSED_0xAC                     0xAC
+
+#define FLAG_UNUSED_0x0A5                    0xA5
+#define FLAG_UNUSED_0x0A6                    0xA6
+#define FLAG_UNUSED_0x0A7                    0xA7
+#define FLAG_UNUSED_0x0A8                    0xA8
+#define FLAG_UNUSED_0x0A9                    0xA9
+#define FLAG_UNUSED_0x0AA                    0xAA
+#define FLAG_UNUSED_0x0AB                    0xAB
+#define FLAG_UNUSED_0x0AC                    0xAC
+
 #define FLAG_DECORATION_0                    0xAD
 #define FLAG_DECORATION_1                    0xAE
 #define FLAG_DECORATION_2                    0xAF
@@ -247,9 +249,9 @@
 #define FLAG_RETURNED_METEORITE              0xE5
 #define FLAG_RECEIVED_TM36                   0xE6
 #define FLAG_RECEIVED_TM05                   0xE7
-#define FLAG_RECEIVED_TM19                   0xE8
 
-#define FLAG_UNUSED_0x0E9                    0xE9 // Unused Flag
+#define FLAG_UNUSED_0x0E8                    0xE8
+#define FLAG_UNUSED_0x0E9                    0xE9
 
 #define FLAG_RECEIVED_TM44                   0xEA
 #define FLAG_RECEIVED_TM45                   0xEB
@@ -316,9 +318,7 @@
 #define FLAG_PETALBURG_MART_EXPANDED_ITEMS   0x128
 #define FLAG_RECEIVED_MIRACLE_SEED           0x129
 #define FLAG_RECEIVED_BELDUM                 0x12A
-
-#define FLAG_UNUSED_0x12B                    0x12B  // Unused flag
-
+#define FLAG_RECEIVED_TM99                   0x12B
 #define FLAG_MET_FANCLUB_YOUNGER_BROTHER     0x12C
 #define FLAG_RIVAL_LEFT_FOR_ROUTE103         0x12D
 #define FLAG_OMIT_DIVE_FROM_STEVEN_LETTER    0x12E

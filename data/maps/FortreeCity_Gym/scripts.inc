@@ -50,7 +50,6 @@ FortreeCity_Gym_EventScript_WinonaDefeated:: @ 82165FD
 FortreeCity_Gym_EventScript_GiveRoost:: @ 821666A
 	giveitem_std ITEM_TM19
 	msgbox FortreeCity_Gym_Text_ExplainRoost, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM19
 	return
 
 FortreeCity_Gym_EventScript_WinonaRematch:: @ 821668D

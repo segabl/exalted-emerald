@@ -189,7 +189,6 @@ DewfordTown_Gym_EventScript_BrawlyDefeated:: @ 81FC7F7
 DewfordTown_Gym_EventScript_GiveBulkUp:: @ 81FC855
 	giveitem_std ITEM_TM08
 	msgbox DewfordTown_Gym_Text_ExplainBulkUp, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM08
 	return
 
 DewfordTown_Gym_EventScript_BrawlyRematch:: @ 81FC89C

@@ -92,7 +92,6 @@ MossdeepCity_Gym_EventScript_TateAndLizaDefeated:: @ 82208D1
 MossdeepCity_Gym_EventScript_GiveCalmMind:: @ 822095B
 	giveitem_std ITEM_TM04
 	msgbox MossdeepCity_Gym_Text_ExplainCalmMind, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM04
 	return
 
 MossdeepCity_Gym_EventScript_TateAndLizaRematch:: @ 822097E
