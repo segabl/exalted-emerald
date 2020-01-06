@@ -100,8 +100,8 @@ FallarborTown_CozmosHouse_Text_CrushedWithDisappointment: @ 8201212
 FallarborTown_CozmosHouse_Text_MayIHaveMeteorite: @ 8201249
 	.string "PROF. COZMO: Please, may I have that\n"
 	.string "METEORITE?\p"
-	.string "I'm not asking for it for free.\n"
-	.string "How about in exchange for this TM?$"
+	.string "I'm not asking for it for free. How\n"
+	.string "about in exchange for this STAR PIECE?$"
 
 FallarborTown_CozmosHouse_Text_CozmoWentToMeteorFalls: @ 82012BC
 	.string "PROF. COZMO went off to METEOR FALLS\n"
