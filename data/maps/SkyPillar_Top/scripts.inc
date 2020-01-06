@@ -58,6 +58,8 @@ SkyPillar_Top_EventScript_Rayquaza:: @ 8239722
 	specialvar VAR_RESULT, GetBattleOutcome
 	compare VAR_RESULT, B_OUTCOME_WON
 	goto_if_eq SkyPillar_Top_EventScript_DefeatedRayquaza
+	compare VAR_RESULT, B_OUTCOME_CAUGHT
+	goto_if_eq SkyPillar_Top_EventScript_CaughtRayquaza
 	compare VAR_RESULT, B_OUTCOME_RAN
 	goto_if_eq SkyPillar_Top_EventScript_RanFromRayquaza
 	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
@@ -68,6 +70,12 @@ SkyPillar_Top_EventScript_Rayquaza:: @ 8239722
 
 SkyPillar_Top_EventScript_DefeatedRayquaza:: @ 8239768
 	setflag FLAG_DEFEATED_RAYQUAZA
+	goto SkyPillar_Top_EventScript_DefeatedRayquaza2
+	end
+
+SkyPillar_Top_EventScript_CaughtRayquaza::
+	setflag FLAG_DEFEATED_RAYQUAZA
+	setflag FLAG_CAUGHT_RAYQUAZA
 	goto SkyPillar_Top_EventScript_DefeatedRayquaza2
 	end
 
@@ -136,6 +144,82 @@ SkyPillar_Top_EventScript_AwakenRayquaza:: @ 823979A
 	setvar VAR_SKY_PILLAR_RAQUAZA_CRY_DONE, 1
 	releaseall
 	end
+
+SkyPillar_Top_EventScript_Zinnia::
+	goto_if_set FLAG_CAUGHT_RAYQUAZA, SkyPillar_Top_EventScript_ZinniaRayquazaCaught
+	goto_if_set FLAG_DEFEATED_RAYQUAZA, SkyPillar_Top_EventScript_ZinniaRayquazaDefeated
+	lockall
+	faceplayer
+	msgbox SkyPillar_Top_Text_ZinniaNotImportant, MSGBOX_DEFAULT
+	closemessage
+	releaseall
+	end
+
+SkyPillar_Top_EventScript_ZinniaRayquazaDefeated::
+	lockall
+	faceplayer
+	msgbox SkyPillar_Top_Text_ZinniaRayquazaDefeated, MSGBOX_DEFAULT
+	closemessage
+	releaseall
+	end
+
+SkyPillar_Top_EventScript_ZinniaRayquazaCaught::
+	lockall
+	faceplayer
+	msgbox SkyPillar_Top_Text_ZinniaRayquazaCaught, MSGBOX_DEFAULT
+	checkpartymon SPECIES_RAYQUAZA
+	compare VAR_RESULT, PARTY_SIZE
+	call_if_ne SkyPillar_Top_EventScript_ZinniaAskTeachRayquaza
+	msgbox SkyPillar_Top_Text_ZinniaTakeCare, MSGBOX_DEFAULT
+	closemessage
+	releaseall
+	end
+
+SkyPillar_Top_EventScript_ZinniaAskTeachRayquaza::
+	msgbox SkyPillar_Top_Text_ZinniaAskTeachRayquaza, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq SkyPillar_Top_EventScript_ZinniaTeachRayquaza
+	call_if_ne SkyPillar_Top_EventScript_ZinniaTeachRayquazaDecline
+	return
+
+SkyPillar_Top_EventScript_ZinniaTeachRayquaza::
+	setvar VAR_0x8005, TUTOR_MOVE_DRAGON_ASCEND
+	call MoveTutor_EventScript_OpenPartyMenu
+	return
+
+SkyPillar_Top_EventScript_ZinniaTeachRayquazaDecline::
+	msgbox SkyPillar_Top_Text_ZinniaTeachRayquazaDecline, MSGBOX_DEFAULT
+	return
+
+SkyPillar_Top_Text_ZinniaNotImportant:
+	.string "Me?\p"
+	.string "Who I am is not important…\p"
+	.string "I'm just here to pay my respects\n"
+	.string "to RAYQUAZA.\p"
+	.string "It saved HOENN after all…$"
+
+SkyPillar_Top_Text_ZinniaRayquazaDefeated:
+	.string "You…\p"
+	.string "You actually defeated RAYQUAZA…\p"
+	.string "I… I have no words…$"
+
+SkyPillar_Top_Text_ZinniaRayquazaCaught:
+	.string "You…\p"
+	.string "You actually caught RAYQUAZA…\p"
+	.string "It… It must have chosen you…\p"
+	.string "I hope you know what an incredible\n"
+	.string "honor this is…$"
+
+SkyPillar_Top_Text_ZinniaAskTeachRayquaza:
+	.string "If you want, I can teach it a\n"
+	.string "special move, one only it can learn…$"
+
+SkyPillar_Top_Text_ZinniaTeachRayquazaDecline:
+	.string "Oh… I see…$"
+
+SkyPillar_Top_Text_ZinniaTakeCare:
+	.string "Please…\n"
+	.string "Take care…$"
 
 SkyPillar_Top_Movement_RayquazaStir: @ 823983A
 	delay_16
