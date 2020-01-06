@@ -1,6 +1,8 @@
 # Pokémon Emerald
 
-This is a decompilation of Pokémon Emerald with various patches applied to update game mechanics.
+This is a decompilation of Pokémon Emerald with various patches applied to update game mechanics.  
+For the original, unmodified decompile, check out <https://github.com/pret/pokeemerald>  
+For DizzyEgg's modifications, check out <https://github.com/DizzyEggg/pokeemerald>  
 
 ## Major changes
 
