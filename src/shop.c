@@ -1119,7 +1119,7 @@ static void Task_ReturnToItemListAfterItemPurchase(u8 taskId)
     if (gMain.newKeys & (A_BUTTON | B_BUTTON))
     {
         PlaySE(SE_SELECT);
-        if (tItemId == ITEM_POKE_BALL && tItemCount > 9)
+        if (ItemId_GetPocket(tItemId) == POCKET_POKE_BALLS && tItemCount > 9)
         {
             u8 count = tItemCount / 10;
             if (AddBagItem(ITEM_PREMIER_BALL, count) == TRUE)
