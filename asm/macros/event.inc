@@ -1429,9 +1429,10 @@
 	.4byte \value
 	.endm
 
-	@ OBSOLETE
-	.macro unused1
+	@ Checks if the player has a specific pokemon in their party and returns the index if so. If not, VAR_RESULT is set to PARTY_SIZE.
+	.macro checkpartymon species:req
 	.byte 0xcd
+	.2byte \species
 	.endm
 
 	@ OBSOLETE
