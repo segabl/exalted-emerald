@@ -7204,14 +7204,14 @@
                                 "species": "SPECIES_GLOOM"
                             },
                             {
-                                "max_level": 28,
-                                "min_level": 28,
-                                "species": "SPECIES_FEAROW"
-                            },
-                            {
                                 "max_level": 26,
                                 "min_level": 25,
                                 "species": "SPECIES_WINGULL"
+                            },
+                            {
+                                "max_level": 28,
+                                "min_level": 27,
+                                "species": "SPECIES_PELIPPER"
                             },
                             {
                                 "max_level": 28,
@@ -7439,37 +7439,37 @@
                             {
                                 "max_level": 28,
                                 "min_level": 26,
-                                "species": "SPECIES_DROWZEE"
+                                "species": "SPECIES_ODDISH"
                             },
                             {
                                 "max_level": 28,
                                 "min_level": 28,
-                                "species": "SPECIES_DROWZEE"
+                                "species": "SPECIES_GLOOM"
                             },
                             {
                                 "max_level": 28,
                                 "min_level": 27,
-                                "species": "SPECIES_MR_MIME"
-                            },
-                            {
-                                "max_level": 26,
-                                "min_level": 25,
-                                "species": "SPECIES_WINGULL"
-                            },
-                            {
-                                "max_level": 28,
-                                "min_level": 26,
                                 "species": "SPECIES_PELIPPER"
                             },
                             {
                                 "max_level": 28,
-                                "min_level": 28,
-                                "species": "SPECIES_SUDOWOODO"
+                                "min_level": 25,
+                                "species": "SPECIES_MR_MIME"
                             },
                             {
-                                "max_level": 25,
-                                "min_level": 25,
-                                "species": "SPECIES_SUDOWOODO"
+                                "max_level": 28,
+                                "min_level": 26,
+                                "species": "SPECIES_DROWZEE"
+                            },
+                            {
+                                "max_level": 28,
+                                "min_level": 28,
+                                "species": "SPECIES_MR_MIME"
+                            },
+                            {
+                                "max_level": 28,
+                                "min_level": 28,
+                                "species": "SPECIES_DROWZEE"
                             }
                         ]
                     },
