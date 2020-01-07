@@ -424,11 +424,11 @@ const struct WindowTemplate gUnknown_086141AC[] =
 // .text
 
 struct ListBuffer1 {
-    struct ListMenuItem subBuffers[65];
+    struct ListMenuItem subBuffers[BAG_TMHM_COUNT + 1]; // BAG_TMHM_COUNT has the most list items
 };
 
 struct ListBuffer2 {
-    s8 name[65][24];
+    s8 name[BAG_TMHM_COUNT + 1][24];
 };
 
 struct TempWallyStruct {
