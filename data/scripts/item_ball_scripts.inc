@@ -361,12 +361,16 @@ GraniteCave_B1F_EventScript_ItemPokeBall:: @ 829115D
 	finditem_std ITEM_POKE_BALL
 	end
 
-GraniteCave_B2F_EventScript_ItemRepel:: @ 829116A
-	finditem_std ITEM_REPEL
+GraniteCave_B2F_EventScript_ItemTM65::
+	finditem_std ITEM_TM65
 	end
 
 GraniteCave_B2F_EventScript_ItemRareCandy:: @ 8291177
 	finditem_std ITEM_RARE_CANDY
+	end
+
+MtChimney_EventScript_ItemTM59::
+	finditem_std ITEM_TM59
 	end
 
 JaggedPass_EventScript_ItemBurnHeal:: @ 8291184
@@ -559,6 +563,14 @@ Route119_EventScript_ItemMaxElixir:: @ 82913A6
 
 Route119_EventScript_ItemNestBall:: @ 82913B3
 	finditem_std ITEM_NEST_BALL
+	end
+
+Route119_EventScript_ItemTM62::
+	finditem_std ITEM_TM62
+	end
+
+SkyPillar_EventScript_ItemTM64::
+	finditem_std ITEM_TM64
 	end
 
 ShoalCave_LowTideEntranceRoom_EventScript_ItemBigPearl:: @ 82913C0

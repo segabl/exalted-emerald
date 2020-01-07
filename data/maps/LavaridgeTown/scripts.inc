@@ -290,6 +290,48 @@ LavaridgeTown_EventScript_HerbShopSign:: @ 81EA7B7
 	msgbox LavaridgeTown_Text_HerbShopSign, MSGBOX_SIGN
 	end
 
+LavaridgeTown_EventScript_Blackbelt::
+	lock
+	faceplayer
+	checkitem ITEM_TM75, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq LavaridgeTown_EventScript_BlackbeltExplainSwordsDance
+	msgbox LavaridgeTown_Text_GotWhatItTakes, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq LavaridgeTown_EventScript_BlackbeltGotWhatItTakes
+	msgbox LavaridgeTown_Text_ThenTakeThis
+	giveitem_std ITEM_TM75
+	goto LavaridgeTown_EventScript_BlackbeltExplainSwordsDance
+	end
+
+LavaridgeTown_EventScript_BlackbeltGotWhatItTakes::
+	msgbox LavaridgeTown_Text_ThatsTheSpirit
+	release
+	end
+
+LavaridgeTown_EventScript_BlackbeltExplainSwordsDance::
+	msgbox LavaridgeTown_Text_SwordsDanceExplanation
+	release
+	end
+
+LavaridgeTown_Text_GotWhatItTakes:
+	.string "Hey kid!\p"
+	.string "You think you got what it takes\n"
+	.string "to take me on?!$"
+
+LavaridgeTown_Text_ThatsTheSpirit:
+	.string "That's the spirit!\p"
+	.string "Keep at it, champ!$"
+
+LavaridgeTown_Text_ThenTakeThis:
+	.string "Then take this!$"
+
+LavaridgeTown_Text_SwordsDanceExplanation:
+	.string "This TM contains SWORDS DANCE!\p"
+	.string "It sharply raises the ATTACK!\p"
+	.string "Use it and you too can get\n"
+	.string "what it takes!$"
+
 LavaridgeTown_Text_MayNiceBadgesTakeThis: @ 81EA7C0
 	.string "MAY: {PLAYER}{KUN}! Long time no see!\p"
 	.string "Oh? While I visited the hot springs,\n"

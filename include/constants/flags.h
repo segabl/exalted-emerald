@@ -1127,7 +1127,7 @@
 #define FLAG_ITEM_GRANITE_CAVE_1F_ESCAPE_ROPE                       0x41A
 #define FLAG_ITEM_GRANITE_CAVE_B1F_POKE_BALL                        0x41B
 #define FLAG_ITEM_MT_PYRE_5F_LAX_INCENSE                            0x41C
-#define FLAG_ITEM_GRANITE_CAVE_B2F_REPEL                            0x41D
+#define FLAG_ITEM_GRANITE_CAVE_B2F_TM65                             0x41D
 #define FLAG_ITEM_GRANITE_CAVE_B2F_RARE_CANDY                       0x41E
 #define FLAG_ITEM_PETALBURG_WOODS_X_ATTACK                          0x41F
 #define FLAG_ITEM_PETALBURG_WOODS_GREAT_BALL                        0x420
@@ -1199,11 +1199,9 @@
 #define FLAG_ITEM_NEW_MAUVILLE_FULL_HEAL                            0x462
 #define FLAG_ITEM_NEW_MAUVILLE_PARALYZE_HEAL                        0x463
 #define FLAG_ITEM_AQUA_HIDEOUT_B1F_MASTER_BALL                      0x464
-
-#define FLAG_UNUSED_0x465                                           0x465
-#define FLAG_UNUSED_0x466                                           0x466
-#define FLAG_UNUSED_0x467                                           0x467
-
+#define FLAG_ITEM_SKY_PILLAR_TM64                                   0x465
+#define FLAG_ITEM_ROUTE_119_TM62                                    0x466
+#define FLAG_ITEM_MT_CHIMNEY_TM59                                   0x467
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_TM93                       0x468
 #define FLAG_ITEM_MT_PYRE_2F_ULTRA_BALL                             0x469
 #define FLAG_ITEM_MT_PYRE_4F_SEA_INCENSE                            0x46A

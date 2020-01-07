@@ -26,10 +26,6 @@ MossdeepCity_Mart_Pokemart: @ 82223E0
 	release
 	end
 
-MossdeepCity_Mart_EventScript_Woman:: @ 82223F6
-	msgbox MossdeepCity_Mart_Text_ReviveIsFantastic, MSGBOX_NPC
-	end
-
 MossdeepCity_Mart_EventScript_Boy:: @ 82223FF
 	msgbox MossdeepCity_Mart_Text_MaxRepelLastsLongest, MSGBOX_NPC
 	end
@@ -38,12 +34,32 @@ MossdeepCity_Mart_EventScript_Sailor:: @ 8222408
 	msgbox MossdeepCity_Mart_Text_NetAndDiveBallsRare, MSGBOX_NPC
 	end
 
-MossdeepCity_Mart_Text_ReviveIsFantastic: @ 8222411
-	.string "REVIVE is fantastic!\p"
-	.string "Give it to a fainted POKéMON,\n"
-	.string "and the POKéMON will arise.\p"
-	.string "But be careful, REVIVE doesn't restore\n"
-	.string "the used-up PP of moves.$"
+MossdeepCity_Mart_EventScript_Woman::
+	lock
+	faceplayer
+	checkitem ITEM_TM60, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq MossdeepCity_Mart_EventScript_WomanExplainQuash
+	msgbox MossdeepCity_Mart_Text_WaitingInLine
+	giveitem_std ITEM_TM60
+	release
+	end
+
+MossdeepCity_Mart_EventScript_WomanExplainQuash::
+	msgbox MossdeepCity_Mart_Text_QuashExplanation
+	release
+	end
+
+MossdeepCity_Mart_Text_WaitingInLine:
+	.string "I've been waiting in line forever!\p"
+	.string "Maybe it's because of this?\p"
+	.string "Here, you have it!$"
+
+MossdeepCity_Mart_Text_QuashExplanation:
+	.string "TM60 contains QUASH!\p"
+	.string "It makes the targeted POKéMON\n"
+	.string "move last if it hasn't moved yet.\p"
+	.string "Maybe I should start making a move…$"
 
 MossdeepCity_Mart_Text_MaxRepelLastsLongest: @ 82224A0
 	.string "MAX REPEL keeps all weak POKéMON away.\p"

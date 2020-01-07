@@ -377,7 +377,7 @@ Route110_TrickHouseEntrance_EventScript_GivePuzzle1Reward:: @ 8269EEF
 	end
 
 Route110_TrickHouseEntrance_EventScript_GivePuzzle2Reward:: @ 8269F1B
-	giveitem_std ITEM_TIMER_BALL
+	giveitem_std ITEM_TM12
 	compare VAR_RESULT, TRUE
 	goto_if_eq Route110_TrickHouseEntrance_EventScript_GotReward
 	compare VAR_RESULT, FALSE
@@ -407,7 +407,7 @@ Route110_TrickHouseEntrance_EventScript_GivePuzzle4Reward:: @ 8269F73
 	end
 
 Route110_TrickHouseEntrance_EventScript_GivePuzzle5Reward:: @ 8269F9F
-	giveitem_std ITEM_TM12
+	giveitem_std ITEM_TM92
 	compare VAR_RESULT, TRUE
 	goto_if_eq Route110_TrickHouseEntrance_EventScript_GotReward
 	msgbox Route110_TrickHouseEntrance_Text_DidYouNotComeToClaimReward, MSGBOX_DEFAULT
