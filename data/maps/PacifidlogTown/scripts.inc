@@ -23,6 +23,23 @@ PacifidlogTown_EventScript_Fisherman:: @ 81EBAD5
 	msgbox PacifidlogTown_Text_SkyPillarTooScary, MSGBOX_NPC
 	end
 
+PacifidlogTown_EventScript_FlingKid::
+	lock
+	faceplayer
+	checkitem ITEM_TM56, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq PacifidlogTown_EventScript_FlingKidExplainFling
+	msgbox PacifidlogTown_Text_SoAngry
+	giveitem_std ITEM_TM56
+	release
+	end
+
+PacifidlogTown_EventScript_FlingKidExplainFling::
+	msgbox PacifidlogTown_Text_FlingExplanation
+	release
+	end
+
+
 PacifidlogTown_EventScript_TownSign:: @ 81EBADE
 	msgbox PacifidlogTown_Text_TownSign, MSGBOX_SIGN
 	end
@@ -52,3 +69,15 @@ PacifidlogTown_Text_TownSign: @ 81EBC7A
 	.string "“Where the morning sun smiles upon\n"
 	.string "the waters.”$"
 
+PacifidlogTown_Text_SoAngry:
+	.string "Aaargh, I'm so angry, I could\n"
+	.string "FLING this TM into the sea!\p"
+	.string "None of my POKéMON can learn it\n"
+	.string "so take it before I really do it!$"
+
+PacifidlogTown_Text_FlingExplanation:
+	.string "This TM contains FLING!\p"
+	.string "A POKéMON using this move will\n"
+	.string "throw its ITEM at the opponent.\p"
+	.string "How effective it is depends on\n"
+	.string "the ITEM it is holding.$"

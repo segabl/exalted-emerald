@@ -18,7 +18,7 @@ FallarborTown_CozmosHouse_EventScript_PlayerHasMeteorite:: @ 8200F38
 	compare VAR_RESULT, NO
 	goto_if_eq FallarborTown_CozmosHouse_EventScript_DeclineGiveMeteorite
 	msgbox FallarborTown_CozmosHouse_Text_PleaseTakeThis, MSGBOX_DEFAULT
-	giveitem_std ITEM_STAR_PIECE
+	giveitem_std ITEM_TM23
 	setvar VAR_0x8004, ITEM_METEORITE
 	call Common_EventScript_PlayerHandedOverTheItem
 	setflag FLAG_RETURNED_METEORITE
@@ -86,7 +86,9 @@ FallarborTown_CozmosHouse_Text_IsThatMeteoriteMayIHaveIt: @ 82010A2
 
 FallarborTown_CozmosHouse_Text_PleaseTakeThis: @ 8201159
 	.string "PROF. COZMO: Please take this,\n"
-	.string "it represents my feeling of gratitude.$"
+	.string "I'm sure you can make more use of it,\l"
+	.string "judging by how you handled those\l"
+	.string "TEAM MAGMA people!$"
 
 FallarborTown_CozmosHouse_Text_ReallyGoingToHelpMyResearch: @ 82011A5
 	.string "PROF. COZMO: Oh, I can't believe it.\n"
@@ -100,8 +102,8 @@ FallarborTown_CozmosHouse_Text_CrushedWithDisappointment: @ 8201212
 FallarborTown_CozmosHouse_Text_MayIHaveMeteorite: @ 8201249
 	.string "PROF. COZMO: Please, may I have that\n"
 	.string "METEORITE?\p"
-	.string "I'm not asking for it for free. How\n"
-	.string "about in exchange for this STAR PIECE?$"
+	.string "I'm not asking for it for free.\n"
+	.string "How about in exchange for this TM?$"
 
 FallarborTown_CozmosHouse_Text_CozmoWentToMeteorFalls: @ 82012BC
 	.string "PROF. COZMO went off to METEOR FALLS\n"

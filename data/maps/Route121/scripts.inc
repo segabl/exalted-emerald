@@ -171,6 +171,37 @@ Route121_EventScript_RematchCristin:: @ 81F6043
 	msgbox Route121_Text_CristinPostRematch, MSGBOX_AUTOCLOSE
 	end
 
+Route121_EventScript_HexManiac::
+	lock
+	faceplayer
+	checkitem ITEM_TM85, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route121_EventScript_HexManiacExplainDreamEater
+	msgbox Route121_Text_EatingDreams
+	giveitem_std ITEM_TM85
+	release
+	end
+
+Route121_EventScript_HexManiacExplainDreamEater::
+	msgbox Route121_Text_DreamEaterExplanation
+	release
+	end
+
+Route121_Text_EatingDreams:
+	.string "Eating dreams is weird…\p"
+	.string "Though it seems that some PSYCHIC\n"
+	.string "and GHOST-type POKéMON love to do it…\p"
+	.string "I have tried it myself but\n"
+	.string "I did not really like the taste,\l"
+	.string "so you can have this!$"
+
+Route121_Text_DreamEaterExplanation:
+	.string "TM85 contains DREAM EATER…\p"
+	.string "The POKéMON using it will consume\n"
+	.string "the dreams of a sleeping opponent…\p"
+	.string "It will also heal itself a bit\n"
+	.string "with each dream eaten…$"
+
 Route121_Text_OkayMoveOutToMtPyre: @ 81F605A
 	.string "Okay!\n"
 	.string "We're to move out to MT. PYRE!$"

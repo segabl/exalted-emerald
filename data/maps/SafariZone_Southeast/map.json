@@ -1,101 +1,116 @@
 {
-  "allow_bike": true,
-  "allow_escape_rope": false,
-  "allow_running": true,
-  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "bg_events": [
-    {
-      "elevation": 3,
-      "flag": "FLAG_HIDDEN_ITEM_SAFARI_ZONE_SOUTH_EAST_PP_UP",
-      "item": "ITEM_PP_UP",
-      "type": "hidden_item",
-      "x": 19,
-      "y": 36
-    },
-    {
-      "elevation": 0,
-      "flag": "FLAG_HIDDEN_ITEM_SAFARI_ZONE_SOUTH_EAST_FULL_RESTORE",
-      "item": "ITEM_FULL_RESTORE",
-      "type": "hidden_item",
-      "x": 32,
-      "y": 33
-    }
-  ],
-  "connections": [
-    {
-      "direction": "left",
-      "map": "MAP_SAFARI_ZONE_SOUTH",
-      "offset": 0
-    },
-    {
-      "direction": "up",
-      "map": "MAP_SAFARI_ZONE_NORTHEAST",
-      "offset": 0
-    }
-  ],
-  "coord_events": [],
-  "id": "MAP_SAFARI_ZONE_SOUTHEAST",
-  "layout": "LAYOUT_SAFARI_ZONE_SOUTHEAST",
-  "map_type": "MAP_TYPE_ROUTE",
-  "music": "MUS_SAFARI",
-  "name": "SafariZone_Southeast",
-  "object_events": [
-    {
-      "elevation": 3,
-      "flag": "0",
-      "graphics_id": "EVENT_OBJ_GFX_RICH_BOY",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "script": "SafariZone_Southeast_EventScript_RichBoy",
-      "trainer_sight_or_berry_tree_id": "0",
-      "trainer_type": "0",
-      "x": 7,
-      "y": 7
-    },
-    {
-      "elevation": 3,
-      "flag": "0",
-      "graphics_id": "EVENT_OBJ_GFX_FAT_MAN",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "script": "SafariZone_Southeast_EventScript_FatMan",
-      "trainer_sight_or_berry_tree_id": "0",
-      "trainer_type": "0",
-      "x": 20,
-      "y": 30
-    },
-    {
-      "elevation": 3,
-      "flag": "0",
-      "graphics_id": "EVENT_OBJ_GFX_LITTLE_GIRL",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "script": "SafariZone_Southeast_EventScript_LittleGirl",
-      "trainer_sight_or_berry_tree_id": "0",
-      "trainer_type": "0",
-      "x": 8,
-      "y": 26
-    },
-    {
-      "elevation": 3,
-      "flag": "FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL",
-      "graphics_id": "EVENT_OBJ_GFX_ITEM_BALL",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "script": "SafariZone_Southeast_EventScript_ItemBigPearl",
-      "trainer_sight_or_berry_tree_id": "0",
-      "trainer_type": "0",
-      "x": 31,
-      "y": 15
-    }
-  ],
-  "region_map_section": "MAPSEC_SAFARI_ZONE",
-  "requires_flash": false,
-  "show_map_name": true,
-  "warp_events": [],
-  "weather": "WEATHER_NONE"
+    "allow_bike": true,
+    "allow_escape_rope": false,
+    "allow_running": true,
+    "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+    "bg_events": [
+        {
+            "elevation": 3,
+            "flag": "FLAG_HIDDEN_ITEM_SAFARI_ZONE_SOUTH_EAST_PP_UP",
+            "item": "ITEM_PP_UP",
+            "type": "hidden_item",
+            "x": 19,
+            "y": 36
+        },
+        {
+            "elevation": 0,
+            "flag": "FLAG_HIDDEN_ITEM_SAFARI_ZONE_SOUTH_EAST_FULL_RESTORE",
+            "item": "ITEM_FULL_RESTORE",
+            "type": "hidden_item",
+            "x": 32,
+            "y": 33
+        }
+    ],
+    "connections": [
+        {
+            "direction": "left",
+            "map": "MAP_SAFARI_ZONE_SOUTH",
+            "offset": 0
+        },
+        {
+            "direction": "up",
+            "map": "MAP_SAFARI_ZONE_NORTHEAST",
+            "offset": 0
+        }
+    ],
+    "coord_events": [
+    ],
+    "id": "MAP_SAFARI_ZONE_SOUTHEAST",
+    "layout": "LAYOUT_SAFARI_ZONE_SOUTHEAST",
+    "map_type": "MAP_TYPE_ROUTE",
+    "music": "MUS_SAFARI",
+    "name": "SafariZone_Southeast",
+    "object_events": [
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_RICH_BOY",
+            "movement_range_x": 1,
+            "movement_range_y": 1,
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "script": "SafariZone_Southeast_EventScript_RichBoy",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 7,
+            "y": 7
+        },
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_FAT_MAN",
+            "movement_range_x": 1,
+            "movement_range_y": 1,
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "script": "SafariZone_Southeast_EventScript_FatMan",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 20,
+            "y": 30
+        },
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_LITTLE_GIRL",
+            "movement_range_x": 1,
+            "movement_range_y": 1,
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "script": "SafariZone_Southeast_EventScript_LittleGirl",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 8,
+            "y": 26
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL",
+            "graphics_id": "EVENT_OBJ_GFX_ITEM_BALL",
+            "movement_range_x": 1,
+            "movement_range_y": 1,
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "script": "SafariZone_Southeast_EventScript_ItemBigPearl",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 12,
+            "y": 32
+        },
+        {
+            "elevation": 3,
+            "flag": "FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_TM93",
+            "graphics_id": "EVENT_OBJ_GFX_ITEM_BALL",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+            "script": "SafariZone_Southeast_EventScript_ItemTM93",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 31,
+            "y": 15
+        }
+    ],
+    "region_map_section": "MAPSEC_SAFARI_ZONE",
+    "requires_flash": false,
+    "show_map_name": true,
+    "warp_events": [
+    ],
+    "weather": "WEATHER_NONE"
 }

@@ -282,6 +282,10 @@ Route132_EventScript_ItemProtein:: @ 8291066
 	finditem_std ITEM_PROTEIN
 	end
 
+Route132_EventScript_ItemTM34::
+	finditem_std ITEM_TM34
+	end
+
 Route133_EventScript_ItemBigPearl:: @ 8291073
 	finditem_std ITEM_BIG_PEARL
 	end
@@ -367,6 +371,14 @@ GraniteCave_B2F_EventScript_ItemRareCandy:: @ 8291177
 
 JaggedPass_EventScript_ItemBurnHeal:: @ 8291184
 	finditem_std ITEM_BURN_HEAL
+	end
+
+JaggedPass_EventScript_ItemTM43::
+	finditem_std ITEM_TM43
+	end
+
+JaggedPass_EventScript_ItemTM69::
+	finditem_std ITEM_TM69
 	end
 
 FieryPath_EventScript_ItemFireStone:: @ 8291191
@@ -479,6 +491,14 @@ SafariZone_Northeast_EventScript_ItemNugget:: @ 82912E3
 
 SafariZone_Southeast_EventScript_ItemBigPearl:: @ 82912F0
 	finditem_std ITEM_BIG_PEARL
+	end
+
+SafariZone_Southeast_EventScript_ItemTM93::
+	finditem_std ITEM_TM93
+	end
+
+SafariZone_South_EventScript_ItemTM53::
+	finditem_std ITEM_TM53
 	end
 
 MtPyre_2F_EventScript_ItemUltraBall:: @ 82912FD

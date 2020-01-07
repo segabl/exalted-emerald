@@ -20,6 +20,22 @@ PacifidlogTown_House5_EventScript_Gentleman:: @ 8204137
 	msgbox PacifidlogTown_House5_Text_MirageIslandAppearDependingOnWeather, MSGBOX_NPC
 	end
 
+PacifidlogTown_House5_EventScript_Psychic::
+	lock
+	faceplayer
+	checkitem ITEM_TM03, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq PacifidlogTown_House5_EventScript_PsychicExplainPsyshock
+	msgbox PacifidlogTown_House5_Text_PsychicPokemonAreShocking
+	giveitem_std ITEM_TM03
+	release
+	end
+
+PacifidlogTown_House5_EventScript_PsychicExplainPsyshock::
+	msgbox PacifidlogTown_House5_Text_PsyshockExplanation
+	release
+	end
+
 PacifidlogTown_House5_Text_CantSeeMirageIslandToday: @ 8204140
 	.string "I can't see MIRAGE ISLAND today…$"
 
@@ -35,3 +51,14 @@ PacifidlogTown_House5_Text_MirageIslandAppearDependingOnWeather: @ 820418B
 	.string "Or is it really appearing and\n"
 	.string "disappearing?$"
 
+PacifidlogTown_House5_Text_PsychicPokemonAreShocking:
+	.string "PSYCHIC type POKéMON can be quite\n"
+	.string "shocking, don't you think?\p"
+	.string "Like this SPECIAL move that deals\n"
+	.string "PHYSICAL damage to an opponent.$"
+
+PacifidlogTown_House5_Text_PsyshockExplanation:
+	.string "TM03 contains PSYSHOCK.\p"
+	.string "It's a SPECIAL attack that deals\n"
+	.string "PHYSICAL damage.\p"
+	.string "Isn't that shocking?$"

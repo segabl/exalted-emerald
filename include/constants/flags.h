@@ -1191,33 +1191,25 @@
 #define FLAG_UNUSED_0x465                                           0x465
 #define FLAG_UNUSED_0x466                                           0x466
 #define FLAG_UNUSED_0x467                                           0x467
-#define FLAG_UNUSED_0x468                                           0x468
 
+#define FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_TM93                       0x468
 #define FLAG_ITEM_MT_PYRE_2F_ULTRA_BALL                             0x469
 #define FLAG_ITEM_MT_PYRE_4F_SEA_INCENSE                            0x46A
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_WEST_MAX_REVIVE                 0x46B
 #define FLAG_ITEM_AQUA_HIDEOUT_B1F_NUGGET                           0x46C
-
-#define FLAG_UNUSED_0x46D                                           0x46D
-
+#define FLAG_ITEM_SAFARI_ZONE_SOUTH_TM53                            0x46D
 #define FLAG_ITEM_ROUTE_119_NUGGET                                  0x46E
 #define FLAG_ITEM_ROUTE_104_POTION                                  0x46F
-
-#define FLAG_UNUSED_0x470                                           0x470
-
+#define FLAG_ITEM_JAGGED_PASS_TM69                                  0x470
 #define FLAG_ITEM_ROUTE_103_PP_UP                                   0x471
-
-#define FLAG_UNUSED_0x472                                           0x472
-
+#define FLAG_ITEM_JAGGED_PASS_TM43                                  0x472
 #define FLAG_ITEM_ROUTE_108_STAR_PIECE                              0x473
 #define FLAG_ITEM_ROUTE_109_POTION                                  0x474
 #define FLAG_ITEM_ROUTE_110_ELIXIR                                  0x475
 #define FLAG_ITEM_ROUTE_111_ELIXIR                                  0x476
 #define FLAG_ITEM_ROUTE_113_HYPER_POTION                            0x477
 #define FLAG_ITEM_ROUTE_115_HEAL_POWDER                             0x478
-
-#define FLAG_UNUSED_0x479                                           0x479
-
+#define FLAG_ITEM_ROUTE_132_TM34                                    0x479
 #define FLAG_ITEM_ROUTE_116_POTION                                  0x47A
 #define FLAG_ITEM_ROUTE_119_ELIXIR_2                                0x47B
 #define FLAG_ITEM_ROUTE_120_REVIVE                                  0x47C
