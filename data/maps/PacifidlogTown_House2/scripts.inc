@@ -26,10 +26,11 @@ PacifidlogTown_House2_EventScript_FirstMonAssessment:: @ 8203801
 	return
 
 PacifidlogTown_House2_EventScript_GiveReturn:: @ 8203816
-	goto_if_set FLAG_RECEIVED_TM27, PacifidlogTown_House2_EventScript_HasReturnFrustration
+	checkitem ITEM_TM27, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq PacifidlogTown_House2_EventScript_HasReturnFrustration
 	msgbox PacifidlogTown_House2_Text_AdoringPokemonTakeThis, MSGBOX_DEFAULT
 	giveitem_std ITEM_TM27
-	setflag FLAG_RECEIVED_TM27
 	call PacifidlogTown_House2_EventScript_HasReturnFrustration
 	end
 
@@ -44,10 +45,11 @@ PacifidlogTown_House2_EventScript_PutInEffort:: @ 8203845
 	end
 
 PacifidlogTown_House2_EventScript_GiveFrustration:: @ 820384F
-	goto_if_set FLAG_RECEIVED_TM21, PacifidlogTown_House2_EventScript_HasReturnFrustration
+	checkitem ITEM_TM21, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq PacifidlogTown_House2_EventScript_HasReturnFrustration
 	msgbox PacifidlogTown_House2_Text_ViciousPokemonTakeThis, MSGBOX_DEFAULT
 	giveitem_std ITEM_TM21
-	setflag FLAG_RECEIVED_TM21
 	call PacifidlogTown_House2_EventScript_HasReturnFrustration
 	end
 

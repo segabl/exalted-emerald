@@ -4,10 +4,11 @@ GraniteCave_1F_MapScripts:: @ 822DA5D
 GraniteCave_1F_EventScript_Hiker:: @ 822DA5E
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_TM70, GraniteCave_1F_EventScript_ReceivedFlash
+	checkitem ITEM_TM70, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq GraniteCave_1F_EventScript_ReceivedFlash
 	msgbox GraniteCave_1F_Text_GetsDarkAheadHereYouGo, MSGBOX_DEFAULT
 	giveitem_std ITEM_TM70
-	setflag FLAG_RECEIVED_TM70
 	msgbox GraniteCave_1F_Text_ExplainFlash, MSGBOX_DEFAULT
 	release
 	end

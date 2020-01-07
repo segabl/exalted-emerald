@@ -252,10 +252,11 @@ DewfordTown_Hall_EventScript_SludgeBombMan:: @ 81FD7DA
 	lock
 	faceplayer
 	call Common_EventScript_BufferTrendyPhrase
-	goto_if_set FLAG_RECEIVED_TM36, DewfordTown_Hall_EventScript_ReceivedSludgeBomb
+	checkitem ITEM_TM36, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq DewfordTown_Hall_EventScript_ReceivedSludgeBomb
 	msgbox DewfordTown_Hall_Text_GiveYouSludgeBomb, MSGBOX_DEFAULT
 	giveitem_std ITEM_TM36
-	setflag FLAG_RECEIVED_TM36
 	release
 	end
 

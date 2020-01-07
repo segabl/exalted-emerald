@@ -227,10 +227,11 @@ VerdanturfTown_BattleTentLobby_Movement_PlayerEnterDoor: @ 8201A77
 VerdanturfTown_BattleTentLobby_EventScript_AttractGiver:: @ 8201A7B
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_TM45, VerdanturfTown_BattleTentLobby_EventScript_ReceivedAttract
+	checkitem ITEM_TM45, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq VerdanturfTown_BattleTentLobby_EventScript_ReceivedAttract
 	msgbox VerdanturfTown_BattleTentLobby_Text_AttractionRunsDeep, MSGBOX_DEFAULT
 	giveitem_std ITEM_TM45
-	setflag FLAG_RECEIVED_TM45
 	msgbox VerdanturfTown_BattleTentLobby_Text_AttractionMutual, MSGBOX_DEFAULT
 	release
 	end

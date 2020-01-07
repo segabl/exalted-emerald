@@ -9,10 +9,11 @@ Route114_FossilManiacsHouse_OnTransition: @ 822AD36
 Route114_FossilManiacsHouse_EventScript_FossilManiacsBrother:: @ 822AD3A
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_TM28, Route114_FossilManiacsHouse_EventScript_ReceivedDig
+	checkitem ITEM_TM28, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route114_FossilManiacsHouse_EventScript_ReceivedDig
 	msgbox Route114_FossilManiacsHouse_Text_HaveThisToDigLikeMyBrother, MSGBOX_DEFAULT
 	giveitem_std ITEM_TM28
-	setflag FLAG_RECEIVED_TM28
 	release
 	end
 

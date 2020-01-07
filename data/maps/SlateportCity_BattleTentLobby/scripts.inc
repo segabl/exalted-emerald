@@ -199,10 +199,11 @@ SlateportCity_BattleTentLobby_Movement_UnusedEnterDoor:: @ 8208A38
 SlateportCity_BattleTentLobby_EventScript_TormentGiver:: @ 8208A3D
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_TM41, SlateportCity_BattleTentLobby_EventScript_ReceivedTorment
+	checkitem ITEM_TM41, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq SlateportCity_BattleTentLobby_EventScript_ReceivedTorment
 	msgbox SlateportCity_BattleTentLobby_Text_CouldntFindMonForMe, MSGBOX_DEFAULT
 	giveitem_std ITEM_TM41
-	setflag FLAG_RECEIVED_TM41
 	msgbox SlateportCity_BattleTentLobby_Text_ExplainTorment, MSGBOX_DEFAULT
 	release
 	end

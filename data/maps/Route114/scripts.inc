@@ -49,10 +49,11 @@ Route114_EventScript_ReceivedBerry:: @ 81F25C7
 Route114_EventScript_RoarGentleman:: @ 81F25D1
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_TM05, Route114_EventScript_ReceivedRoar
+	checkitem ITEM_TM05, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route114_EventScript_ReceivedRoar
 	msgbox Route114_Text_AllMyMonDoesIsRoarTakeThis, MSGBOX_DEFAULT
 	giveitem_std ITEM_TM05
-	setflag FLAG_RECEIVED_TM05
 	msgbox Route114_Text_ExplainRoar, MSGBOX_DEFAULT
 	release
 	end

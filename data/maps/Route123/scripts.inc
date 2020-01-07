@@ -9,7 +9,9 @@ Route123_OnTransition: @ 81F614D
 Route123_EventScript_DazzlingGleamGirl:: @ 81F6151
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_TM99, Route123_EventScript_ReceivedDazzlingGleam
+	checkitem ITEM_TM99, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route123_EventScript_ReceivedDazzlingGleam
 	msgbox Route123_Text_LoveFairyMonsHaveAny, MSGBOX_DEFAULT
 	setvar VAR_0x8000, TYPE_FAIRY
 	special IsTypeInParty
@@ -17,7 +19,6 @@ Route123_EventScript_DazzlingGleamGirl:: @ 81F6151
 	goto_if_eq Route123_EventScript_NoFairyMons
 	msgbox Route123_Text_YouLikeFairyMonsTooHaveThis, MSGBOX_DEFAULT
 	giveitem_std ITEM_TM99
-	setflag FLAG_RECEIVED_TM99
 	msgbox Route123_Text_StrollsWithMyFairyMon, MSGBOX_DEFAULT
 	release
 	end

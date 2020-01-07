@@ -338,10 +338,11 @@ Route104_EventScript_Woman:: @ 81ED04E
 Route104_EventScript_Boy2:: @ 81ED057
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_TM49, Route104_EventScript_ReceivedEchoedVoice
+	checkitem ITEM_TM49, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route104_EventScript_ReceivedEchoedVoice
 	msgbox Route104_Text_NoEchoDownHere, MSGBOX_DEFAULT
 	giveitem_std ITEM_TM49
-	setflag FLAG_RECEIVED_TM49
 	release
 	end
 

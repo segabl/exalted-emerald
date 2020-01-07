@@ -4,10 +4,11 @@ SSTidalRooms_MapScripts:: @ 823C9F1
 SSTidalRooms_EventScript_EmbargoGiver:: @ 823C9F2
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_TM63, SSTidalRooms_EventScript_ExplainEmbargo
+	checkitem ITEM_TM63, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq SSTidalRooms_EventScript_ExplainEmbargo
 	msgbox SSTidalRooms_Text_NotSuspiciousTakeThis, MSGBOX_DEFAULT
 	giveitem_std ITEM_TM63
-	setflag FLAG_RECEIVED_TM63
 	msgbox SSTidalRooms_Text_ExplainEmbargo, MSGBOX_DEFAULT
 	release
 	end
