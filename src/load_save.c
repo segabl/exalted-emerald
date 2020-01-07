@@ -13,6 +13,7 @@
 #include "gba/flash_internal.h"
 #include "decoration_inventory.h"
 #include "agb_flash.h"
+#include "constants/items.h"
 
 static void ApplyNewEncryptionKeyToAllEncryptedData(u32 encryptionKey);
 
@@ -211,7 +212,7 @@ void LoadSerializedGame(void)
 
 void LoadPlayerBag(void)
 {
-    int i;
+    int i, j;
 
     // load player items.
     for (i = 0; i < BAG_ITEMS_COUNT; i++)
@@ -236,6 +237,17 @@ void LoadPlayerBag(void)
     // load mail.
     for (i = 0; i < MAIL_COUNT; i++)
         gLoadedSaveData.mail[i] = gSaveBlock1Ptr->mail[i];
+
+    /** TODO: Enable new TM loading when done with testing
+    for (i = 0, j = 0; i < BAG_TMHM_COUNT; i++)
+    {
+        if ((gSaveBlock1Ptr->ownedTMHMs[i / 8] >> (i % 8)) & 1)
+        {
+            gLoadedSaveData.TMsHMs[j].itemId = ITEM_TM01 + i;
+            gLoadedSaveData.TMsHMs[j].quantity = 1;
+            j++;
+        }
+    }**/
 
     gLastEncryptionKey = gSaveBlock2Ptr->encryptionKey;
 }
@@ -268,6 +280,15 @@ void SavePlayerBag(void)
     // save mail.
     for (i = 0; i < MAIL_COUNT; i++)
         gSaveBlock1Ptr->mail[i] = gLoadedSaveData.mail[i];
+
+    /** TODO: Enable new TM saving when done with testing
+    memset(gSaveBlock1Ptr->ownedTMHMs, 0, sizeof(gSaveBlock1Ptr->ownedTMHMs));
+    for (i = 0; i < BAG_TMHM_COUNT; i++)
+    {
+        if (!gLoadedSaveData.TMsHMs[i].itemId)
+            break;
+        gSaveBlock1Ptr->ownedTMHMs[gLoadedSaveData.TMsHMs[i].itemId / 8] |= 1 << (gLoadedSaveData.TMsHMs[i].itemId % 8);
+    }**/
 
     encryptionKeyBackup = gSaveBlock2Ptr->encryptionKey;
     gSaveBlock2Ptr->encryptionKey = gLastEncryptionKey;
