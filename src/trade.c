@@ -3219,7 +3219,7 @@ static void BufferTradeSceneStrings(void)
         if (gSpecialVar_0x8004 == 0xFFFF)
         {
             GetMonData(&gPlayerParty[gSpecialVar_0x8005], MON_DATA_NICKNAME, name);
-            StringCopy(gStringVar1, gSaveBlock2Ptr->playerName);
+            StringCopy(gStringVar1, gText_TradeSimulationOT);
             StringCopy10(gStringVar3, name);
             StringCopy10(gStringVar2, name);
         }
