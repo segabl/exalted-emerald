@@ -55,6 +55,53 @@ SootopolisCity_Mart_EventScript_GentlemanNoLegendaries:: @ 822680C
 	release
 	end
 
+SootopolisCity_Mart_EventScript_Maniac::
+	lock
+	faceplayer
+	checkitem ITEM_TM83, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq SootopolisCity_Mart_EventScript_ManiacExplainInfestation
+	msgbox SootopolisCity_Mart_Text_CutestGirl, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq SootopolisCity_Mart_EventScript_ManiacDisagree
+	msgbox SootopolisCity_Mart_Text_ExcellentTaste
+	giveitem_std ITEM_TM83
+	goto SootopolisCity_Mart_EventScript_ManiacExplainInfestation
+	end
+
+SootopolisCity_Mart_EventScript_ManiacDisagree::
+	msgbox SootopolisCity_Mart_Text_YouHaveNoTaste
+	release
+	end
+
+SootopolisCity_Mart_EventScript_ManiacExplainInfestation::
+	msgbox SootopolisCity_Mart_Text_InfestationExplanation
+	release
+	end
+
+SootopolisCity_Mart_Text_CutestGirl:
+	.string "Altough I really like ROXANNE,\n"
+	.string "I think FLANNERY is actually\l"
+	.string "the cutest GYM LEADER.\p"
+	.string "You agree, right?$"
+
+SootopolisCity_Mart_Text_ExcellentTaste:
+	.string "Of course you do!\n"
+	.string "I have excellent taste after all!\p"
+	.string "Here, as a fellow FLANNERY admirer,\n"
+	.string "please take this!$"
+
+SootopolisCity_Mart_Text_YouHaveNoTaste:
+	.string "Humph…\p"
+	.string "You have no taste!$"
+
+SootopolisCity_Mart_Text_InfestationExplanation:
+	.string "TM83 contains INFESTATION.\p"
+	.string "The target is trapped for\n"
+	.string "multiple turns and can't escape…\p"
+	.string "It's perfect for setting up\n"
+	.string "your next move!$"
+
 SootopolisCity_Mart_Text_PPUpIsGreat: @ 8226816
 	.string "PP UP is great!\p"
 	.string "It raises the POWER POINTS, the PP,\n"

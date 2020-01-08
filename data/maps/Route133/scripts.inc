@@ -36,3 +36,32 @@ Route133_EventScript_Conor:: @ 81F762D
 	msgbox Route133_Text_ConorPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route133_EventScript_Psychic::
+	lock
+	faceplayer
+	checkitem ITEM_TM77, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route133_EventScript_PsychicExplainPsychUp
+	msgbox Route133_Text_GotCarriedHere
+	giveitem_std ITEM_TM77
+	release
+	end
+
+Route133_EventScript_PsychicExplainPsychUp::
+	msgbox Route133_Text_PsychUpExplanation
+	release
+	end
+
+Route133_Text_GotCarriedHere:
+	.string "Wow!\p"
+	.string "I got carried here by the currents\n"
+	.string "all the way from PACIFIDLOG TOWN!\p"
+	.string "I'm pretty psyched up!\p"
+	.string "Here, take this.$"
+
+Route133_Text_PsychUpExplanation:
+	.string "The TM77 contains PSYCH UP!\p"
+	.string "It boosts the senses to copy\n"
+	.string "the stat changes of the target.\p"
+	.string "My senses are already boosted\n"
+	.string "enough though!$"

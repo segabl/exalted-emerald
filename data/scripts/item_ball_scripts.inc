@@ -306,6 +306,10 @@ Route134_EventScript_ItemStarPiece:: @ 82910A7
 	finditem_std ITEM_STAR_PIECE
 	end
 
+Route134_EventScript_ItemTM80::
+	finditem_std ITEM_TM80
+	end
+
 PetalburgCity_EventScript_ItemMaxRevive:: @ 82910B4
 	finditem_std ITEM_MAX_REVIVE
 	end
@@ -593,6 +597,10 @@ ShoalCave_LowTideIceRoom_EventScript_ItemNeverMeltIce:: @ 82913F4
 	finditem_std ITEM_NEVER_MELT_ICE
 	end
 
+ShoalCave_LowTideLowerRoom_EventScript_TM79::
+	finditem_std ITEM_TM79
+	end
+
 SeafloorCavern_Room9_EventScript_ItemTM26:: @ 8291401
 	finditem_std ITEM_TM26
 	end
@@ -651,6 +659,10 @@ VictoryRoad_B1F_EventScript_ItemFullRestore:: @ 82914AA
 
 VictoryRoad_B2F_EventScript_ItemFullHeal:: @ 82914B7
 	finditem_std ITEM_FULL_HEAL
+	end
+
+VictoryRoad_B2F_EventScript_ItemTM81::
+	finditem_std ITEM_TM81
 	end
 
 ArtisanCave_B1F_EventScript_ItemHPUp:: @ 82914C4
