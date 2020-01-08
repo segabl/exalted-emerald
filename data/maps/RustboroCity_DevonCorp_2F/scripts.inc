@@ -79,42 +79,23 @@ RustboroCity_DevonCorp_2F_EventScript_TradeScientistDoTrade::
 	msgbox RustboroCity_DevonCorp_2F_Text_WhichMonToTrade
 	special ChoosePartyMon
 	waitstate
-	compare VAR_0x8004, 255 @ VAR_0x8004 has pokemon number
+	compare VAR_0x8004, 0xFF
 	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_TradeScientistDeclineTrade
+	special CanEvolveThroughTrade
+	compare VAR_RESULT, SPECIES_NONE
+	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_TradeScientistNoTrade
+	msgbox RustboroCity_DevonCorp_2F_Text_AlrightLetsSee
 	copyvar VAR_0x8005, VAR_0x8004
-	specialvar VAR_0x8006, GetTradeSpecies
-	compare VAR_0x8006, SPECIES_POLIWHIRL
-	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_TradeScientistDoTrade2
-	compare VAR_0x8006, SPECIES_KADABRA
-	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_TradeScientistDoTrade2
-	compare VAR_0x8006, SPECIES_MACHOKE
-	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_TradeScientistDoTrade2
-	compare VAR_0x8006, SPECIES_GRAVELER
-	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_TradeScientistDoTrade2
-	compare VAR_0x8006, SPECIES_HAUNTER
-	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_TradeScientistDoTrade2
-	compare VAR_0x8006, SPECIES_SLOWPOKE
-	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_TradeScientistDoTrade2
-	compare VAR_0x8006, SPECIES_HAUNTER
-	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_TradeScientistDoTrade2
-	compare VAR_0x8006, SPECIES_ONIX
-	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_TradeScientistDoTrade2
-	compare VAR_0x8006, SPECIES_SEADRA
-	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_TradeScientistDoTrade2
-	compare VAR_0x8006, SPECIES_SCYTHER
-	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_TradeScientistDoTrade2
-	compare VAR_0x8006, SPECIES_PORYGON
-	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_TradeScientistDoTrade2
-	msgbox RustboroCity_DevonCorp_2F_Text_ThisIsNoTradeEvolution
-	release
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_TradeScientistDoTrade2::
 	setvar VAR_0x8004, 0xFFFF
 	special CreateInGameTradePokemon
 	special DoInGameTradeScene
 	waitstate
 	msgbox RustboroCity_DevonCorp_2F_Text_SimulateTradeDone
+	release
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_TradeScientistNoTrade::
+	msgbox RustboroCity_DevonCorp_2F_Text_ThisIsNoTradeEvolution
 	release
 	end
 
@@ -337,13 +318,16 @@ RustboroCity_DevonCorp_2F_Text_DeviceToSimulateTrades:
 	.string "similar to the trading environment…\p"
 	.string "I think it is working but it still\n"
 	.string "needs some more testing…\p"
-	.string "Say…\n"
+	.string "Say………\p"
 	.string "Do you want to simulate a trade?$"
 
 RustboroCity_DevonCorp_2F_Text_WhichMonToTrade:
 	.string "Excellent!\p"
 	.string "Which POKéMON do you want to use\n"
-	.string "to simulate the trade?$"
+	.string "for the trade simulation?$"
+
+RustboroCity_DevonCorp_2F_Text_AlrightLetsSee:
+	.string "Alright, hold on…$"
 
 RustboroCity_DevonCorp_2F_Text_ThisIsNoTradeEvolution:
 	.string "My device only works on POKéMON\n"
@@ -357,11 +341,12 @@ RustboroCity_DevonCorp_2F_Text_SimulateTradeDecline:
 	.string "seem kind of risky, doesn't it?$"
 
 RustboroCity_DevonCorp_2F_Text_SimulateTradeDone:
-	.string "Now let's see here…\p"
-	.string "This parameter looks normal…\p"
-	.string "Although…\p"
-	.string "Oh…\n"
-	.string "It's done already?\p"
+	.string "Now, let's see…\p"
+	.string "This parameter looks good…\p"
+	.string "I'm seeing predictable phase arrays…\p"
+	.string "Uh… It's probably not a problem…\p"
+	.string "Probably…\p"
+	.string "Wait, it's done already?\p"
 	.string "Did it work?\p"
 	.string "I was so busy monitoring the device\n"
 	.string "that I missed the action…$"
@@ -446,11 +431,6 @@ RustboroCity_DevonCorp_2F_Text_FossilizedMonBroughtBackToLife: @ 8212251
 RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher: @ 82122CB
 	.string "{PLAYER} received {STR_VAR_2} from\n"
 	.string "the DEVON RESEARCHER.$"
-
-@ Unused
-RustboroCity_DevonCorp_2F_Text_TooManyPokemon: @ 82122F5
-	.string "Uh-oh, you've got too many POKéMON.\n"
-	.string "You have no room for this one.$"
 
 RustboroCity_DevonCorp_2F_Text_DevelopNewPokenavFeature: @ 8212338
 	.string "I'm trying to develop a new feature\n"

@@ -4476,6 +4476,27 @@ void CreateInGameTradePokemon(void)
         _CreateInGameTradePokemon(gSpecialVar_0x8005, gSpecialVar_0x8004);
 }
 
+void CanEvolveThroughTrade(void)
+{
+    int i;
+    u16 species = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES, 0);
+    u16 heldItem = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HELD_ITEM, 0);
+    gSpecialVar_Result = SPECIES_NONE;
+    for (i = 0; i < EVOS_PER_MON; i++)
+    {
+        switch (gEvolutionTable[species][i].method)
+        {
+        case EVO_TRADE:
+            gSpecialVar_Result = gEvolutionTable[species][i].targetSpecies;
+            break;
+        case EVO_TRADE_ITEM:
+            if (gEvolutionTable[species][i].param == heldItem)
+                gSpecialVar_Result = gEvolutionTable[species][i].targetSpecies;
+            break;
+        }
+    }
+}
+
 static void CB2_UpdateLinkTrade(void)
 {
     if (AnimateTradeSequence() == TRUE)
