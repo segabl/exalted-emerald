@@ -4388,10 +4388,15 @@ u16 GetInGameTradeSpeciesInfo(void)
 static void BuffeInGameTradeMonName(void)
 {
     u8 nickname[32];
-    const struct InGameTrade *inGameTrade = &sIngameTrades[gSpecialVar_0x8004];
     GetMonData(&gPlayerParty[gSpecialVar_0x8005], MON_DATA_NICKNAME, nickname);
     StringCopy10(gStringVar1, nickname);
-    StringCopy(gStringVar2, gSpeciesNames[inGameTrade->species]);
+    if (gSpecialVar_0x8004 == 0xFFFF)
+        StringCopy(gStringVar2, nickname);
+    else
+    {
+        const struct InGameTrade *inGameTrade = &sIngameTrades[gSpecialVar_0x8004];
+        StringCopy(gStringVar2, gSpeciesNames[inGameTrade->species]);
+    }
 }
 
 static void _CreateInGameTradePokemon(u8 whichPlayerMon, u8 whichInGameTrade)
