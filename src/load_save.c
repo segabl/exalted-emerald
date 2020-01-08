@@ -213,6 +213,7 @@ void LoadSerializedGame(void)
 void LoadPlayerBag(void)
 {
     int i, j;
+    struct ItemSlot *itemSlot;
 
     // load player items.
     for (i = 0; i < BAG_ITEMS_COUNT; i++)
@@ -241,11 +242,11 @@ void LoadPlayerBag(void)
     /** TODO: Enable new TM loading when done with testing
     for (i = 0, j = 0; i < BAG_TMHM_COUNT; i++)
     {
-        if ((gSaveBlock1Ptr->ownedTMHMs[i / 8] >> (i % 8)) & 1)
+        if ((gSaveBlock1Ptr->ownedTMsHMs[i / 8] >> (i % 8)) & 1)
         {
-            gLoadedSaveData.TMsHMs[j].itemId = ITEM_TM01 + i;
-            gLoadedSaveData.TMsHMs[j].quantity = 1;
-            j++;
+            itemSlot = &gLoadedSaveData.TMsHMs[j++];
+            itemSlot->itemId = ITEM_TM01 + i;
+            itemSlot->quantity = 1;
         }
     }**/
 
@@ -256,6 +257,7 @@ void SavePlayerBag(void)
 {
     int i;
     u32 encryptionKeyBackup;
+    struct ItemSlot *itemSlot;
 
     // save player items.
     for (i = 0; i < BAG_ITEMS_COUNT; i++)
@@ -282,12 +284,13 @@ void SavePlayerBag(void)
         gSaveBlock1Ptr->mail[i] = gLoadedSaveData.mail[i];
 
     /** TODO: Enable new TM saving when done with testing
-    memset(gSaveBlock1Ptr->ownedTMHMs, 0, sizeof(gSaveBlock1Ptr->ownedTMHMs));
+    memset(gSaveBlock1Ptr->ownedTMsHMs, 0, sizeof(gSaveBlock1Ptr->ownedTMHMs));
     for (i = 0; i < BAG_TMHM_COUNT; i++)
     {
-        if (!gLoadedSaveData.TMsHMs[i].itemId)
+        itemSlot = &gLoadedSaveData.TMsHMs[i];
+        if (!itemSlot->itemId)
             break;
-        gSaveBlock1Ptr->ownedTMHMs[gLoadedSaveData.TMsHMs[i].itemId / 8] |= 1 << (gLoadedSaveData.TMsHMs[i].itemId % 8);
+        gSaveBlock1Ptr->ownedTMsHMs[itemSlot->itemId / 8] |= 1 << (itemSlot->itemId % 8);
     }**/
 
     encryptionKeyBackup = gSaveBlock2Ptr->encryptionKey;
