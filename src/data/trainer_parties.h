@@ -3915,7 +3915,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_ROLLOUT, MOVE_SPARK, MOVE_SELF_DESTRUCT, MOVE_SHOCK_WAVE
+    .moves = MOVE_ROLLOUT, MOVE_SPARK, MOVE_SELF_DESTRUCT, MOVE_VOLT_SWITCH
     },
     {
     .lvl = 20,
@@ -3923,7 +3923,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SHOCK_WAVE, MOVE_LEER, MOVE_QUICK_ATTACK, MOVE_HOWL
+    .moves = MOVE_VOLT_SWITCH, MOVE_SHOCK_WAVE, MOVE_QUICK_ATTACK, MOVE_HOWL
     },
     {
     .lvl = 22,
@@ -3931,7 +3931,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SUPERSONIC, MOVE_SHOCK_WAVE, MOVE_THUNDER_WAVE, MOVE_SONIC_BOOM
+    .moves = MOVE_SUPERSONIC, MOVE_VOLT_SWITCH, MOVE_THUNDER_WAVE, MOVE_SONIC_BOOM
     },
     {
     .lvl = 24,
@@ -3939,7 +3939,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_QUICK_ATTACK, MOVE_THUNDER_WAVE, MOVE_SHOCK_WAVE, MOVE_HOWL
+    .moves = MOVE_QUICK_ATTACK, MOVE_SHOCK_WAVE, MOVE_VOLT_SWITCH, MOVE_HOWL
     }
 };
 
@@ -3985,7 +3985,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_TEETER_DANCE, MOVE_PSYBEAM, MOVE_FACADE, MOVE_ENCORE
+    .moves = MOVE_TEETER_DANCE, MOVE_PSYBEAM, MOVE_RETALIATE, MOVE_ENCORE
     },
     {
     .lvl = 27,
@@ -3993,7 +3993,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SLASH, MOVE_FACADE, MOVE_ENCORE, MOVE_FAINT_ATTACK
+    .moves = MOVE_SLASH, MOVE_RETALIATE, MOVE_ENCORE, MOVE_FAINT_ATTACK
     },
     {
     .lvl = 29,
@@ -4001,7 +4001,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SLASH, MOVE_BELLY_DRUM, MOVE_FACADE, MOVE_HEADBUTT
+    .moves = MOVE_SLASH, MOVE_BELLY_DRUM, MOVE_RETALIATE, MOVE_HEADBUTT
     },
     {
     .lvl = 31,
@@ -4009,7 +4009,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_COUNTER, MOVE_YAWN, MOVE_FACADE, MOVE_FAINT_ATTACK
+    .moves = MOVE_COUNTER, MOVE_YAWN, MOVE_RETALIATE, MOVE_FAINT_ATTACK
     }
 };
 
@@ -4020,7 +4020,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_PERISH_SONG, MOVE_MIRROR_MOVE, MOVE_SAFEGUARD, MOVE_AERIAL_ACE
+    .moves = MOVE_PERISH_SONG, MOVE_MIRROR_MOVE, MOVE_SAFEGUARD, MOVE_ROOST
     },
     {
     .lvl = 29,
@@ -4028,7 +4028,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SUNNY_DAY, MOVE_AERIAL_ACE, MOVE_SOLAR_BEAM, MOVE_SYNTHESIS
+    .moves = MOVE_SUNNY_DAY, MOVE_ROOST, MOVE_SOLAR_BEAM, MOVE_SYNTHESIS
     },
     {
     .lvl = 30,
@@ -4036,7 +4036,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_WATER_GUN, MOVE_SUPERSONIC, MOVE_PROTECT, MOVE_AERIAL_ACE
+    .moves = MOVE_WATER_PULSE, MOVE_WING_ATTACK, MOVE_PROTECT, MOVE_ROOST
     },
     {
     .lvl = 31,
@@ -4044,7 +4044,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SAND_ATTACK, MOVE_FURY_ATTACK, MOVE_STEEL_WING, MOVE_AERIAL_ACE
+    .moves = MOVE_AERIAL_ACE, MOVE_SPIKES, MOVE_STEEL_WING, MOVE_ROOST
     },
     {
     .lvl = 33,
@@ -4052,7 +4052,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_ORAN_BERRY,
-    .moves = MOVE_EARTHQUAKE, MOVE_DRAGON_BREATH, MOVE_DRAGON_DANCE, MOVE_AERIAL_ACE
+    .moves = MOVE_EARTHQUAKE, MOVE_DRAGON_BREATH, MOVE_DRAGON_DANCE, MOVE_ROOST
     }
 };
 
@@ -4098,7 +4098,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_WATER_PULSE, MOVE_ATTRACT, MOVE_SWEET_KISS, MOVE_FLAIL
+    .moves = MOVE_SCALD, MOVE_ATTRACT, MOVE_SWEET_KISS, MOVE_FLAIL
     },
     {
     .lvl = 41,
@@ -4106,7 +4106,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_RAIN_DANCE, MOVE_WATER_PULSE, MOVE_AMNESIA, MOVE_EARTHQUAKE
+    .moves = MOVE_RAIN_DANCE, MOVE_SCALD, MOVE_AMNESIA, MOVE_EARTHQUAKE
     },
     {
     .lvl = 43,
@@ -4114,7 +4114,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_ENCORE, MOVE_BODY_SLAM, MOVE_AURORA_BEAM, MOVE_WATER_PULSE
+    .moves = MOVE_ENCORE, MOVE_BODY_SLAM, MOVE_AURORA_BEAM, MOVE_SCALD
     },
     {
     .lvl = 43,
@@ -4122,7 +4122,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_WATER_PULSE, MOVE_CRABHAMMER, MOVE_TAUNT, MOVE_LEER
+    .moves = MOVE_SCALD, MOVE_CRABHAMMER, MOVE_TAUNT, MOVE_NIGHT_SLASH
     },
     {
     .lvl = 46,
@@ -4130,7 +4130,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_CHESTO_BERRY,
-    .moves = MOVE_WATER_PULSE, MOVE_DOUBLE_TEAM, MOVE_ICE_BEAM, MOVE_REST
+    .moves = MOVE_SCALD, MOVE_DRAGON_PULSE, MOVE_ICE_BEAM, MOVE_REST
     }
 };
 
