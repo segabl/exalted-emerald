@@ -1803,6 +1803,27 @@ static void sub_8038538(struct Sprite *sprite)
     }
 }
 
+static u8 CalculateScaledLevel(u16 level, u16 levelMin, u16 partyCountMod, u16 badgeMod)
+{
+    if (level < levelMin)
+        level += (100 * (levelMin - level)) / (100 + partyCountMod * 10 + badgeMod * 25);
+    return level;
+}
+
+static u32 CalculatePersonalityValue(u32 *nameHash, u16 species, u32 personality, u32 personalityValue)
+{
+    if (personality)
+        return personality;
+    else
+    {
+        int j;
+        for (j = 0; gSpeciesNames[species][j] != EOS; j++)
+            *nameHash += gSpeciesNames[species][j];
+        personalityValue += *nameHash << 8;
+        return personalityValue;
+    }
+}
+
 static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 firstTrainer)
 {
     u32 nameHash = 0;
@@ -1876,22 +1897,9 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             {
                 const struct TrainerMonNoItemDefaultMoves *partyData = gTrainers[trainerNum].party.NoItemDefaultMoves;
 
-                if (partyData[i].personality)
-                {
-                    personalityValue = partyData[i].personality;
-                }
-                else
-                {
-                    for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
-                        nameHash += gSpeciesNames[partyData[i].species][j];
-
-                    personalityValue += nameHash << 8;
-                }
-
-                level = partyData[i].lvl;
-                if (level < levelMin)
-                    level += (100 * (levelMin - level)) / (100 + partyCountMod * 10 + badgeMod * 25);
-                CreateMon(&party[i], partyData[i].species, level, partyData[i].iv, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                personalityValue = CalculatePersonalityValue(&nameHash, partyData[i].species, partyData[i].personality, personalityValue);
+                level = CalculateScaledLevel(partyData[i].lvl, levelMin, partyCountMod, badgeMod);
+                CreateMon(&party[i], partyData[i].species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
                 abilityNum = partyData[i].abilityNum;
                 if (abilityNum < 3)
@@ -1904,22 +1912,9 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             {
                 const struct TrainerMonNoItemCustomMoves *partyData = gTrainers[trainerNum].party.NoItemCustomMoves;
 
-                if (partyData[i].personality)
-                {
-                    personalityValue = partyData[i].personality;
-                }
-                else
-                {
-                    for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
-                        nameHash += gSpeciesNames[partyData[i].species][j];
-
-                    personalityValue += nameHash << 8;
-                }
-
-                level = partyData[i].lvl;
-                if (level < levelMin)
-                    level += (100 * (levelMin - level)) / (100 + partyCountMod * 10 + badgeMod * 25);
-                CreateMon(&party[i], partyData[i].species, level, partyData[i].iv, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                personalityValue = CalculatePersonalityValue(&nameHash, partyData[i].species, partyData[i].personality, personalityValue);
+                level = CalculateScaledLevel(partyData[i].lvl, levelMin, partyCountMod, badgeMod);
+                CreateMon(&party[i], partyData[i].species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
                 abilityNum = partyData[i].abilityNum;
                 if (abilityNum < 3)
@@ -1938,22 +1933,9 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             {
                 const struct TrainerMonItemDefaultMoves *partyData = gTrainers[trainerNum].party.ItemDefaultMoves;
 
-                if (partyData[i].personality)
-                {
-                    personalityValue = partyData[i].personality;
-                }
-                else
-                {
-                    for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
-                        nameHash += gSpeciesNames[partyData[i].species][j];
-
-                    personalityValue += nameHash << 8;
-                }
-
-                level = partyData[i].lvl;
-                if (level < levelMin)
-                    level += (100 * (levelMin - level)) / (100 + partyCountMod * 10 + badgeMod * 25);
-                CreateMon(&party[i], partyData[i].species, level, partyData[i].iv, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                personalityValue = CalculatePersonalityValue(&nameHash, partyData[i].species, partyData[i].personality, personalityValue);
+                level = CalculateScaledLevel(partyData[i].lvl, levelMin, partyCountMod, badgeMod);
+                CreateMon(&party[i], partyData[i].species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
                 abilityNum = partyData[i].abilityNum;
                 if (abilityNum < 3)
@@ -1968,22 +1950,9 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             {
                 const struct TrainerMonItemCustomMoves *partyData = gTrainers[trainerNum].party.ItemCustomMoves;
 
-                if (partyData[i].personality)
-                {
-                    personalityValue = partyData[i].personality;
-                }
-                else
-                {
-                    for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
-                        nameHash += gSpeciesNames[partyData[i].species][j];
-
-                    personalityValue += nameHash << 8;
-                }
-
-                level = partyData[i].lvl;
-                if (level < levelMin)
-                    level += (100 * (levelMin - level)) / (100 + partyCountMod * 10 + badgeMod * 25);
-                CreateMon(&party[i], partyData[i].species, level, partyData[i].iv, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                personalityValue = CalculatePersonalityValue(&nameHash, partyData[i].species, partyData[i].personality, personalityValue);
+                level = CalculateScaledLevel(partyData[i].lvl, levelMin, partyCountMod, badgeMod);
+                CreateMon(&party[i], partyData[i].species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
                 abilityNum = partyData[i].abilityNum;
                 if (abilityNum < 3)

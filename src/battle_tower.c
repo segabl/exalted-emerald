@@ -3022,7 +3022,7 @@ static void FillPartnerParty(u16 trainerId)
 
                 if (partyData[i].personality)
                     j = partyData[i].personality;
-                CreateMon(&gPlayerParty[i + 3], partyData[i].species, partyData[i].lvl, partyData[i].iv, TRUE, j, TRUE, otID);
+                CreateMon(&gPlayerParty[i + 3], partyData[i].species, partyData[i].lvl, 31, TRUE, j, TRUE, otID);
 
                 abilityNum = partyData[i].abilityNum;
                 if (abilityNum < 3)
@@ -3037,7 +3037,7 @@ static void FillPartnerParty(u16 trainerId)
 
                 if (partyData[i].personality)
                     j = partyData[i].personality;
-                CreateMon(&gPlayerParty[i + 3], partyData[i].species, partyData[i].lvl, partyData[i].iv, TRUE, j, TRUE, otID);
+                CreateMon(&gPlayerParty[i + 3], partyData[i].species, partyData[i].lvl, 31, TRUE, j, TRUE, otID);
 
                 abilityNum = partyData[i].abilityNum;
                 if (abilityNum < 3)
@@ -3058,7 +3058,7 @@ static void FillPartnerParty(u16 trainerId)
 
                 if (partyData[i].personality)
                     j = partyData[i].personality;
-                CreateMon(&gPlayerParty[i + 3], partyData[i].species, partyData[i].lvl, partyData[i].iv, TRUE, j, TRUE, otID);
+                CreateMon(&gPlayerParty[i + 3], partyData[i].species, partyData[i].lvl, 31, TRUE, j, TRUE, otID);
 
                 abilityNum = partyData[i].abilityNum;
                 if (abilityNum < 3)
@@ -3075,7 +3075,7 @@ static void FillPartnerParty(u16 trainerId)
 
                 if (partyData[i].personality)
                     j = partyData[i].personality;
-                CreateMon(&gPlayerParty[i + 3], partyData[i].species, partyData[i].lvl, partyData[i].iv, TRUE, j, TRUE, otID);
+                CreateMon(&gPlayerParty[i + 3], partyData[i].species, partyData[i].lvl, 31, TRUE, j, TRUE, otID);
 
                 abilityNum = partyData[i].abilityNum;
                 if (abilityNum < 3)

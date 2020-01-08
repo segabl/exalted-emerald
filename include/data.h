@@ -19,8 +19,7 @@ struct TrainerMonNoItemDefaultMoves
     u8 lvl;
     u16 species;
     u32 personality;
-    u8 abilityNum:2;
-    u8 iv:6;
+    u8 abilityNum;
 };
 
 struct TrainerMonItemDefaultMoves
@@ -28,8 +27,7 @@ struct TrainerMonItemDefaultMoves
     u8 lvl;
     u16 species;
     u32 personality;
-    u8 abilityNum:2;
-    u8 iv:6;
+    u8 abilityNum;
     u16 heldItem;
 };
 
@@ -38,8 +36,7 @@ struct TrainerMonNoItemCustomMoves
     u8 lvl;
     u16 species;
     u32 personality;
-    u8 abilityNum:2;
-    u8 iv:6;
+    u8 abilityNum;
     u16 moves[MAX_MON_MOVES];
 };
 
@@ -48,8 +45,7 @@ struct TrainerMonItemCustomMoves
     u8 lvl;
     u16 species;
     u32 personality;
-    u8 abilityNum:2;
-    u8 iv:6;
+    u8 abilityNum;
     u16 heldItem;
     u16 moves[MAX_MON_MOVES];
 };
