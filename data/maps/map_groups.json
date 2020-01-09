@@ -188,7 +188,9 @@
     "MauvilleCity_House2",
     "MauvilleCity_PokemonCenter_1F",
     "MauvilleCity_PokemonCenter_2F",
-    "MauvilleCity_Mart"
+    "MauvilleCity_Mart",
+    "MauvilleCity_House3_1F",
+    "MauvilleCity_House3_2F"
   ],
   "gMapGroup11": [
     "RustboroCity_DevonCorp_1F",
