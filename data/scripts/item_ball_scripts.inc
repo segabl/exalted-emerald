@@ -333,6 +333,10 @@ MossdeepCity_EventScript_ItemNetBall:: @ 82910F5
 	finditem_std ITEM_NET_BALL
 	end
 
+FortreeCity_EventScript_ItemTM86::
+	finditem_std ITEM_TM86
+	end
+
 PetalburgWoods_EventScript_ItemXAttack:: @ 8291102
 	finditem_std ITEM_X_ATTACK
 	end

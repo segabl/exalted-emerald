@@ -123,7 +123,7 @@
         },
         {
             "elevation": 3,
-            "flag": "FLAG_VICTORY_ROAD_B2F_TM81",
+            "flag": "FLAG_ITEM_VICTORY_ROAD_B2F_TM81",
             "graphics_id": "EVENT_OBJ_GFX_ITEM_BALL",
             "movement_range_x": 0,
             "movement_range_y": 0,
