@@ -239,17 +239,6 @@ void LoadPlayerBag(void)
     for (i = 0; i < MAIL_COUNT; i++)
         gLoadedSaveData.mail[i] = gSaveBlock1Ptr->mail[i];
 
-    /** TODO: Enable new TM loading when done with testing
-    for (i = 0, j = 0; i < BAG_TMHM_COUNT; i++)
-    {
-        if ((gSaveBlock1Ptr->ownedTMsHMs[i / 8] >> (i % 8)) & 1)
-        {
-            itemSlot = &gLoadedSaveData.TMsHMs[j++];
-            itemSlot->itemId = ITEM_TM01 + i;
-            itemSlot->quantity = 1;
-        }
-    }**/
-
     gLastEncryptionKey = gSaveBlock2Ptr->encryptionKey;
 }
 
@@ -282,16 +271,6 @@ void SavePlayerBag(void)
     // save mail.
     for (i = 0; i < MAIL_COUNT; i++)
         gSaveBlock1Ptr->mail[i] = gLoadedSaveData.mail[i];
-
-    /** TODO: Enable new TM saving when done with testing
-    memset(gSaveBlock1Ptr->ownedTMsHMs, 0, sizeof(gSaveBlock1Ptr->ownedTMHMs));
-    for (i = 0; i < BAG_TMHM_COUNT; i++)
-    {
-        itemSlot = &gLoadedSaveData.TMsHMs[i];
-        if (!itemSlot->itemId)
-            break;
-        gSaveBlock1Ptr->ownedTMsHMs[itemSlot->itemId / 8] |= 1 << (itemSlot->itemId % 8);
-    }**/
 
     encryptionKeyBackup = gSaveBlock2Ptr->encryptionKey;
     gSaveBlock2Ptr->encryptionKey = gLastEncryptionKey;
