@@ -24,6 +24,7 @@
 #include "constants/region_map_sections.h"
 #include "constants/species.h"
 #include "data/pokemon/egg_moves.h"
+#include "item.h"
 
 // this file's functions
 static void ClearDaycareMonMail(struct DayCareMail *mail);
@@ -920,6 +921,8 @@ static bool8 TryProduceOrHatchEgg(struct DayCare *daycare)
     if (daycare->offspringPersonality == 0 && validEggs == DAYCARE_MON_COUNT && (daycare->mons[1].steps & 0xFF) == 0xFF)
     {
         u8 compatability = GetDaycareCompatibilityScore(daycare);
+        if (compatability > 0 && CheckBagHasItem(ITEM_OVAL_CHARM, 1))
+            compatability = (compatability * 125u) / 100;
         if (compatability > (Random() * 100u) / USHRT_MAX)
             TriggerPendingDaycareEgg();
     }

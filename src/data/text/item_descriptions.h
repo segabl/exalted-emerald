@@ -2217,6 +2217,11 @@ static const u8 sOldSeaMapDesc[] = _(
     "that shows the way\n"
     "to a certain island.");
 
+static const u8 sOvalCharmDesc[] = _(
+    "A charm increasing\n"
+    "the chance to get\n"
+    "daycare eggs.");
+
 	// New items
 static const u8 sWideLensDesc[] = _(
     "A magnifying lens\n"

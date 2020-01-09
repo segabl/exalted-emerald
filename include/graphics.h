@@ -3912,6 +3912,8 @@ extern const u32 gItemIcon_MagmaEmblem[];
 extern const u32 gItemIconPalette_MagmaEmblem[];
 extern const u32 gItemIcon_OldSeaMap[];
 extern const u32 gItemIconPalette_OldSeaMap[];
+extern const u32 gItemIcon_OvalCharm[];
+extern const u32 gItemIconPalette_OvalCharm[];
 // Gen 4 Items
 extern const u32 gItemIcon_WideLens[];
 extern const u32 gItemIconPalette_WideLens[];

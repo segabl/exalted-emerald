@@ -172,18 +172,6 @@ LittlerootTown_ProfessorBirchsLab_EventScript_UpgradeToNationalDex:: @ 81F9E80
 	lockall
 	delay 30
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_OtherRegionsUpgradeToNational, MSGBOX_DEFAULT
-	closemessage
-	applymovement 2, LittlerootTown_ProfessorBirchsLab_Movement_BirchRetrievePokedexes
-	waitmovement 0
-	delay 20
-	playse SE_TK_KASYA
-	delay 10
-	playse SE_TK_KASYA
-	delay 10
-	playse SE_TK_KASYA
-	delay 10
-	playse SE_TK_KASYA
-	delay 20
 	applymovement 3, Common_Movement_WalkInPlaceFastestRight
 	applymovement EVENT_OBJ_ID_PLAYER, Common_Movement_WalkInPlaceFastestLeft
 	waitmovement 0
@@ -192,21 +180,11 @@ LittlerootTown_ProfessorBirchsLab_EventScript_UpgradeToNationalDex:: @ 81F9E80
 	call_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_MayUpgradeComment
 	compare VAR_RESULT, FEMALE
 	call_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_BrendanUpgradeComment
-	playse SE_PC_ON
-	waitse
-	delay 20
-	applymovement 2, LittlerootTown_ProfessorBirchsLab_Movement_BirchReturnPokedex
-	waitmovement 0
 	applymovement 3, Common_Movement_WalkInPlaceFastestUp
 	applymovement EVENT_OBJ_ID_PLAYER, Common_Movement_WalkInPlaceFastestUp
 	waitmovement 0
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_OkayAllDone, MSGBOX_DEFAULT
-	playfanfare MUS_FANFA4
-	message LittlerootTown_ProfessorBirchsLab_Text_PokedexUpgradedToNational
-	waitmessage
-	waitfanfare
-	setflag FLAG_SYS_NATIONAL_DEX
-	special EnableNationalPokedex
+	giveitem_std ITEM_OVAL_CHARM
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting2, MSGBOX_DEFAULT
 	closemessage
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCH
@@ -226,38 +204,6 @@ LittlerootTown_ProfessorBirchsLab_EventScript_BrendanUpgradeComment:: @ 81F9F3C
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_BrendanYouCanThankMe, MSGBOX_DEFAULT
 	closemessage
 	return
-
-LittlerootTown_ProfessorBirchsLab_Movement_BirchRetrievePokedexes: @ 81F9F46
-	walk_left
-	walk_in_place_fastest_down
-	delay_16
-	delay_16
-	walk_right
-	walk_in_place_fastest_down
-	delay_16
-	delay_16
-	walk_right
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_right
-	walk_right
-	walk_right
-	walk_in_place_fastest_up
-	step_end
-
-LittlerootTown_ProfessorBirchsLab_Movement_BirchReturnPokedex: @ 81F9F58
-	walk_left
-	walk_left
-	walk_left
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_left
-	walk_in_place_fastest_down
-	step_end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_ChooseJohtoStarter:: @ 81F9F62
 	lockall
@@ -883,31 +829,26 @@ LittlerootTown_ProfessorBirchsLab_Text_OtherRegionsUpgradeToNational: @ 81FB16D
 	.string "It goes to show how rich and varied\n"
 	.string "the natural environments of HOENN\l"
 	.string "happen to be.\p"
-	.string "That's why I think it's necessary for\n"
-	.string "me to upgrade your POKéDEX to\l"
-	.string "the NATIONAL Mode.\p"
-	.string "Here, let me see your POKéDEX units.$"
+	.string "Anyways, I have a gift for both of you,\n"
+	.string "a little something as a thank you for\l"
+	.string "being such a great help to my research.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_MayUpgradeSoCool: @ 81FB30F
 	.string "MAY: Eheheh!\p"
-	.string "It's so cool that even my POKéDEX\n"
-	.string "is getting updated!\p"
-	.string "It's because you went out and caught\n"
-	.string "so many POKéMON, {PLAYER}{KUN}!$"
+	.string "It's so cool that I'm getting\n"
+	.string "a present too!\p"
+	.string "It seems like you did all\n"
+	.string "the hard work, {PLAYER}{KUN}!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BrendanYouCanThankMe: @ 81FB38E
 	.string "BRENDAN: I went out all over HOENN\n"
 	.string "and checked out POKéMON.\p"
 	.string "You can thank me for getting\n"
-	.string "the NATIONAL Mode POKéDEX.\p"
+	.string "a present too.\p"
 	.string "Yep, you're lucky, {PLAYER}!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_OkayAllDone: @ 81FB419
-	.string "PROF. BIRCH: Okay, all done!$"
-
-LittlerootTown_ProfessorBirchsLab_Text_PokedexUpgradedToNational: @ 81FB436
-	.string "{PLAYER}'s POKéDEX was upgraded\n"
-	.string "to the NATIONAL Mode!$"
+	.string "PROF. BIRCH: Okay, here you go!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting2: @ 81FB466
 	.string "PROF. BIRCH: But listen.\n"
@@ -976,19 +917,9 @@ LittlerootTown_ProfessorBirchsLab_Text_TakeYourTimeAllInvaluable: @ 81FB959
 	.string "you decide.\p"
 	.string "They're all invaluable POKéMON.$"
 
-@ Unused
-LittlerootTown_ProfessorBirchsLab_Text_PickedFinePokemon: @ 81FB9A8
-	.string "PROF. BIRCH: I see!\n"
-	.string "You picked a fine POKéMON!$"
-
 LittlerootTown_ProfessorBirchsLab_Text_ReceivedJohtoStarter: @ 81FB9D7
 	.string "{PLAYER} received the {STR_VAR_1}\n"
 	.string "from PROF. BIRCH!$"
-
-@ Unused
-LittlerootTown_ProfessorBirchsLab_Text_NicknameJohtoStarter: @ 81FB9FC
-	.string "Want to give a nickname to\n"
-	.string "the {STR_VAR_1} you received?$"
 
 LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting: @ 81FBA2C
 	.string "PROF. BIRCH: Listen, {PLAYER}{KUN}.\n"
