@@ -28,8 +28,8 @@
             "y": 10
         },
         {
-            "elevation": 3,
-            "flag": "0",
+            "elevation": 0,
+            "flag": "FLAG_HIDE_DESERT_UNDERPASS_FOSSIL2",
             "graphics_id": "EVENT_OBJ_GFX_FOSSIL",
             "movement_range_x": 1,
             "movement_range_y": 1,
@@ -41,8 +41,8 @@
             "y": 3
         },
         {
-            "elevation": 3,
-            "flag": "0",
+            "elevation": 0,
+            "flag": "FLAG_HIDE_DESERT_UNDERPASS_FOSSIL3",
             "graphics_id": "EVENT_OBJ_GFX_FOSSIL",
             "movement_range_x": 1,
             "movement_range_y": 1,
