@@ -157,6 +157,7 @@
 #define MAP_MAUVILLE_CITY_MART              (7 | (10 << 8))
 #define MAP_MAUVILLE_CITY_HOUSE3_1F         (8 | (10 << 8))
 #define MAP_MAUVILLE_CITY_HOUSE3_2F         (9 | (10 << 8))
+#define MAP_MAUVILLE_CITY_HOUSE4            (10 | (10 << 8))
 
 // Map Group 11
 #define MAP_RUSTBORO_CITY_DEVON_CORP_1F     (0 | (11 << 8))

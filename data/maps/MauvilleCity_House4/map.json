@@ -1,0 +1,38 @@
+{
+    "allow_bike": false,
+    "allow_escape_rope": false,
+    "allow_running": false,
+    "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+    "bg_events": [
+    ],
+    "connections": null,
+    "coord_events": [
+    ],
+    "id": "MAP_MAUVILLE_CITY_HOUSE4",
+    "layout": "LAYOUT_MAUVILLE_CITY_HOUSE4",
+    "map_type": "MAP_TYPE_INDOOR",
+    "music": "MUS_GOTOWN",
+    "name": "MauvilleCity_House4",
+    "object_events": [
+    ],
+    "region_map_section": "MAPSEC_MAUVILLE_CITY",
+    "requires_flash": false,
+    "show_map_name": false,
+    "warp_events": [
+        {
+            "dest_map": "MAP_MAUVILLE_CITY",
+            "dest_warp_id": 8,
+            "elevation": 0,
+            "x": 6,
+            "y": 7
+        },
+        {
+            "dest_map": "MAP_MAUVILLE_CITY",
+            "dest_warp_id": 8,
+            "elevation": 0,
+            "x": 7,
+            "y": 7
+        }
+    ],
+    "weather": "WEATHER_NONE"
+}

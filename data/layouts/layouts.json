@@ -931,6 +931,16 @@
             "width": 10
         },
         {
+            "blockdata_filepath": "data/layouts/MauvilleCity_House4/map.bin",
+            "border_filepath": "data/layouts/MauvilleCity_House4/border.bin",
+            "height": 8,
+            "id": "LAYOUT_MAUVILLE_CITY_HOUSE4",
+            "name": "MauvilleCity_House4_Layout",
+            "primary_tileset": "gTileset_Building",
+            "secondary_tileset": "gTileset_GenericBuilding",
+            "width": 11
+        },
+        {
             "blockdata_filepath": "data/layouts/RustboroCity_DevonCorp_1F/map.bin",
             "border_filepath": "data/layouts/RustboroCity_DevonCorp_1F/border.bin",
             "height": 9,
