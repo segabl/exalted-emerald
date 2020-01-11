@@ -14,7 +14,9 @@
 #include "international_string_util.h"
 #include "strings.h"
 #include "gba/m4a_internal.h"
+#include "constants/flags.h"
 #include "constants/rgb.h"
+#include "constants/vars.h"
 
 // Task data
 enum
@@ -145,6 +147,8 @@ static const struct BgTemplate sOptionMenuBgTemplates[] =
 static const u16 sUnknown_0855C6A0[] = {0x7E51};
 
 extern void CB2_ReinitMainMenu(void);
+extern bool8 FlagGet(u16);
+extern u16 VarGet(u16);
 
 // code
 static void MainCB2(void)
@@ -493,7 +497,7 @@ static void BattleScene_DrawChoices(u8 selection)
 
 static u8 Difficulty_ProcessInput(u8 selection)
 {
-    if (sInGame && gSaveBlock2Ptr->nuzlocke)
+    if (sInGame && FlagGet(FLAG_NUZLOCKE_MODE))
         return selection;
 
     if (gMain.newKeys & DPAD_RIGHT)
@@ -521,11 +525,12 @@ static void Difficulty_DrawChoices(u8 selection)
 {
     u8 styles[3];
     s32 widthSlow, widthMid, widthFast, xMid;
+    u8 locked = sInGame && FlagGet(FLAG_NUZLOCKE_MODE);
 
-    styles[0] = sInGame && gSaveBlock2Ptr->nuzlocke ? 2 : 0;
-    styles[1] = sInGame && gSaveBlock2Ptr->nuzlocke ? 2 : 0;
-    styles[2] = sInGame && gSaveBlock2Ptr->nuzlocke ? 2 : 0;
-    styles[selection] = sInGame && gSaveBlock2Ptr->nuzlocke ? 3 : 1;
+    styles[0] = locked ? 2 : 0;
+    styles[1] = locked ? 2 : 0;
+    styles[2] = locked ? 2 : 0;
+    styles[selection] = locked ? 3 : 1;
 
     DrawOptionMenuChoice(gText_DifficultyEasy, 104, YPOS_DIFFICULTY, styles[0]);
 

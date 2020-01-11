@@ -206,8 +206,6 @@ void NewGameInitData(void)
     WipeTrainerNameRecords();
     ResetTrainerHillResults();
     ResetContestLinkResults();
-    gSaveBlock2Ptr->nuzlocke = FALSE;
-    gSaveBlock2Ptr->nuzlockeDifficulty = gSaveBlock2Ptr->optionsDifficulty;
     memset(gSaveBlock2Ptr->nuzlockeEncounterLocations, 0, sizeof(gSaveBlock2Ptr->nuzlockeEncounterLocations));
 }
 

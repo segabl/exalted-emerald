@@ -452,7 +452,7 @@ struct RankingHall2P
     u8 language;
 };
 
-#define GAME_DIFFICULTY (gSaveBlock2Ptr->nuzlocke ? gSaveBlock2Ptr->nuzlockeDifficulty : gSaveBlock2Ptr->optionsDifficulty)
+#define GAME_DIFFICULTY (FlagGet(FLAG_NUZLOCKE_MODE) ? VarGet(VAR_NUZLOCKE_DIFFICULTY) : gSaveBlock2Ptr->optionsDifficulty)
 
 struct SaveBlock2
 {
@@ -486,9 +486,6 @@ struct SaveBlock2
     struct RankingHall2P hallRecords2P[2][3]; // From record mixing.
     u16 contestLinkResults[5][4]; // 4 positions for 5 categories.
     struct BattleFrontier frontier;
-    u8 nuzlocke:1;
-    u8 nuzlockeDifficulty:2;
-    u8:5;
     u8 nuzlockeEncounterLocations[27];
 };
 

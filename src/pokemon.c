@@ -4541,7 +4541,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                         // revive
                         if (r10 & 0x10)
                         {
-                            if (GetMonData(mon, MON_DATA_HP, NULL) != 0)
+                            if (FlagGet(FLAG_NUZLOCKE_MODE) || GetMonData(mon, MON_DATA_HP, NULL) != 0)
                             {
                                 var_3C++;
                                 break;
@@ -6595,4 +6595,17 @@ u8 *sub_806F4F8(u8 id, u8 arg1)
 
         return structPtr->byteArrays[arg1];
     }
+}
+
+void RemoveFaintedMonsFromParty()
+{
+    u8 i;
+    struct Pokemon *mon;
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        mon = &gPlayerParty[i];
+        if (GetMonData(mon, MON_DATA_SANITY_HAS_SPECIES, 0) && !GetMonData(mon, MON_DATA_IS_EGG, 0) && GetMonData(mon, MON_DATA_HP, 0) <= 0)
+          ZeroMonData(mon);
+    }
+    CompactPartySlots();
 }

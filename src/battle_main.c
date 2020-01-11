@@ -5016,13 +5016,18 @@ static void ReturnFromBattleToOverworld(void)
             SetRoamerInactive();
     }
 
-    if (FlagGet(FLAG_TEMP_F))
+    if (FlagGet(FLAG_NUZLOCKE_MODE))
     {
-        // mark the current mapsection as forbidden to catch any mons if in nuzlocke mode
-        u16 id = GetCurrentRegionMapSectionId();
-        if (id < MAPSEC_NONE)
-            gSaveBlock2Ptr->nuzlockeEncounterLocations[id / 8] |= 1 << (id % 8);
-        FlagClear(FLAG_TEMP_F);
+        if (FlagGet(FLAG_TEMP_F)) // FLAG_TEMP_F is used to mark the battle as standard wild battle
+        {
+            // mark the current mapsection as forbidden to catch any mons if in nuzlocke mode
+            u16 id = GetCurrentRegionMapSectionId();
+            if (id < MAPSEC_NONE)
+                gSaveBlock2Ptr->nuzlockeEncounterLocations[id / 8] |= 1 << (id % 8);
+            FlagClear(FLAG_TEMP_F);
+        }
+        // Any fainted mon will be removed
+        RemoveFaintedMonsFromParty();
     }
 
     m4aSongNumStop(SE_HINSI);

@@ -948,7 +948,7 @@ void ItemUseOutOfBattle_EvolutionStone(u8 taskId)
 
 void ItemUseInBattle_PokeBall(u8 taskId)
 {
-    if (gSaveBlock2Ptr->nuzlocke)
+    if (FlagGet(FLAG_NUZLOCKE_MODE))
     {
         // If player already encountered a mon in the current map section in nuzlocke mode, they cant catch it
         u16 id = GetCurrentRegionMapSectionId();

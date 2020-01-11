@@ -415,5 +415,6 @@ bool8 sub_806F104(void);
 struct Unknown_806F160_Struct *sub_806F2AC(u8 id, u8 arg1);
 void sub_806F47C(u8 id);
 u8 *sub_806F4F8(u8 id, u8 arg1);
+void RemoveFaintedMonsFromParty();
 
 #endif // GUARD_POKEMON_H
