@@ -39,3 +39,4 @@ For DizzyEgg's modifications, check out <https://github.com/DizzyEggg/pokeemeral
 - Increases the chance for mirage island to appear (from n/65535 to n/255 with n being the number of Pokémon in your party)
 - Increases view distance when not using flash and removes the overlay completely when using flash
 - Updates berry yield and grow time to OrAs values
+- Allows you to also get the other bike once you beat the E4

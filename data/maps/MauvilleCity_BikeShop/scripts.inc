@@ -4,7 +4,7 @@ MauvilleCity_BikeShop_MapScripts:: @ 820EBBB
 MauvilleCity_BikeShop_EventScript_Rydel:: @ 820EBBC
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_BIKE, MauvilleCity_BikeShop_EventScript_AskSwitchBikes
+	goto_if_set FLAG_RECEIVED_BIKE, MauvilleCity_BikeShop_EventScript_CheckChamp
 	goto_if_set FLAG_DECLINED_BIKE, MauvilleCity_BikeShop_EventScript_SkipGreeting
 	msgbox MauvilleCity_BikeShop_Text_RydelGreeting, MSGBOX_DEFAULT
 	msgbox MauvilleCity_BikeShop_Text_DidYouComeFromFarAway, MSGBOX_YESNO
@@ -59,6 +59,40 @@ MauvilleCity_BikeShop_EventScript_ComeBackToSwitchBikes:: @ 820EC87
 	special SwapRegisteredBike
 	release
 	end
+
+MauvilleCity_BikeShop_EventScript_CheckChamp::
+	goto_if_set FLAG_RECEIVED_BIKE2, MauvilleCity_BikeShop_EventScript_HaveFunWithBikes
+	goto_if_unset FLAG_IS_CHAMPION, MauvilleCity_BikeShop_EventScript_AskSwitchBikes
+	delay 20
+	playse SE_PIN
+	applymovement 1, Common_Movement_ExclamationMark
+	waitmovement 0
+	delay 20
+	msgbox MauvilleCity_BikeShop_Text_OhChampion, MSGBOX_DEFAULT
+	checkitem ITEM_ACRO_BIKE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq MauvilleCity_BikeShop_EventScript_GiveMachBike
+	checkitem ITEM_MACH_BIKE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq MauvilleCity_BikeShop_EventScript_GiveAcroBike
+	end
+
+MauvilleCity_BikeShop_EventScript_GiveMachBike::
+	setflag FLAG_RECEIVED_BIKE2
+	giveitem_std ITEM_MACH_BIKE
+	goto MauvilleCity_BikeShop_EventScript_HaveFunWithBikes
+	end
+
+MauvilleCity_BikeShop_EventScript_GiveAcroBike::
+	setflag FLAG_RECEIVED_BIKE2
+	giveitem_std ITEM_ACRO_BIKE
+	goto MauvilleCity_BikeShop_EventScript_HaveFunWithBikes
+	end
+
+MauvilleCity_BikeShop_EventScript_HaveFunWithBikes::
+	msgbox MauvilleCity_BikeShop_Text_HaveFunWithBikes, MSGBOX_DEFAULT
+	release
+end
 
 MauvilleCity_BikeShop_EventScript_AskSwitchBikes:: @ 820EC94
 	msgbox MauvilleCity_BikeShop_Text_WantToSwitchBikes, MSGBOX_YESNO
@@ -251,6 +285,20 @@ MauvilleCity_BikeShop_Text_ExchangedAcroForMach: @ 820F294
 MauvilleCity_BikeShop_Text_HappyYouLikeIt: @ 820F2C4
 	.string "RYDEL: Good, good!\n"
 	.string "I'm happy that you like it!$"
+
+MauvilleCity_BikeShop_Text_OhChampion:
+	.string "RYDEL: Oh hello!\p"
+	.string "If it isn't the new CHAMPION of HOENN!\p"
+	.string "The word around town is that the\n"
+	.string "CHAMPION is using one of my BIKES\l"
+	.string "for their travels!\p"
+	.string "Sales could not be any better!\p"
+	.string "As thanks, I want you to have\n"
+	.string "the other BIKE as well!$"
+
+MauvilleCity_BikeShop_Text_HaveFunWithBikes:
+	.string "RYDEL: I hope you're enjoying\n"
+	.string "both of your bikes!$"
 
 MauvilleCity_BikeShop_Text_OhYourBikeIsInPC: @ 820F2F3
 	.string "Oh? What happened to that BIKE\n"
