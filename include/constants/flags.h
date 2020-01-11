@@ -484,8 +484,8 @@
 #define FLAG_UNUSED_0x1B7                    0x1B7
 #define FLAG_UNUSED_0x1B8                    0x1B8
 #define FLAG_UNUSED_0x1B9                    0x1B9
-#define FLAG_UNUSED_0x1BA                    0x1BA
 
+#define FLAG_DEFEATED_SNORLAX                0x1BA
 #define FLAG_DEFEATED_REGIROCK               0x1BB
 #define FLAG_DEFEATED_REGICE                 0x1BC
 #define FLAG_DEFEATED_REGISTEEL              0x1BD
@@ -771,9 +771,7 @@
 #define FLAG_HIDE_BATTLE_TOWER_MULTI_BATTLE_PARTNER_4               0x2CA
 #define FLAG_HIDE_BATTLE_TOWER_MULTI_BATTLE_PARTNER_5               0x2CB
 #define FLAG_HIDE_BATTLE_TOWER_MULTI_BATTLE_PARTNER_6               0x2CC
-
-#define FLAG_UNUSED_0x2CD                                           0x2CD
-
+#define FLAG_HIDE_SNORLAX                                           0x2CD
 #define FLAG_HIDE_MEW                                               0x2CE
 #define FLAG_HIDE_ROUTE_104_RIVAL                                   0x2CF
 #define FLAG_HIDE_ROUTE_101_BIRCH_ZIGZAGOON_BATTLE                  0x2D0

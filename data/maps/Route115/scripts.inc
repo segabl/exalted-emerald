@@ -18,6 +18,7 @@ Route115_OnTransition: @ 81F2947
 	call_if_eq AbnormalWeather_StartGroudonWeather
 	compare VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_115_EAST
 	call_if_eq AbnormalWeather_StartGroudonWeather
+	call_if_unset FLAG_DEFEATED_SNORLAX, Route115_EventScript_ShowSnorlax
 	end
 
 Route115_OnFrame: @ 81F2969
@@ -136,6 +137,65 @@ Route115_EventScript_Marlene:: @ 81F2B3E
 	trainerbattle_single TRAINER_MARLENE, Route115_Text_MarleneIntro, Route115_Text_MarleneDefeat
 	msgbox Route115_Text_MarlenePostBattle, MSGBOX_AUTOCLOSE
 	end
+
+Route115_EventScript_ShowSnorlax::
+	clearflag FLAG_HIDE_SNORLAX
+	return
+
+Route115_EventScript_Snorlax::
+	lock
+	msgbox Route115_Text_LooksLikeSnorlaxDoll, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq Route115_EventScript_LeaveSnorlax
+	msgbox Route115_Text_ActuallySnorlax
+	closemessage
+	playmoncry SPECIES_SNORLAX, 0
+	delay 40
+	waitmoncry
+	setvar VAR_NUM_MAXED_IVS, 3
+	setwildbattle SPECIES_SNORLAX, 35, ITEM_LEFTOVERS
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	dowildbattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_RAN
+	goto_if_eq Route115_EventScript_RanFromSnorlax
+	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
+	goto_if_eq Route115_EventScript_RanFromSnorlax
+	goto Route115_EventScript_DefeatedSnorlax
+	end
+
+Route115_EventScript_LeaveSnorlax::
+	release
+	end
+
+Route115_EventScript_DefeatedSnorlax::
+	setflag FLAG_DEFEATED_SNORLAX
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject 28
+	fadescreenswapbuffers FADE_FROM_BLACK
+	release
+	end
+
+Route115_EventScript_RanFromSnorlax::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject 28
+	fadescreenswapbuffers FADE_FROM_BLACK
+	msgbox Route115_Text_SnorlaxWentBack
+	release
+	end
+
+Route115_Text_LooksLikeSnorlaxDoll:
+	.string "It looks like someone left\n"
+	.string "their SNORLAX DOLL here…\p"
+	.string "Do you want to take it?$"
+
+Route115_Text_ActuallySnorlax:
+	.string "Huh? The DOLL just moved!\p"
+	.string "…$"
+
+Route115_Text_SnorlaxWentBack:
+	.string "SNORLAX went back into the mountains…$"
 
 Route115_Text_NeverKnowWhenCavePokemonWillAppear: @ 81F2B55
 	.string "Exploring a cave isn't like walking\n"
