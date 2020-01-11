@@ -1,0 +1,1156 @@
+Abra
+  Granite Cave 1F
+  Granite Cave B1F
+  Granite Cave B2F
+  Granite Cave Stevens Room
+  Route 116
+
+Absol
+  Route 120
+
+Aipom
+  Altering Cave 6
+  Safari Zone Northeast
+
+Altaria
+  Sky Pillar 5F
+
+Aron
+  Granite Cave B1F
+  Granite Cave B2F
+  Granite Cave Stevens Room
+  Victory Road 1F
+
+Azumarill
+  Petalburg City (Surf)
+  Route 102 (Surf)
+  Route 111 (Surf)
+  Route 114 (Surf)
+  Route 117 (Surf)
+  Route 120 (Surf)
+
+Azurill
+  Route 103
+
+Bagon
+  Meteor Falls B1F 2R
+
+Baltoy
+  Route 111
+
+Banette
+  Sky Pillar 1F
+  Sky Pillar 3F
+  Sky Pillar 5F
+
+Barboach
+  Meteor Falls 1F 1R (Fishing)
+  Meteor Falls 1F 2R (Fishing)
+  Meteor Falls B1F 1R (Fishing)
+  Meteor Falls B1F 2R (Fishing)
+  Route 111 (Fishing)
+  Route 114 (Fishing)
+  Route 120 (Fishing)
+  Victory Road B2F (Fishing)
+
+Bellsprout
+  Safari Zone Northwest
+
+Cacnea
+  Route 111
+
+Carvanha
+  Route 118 (Fishing)
+  Route 119 (Fishing)
+
+Cascoon
+  Petalburg Woods
+
+Caterpie
+  Petalburg Woods
+
+Chansey
+  Safari Zone Northeast
+
+Chimecho
+  Mt Pyre Summit
+
+Chinchou
+  Underwater 1 (Surf)
+  Underwater 2 (Surf)
+
+Clamperl
+  Underwater 1 (Surf)
+  Underwater 2 (Surf)
+
+Claydol
+  Sky Pillar 1F
+  Sky Pillar 3F
+  Sky Pillar 5F
+
+Clefairy
+  Meteor Falls 1F 1R
+  Meteor Falls 1F 2R
+  Meteor Falls B1F 1R
+  Meteor Falls B1F 2R
+  Meteor Falls Stevens Cave
+  Safari Zone Southwest
+
+Corphish
+  Petalburg City (Fishing)
+  Route 102 (Fishing)
+  Route 117 (Fishing)
+
+Corsola
+  Ever Grande City (Fishing)
+  Route 128 (Fishing)
+
+Cubone
+  Safari Zone North
+
+Delibird
+  Shoal Cave Low Tide Ice Room
+
+Diglett
+  Route 111
+
+Ditto
+  Desert Underpass
+  Route 117
+  Safari Zone Southwest
+
+Doduo
+  Safari Zone South
+
+Dragonair
+  Victory Road B2F (Surf)
+
+Dratini
+  Victory Road B2F (Surf)
+
+Drowzee
+  Route 123
+
+Dunsparce
+  Route 121
+
+Duskull
+  Mt Pyre 1F
+  Mt Pyre 2F
+  Mt Pyre 3F
+  Mt Pyre 4F
+  Mt Pyre 5F
+  Mt Pyre 6F
+  Mt Pyre Exterior
+  Mt Pyre Summit
+  Route 121
+  Route 123
+
+Ekans
+  Route 119
+  Route 120
+
+Electrike
+  Route 110
+  Route 118
+
+Elekid
+  New Mauville Inside
+
+Exeggcute
+  Safari Zone Northwest
+
+Fearow
+  Safari Zone South
+
+Feebas
+  Safari Zone Northwest (Fishing)
+  Safari Zone Southeast (Fishing)
+  Safari Zone Southwest (Fishing)
+
+Furret
+  Route 119
+
+Gastly
+  Mt Pyre 1F
+  Mt Pyre 2F
+  Mt Pyre 3F
+  Mt Pyre 4F
+  Mt Pyre 5F
+  Mt Pyre 6F
+
+Geodude
+  Granite Cave 1F
+  Granite Cave B2F (Rock Smash)
+  Magma Hideout 1F
+  Magma Hideout 2F 1R
+  Magma Hideout 2F 2R
+  Magma Hideout 2F 3R
+  Magma Hideout 3F 1R
+  Magma Hideout 3F 2R
+  Magma Hideout 3F 3R
+  Magma Hideout 4F
+  Route 111 (Rock Smash)
+  Route 114 (Rock Smash)
+  Safari Zone North (Rock Smash)
+  Victory Road B1F (Rock Smash)
+
+Girafarig
+  Safari Zone Southwest
+
+Gligar
+  Safari Zone Southeast
+
+Gloom
+  Route 121
+  Route 123
+
+Golbat
+  Cave Of Origin 1F
+  Cave Of Origin Entrance
+  Cave Of Origin Unused Ruby Sapphire Map 1
+  Cave Of Origin Unused Ruby Sapphire Map 2
+  Cave Of Origin Unused Ruby Sapphire Map 3
+  Meteor Falls 1F 2R
+  Meteor Falls 1F 2R (Surf)
+  Meteor Falls B1F 1R
+  Meteor Falls B1F 1R (Surf)
+  Meteor Falls B1F 2R
+  Meteor Falls B1F 2R (Surf)
+  Meteor Falls Stevens Cave
+  Seafloor Cavern Entrance (Surf)
+  Seafloor Cavern Room 1
+  Seafloor Cavern Room 2
+  Seafloor Cavern Room 3
+  Seafloor Cavern Room 4
+  Seafloor Cavern Room 5
+  Seafloor Cavern Room 6
+  Seafloor Cavern Room 6 (Surf)
+  Seafloor Cavern Room 7
+  Seafloor Cavern Room 7 (Surf)
+  Seafloor Cavern Room 8
+  Shoal Cave Low Tide Entrance Room
+  Shoal Cave Low Tide Inner Room
+  Shoal Cave Low Tide Lower Room
+  Shoal Cave Low Tide Stairs Room
+  Sky Pillar 1F
+  Sky Pillar 3F
+  Sky Pillar 5F
+  Victory Road 1F
+  Victory Road B1F
+  Victory Road B2F
+  Victory Road B2F (Surf)
+
+Goldeen
+  Meteor Falls 1F 1R (Fishing)
+  Meteor Falls 1F 2R (Fishing)
+  Meteor Falls B1F 1R (Fishing)
+  Meteor Falls B1F 2R (Fishing)
+  Petalburg City (Fishing)
+  Route 102 (Fishing)
+  Route 111 (Fishing)
+  Route 114 (Fishing)
+  Route 117 (Fishing)
+  Route 120 (Fishing)
+  Safari Zone Northwest (Fishing)
+  Safari Zone Southeast (Fishing)
+  Safari Zone Southwest (Fishing)
+  Victory Road B2F (Fishing)
+
+Golduck
+  Safari Zone Northwest (Surf)
+
+Graveler
+  Magma Hideout 1F
+  Magma Hideout 2F 1R
+  Magma Hideout 2F 2R
+  Magma Hideout 2F 3R
+  Magma Hideout 3F 1R
+  Magma Hideout 3F 2R
+  Magma Hideout 3F 3R
+  Magma Hideout 4F
+  Victory Road B1F (Rock Smash)
+
+Grimer
+  Fiery Path
+
+Growlithe
+  Mt Pyre Exterior
+  Mt Pyre Summit
+  Route 112
+
+Gulpin
+  Route 110
+
+Gyarados
+  Sootopolis City (Fishing)
+
+Hariyama
+  Victory Road 1F
+  Victory Road B1F
+
+Heracross
+  Safari Zone Northwest
+
+Hoothoot
+  Safari Zone South
+
+Hoppip
+  Safari Zone Northwest
+
+Horsea
+  Route 132 (Fishing)
+  Route 133 (Fishing)
+  Route 134 (Fishing)
+
+Houndour
+  Altering Cave 4
+  Safari Zone Northeast
+
+Illumise
+  Route 117
+
+Jigglypuff
+  Route 115
+  Safari Zone Southwest
+
+Jynx
+  Shoal Cave Low Tide Ice Room
+
+Kangaskhan
+  Safari Zone North
+
+Kecleon
+  Route 118
+  Route 119
+  Route 120
+  Route 121
+
+Koffing
+  Fiery Path
+  Route 113
+
+Krabby
+  Route 115 (Rock Smash)
+
+Lairon
+  Victory Road 1F
+  Victory Road B1F
+  Victory Road B2F
+
+Larvitar
+  Route 111
+
+Ledyba
+  Route 101
+
+Lickitung
+  Safari Zone Southwest
+
+Linoone
+  Route 118
+  Route 119
+
+Lombre
+  Route 114
+
+Lotad
+  Route 102
+  Route 114
+
+Loudred
+  Desert Underpass
+  Victory Road 1F
+
+Lunatone
+  Meteor Falls 1F 1R
+  Meteor Falls 1F 1R (Surf)
+  Meteor Falls 1F 2R
+  Meteor Falls 1F 2R (Surf)
+  Meteor Falls B1F 1R
+  Meteor Falls B1F 1R (Surf)
+  Meteor Falls B1F 2R
+  Meteor Falls B1F 2R (Surf)
+  Meteor Falls Stevens Cave
+
+Luvdisc
+  Ever Grande City (Fishing)
+  Route 128 (Fishing)
+
+Machop
+  Fiery Path
+  Jagged Pass
+  Route 112
+
+Magby
+  Fiery Path
+
+Magikarp
+  Abandoned Ship Hidden Floor Corridors (Fishing)
+  Abandoned Ship Rooms B1F (Fishing)
+  Dewford Town (Fishing)
+  Ever Grande City (Fishing)
+  Lilycove City (Fishing)
+  Meteor Falls 1F 1R (Fishing)
+  Meteor Falls 1F 2R (Fishing)
+  Meteor Falls B1F 1R (Fishing)
+  Meteor Falls B1F 2R (Fishing)
+  Mossdeep City (Fishing)
+  Pacifidlog Town (Fishing)
+  Petalburg City (Fishing)
+  Route 102 (Fishing)
+  Route 103 (Fishing)
+  Route 104 (Fishing)
+  Route 105 (Fishing)
+  Route 106 (Fishing)
+  Route 107 (Fishing)
+  Route 108 (Fishing)
+  Route 109 (Fishing)
+  Route 110 (Fishing)
+  Route 111 (Fishing)
+  Route 114 (Fishing)
+  Route 115 (Fishing)
+  Route 117 (Fishing)
+  Route 118 (Fishing)
+  Route 119 (Fishing)
+  Route 120 (Fishing)
+  Route 121 (Fishing)
+  Route 122 (Fishing)
+  Route 123 (Fishing)
+  Route 124 (Fishing)
+  Route 125 (Fishing)
+  Route 126 (Fishing)
+  Route 127 (Fishing)
+  Route 128 (Fishing)
+  Route 129 (Fishing)
+  Route 130 (Fishing)
+  Route 131 (Fishing)
+  Route 132 (Fishing)
+  Route 133 (Fishing)
+  Route 134 (Fishing)
+  Safari Zone Northwest (Fishing)
+  Safari Zone Southeast (Fishing)
+  Safari Zone Southwest (Fishing)
+  Seafloor Cavern Entrance (Fishing)
+  Seafloor Cavern Room 6 (Fishing)
+  Seafloor Cavern Room 7 (Fishing)
+  Shoal Cave Low Tide Entrance Room (Fishing)
+  Shoal Cave Low Tide Inner Room (Fishing)
+  Slateport City (Fishing)
+  Sootopolis City (Surf)
+  Sootopolis City (Fishing)
+  Victory Road B2F (Fishing)
+
+Magnemite
+  New Mauville Entrance
+  New Mauville Inside
+
+Makuhita
+  Granite Cave 1F
+  Granite Cave Stevens Room
+  Victory Road 1F
+
+Manectric
+  Route 118
+
+Mankey
+  Granite Cave 1F
+  Granite Cave Stevens Room
+
+Mantine
+  Safari Zone Southwest (Surf)
+
+Mareep
+  Altering Cave 2
+  Safari Zone Southeast
+
+Marill
+  Petalburg City (Surf)
+  Route 102 (Surf)
+  Route 104
+  Route 111 (Surf)
+  Route 114 (Surf)
+  Route 117
+  Route 117 (Surf)
+  Route 120
+  Route 120 (Surf)
+
+Masquerain
+  Petalburg City (Surf)
+  Route 102 (Surf)
+  Route 111 (Surf)
+  Route 114 (Surf)
+  Route 117 (Surf)
+  Route 120 (Surf)
+
+Mawile
+  Granite Cave B1F
+  Granite Cave B2F
+  Victory Road B1F
+  Victory Road B2F
+
+Meditite
+  Granite Cave 1F
+  Granite Cave Stevens Room
+  Mt Pyre Exterior
+  Mt Pyre Summit
+
+Meowth
+  Route 103
+
+Mightyena
+  Route 120
+  Route 121
+  Route 123
+
+Miltank
+  Safari Zone Northeast
+
+Minun
+  Route 110
+
+Misdreavus
+  Mt Pyre 1F
+  Mt Pyre 2F
+  Mt Pyre 3F
+  Mt Pyre 4F
+  Mt Pyre 5F
+  Mt Pyre 6F
+
+Mr_Mime
+  Route 123
+
+Murkrow
+  Mt Pyre Exterior
+  Mt Pyre Summit
+
+Natu
+  Safari Zone South
+
+Nidoran_F
+  Safari Zone North
+
+Nidoran_M
+  Safari Zone North
+
+Nincada
+  Route 116
+
+Nosepass
+  Granite Cave B2F (Rock Smash)
+
+Numel
+  Fiery Path
+  Jagged Pass
+  Route 112
+
+Nuzleaf
+  Route 114
+
+Oddish
+  Route 110
+  Route 117
+  Route 119
+  Route 120
+  Route 121
+  Route 123
+  Safari Zone North
+
+Onix
+  Granite Cave B1F
+  Granite Cave B2F
+
+Paras
+  Petalburg Woods
+
+Pelipper
+  Dewford Town (Surf)
+  Ever Grande City (Surf)
+  Lilycove City (Surf)
+  Mossdeep City (Surf)
+  Pacifidlog Town (Surf)
+  Route 103 (Surf)
+  Route 104 (Surf)
+  Route 105 (Surf)
+  Route 106 (Surf)
+  Route 107 (Surf)
+  Route 108 (Surf)
+  Route 109 (Surf)
+  Route 110 (Surf)
+  Route 115 (Surf)
+  Route 118 (Surf)
+  Route 119 (Surf)
+  Route 121
+  Route 121 (Surf)
+  Route 122 (Surf)
+  Route 123
+  Route 123 (Surf)
+  Route 124 (Surf)
+  Route 125 (Surf)
+  Route 126 (Surf)
+  Route 127 (Surf)
+  Route 128 (Surf)
+  Route 129 (Surf)
+  Route 130 (Surf)
+  Route 131 (Surf)
+  Route 132 (Surf)
+  Route 133 (Surf)
+  Route 134 (Surf)
+  Slateport City (Surf)
+
+Phanpy
+  Route 111
+  Safari Zone North
+
+Pidgeotto
+  Safari Zone South
+
+Pikachu
+  New Mauville Inside
+  Safari Zone Southwest
+
+Pineco
+  Altering Cave 3
+  Safari Zone Northeast
+
+Pinsir
+  Safari Zone Northwest
+
+Plusle
+  Route 110
+
+Poliwag
+  Safari Zone Southwest (Surf)
+
+Poliwhirl
+  Safari Zone Southwest (Surf)
+
+Poochyena
+  Petalburg Woods
+  Route 101
+  Route 102
+  Route 103
+  Route 104
+  Route 110
+  Route 116
+  Route 117
+  Route 120
+  Route 121
+  Route 123
+
+Porygon
+  New Mauville Inside
+
+Psyduck
+  Safari Zone Northwest (Surf)
+
+Quagsire
+  Safari Zone Southeast (Surf)
+
+Qwilfish
+  Underwater 2 (Surf)
+
+Ralts
+  Route 102
+  Safari Zone Southwest
+
+Rattata
+  Safari Zone South
+
+Relicanth
+  Underwater 2 (Surf)
+
+Remoraid
+  Safari Zone Northwest (Fishing)
+  Safari Zone Southeast (Fishing)
+  Safari Zone Southwest (Fishing)
+
+Rhyhorn
+  Safari Zone North
+
+Roselia
+  Route 110
+  Route 117
+  Safari Zone Southwest
+
+Sableye
+  Cave Of Origin 1F
+  Cave Of Origin Unused Ruby Sapphire Map 1
+  Cave Of Origin Unused Ruby Sapphire Map 2
+  Cave Of Origin Unused Ruby Sapphire Map 3
+  Granite Cave B1F
+  Granite Cave B2F
+  Sky Pillar 1F
+  Sky Pillar 3F
+  Sky Pillar 5F
+  Victory Road B2F
+
+Sandshrew
+  Mirage Tower 1F
+  Mirage Tower 2F
+  Mirage Tower 3F
+  Mirage Tower 4F
+  Route 111
+
+Scyther
+  Safari Zone Northwest
+
+Seaking
+  Safari Zone Northwest (Fishing)
+  Safari Zone Southeast (Fishing)
+  Safari Zone Southwest (Fishing)
+
+Seedot
+  Route 102
+  Route 114
+
+Seel
+  Safari Zone Southeast (Surf)
+
+Sentret
+  Safari Zone South
+
+Seviper
+  Route 114
+
+Sharpedo
+  Mossdeep City (Fishing)
+  Pacifidlog Town (Fishing)
+  Route 103 (Fishing)
+  Route 118 (Fishing)
+  Route 122 (Fishing)
+  Route 124 (Fishing)
+  Route 125 (Fishing)
+  Route 126 (Fishing)
+  Route 127 (Fishing)
+  Route 129 (Fishing)
+  Route 130 (Fishing)
+  Route 131 (Fishing)
+  Route 132 (Fishing)
+  Route 133 (Fishing)
+  Route 134 (Fishing)
+
+Shellder
+  Mossdeep City (Fishing)
+  Underwater 1 (Surf)
+
+Shroomish
+  Petalburg Woods
+
+Shuckle
+  Altering Cave 7
+  Route 115 (Rock Smash)
+  Safari Zone Northeast (Rock Smash)
+
+Shuppet
+  Mt Pyre 1F
+  Mt Pyre 2F
+  Mt Pyre 3F
+  Mt Pyre 4F
+  Mt Pyre 5F
+  Mt Pyre 6F
+  Mt Pyre Exterior
+  Mt Pyre Summit
+  Route 121
+  Route 123
+
+Silcoon
+  Petalburg Woods
+
+Skarmory
+  Route 113
+
+Skiploom
+  Safari Zone Northwest
+
+Skitty
+  Route 116
+
+Slakoth
+  Petalburg Woods
+
+Slowpoke
+  Safari Zone Northwest (Surf)
+
+Slugma
+  Fiery Path
+  Route 112
+  Route 113
+
+Smeargle
+  Altering Cave 9
+  Artisan Cave 1F
+  Artisan Cave B1F
+
+Sneasel
+  Shoal Cave Low Tide Ice Room
+
+Snorunt
+  Shoal Cave Low Tide Ice Room
+
+Snubbull
+  Safari Zone Southeast
+
+Solrock
+  Meteor Falls 1F 1R
+  Meteor Falls 1F 1R (Surf)
+  Meteor Falls 1F 2R
+  Meteor Falls 1F 2R (Surf)
+  Meteor Falls B1F 1R
+  Meteor Falls B1F 1R (Surf)
+  Meteor Falls B1F 2R
+  Meteor Falls B1F 2R (Surf)
+  Meteor Falls Stevens Cave
+
+Spearow
+  Route 103
+
+Spheal
+  Shoal Cave Low Tide Entrance Room
+  Shoal Cave Low Tide Entrance Room (Surf)
+  Shoal Cave Low Tide Ice Room
+  Shoal Cave Low Tide Inner Room
+  Shoal Cave Low Tide Inner Room (Surf)
+  Shoal Cave Low Tide Lower Room
+  Shoal Cave Low Tide Stairs Room
+
+Spinarak
+  Safari Zone Southeast
+
+Spinda
+  Route 113
+
+Spoink
+  Jagged Pass
+
+Stantler
+  Altering Cave 8
+  Safari Zone Southeast
+
+Staryu
+  Lilycove City (Fishing)
+  Underwater 1 (Surf)
+
+Sunkern
+  Safari Zone Southeast
+
+Surskit
+  Petalburg City (Surf)
+  Route 102
+  Route 102 (Surf)
+  Route 111 (Surf)
+  Route 114
+  Route 114 (Surf)
+  Route 117 (Surf)
+  Route 120 (Surf)
+
+Swablu
+  Route 114
+  Route 115
+
+Swellow
+  Route 115
+
+Swinub
+  Shoal Cave Low Tide Ice Room
+
+Taillow
+  Petalburg Woods
+  Route 104
+  Route 115
+  Route 116
+  Safari Zone South
+
+Tangela
+  Route 119
+  Route 120
+
+Tauros
+  Safari Zone North
+
+Teddiursa
+  Altering Cave 5
+  Safari Zone Northeast
+
+Tentacool
+  Abandoned Ship Hidden Floor Corridors (Surf)
+  Abandoned Ship Hidden Floor Corridors (Fishing)
+  Abandoned Ship Rooms B1F (Surf)
+  Abandoned Ship Rooms B1F (Fishing)
+  Dewford Town (Surf)
+  Dewford Town (Fishing)
+  Ever Grande City (Surf)
+  Ever Grande City (Fishing)
+  Lilycove City (Surf)
+  Lilycove City (Fishing)
+  Mossdeep City (Surf)
+  Mossdeep City (Fishing)
+  Pacifidlog Town (Surf)
+  Pacifidlog Town (Fishing)
+  Route 103 (Surf)
+  Route 103 (Fishing)
+  Route 105 (Surf)
+  Route 105 (Fishing)
+  Route 106 (Surf)
+  Route 106 (Fishing)
+  Route 107 (Surf)
+  Route 107 (Fishing)
+  Route 108 (Surf)
+  Route 108 (Fishing)
+  Route 109 (Surf)
+  Route 109 (Fishing)
+  Route 110 (Surf)
+  Route 110 (Fishing)
+  Route 115 (Surf)
+  Route 115 (Fishing)
+  Route 118 (Surf)
+  Route 118 (Fishing)
+  Route 119 (Surf)
+  Route 119 (Fishing)
+  Route 121 (Surf)
+  Route 121 (Fishing)
+  Route 122 (Surf)
+  Route 122 (Fishing)
+  Route 123 (Surf)
+  Route 123 (Fishing)
+  Route 124 (Surf)
+  Route 124 (Fishing)
+  Route 125 (Surf)
+  Route 125 (Fishing)
+  Route 126 (Surf)
+  Route 126 (Fishing)
+  Route 127 (Surf)
+  Route 127 (Fishing)
+  Route 128 (Surf)
+  Route 128 (Fishing)
+  Route 129 (Surf)
+  Route 129 (Fishing)
+  Route 130 (Surf)
+  Route 130 (Fishing)
+  Route 131 (Surf)
+  Route 131 (Fishing)
+  Route 132 (Surf)
+  Route 132 (Fishing)
+  Route 133 (Surf)
+  Route 133 (Fishing)
+  Route 134 (Surf)
+  Route 134 (Fishing)
+  Seafloor Cavern Entrance (Surf)
+  Seafloor Cavern Entrance (Fishing)
+  Seafloor Cavern Room 6 (Surf)
+  Seafloor Cavern Room 6 (Fishing)
+  Seafloor Cavern Room 7 (Surf)
+  Seafloor Cavern Room 7 (Fishing)
+  Shoal Cave Low Tide Entrance Room (Surf)
+  Shoal Cave Low Tide Entrance Room (Fishing)
+  Shoal Cave Low Tide Inner Room (Surf)
+  Shoal Cave Low Tide Inner Room (Fishing)
+  Slateport City (Surf)
+  Slateport City (Fishing)
+  Sootopolis City (Fishing)
+
+Tentacruel
+  Abandoned Ship Hidden Floor Corridors (Surf)
+  Abandoned Ship Hidden Floor Corridors (Fishing)
+  Abandoned Ship Rooms B1F (Surf)
+  Abandoned Ship Rooms B1F (Fishing)
+
+Torkoal
+  Fiery Path
+  Magma Hideout 1F
+  Magma Hideout 2F 1R
+  Magma Hideout 2F 2R
+  Magma Hideout 2F 3R
+  Magma Hideout 3F 1R
+  Magma Hideout 3F 2R
+  Magma Hideout 3F 3R
+  Magma Hideout 4F
+
+Trapinch
+  Mirage Tower 1F
+  Mirage Tower 2F
+  Mirage Tower 3F
+  Mirage Tower 4F
+  Route 111
+
+Tropius
+  Route 119
+
+Tyrogue
+  Granite Cave 1F
+  Granite Cave Stevens Room
+
+Unown
+  Desert Underpass
+
+Venonat
+  Route 101
+
+Volbeat
+  Route 117
+
+Voltorb
+  New Mauville Entrance
+  New Mauville Inside
+
+Vulpix
+  Mt Pyre Exterior
+  Mt Pyre Summit
+  Route 112
+
+Wailmer
+  Dewford Town (Fishing)
+  Ever Grande City (Fishing)
+  Lilycove City (Fishing)
+  Mossdeep City (Fishing)
+  Pacifidlog Town (Fishing)
+  Route 103 (Fishing)
+  Route 105 (Fishing)
+  Route 106 (Fishing)
+  Route 107 (Fishing)
+  Route 108 (Fishing)
+  Route 109 (Fishing)
+  Route 110 (Fishing)
+  Route 115 (Fishing)
+  Route 121 (Fishing)
+  Route 122 (Fishing)
+  Route 123 (Fishing)
+  Route 124 (Fishing)
+  Route 125 (Fishing)
+  Route 126 (Fishing)
+  Route 127 (Fishing)
+  Route 128 (Fishing)
+  Route 129 (Fishing)
+  Route 130 (Fishing)
+  Route 131 (Fishing)
+  Route 132 (Fishing)
+  Route 133 (Fishing)
+  Route 134 (Fishing)
+  Seafloor Cavern Entrance (Fishing)
+  Seafloor Cavern Room 6 (Fishing)
+  Seafloor Cavern Room 7 (Fishing)
+  Shoal Cave Low Tide Entrance Room (Fishing)
+  Shoal Cave Low Tide Inner Room (Fishing)
+  Slateport City (Fishing)
+
+Wailord
+  Route 129 (Surf)
+
+Weedle
+  Petalburg Woods
+
+Whiscash
+  Meteor Falls 1F 2R (Fishing)
+  Meteor Falls B1F 1R (Fishing)
+  Meteor Falls B1F 2R (Fishing)
+  Victory Road B2F (Fishing)
+
+Whismur
+  Desert Underpass
+  Route 116
+  Rusturf Tunnel
+  Victory Road 1F
+
+Wingull
+  Dewford Town (Surf)
+  Ever Grande City (Surf)
+  Lilycove City (Surf)
+  Mossdeep City (Surf)
+  Mt Pyre Exterior
+  Pacifidlog Town (Surf)
+  Route 103
+  Route 103 (Surf)
+  Route 104
+  Route 104 (Surf)
+  Route 105 (Surf)
+  Route 106 (Surf)
+  Route 107 (Surf)
+  Route 108 (Surf)
+  Route 109 (Surf)
+  Route 110
+  Route 110 (Surf)
+  Route 115
+  Route 115 (Surf)
+  Route 118
+  Route 118 (Surf)
+  Route 119 (Surf)
+  Route 121
+  Route 121 (Surf)
+  Route 122 (Surf)
+  Route 123
+  Route 123 (Surf)
+  Route 124 (Surf)
+  Route 125 (Surf)
+  Route 126 (Surf)
+  Route 127 (Surf)
+  Route 128 (Surf)
+  Route 129 (Surf)
+  Route 130 (Surf)
+  Route 131 (Surf)
+  Route 132 (Surf)
+  Route 133 (Surf)
+  Route 134 (Surf)
+  Slateport City (Surf)
+
+Wobbuffet
+  Safari Zone Southwest
+
+Wooper
+  Safari Zone Southeast (Surf)
+
+Wurmple
+  Petalburg Woods
+  Route 101
+  Route 102
+  Route 104
+
+Wynaut
+  Route 130
+
+Yanma
+  Route 120 (Surf)
+  Safari Zone Southwest
+
+Zangoose
+  Route 114
+
+Zigzagoon
+  Route 101
+  Route 102
+  Route 103
+  Route 118
+  Route 119
+
+Zubat
+  Altering Cave 1
+  Cave Of Origin 1F
+  Cave Of Origin Entrance
+  Cave Of Origin Unused Ruby Sapphire Map 1
+  Cave Of Origin Unused Ruby Sapphire Map 2
+  Cave Of Origin Unused Ruby Sapphire Map 3
+  Granite Cave 1F
+  Granite Cave B1F
+  Granite Cave B2F
+  Granite Cave Stevens Room
+  Meteor Falls 1F 1R
+  Meteor Falls 1F 1R (Surf)
+  Seafloor Cavern Entrance (Surf)
+  Seafloor Cavern Room 1
+  Seafloor Cavern Room 2
+  Seafloor Cavern Room 3
+  Seafloor Cavern Room 4
+  Seafloor Cavern Room 5
+  Seafloor Cavern Room 6
+  Seafloor Cavern Room 6 (Surf)
+  Seafloor Cavern Room 7
+  Seafloor Cavern Room 7 (Surf)
+  Seafloor Cavern Room 8
+  Shoal Cave Low Tide Entrance Room
+  Shoal Cave Low Tide Entrance Room (Surf)
+  Shoal Cave Low Tide Ice Room
+  Shoal Cave Low Tide Inner Room
+  Shoal Cave Low Tide Inner Room (Surf)
+  Shoal Cave Low Tide Lower Room
+  Shoal Cave Low Tide Stairs Room
+  Victory Road 1F
+

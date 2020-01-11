@@ -15,7 +15,7 @@ For DizzyEgg's modifications, check out <https://github.com/DizzyEggg/pokeemeral
 - Adds a chance for wild double battles (using sweet scent causes wild encounters to always be double battles)
 - Adds hidden abilities (Pokémon with HA can be found in the safari zone or rarely in wild double battles)
 - Updates EXP mechanics (All Pokémon part of the battle receive full EXP)
-- Makes (almost) all Pokémon species obtainable
+- Makes all regular Pokémon obtainable (legendaries and starters to be done)
 
 ## Minor and QoL changes
 
@@ -38,3 +38,4 @@ For DizzyEgg's modifications, check out <https://github.com/DizzyEggg/pokeemeral
 - Makes move tutors reusable
 - Increases the chance for mirage island to appear (from n/65535 to n/255 with n being the number of Pokémon in your party)
 - Increases view distance when not using flash and removes the overlay completely when using flash
+- Updates berry yield and grow time to OrAs values
