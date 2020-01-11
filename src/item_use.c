@@ -952,7 +952,7 @@ void ItemUseInBattle_PokeBall(u8 taskId)
     {
         // If player already encountered a mon in the current map section in nuzlocke mode, they cant catch it
         u16 id = GetCurrentRegionMapSectionId();
-        if (id < MAPSEC_NONE && (gSaveBlock2Ptr->nuzlockeEncounterLocations[id / 8] >> (id % 8)))
+        if (id < MAPSEC_NONE && ((gSaveBlock2Ptr->nuzlockeEncounterLocations[id / 8] >> (id % 8)) & 1))
         {
             static const u8 textCantThrowPokeBall[] = _("Cannot throw a ball!\nThis is not your first encounter!\p");
 
