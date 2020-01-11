@@ -206,6 +206,8 @@ void NewGameInitData(void)
     WipeTrainerNameRecords();
     ResetTrainerHillResults();
     ResetContestLinkResults();
+    gSaveBlock2Ptr->nuzlocke = FALSE;
+    memset(gSaveBlock2Ptr->nuzlockeEncounterLocations, 0, sizeof(gSaveBlock2Ptr->nuzlockeEncounterLocations));
 }
 
 static void ResetMiniGamesResults(void)

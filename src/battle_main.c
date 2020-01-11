@@ -28,6 +28,7 @@
 #include "main.h"
 #include "malloc.h"
 #include "m4a.h"
+#include "overworld.h"
 #include "palette.h"
 #include "party_menu.h"
 #include "pokeball.h"
@@ -57,6 +58,7 @@
 #include "constants/items.h"
 #include "constants/moves.h"
 #include "constants/party_menu.h"
+#include "constants/region_map_sections.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "constants/species.h"
@@ -5012,6 +5014,14 @@ static void ReturnFromBattleToOverworld(void)
         UpdateRoamerHPStatus(&gEnemyParty[0]);
         if ((gBattleOutcome & B_OUTCOME_WON) || gBattleOutcome == B_OUTCOME_CAUGHT)
             SetRoamerInactive();
+    }
+
+    if (gSaveBlock2Ptr->nuzlocke && !(gBattleTypeFlags & BATTLE_TYPE_TRAINER))
+    {
+        // mark the current mapsection as forbidden to catch any mons if in nuzlocke mode
+        u16 id = GetCurrentRegionMapSectionId();
+        if (id < MAPSEC_NONE)
+            gSaveBlock2Ptr->nuzlockeEncounterLocations[id / 8] |= 1 << (id % 8);
     }
 
     m4aSongNumStop(SE_HINSI);

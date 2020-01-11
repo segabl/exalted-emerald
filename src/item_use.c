@@ -41,6 +41,7 @@
 #include "constants/flags.h"
 #include "constants/item_effects.h"
 #include "constants/items.h"
+#include "constants/region_map_sections.h"
 #include "constants/songs.h"
 #include "constants/vars.h"
 #include "event_obj_lock.h"
@@ -947,10 +948,25 @@ void ItemUseOutOfBattle_EvolutionStone(u8 taskId)
 
 void ItemUseInBattle_PokeBall(u8 taskId)
 {
+    if (gSaveBlock2Ptr->nuzlocke)
+    {
+        // If player already encountered a mon in the current map section in nuzlocke mode, they cant catch it
+        u16 id = GetCurrentRegionMapSectionId();
+        if (id < MAPSEC_NONE && (gSaveBlock2Ptr->nuzlockeEncounterLocations[id / 8] >> (id % 8)))
+        {
+            static const u8 textCantThrowPokeBall[] = _("Cannot throw a ball!\nThis is not your first encounter!\p");
+
+            if (!InBattlePyramid())
+                DisplayItemMessage(taskId, 1, textCantThrowPokeBall, BagMenu_InitListsMenu);
+            else
+                DisplayItemMessageInBattlePyramid(taskId, textCantThrowPokeBall, Task_CloseBattlePyramidBagMessage);
+            return;
+        }
+    }
     if (IsBattlerAlive(GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT))
         && IsBattlerAlive(GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT))) // There are two present pokemon.
     {
-        static const u8 textCantThrowPokeBall[] = _("Cannot throw a ball!\nThere are two pokemon out there!\p");
+        static const u8 textCantThrowPokeBall[] = _("Cannot throw a ball!\nThere are two POKéMON out there!\p");
 
         if (!InBattlePyramid())
             DisplayItemMessage(taskId, 1, textCantThrowPokeBall, BagMenu_InitListsMenu);
