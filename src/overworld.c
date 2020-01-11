@@ -6,6 +6,7 @@
 #include "bg.h"
 #include "cable_club.h"
 #include "clock.h"
+#include "credits.h"
 #include "event_data.h"
 #include "field_camera.h"
 #include "field_control_avatar.h"
@@ -1569,8 +1570,18 @@ void CB2_WhiteOut(void)
         val = 0;
         do_load_map_stuff_loop(&val);
         SetFieldVBlankCallback();
-        SetMainCallback1(CB1_Overworld);
-        SetMainCallback2(CB2_Overworld);
+        if (gSaveBlock2Ptr->nuzlocke)
+        {
+            // If the player is in nuzlocke mode and whites out, game is over!
+            ClearSaveData();
+            SetMainCallback2(CB2_StartCreditsSequence);
+        }
+        else
+        {
+            SetMainCallback1(CB1_Overworld);
+            SetMainCallback2(CB2_Overworld);
+        }
+        
     }
 }
 
