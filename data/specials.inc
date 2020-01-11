@@ -513,7 +513,6 @@ gSpecials:: @ 81DBA64
 	def_special LinkRetireStatusWithBattleTowerPartner
 	def_special sub_813B534
 	def_special CallTrainerHillFunction
-	def_special Script_DoRayquazaScene @ Listed twice
 	def_special LoopWingFlapSE
 	def_special sub_81D4BEC
 	def_special ShowBerryCrushRankings
@@ -533,3 +532,4 @@ gSpecials:: @ 81DBA64
 	def_special CloseDeptStoreElevatorWindow
 	def_special sub_80B3BC4
 	def_special CanEvolveThroughTrade
+	def_special EnableNuzlockeMode

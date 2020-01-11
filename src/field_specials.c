@@ -3999,6 +3999,12 @@ bool8 InPokemonCenter(void)
     return FALSE;
 }
 
+void EnableNuzlockeMode(void)
+{
+    FlagSet(FLAG_NUZLOCKE_MODE);
+    VarSet(VAR_NUZLOCKE_DIFFICULTY, gSaveBlock2Ptr->optionsDifficulty);
+}
+
 /*  Summary of the Lilycove Trainer Fan Club, because it's a little messy
 
     ## The Fan Club room itself
