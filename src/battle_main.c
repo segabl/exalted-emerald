@@ -5016,12 +5016,13 @@ static void ReturnFromBattleToOverworld(void)
             SetRoamerInactive();
     }
 
-    if (gSaveBlock2Ptr->nuzlocke && !(gBattleTypeFlags & BATTLE_TYPE_TRAINER))
+    if (FlagGet(FLAG_TEMP_F))
     {
         // mark the current mapsection as forbidden to catch any mons if in nuzlocke mode
         u16 id = GetCurrentRegionMapSectionId();
         if (id < MAPSEC_NONE)
             gSaveBlock2Ptr->nuzlockeEncounterLocations[id / 8] |= 1 << (id % 8);
+        FlagClear(FLAG_TEMP_F);
     }
 
     m4aSongNumStop(SE_HINSI);

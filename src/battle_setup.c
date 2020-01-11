@@ -368,6 +368,8 @@ static void CreateBattleStartTask(u8 transition, u16 song)
 
 void BattleSetup_StartWildBattle(void)
 {
+    if (gSaveBlock2Ptr->nuzlocke)
+        FlagSet(FLAG_TEMP_F);
     if (GetSafariZoneFlag())
         DoSafariBattle();
     else
@@ -376,11 +378,15 @@ void BattleSetup_StartWildBattle(void)
 
 void BattleSetup_StartDoubleWildBattle(void)
 {
+    if (gSaveBlock2Ptr->nuzlocke)
+        FlagSet(FLAG_TEMP_F);
     DoStandardWildBattle(TRUE);
 }
 
 void BattleSetup_StartBattlePikeWildBattle(void)
 {
+    if (gSaveBlock2Ptr->nuzlocke)
+        FlagSet(FLAG_TEMP_F);
     DoBattlePikeWildBattle();
 }
 
