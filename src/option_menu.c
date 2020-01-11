@@ -50,7 +50,7 @@ enum
 
 #define YPOS_TEXTSPEED    (MENUITEM_TEXTSPEED * 16)
 #define YPOS_BATTLESCENE  (MENUITEM_BATTLESCENE * 16)
-#define YPOS_DIFFICULTY  (MENUITEM_DIFFICULTY * 16)
+#define YPOS_DIFFICULTY   (MENUITEM_DIFFICULTY * 16)
 #define YPOS_SOUND        (MENUITEM_SOUND * 16)
 #define YPOS_BUTTONMODE   (MENUITEM_BUTTONMODE * 16)
 #define YPOS_FRAMETYPE    (MENUITEM_FRAMETYPE * 16)
@@ -79,6 +79,7 @@ static void sub_80BB154(void);
 
 // EWRAM vars
 EWRAM_DATA static bool8 sArrowPressed = FALSE;
+EWRAM_DATA static bool8 sInGame = FALSE;
 
 // const rom data
 static const u16 sUnknown_0855C604[] = INCBIN_U16("graphics/misc/option_menu_text.gbapal");
@@ -89,7 +90,7 @@ static const u8 *const sOptionMenuItemsNames[MENUITEM_COUNT] =
 {
     [MENUITEM_TEXTSPEED]   = gText_TextSpeed,
     [MENUITEM_BATTLESCENE] = gText_BattleScene,
-    [MENUITEM_DIFFICULTY] = gText_Difficulty,
+    [MENUITEM_DIFFICULTY]  = gText_Difficulty,
     [MENUITEM_SOUND]       = gText_Sound,
     [MENUITEM_BUTTONMODE]  = gText_ButtonMode,
     [MENUITEM_FRAMETYPE]   = gText_Frame,
@@ -143,6 +144,8 @@ static const struct BgTemplate sOptionMenuBgTemplates[] =
 
 static const u16 sUnknown_0855C6A0[] = {0x7E51};
 
+extern void CB2_ReinitMainMenu(void);
+
 // code
 static void MainCB2(void)
 {
@@ -161,6 +164,8 @@ static void VBlankCB(void)
 
 void CB2_InitOptionMenu(void)
 {
+    sInGame =  gMain.savedCallback != CB2_ReinitMainMenu;
+
     switch (gMain.state)
     {
     default:
@@ -240,7 +245,7 @@ void CB2_InitOptionMenu(void)
         gTasks[taskId].data[TD_MENUSELECTION] = 0;
         gTasks[taskId].data[TD_TEXTSPEED] = gSaveBlock2Ptr->optionsTextSpeed;
         gTasks[taskId].data[TD_BATTLESCENE] = gSaveBlock2Ptr->optionsBattleSceneOff;
-        gTasks[taskId].data[TD_DIFFICULTY] = gSaveBlock2Ptr->optionsDifficulty;
+        gTasks[taskId].data[TD_DIFFICULTY] = sInGame ? GAME_DIFFICULTY : gSaveBlock2Ptr->optionsDifficulty;
         gTasks[taskId].data[TD_SOUND] = gSaveBlock2Ptr->optionsSound;
         gTasks[taskId].data[TD_BUTTONMODE] = gSaveBlock2Ptr->optionsButtonMode;
         gTasks[taskId].data[TD_FRAMETYPE] = gSaveBlock2Ptr->optionsWindowFrameType;
@@ -292,7 +297,7 @@ static void Task_OptionMenuProcessInput(u8 taskId)
     }
     else if (gMain.newKeys & DPAD_DOWN)
     {
-        if (gTasks[taskId].data[TD_MENUSELECTION] < MENUITEM_CANCEL)
+        if (gTasks[taskId].data[TD_MENUSELECTION] < MENUITEM_COUNT - 1)
             gTasks[taskId].data[TD_MENUSELECTION]++;
         else
             gTasks[taskId].data[TD_MENUSELECTION] = 0;
@@ -395,10 +400,22 @@ static void DrawOptionMenuChoice(const u8 *text, u8 x, u8 y, u8 style)
     for (i = 0; *text != EOS && i <= 14; i++)
         dst[i] = *(text++);
 
-    if (style != 0)
+    switch (style)
     {
+    case 1:
         dst[2] = 4;
         dst[5] = 5;
+        break;
+    case 2:
+        dst[2] = 7;
+        dst[5] = 0;
+        break;
+    case 3:
+        dst[2] = 7;
+        dst[5] = 7;
+        break;
+    default:
+        break;
     }
 
     dst[i] = EOS;
@@ -476,6 +493,9 @@ static void BattleScene_DrawChoices(u8 selection)
 
 static u8 Difficulty_ProcessInput(u8 selection)
 {
+    if (sInGame && gSaveBlock2Ptr->nuzlocke)
+        return selection;
+
     if (gMain.newKeys & DPAD_RIGHT)
     {
         if (selection <= 1)
@@ -502,10 +522,10 @@ static void Difficulty_DrawChoices(u8 selection)
     u8 styles[3];
     s32 widthSlow, widthMid, widthFast, xMid;
 
-    styles[0] = 0;
-    styles[1] = 0;
-    styles[2] = 0;
-    styles[selection] = 1;
+    styles[0] = sInGame && gSaveBlock2Ptr->nuzlocke ? 2 : 0;
+    styles[1] = sInGame && gSaveBlock2Ptr->nuzlocke ? 2 : 0;
+    styles[2] = sInGame && gSaveBlock2Ptr->nuzlocke ? 2 : 0;
+    styles[selection] = sInGame && gSaveBlock2Ptr->nuzlocke ? 3 : 1;
 
     DrawOptionMenuChoice(gText_DifficultyEasy, 104, YPOS_DIFFICULTY, styles[0]);
 

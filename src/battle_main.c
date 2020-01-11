@@ -1843,7 +1843,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
         u16 levelMin = 0;
         u16 badgeMod = 8;
         u16 partyCountMod;
-        if (gSaveBlock2Ptr->optionsDifficulty > 1)
+        if (GAME_DIFFICULTY > 1)
         {
             for (i = 0; i < PARTY_SIZE; i++)
             {
@@ -2984,7 +2984,7 @@ static void BattleStartClearSetData(void)
         gHitMarker |= HITMARKER_NO_ANIMATIONS;
     }
 
-    gBattleScripting.difficulty = gSaveBlock2Ptr->optionsDifficulty;
+    gBattleScripting.difficulty = GAME_DIFFICULTY;
     gBattleScripting.expOnCatch = (B_EXP_CATCH >= GEN_6);
     gBattleScripting.monCaught = FALSE;
 
