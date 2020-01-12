@@ -59,6 +59,8 @@ InsideOfTruck_EventScript_ExplainNuzlocke::
 	msgbox InsideOfTruck_Text_ExplainNuzlocke, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq InsideOfTruck_EventScript_AbortNuzlocke
+	msgbox InsideOfTruck_Text_EnableSpeciesClause, MSGBOX_YESNO
+	copyvar VAR_0x8004, VAR_RESULT
 	special EnableNuzlockeMode
 	playse SE_SAVE
 	goto InsideOfTruck_EventScript_NuzlockeEnabled
@@ -86,9 +88,13 @@ InsideOfTruck_Text_WantToEnableNuzlockeMode:
 	.string "Do you want to enable NUZLOCKE mode?$"
 
 InsideOfTruck_Text_ExplainNuzlocke:
-	.string "Your current difficulty setting\n"
-	.string "will be locked in.\p"
+	.string "You won't be able to change your\n"
+	.string "current difficulty setting once\l"
+	.string "NUZLOCKE mode has been enabled.\p"
 	.string "Are you okay with that?$"
+
+InsideOfTruck_Text_EnableSpeciesClause:
+	.string "Enable the SPECIES CLAUSE?$"
 
 InsideOfTruck_Text_NuzlockeEnabled:
 	.string "NUZLOCKE mode has been enabled!\p"
