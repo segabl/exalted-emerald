@@ -4541,7 +4541,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                         // revive
                         if (r10 & 0x10)
                         {
-                            if (FlagGet(FLAG_NUZLOCKE_MODE) || GetMonData(mon, MON_DATA_HP, NULL) != 0)
+                            if (NUZLOCKE || GetMonData(mon, MON_DATA_HP, NULL) != 0)
                             {
                                 var_3C++;
                                 break;

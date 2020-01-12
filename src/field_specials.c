@@ -4001,8 +4001,10 @@ bool8 InPokemonCenter(void)
 
 void EnableNuzlockeMode(void)
 {
+    u16 settings = 0;
     FlagSet(FLAG_NUZLOCKE_MODE);
-    VarSet(VAR_NUZLOCKE_DIFFICULTY, gSaveBlock2Ptr->optionsDifficulty);
+    settings |= gSaveBlock2Ptr->optionsDifficulty;
+    VarSet(VAR_NUZLOCKE_SETTINGS, settings);
 }
 
 /*  Summary of the Lilycove Trainer Fan Club, because it's a little messy

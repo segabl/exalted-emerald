@@ -5016,7 +5016,7 @@ static void ReturnFromBattleToOverworld(void)
             SetRoamerInactive();
     }
 
-    if (FlagGet(FLAG_NUZLOCKE_MODE))
+    if (NUZLOCKE)
     {
         if (FlagGet(FLAG_TEMP_F) && FlagGet(FLAG_ADVENTURE_STARTED)) // FLAG_TEMP_F is used to mark the battle as standard wild battle
         {

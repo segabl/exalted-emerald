@@ -452,7 +452,10 @@ struct RankingHall2P
     u8 language;
 };
 
-#define GAME_DIFFICULTY (FlagGet(FLAG_NUZLOCKE_MODE) ? VarGet(VAR_NUZLOCKE_DIFFICULTY) : gSaveBlock2Ptr->optionsDifficulty)
+#define NUZLOCKE                FlagGet(FLAG_NUZLOCKE_MODE)
+#define NUZLOCKE_DIFFICULTY     (VarGet(VAR_NUZLOCKE_SETTINGS) & 3)
+
+#define GAME_DIFFICULTY (NUZLOCKE ? NUZLOCKE_DIFFICULTY : gSaveBlock2Ptr->optionsDifficulty)
 
 struct SaveBlock2
 {
