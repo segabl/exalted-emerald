@@ -198,16 +198,48 @@ void LoadEventObjects(void)
         gEventObjects[i] = gSaveBlock1Ptr->eventObjects[i];
 }
 
+void SavePlayerTmsHms(void)
+{
+    int i;
+    memset(gSaveBlock1Ptr->ownedTMsHMs, 0, sizeof(gSaveBlock1Ptr->ownedTMsHMs));
+    for (i = 0; i < BAG_TMHM_COUNT; i++)
+    {
+        if (gBagPocketTMHM[i].itemId == ITEM_NONE)
+            break;
+        else
+        {
+            u16 tmNum = gBagPocketTMHM[i].itemId - ITEM_TM01;
+            gSaveBlock1Ptr->ownedTMsHMs[tmNum / 8] |= 1 << (tmNum % 8);
+        }
+    }
+}
+
+void LoadPlayerTmsHms(void)
+{
+    int i, j;
+    for (i = 0, j = 0; i < BAG_TMHM_COUNT; i++)
+    {
+        if ((gSaveBlock1Ptr->ownedTMsHMs[i / 8] >> (i % 8)) & 1)
+        {
+            gBagPocketTMHM[j].itemId = ITEM_TM01 + i;
+            gBagPocketTMHM[j].quantity = 1;
+            j++;
+        }
+    }
+}
+
 void SaveSerializedGame(void)
 {
     SavePlayerParty();
     SaveEventObjects();
+    SavePlayerTmsHms();
 }
 
 void LoadSerializedGame(void)
 {
     LoadPlayerParty();
     LoadEventObjects();
+    LoadPlayerTmsHms();
 }
 
 void LoadPlayerBag(void)
@@ -229,7 +261,7 @@ void LoadPlayerBag(void)
 
     // load player TMs and HMs.
     for (i = 0; i < BAG_TMHM_COUNT; i++)
-        gLoadedSaveData.TMsHMs[i] = gSaveBlock1Ptr->bagPocket_TMHM[i];
+        gLoadedSaveData.TMsHMs[i] = gBagPocketTMHM[i];
 
     // load player berries.
     for (i = 0; i < BAG_BERRIES_COUNT; i++)
@@ -262,7 +294,7 @@ void SavePlayerBag(void)
 
     // save player TMs and HMs.
     for (i = 0; i < BAG_TMHM_COUNT; i++)
-        gSaveBlock1Ptr->bagPocket_TMHM[i] = gLoadedSaveData.TMsHMs[i];
+        gBagPocketTMHM[i] = gLoadedSaveData.TMsHMs[i];
 
     // save player berries.
     for (i = 0; i < BAG_BERRIES_COUNT; i++)
@@ -274,7 +306,6 @@ void SavePlayerBag(void)
 
     encryptionKeyBackup = gSaveBlock2Ptr->encryptionKey;
     gSaveBlock2Ptr->encryptionKey = gLastEncryptionKey;
-    ApplyNewEncryptionKeyToBagItems(encryptionKeyBackup);
     gSaveBlock2Ptr->encryptionKey = encryptionKeyBackup; // updated twice?
 }
 
@@ -293,7 +324,6 @@ void ApplyNewEncryptionKeyToWord(u32 *word, u32 newKey)
 static void ApplyNewEncryptionKeyToAllEncryptedData(u32 encryptionKey)
 {
     ApplyNewEncryptionKeyToGameStats(encryptionKey);
-    ApplyNewEncryptionKeyToBagItems_(encryptionKey);
     ApplyNewEncryptionKeyToBerryPowder(encryptionKey);
     ApplyNewEncryptionKeyToWord(&gSaveBlock1Ptr->money, encryptionKey);
     ApplyNewEncryptionKeyToHword(&gSaveBlock1Ptr->coins, encryptionKey);
