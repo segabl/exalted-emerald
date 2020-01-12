@@ -12,6 +12,7 @@ For DizzyEgg's modifications, check out <https://github.com/DizzyEggg/pokeemeral
 - Updates breeding mechanics (Destiny Knot, Oval Charm, ability inheriting)
 - Updates TMs/HMs to OrAs TMs/HMs (new and updated TMs can generally be found in the same locations as in OrAs)
 - Replaces the battle style setting with a difficulty setting (SHIFT -> EASY, SET -> NORMAL and a new setting HARD, which equals SET and also scales NPC Pokémon levels)
+- Adds optional Nuzlocke mode (can be enabled in the truck after starting a new game)
 - Adds a chance for wild double battles (using sweet scent causes wild encounters to always be double battles)
 - Adds hidden abilities (Pokémon with HA can be found in the safari zone or rarely in wild double battles)
 - Updates EXP mechanics (All Pokémon part of the battle receive full EXP)
