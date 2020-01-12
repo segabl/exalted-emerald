@@ -4005,6 +4005,7 @@ void EnableNuzlockeMode(void)
     FlagSet(FLAG_NUZLOCKE_MODE);
     settings |= gSaveBlock2Ptr->optionsDifficulty;
     settings |= gSpecialVar_0x8004 << 2; // Species clause
+    settings |= gSpecialVar_0x8005 << 3; // Shiny clause
     VarSet(VAR_NUZLOCKE_SETTINGS, settings);
 }
 

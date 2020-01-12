@@ -59,12 +59,23 @@ InsideOfTruck_EventScript_ExplainNuzlocke::
 	msgbox InsideOfTruck_Text_ExplainNuzlocke, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq InsideOfTruck_EventScript_AbortNuzlocke
-	msgbox InsideOfTruck_Text_EnableSpeciesClause, MSGBOX_YESNO
-	copyvar VAR_0x8004, VAR_RESULT
+	setvar VAR_0x8004, 0
+	setvar VAR_0x8005, 0
+	msgbox InsideOfTruck_Text_EnableAdditionalClauses, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq InsideOfTruck_EventScript_EnableAdditionalClauses
 	special EnableNuzlockeMode
 	playse SE_SAVE
 	goto InsideOfTruck_EventScript_NuzlockeEnabled
 	end
+
+InsideOfTruck_EventScript_EnableAdditionalClauses::
+	msgbox InsideOfTruck_Text_EnableSpeciesClause, MSGBOX_YESNO
+	copyvar VAR_0x8004, VAR_RESULT
+	msgbox InsideOfTruck_Text_EnableShinyClause, MSGBOX_YESNO
+	copyvar VAR_0x8005, VAR_RESULT
+	msgbox InsideOfTruck_Text_ConfigurationComplete
+	return
 
 InsideOfTruck_EventScript_NuzlockeEnabled::
 	msgbox InsideOfTruck_Text_NuzlockeEnabled
@@ -93,8 +104,18 @@ InsideOfTruck_Text_ExplainNuzlocke:
 	.string "NUZLOCKE mode has been enabled.\p"
 	.string "Are you okay with that?$"
 
+InsideOfTruck_Text_EnableAdditionalClauses:
+	.string "Do you want to adjust the\n"
+	.string "NUZLOCKE rules?$"
+
 InsideOfTruck_Text_EnableSpeciesClause:
 	.string "Enable the SPECIES CLAUSE?$"
+
+InsideOfTruck_Text_EnableShinyClause:
+	.string "Enable the SHINY CLAUSE?$"
+
+InsideOfTruck_Text_ConfigurationComplete:
+	.string "Configuration complete!$"
 
 InsideOfTruck_Text_NuzlockeEnabled:
 	.string "NUZLOCKE mode has been enabled!\p"

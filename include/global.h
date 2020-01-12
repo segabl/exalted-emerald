@@ -455,6 +455,7 @@ struct RankingHall2P
 #define NUZLOCKE                        FlagGet(FLAG_NUZLOCKE_MODE)
 #define NUZLOCKE_DIFFICULTY             (VarGet(VAR_NUZLOCKE_SETTINGS) & 3)
 #define NUZLOCKE_SPECIES_CLAUSE         (VarGet(VAR_NUZLOCKE_SETTINGS) & (1 << 2))
+#define NUZLOCKE_SHINY_CLAUSE           (VarGet(VAR_NUZLOCKE_SETTINGS) & (1 << 3))
 
 #define GAME_DIFFICULTY (NUZLOCKE ? NUZLOCKE_DIFFICULTY : gSaveBlock2Ptr->optionsDifficulty)
 
