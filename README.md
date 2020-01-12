@@ -41,3 +41,7 @@ For DizzyEgg's modifications, check out <https://github.com/DizzyEggg/pokeemeral
 - Increases view distance when not using flash and removes the overlay completely when using flash
 - Updates berry yield and grow time to OrAs values
 - Allows you to also get the other bike once you beat the E4
+
+## Cosmetic changes
+- Changes Mossdeep City music to use Dewford Town music (Rustboro music is overused)
+- Makes the name rater actually rate your nicknames

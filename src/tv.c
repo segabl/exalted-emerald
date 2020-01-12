@@ -3475,6 +3475,30 @@ void BufferMonNickname(void)
     StringGetEnd10(gStringVar1);
 }
 
+u8 GetMonNameScore(void)
+{
+    u8 i, different;
+    u16 score;
+    u16 species = GetBoxMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES, NULL);
+    GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_NICKNAME, gStringVar1);
+    different = FALSE;
+    for (i = 0; gSpeciesNames[species][i] != EOS && gStringVar1[i] != EOS; i++)
+    {
+        if (gSpeciesNames[species][i] != gStringVar1[i])
+        {
+            different = TRUE;
+            break;
+        }
+    }
+    StringGetEnd10(gStringVar1);
+    if (!different)
+        return 0;
+    score = species + ((gSaveBlock2Ptr->playerTrainerId[1] << 8) | gSaveBlock2Ptr->playerTrainerId[0]);
+    for (i = 0; gStringVar1[i] != EOS; i++)
+        score += gStringVar1[i];
+    return 1 + score % 5;
+}
+
 void IsMonOTIDNotPlayers(void)
 {
     if (GetPlayerIDAsU32() == GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_OT_ID, NULL))
