@@ -1843,7 +1843,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
         u16 levelMin = 0;
         u16 badgeMod = 8;
         u16 partyCountMod;
-        if (GAME_DIFFICULTY > 1)
+        if (GAME_DIFFICULTY > 1 && FlagGet(FLAG_ADVENTURE_STARTED))
         {
             for (i = 0; i < PARTY_SIZE; i++)
             {
