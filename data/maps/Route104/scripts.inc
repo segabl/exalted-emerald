@@ -1044,12 +1044,13 @@ Route104_Text_ImNotATrainer: @ 81ED7A2
 	.string "of their sight.$"
 
 Route104_Text_NoEchoDownHere: @ 81ED838
-	.string "HELLO……… ECHO………\p"
-	.string "There is no echo here like in the\n"
-	.string "mountains, that's why I like this move!\p"
-	.string "You can have this, so you try it out!\n"
-	.string "Use it on a POKéMON, and it will be able\l"
-	.string "to create an echoing sound.$"
+	.string "HELLO… … … ECHO… … …\p"
+	.string "There is no echo here like\n"
+	.string "in the mountains.\p"
+	.string "That's why I like this move!\p"
+	.string "You can have this, so try it out!\n"
+	.string "Use it on a POKéMON, and it will be\l"
+	.string "able to create an echoing sound.$"
 
 Route104_Text_TMsAreInfiniteUse: @ 81ED8E7
 	.string "A TM, TECHNICAL MACHINE, has an\n"
