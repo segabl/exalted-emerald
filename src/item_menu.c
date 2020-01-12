@@ -789,19 +789,19 @@ void GetItemName(s8 *dest, u16 itemId)
     {
         case TMHM_POCKET:
             StringCopy(gStringVar2, gMoveNames[ItemIdToBattleMoveId(itemId)]);
-            if (itemId >= ITEM_HM01)
+            if (itemId >= FIRST_HM_INDEX)
             {
-                ConvertIntToDecimalStringN(gStringVar1, itemId - ITEM_HM01 + 1, STR_CONV_MODE_LEADING_ZEROS, 1);
+                ConvertIntToDecimalStringN(gStringVar1, itemId - FIRST_HM_INDEX + 1, STR_CONV_MODE_LEADING_ZEROS, 1);
                 StringExpandPlaceholders(dest, gText_ClearTo11Var1Clear5Var2);
             }
             else
             {
-                ConvertIntToDecimalStringN(gStringVar1, itemId - ITEM_TM01 + 1, STR_CONV_MODE_LEADING_ZEROS, 3);
+                ConvertIntToDecimalStringN(gStringVar1, itemId - FIRST_TM_INDEX + 1, STR_CONV_MODE_LEADING_ZEROS, 3);
                 StringExpandPlaceholders(dest, gText_NumberVar1Clear7Var2);
             }
             break;
         case BERRIES_POCKET:
-            ConvertIntToDecimalStringN(gStringVar1, itemId - ITEM_CHERI_BERRY + 1, STR_CONV_MODE_LEADING_ZEROS, 2);
+            ConvertIntToDecimalStringN(gStringVar1, itemId - FIRST_BERRY_INDEX + 1, STR_CONV_MODE_LEADING_ZEROS, 2);
             CopyItemName(itemId, gStringVar2);
             StringExpandPlaceholders(dest, gText_NumberVar1Clear7Var2);
             break;
@@ -848,7 +848,7 @@ void PrintItemQuantityPlusGFX(u8 rboxId, s32 item_index_in_pocket, u8 a)
         }
         itemId = BagGetItemIdByPocketPosition(gBagPositionStruct.pocket + 1, item_index_in_pocket);
         itemQuantity = BagGetQuantityByPocketPosition(gBagPositionStruct.pocket + 1, item_index_in_pocket);
-        if (itemId >= ITEM_HM01 && itemId <= ITEM_HM07)
+        if (itemId >= FIRST_HM_INDEX && itemId <= LAST_HM_INDEX)
             BlitBitmapToWindow(rboxId, gBagMenuHMIcon_Gfx, 8, a - 1, 16, 16);
         if (gBagPositionStruct.pocket == BERRIES_POCKET)
         {

@@ -3,7 +3,8 @@
 
 #define ITEM_NONE 0
 
-// Balls
+// Ball
+#define FIRST_BALL_INDEX 1
 #define ITEM_MASTER_BALL 1
 #define ITEM_ULTRA_BALL 2
 #define ITEM_GREAT_BALL 3
@@ -31,7 +32,10 @@
 #define ITEM_DREAM_BALL 25
 #define ITEM_BEAST_BALL 26
 #define ITEM_PREMIER_BALL 27
-// Pokemon Items
+#define LAST_BALL_INDEX 27
+
+// Medicine
+#define FIRST_MEDICINE_INDEX 28
 #define ITEM_POTION 28
 #define ITEM_ANTIDOTE 29
 #define ITEM_BURN_HEAL 30
@@ -68,78 +72,86 @@
 #define ITEM_BIG_MALASADA 61
 #define ITEM_OLD_GATEAU 62
 #define ITEM_SACRED_ASH 63
-#define ITEM_SHOAL_SALT 64
-#define ITEM_SHOAL_SHELL 65
-#define ITEM_RED_SHARD 66
-#define ITEM_BLUE_SHARD 67
-#define ITEM_YELLOW_SHARD 68
-#define ITEM_GREEN_SHARD 69
-#define ITEM_HP_UP 70
-#define ITEM_PROTEIN 71
-#define ITEM_IRON 72
-#define ITEM_CARBOS 73
-#define ITEM_CALCIUM 74
-#define ITEM_RARE_CANDY 75
-#define ITEM_PP_UP 76
-#define ITEM_ZINC 77
-#define ITEM_PP_MAX 78
-#define ITEM_GUARD_SPEC 79
-#define ITEM_DIRE_HIT 80
-#define ITEM_X_ATTACK 81
-#define ITEM_X_DEFENSE 82
-#define ITEM_X_SPEED 83
-#define ITEM_X_ACCURACY 84
-#define ITEM_X_SP_ATK 85
-#define ITEM_X_SP_DEF 86
-#define ITEM_POKE_DOLL 87
-#define ITEM_FLUFFY_TAIL 88
-#define ITEM_ESCAPE_ROPE 89
-#define ITEM_REPEL 90
-#define ITEM_SUPER_REPEL 91
-#define ITEM_MAX_REPEL 92
-#define ITEM_ABILITY_CAPSULE 93
-// Wings
-#define ITEM_HEALTH_WING 94
-#define ITEM_MUSCLE_WING 95
-#define ITEM_RESIST_WING 96
-#define ITEM_GENIUS_WING 97
-#define ITEM_CLEVER_WING 98
-#define ITEM_SWIFT_WING 99
-#define ITEM_PRETTY_WING 100
-// Evolution stones
-#define ITEM_SUN_STONE 101
-#define ITEM_MOON_STONE 102
-#define ITEM_FIRE_STONE 103
-#define ITEM_THUNDER_STONE 104
-#define ITEM_WATER_STONE 105
-#define ITEM_LEAF_STONE 106
-#define ITEM_DAWN_STONE 107
-#define ITEM_DUSK_STONE 108
-#define ITEM_SHINY_STONE 109
-#define ITEM_ICE_STONE 110
-// Unusable
-#define ITEM_RED_APRICORN 111
-#define ITEM_BLUE_APRICORN 112
-#define ITEM_YELLOW_APRICORN 113
-#define ITEM_GREEN_APRICORN 114
-#define ITEM_PINK_APRICORN 115
-#define ITEM_WHITE_APRICORN 116
-#define ITEM_BLACK_APRICORN 117
-#define ITEM_TINY_MUSHROOM 118
-#define ITEM_BIG_MUSHROOM 119
-#define ITEM_PEARL 120
-#define ITEM_BIG_PEARL 121
-#define ITEM_STARDUST 122
-#define ITEM_STAR_PIECE 123
-#define ITEM_NUGGET 124
-#define ITEM_HEART_SCALE 125
-#define ITEM_RED_NECTAR 126
-#define ITEM_YELLOW_NECTAR 127
-#define ITEM_PINK_NECTAR 128
-#define ITEM_PURPLE_NECTAR 129
-#define ITEM_HONEY 130
-#define ITEM_RARE_BONE 131
-// Mails
+#define ITEM_HP_UP 64
+#define ITEM_PROTEIN 65
+#define ITEM_IRON 66
+#define ITEM_CARBOS 67
+#define ITEM_CALCIUM 68
+#define ITEM_RARE_CANDY 69
+#define ITEM_PP_UP 70
+#define ITEM_ZINC 71
+#define ITEM_PP_MAX 72
+#define ITEM_GUARD_SPEC 73
+#define ITEM_DIRE_HIT 74
+#define ITEM_X_ATTACK 75
+#define ITEM_X_DEFENSE 76
+#define ITEM_X_SPEED 77
+#define ITEM_X_ACCURACY 78
+#define ITEM_X_SP_ATK 79
+#define ITEM_X_SP_DEF 80
+#define ITEM_ABILITY_CAPSULE 81
+#define ITEM_HEALTH_WING 82
+#define ITEM_MUSCLE_WING 83
+#define ITEM_RESIST_WING 84
+#define ITEM_GENIUS_WING 85
+#define ITEM_CLEVER_WING 86
+#define ITEM_SWIFT_WING 87
+#define ITEM_PRETTY_WING 88
+#define LAST_MEDICINE_INDEX 88
+
+// Evo Stone
+#define FIRST_EVO_STONE_INDEX 89
+#define ITEM_SUN_STONE 89
+#define ITEM_MOON_STONE 90
+#define ITEM_FIRE_STONE 91
+#define ITEM_THUNDER_STONE 92
+#define ITEM_WATER_STONE 93
+#define ITEM_LEAF_STONE 94
+#define ITEM_DAWN_STONE 95
+#define ITEM_DUSK_STONE 96
+#define ITEM_SHINY_STONE 97
+#define ITEM_ICE_STONE 98
+#define LAST_EVO_STONE_INDEX 98
+
+// Misc
+#define FIRST_MISC_INDEX 99
+#define ITEM_RED_APRICORN 99
+#define ITEM_BLUE_APRICORN 100
+#define ITEM_YELLOW_APRICORN 101
+#define ITEM_GREEN_APRICORN 102
+#define ITEM_PINK_APRICORN 103
+#define ITEM_WHITE_APRICORN 104
+#define ITEM_BLACK_APRICORN 105
+#define ITEM_TINY_MUSHROOM 106
+#define ITEM_BIG_MUSHROOM 107
+#define ITEM_PEARL 108
+#define ITEM_BIG_PEARL 109
+#define ITEM_STARDUST 110
+#define ITEM_STAR_PIECE 111
+#define ITEM_NUGGET 112
+#define ITEM_HEART_SCALE 113
+#define ITEM_RED_NECTAR 114
+#define ITEM_YELLOW_NECTAR 115
+#define ITEM_PINK_NECTAR 116
+#define ITEM_PURPLE_NECTAR 117
+#define ITEM_HONEY 118
+#define ITEM_RARE_BONE 119
+#define ITEM_POKE_DOLL 120
+#define ITEM_FLUFFY_TAIL 121
+#define ITEM_ESCAPE_ROPE 122
+#define ITEM_REPEL 123
+#define ITEM_SUPER_REPEL 124
+#define ITEM_MAX_REPEL 125
+#define ITEM_SHOAL_SALT 126
+#define ITEM_SHOAL_SHELL 127
+#define ITEM_RED_SHARD 128
+#define ITEM_BLUE_SHARD 129
+#define ITEM_YELLOW_SHARD 130
+#define ITEM_GREEN_SHARD 131
+#define LAST_MISC_INDEX 131
+
+// Mail
+#define FIRST_MAIL_INDEX 132
 #define ITEM_ORANGE_MAIL 132
 #define ITEM_HARBOR_MAIL 133
 #define ITEM_GLITTER_MAIL 134
@@ -152,7 +164,10 @@
 #define ITEM_DREAM_MAIL 141
 #define ITEM_FAB_MAIL 142
 #define ITEM_RETRO_MAIL 143
-// Berries
+#define LAST_MAIL_INDEX 143
+
+// Berry
+#define FIRST_BERRY_INDEX 144
 #define ITEM_CHERI_BERRY 144
 #define ITEM_CHESTO_BERRY 145
 #define ITEM_PECHA_BERRY 146
@@ -220,7 +235,10 @@
 #define ITEM_ROWAP_BERRY 208
 #define ITEM_KEE_BERRY 209
 #define ITEM_MARANGA_BERRY 210
-// Battle Held items
+#define LAST_BERRY_INDEX 210
+
+// Held Item
+#define FIRST_HELD_ITEM_INDEX 211
 #define ITEM_BRIGHT_POWDER 211
 #define ITEM_WHITE_HERB 212
 #define ITEM_MACHO_BRACE 213
@@ -323,7 +341,6 @@
 #define ITEM_PSYCHIC_SEED 310
 #define ITEM_MISTY_SEED 311
 #define ITEM_GRASSY_SEED 312
-// Incenses
 #define ITEM_SEA_INCENSE 313
 #define ITEM_LAX_INCENSE 314
 #define ITEM_ODD_INCENSE 315
@@ -333,7 +350,6 @@
 #define ITEM_ROSE_INCENSE 319
 #define ITEM_LUCK_INCENSE 320
 #define ITEM_PURE_INCENSE 321
-// Plates
 #define ITEM_INSECT_PLATE 322
 #define ITEM_DREAD_PLATE 323
 #define ITEM_DRACO_PLATE 324
@@ -351,7 +367,6 @@
 #define ITEM_STONE_PLATE 336
 #define ITEM_IRON_PLATE 337
 #define ITEM_SPLASH_PLATE 338
-// Gems
 #define ITEM_BUG_GEM 339
 #define ITEM_DARK_GEM 340
 #define ITEM_DRAGON_GEM 341
@@ -370,7 +385,6 @@
 #define ITEM_ROCK_GEM 354
 #define ITEM_STEEL_GEM 355
 #define ITEM_WATER_GEM 356
-// Mon specific
 #define ITEM_SOUL_DEW 357
 #define ITEM_DEEP_SEA_TOOTH 358
 #define ITEM_DEEP_SEA_SCALE 359
@@ -385,7 +399,6 @@
 #define ITEM_LUSTROUS_ORB 368
 #define ITEM_GRISEOUS_ORB 369
 #define ITEM_GRACIDEA 370
-// Memories
 #define ITEM_BUG_MEMORY 371
 #define ITEM_DARK_MEMORY 372
 #define ITEM_DRAGON_MEMORY 373
@@ -403,248 +416,262 @@
 #define ITEM_ROCK_MEMORY 385
 #define ITEM_STEEL_MEMORY 386
 #define ITEM_WATER_MEMORY 387
-// Drives
 #define ITEM_DOUSE_DRIVE 388
 #define ITEM_SHOCK_DRIVE 389
 #define ITEM_BURN_DRIVE 390
 #define ITEM_CHILL_DRIVE 391
-// Contest held items
 #define ITEM_RED_SCARF 392
 #define ITEM_BLUE_SCARF 393
 #define ITEM_PINK_SCARF 394
 #define ITEM_GREEN_SCARF 395
 #define ITEM_YELLOW_SCARF 396
-// Mega stones
-#define ITEM_ABOMASITE 397
-#define ITEM_ABSOLITE 398
-#define ITEM_AERODACTYLITE 399
-#define ITEM_AGGRONITE 400
-#define ITEM_ALAKAZITE 401
-#define ITEM_ALTARIANITE 402
-#define ITEM_AMPHAROSITE 403
-#define ITEM_AUDINITE 404
-#define ITEM_BANETTITE 405
-#define ITEM_BEEDRILLITE 406
-#define ITEM_BLASTOISINITE 407
-#define ITEM_BLAZIKENITE 408
-#define ITEM_CAMERUPTITE 409
-#define ITEM_CHARIZARDITE_X 410
-#define ITEM_CHARIZARDITE_Y 411
-#define ITEM_DIANCITE 412
-#define ITEM_GALLADITE 413
-#define ITEM_GARCHOMPITE 414
-#define ITEM_GARDEVOIRITE 415
-#define ITEM_GENGARITE 416
-#define ITEM_GLALITITE 417
-#define ITEM_GYARADOSITE 418
-#define ITEM_HERACRONITE 419
-#define ITEM_HOUNDOOMINITE 420
-#define ITEM_KANGASKHANITE 421
-#define ITEM_LATIASITE 422
-#define ITEM_LATIOSITE 423
-#define ITEM_LOPUNNITE 424
-#define ITEM_LUCARIONITE 425
-#define ITEM_MANECTITE 426
-#define ITEM_MAWILITE 427
-#define ITEM_MEDICHAMITE 428
-#define ITEM_METAGROSSITE 429
-#define ITEM_MEWTWONITE_X 430
-#define ITEM_MEWTWONITE_Y 431
-#define ITEM_PIDGEOTITE 432
-#define ITEM_PINSIRITE 433
-#define ITEM_SABLENITE 434
-#define ITEM_SALAMENCITE 435
-#define ITEM_SCEPTILITE 436
-#define ITEM_SCIZORITE 437
-#define ITEM_SHARPEDONITE 438
-#define ITEM_SLOWBRONITE 439
-#define ITEM_STEELIXITE 440
-#define ITEM_SWAMPERTITE 441
-#define ITEM_TYRANITARITE 442
-#define ITEM_VENUSAURITE 443
-#define ITEM_MEGA_BRACELET 444
-// Fossils
-#define ITEM_ARMOR_FOSSIL 445
-#define ITEM_SKULL_FOSSIL 446
-#define ITEM_HELIX_FOSSIL 447
-#define ITEM_DOME_FOSSIL 448
-#define ITEM_COVER_FOSSIL 449
-#define ITEM_PLUME_FOSSIL 450
-#define ITEM_JAW_FOSSIL 451
-#define ITEM_SAIL_FOSSIL 452
-#define ITEM_ROOT_FOSSIL 453
-#define ITEM_CLAW_FOSSIL 454
-// Key Items
-#define ITEM_MACH_BIKE 455
-#define ITEM_COIN_CASE 456
-#define ITEM_ITEMFINDER 457
-#define ITEM_OLD_ROD 458
-#define ITEM_GOOD_ROD 459
-#define ITEM_SUPER_ROD 460
-#define ITEM_SS_TICKET 461
-#define ITEM_CONTEST_PASS 462
-#define ITEM_WAILMER_PAIL 463
-#define ITEM_DEVON_GOODS 464
-#define ITEM_SOOT_SACK 465
-#define ITEM_BASEMENT_KEY 466
-#define ITEM_ACRO_BIKE 467
-#define ITEM_POKEBLOCK_CASE 468
-#define ITEM_LETTER 469
-#define ITEM_EON_TICKET 470
-#define ITEM_RED_ORB 471
-#define ITEM_BLUE_ORB 472
-#define ITEM_SCANNER 473
-#define ITEM_GO_GOGGLES 474
-#define ITEM_METEORITE 475
-#define ITEM_ROOM_1_KEY 476
-#define ITEM_ROOM_2_KEY 477
-#define ITEM_ROOM_4_KEY 478
-#define ITEM_ROOM_6_KEY 479
-#define ITEM_STORAGE_KEY 480
-#define ITEM_DEVON_SCOPE 481
-// TMs/HMs
-#define ITEM_TM01 482 // Hone Claws
-#define ITEM_TM02 483 // Dragon Claw
-#define ITEM_TM03 484 // Psyshock
-#define ITEM_TM04 485 // Calm Mind
-#define ITEM_TM05 486 // Roar
-#define ITEM_TM06 487 // Toxic
-#define ITEM_TM07 488 // Hail
-#define ITEM_TM08 489 // Bulk Up
-#define ITEM_TM09 490 // Venoshock
-#define ITEM_TM10 491 // Hidden Power
-#define ITEM_TM11 492 // Sunny Day
-#define ITEM_TM12 493 // Taunt
-#define ITEM_TM13 494 // Ice Beam
-#define ITEM_TM14 495 // Blizzard
-#define ITEM_TM15 496 // Hyper Beam
-#define ITEM_TM16 497 // Light Screen
-#define ITEM_TM17 498 // Protect
-#define ITEM_TM18 499 // Rain Dance
-#define ITEM_TM19 500 // Roost
-#define ITEM_TM20 501 // Safeguard
-#define ITEM_TM21 502 // Frustration
-#define ITEM_TM22 503 // Solar Beam
-#define ITEM_TM23 504 // Smack Down
-#define ITEM_TM24 505 // Thunderbolt
-#define ITEM_TM25 506 // Thunder
-#define ITEM_TM26 507 // Earthquake
-#define ITEM_TM27 508 // Return
-#define ITEM_TM28 509 // Dig
-#define ITEM_TM29 510 // Psychic
-#define ITEM_TM30 511 // Shadow Ball
-#define ITEM_TM31 512 // Brick Break
-#define ITEM_TM32 513 // Double Team
-#define ITEM_TM33 514 // Reflect
-#define ITEM_TM34 515 // Sludge Wave
-#define ITEM_TM35 516 // Flamethrower
-#define ITEM_TM36 517 // Sludge Bomb
-#define ITEM_TM37 518 // Sandstorm
-#define ITEM_TM38 519 // Fire Blast
-#define ITEM_TM39 520 // Rock Tomb
-#define ITEM_TM40 521 // Aerial Ace
-#define ITEM_TM41 522 // Torment
-#define ITEM_TM42 523 // Facade
-#define ITEM_TM43 524 // Flame Charge
-#define ITEM_TM44 525 // Rest
-#define ITEM_TM45 526 // Attract
-#define ITEM_TM46 527 // Thief
-#define ITEM_TM47 528 // Low Sweep
-#define ITEM_TM48 529 // Round
-#define ITEM_TM49 530 // Echoed Voice
-#define ITEM_TM50 531 // Overheat
-#define ITEM_TM51 532 // Steel Wing
-#define ITEM_TM52 533 // Focus Blast
-#define ITEM_TM53 534 // Energy Ball
-#define ITEM_TM54 535 // False Swipe
-#define ITEM_TM55 536 // Scald
-#define ITEM_TM56 537 // Fling
-#define ITEM_TM57 538 // Charge Beam
-#define ITEM_TM58 539 // Sky Drop
-#define ITEM_TM59 540 // Incinerate
-#define ITEM_TM60 541 // Quash
-#define ITEM_TM61 542 // Will-O-Wisp
-#define ITEM_TM62 543 // Acrobatics
-#define ITEM_TM63 544 // Embargo
-#define ITEM_TM64 545 // Explosion
-#define ITEM_TM65 546 // Shadow Claw
-#define ITEM_TM66 547 // Payback
-#define ITEM_TM67 548 // Retaliate
-#define ITEM_TM68 549 // Giga Impact
-#define ITEM_TM69 550 // Rock Polish
-#define ITEM_TM70 551 // Flash
-#define ITEM_TM71 552 // Stone Edge
-#define ITEM_TM72 553 // Volt Switch
-#define ITEM_TM73 554 // Thunder Wave
-#define ITEM_TM74 555 // Gyro Ball
-#define ITEM_TM75 556 // Swords Dance
-#define ITEM_TM76 557 // Struggle Bug
-#define ITEM_TM77 558 // Psych Up
-#define ITEM_TM78 559 // Bulldoze
-#define ITEM_TM79 560 // Frost Breath
-#define ITEM_TM80 561 // Rock Slide
-#define ITEM_TM81 562 // X-Scissor
-#define ITEM_TM82 563 // Dragon Tail
-#define ITEM_TM83 564 // Infestation
-#define ITEM_TM84 565 // Poison Jab
-#define ITEM_TM85 566 // Dream Eater
-#define ITEM_TM86 567 // Grass Knot
-#define ITEM_TM87 568 // Swagger
-#define ITEM_TM88 569 // Sleep Talk
-#define ITEM_TM89 570 // U-turn
-#define ITEM_TM90 571 // Substitute
-#define ITEM_TM91 572 // Flash Cannon
-#define ITEM_TM92 573 // Trick Room
-#define ITEM_TM93 574 // Wild Charge
-#define ITEM_TM94 575 // Secret Power
-#define ITEM_TM95 576 // Snarl
-#define ITEM_TM96 577 // Nature Power
-#define ITEM_TM97 578 // Dark Pulse
-#define ITEM_TM98 579 // Power-Up Punch
-#define ITEM_TM99 580 // Dazzling Gleam
-#define ITEM_TM100 581 // Confide
-#define ITEM_HM01 582 // CUT
-#define ITEM_HM02 583 // FLY
-#define ITEM_HM03 584 // SURF
-#define ITEM_HM04 585 // STRENGTH
-#define ITEM_HM05 586 // WATERFALL
-#define ITEM_HM06 587 // ROCK_SMASH
-#define ITEM_HM07 588 // DIVE
-// FireRed/LeafGreen
-#define ITEM_OAKS_PARCEL 590
-#define ITEM_POKE_FLUTE 591
-#define ITEM_SECRET_KEY 592
-#define ITEM_BIKE_VOUCHER 593
-#define ITEM_GOLD_TEETH 594
-#define ITEM_OLD_AMBER 595
-#define ITEM_CARD_KEY 596
-#define ITEM_LIFT_KEY 597
-#define ITEM_SILPH_SCOPE 598
-#define ITEM_BICYCLE 599
-#define ITEM_TOWN_MAP 600
-#define ITEM_VS_SEEKER 601
-#define ITEM_FAME_CHECKER 602
-#define ITEM_TM_CASE 603
-#define ITEM_BERRY_POUCH 604
-#define ITEM_TEACHY_TV 605
-#define ITEM_TRI_PASS 606
-#define ITEM_RAINBOW_PASS 607
-#define ITEM_TEA 608
-#define ITEM_MYSTIC_TICKET 609
-#define ITEM_AURORA_TICKET 610
-#define ITEM_POWDER_JAR 611
-#define ITEM_RUBY 612
-#define ITEM_SAPPHIRE 613
-// Emerald
-#define ITEM_MAGMA_EMBLEM 614
-#define ITEM_OLD_SEA_MAP 615
-#define ITEM_OVAL_CHARM 616
+#define LAST_HELD_ITEM_INDEX 396
 
-#define ITEMS_COUNT 617
+// Fossil
+#define FIRST_FOSSIL_INDEX 397
+#define ITEM_ARMOR_FOSSIL 397
+#define ITEM_SKULL_FOSSIL 398
+#define ITEM_HELIX_FOSSIL 399
+#define ITEM_DOME_FOSSIL 400
+#define ITEM_COVER_FOSSIL 401
+#define ITEM_PLUME_FOSSIL 402
+#define ITEM_JAW_FOSSIL 403
+#define ITEM_SAIL_FOSSIL 404
+#define ITEM_ROOT_FOSSIL 405
+#define ITEM_CLAW_FOSSIL 406
+#define LAST_FOSSIL_INDEX 406
+
+// TM
+#define FIRST_TM_INDEX 407
+#define ITEM_TM01 407
+#define ITEM_TM02 408
+#define ITEM_TM03 409
+#define ITEM_TM04 410
+#define ITEM_TM05 411
+#define ITEM_TM06 412
+#define ITEM_TM07 413
+#define ITEM_TM08 414
+#define ITEM_TM09 415
+#define ITEM_TM10 416
+#define ITEM_TM11 417
+#define ITEM_TM12 418
+#define ITEM_TM13 419
+#define ITEM_TM14 420
+#define ITEM_TM15 421
+#define ITEM_TM16 422
+#define ITEM_TM17 423
+#define ITEM_TM18 424
+#define ITEM_TM19 425
+#define ITEM_TM20 426
+#define ITEM_TM21 427
+#define ITEM_TM22 428
+#define ITEM_TM23 429
+#define ITEM_TM24 430
+#define ITEM_TM25 431
+#define ITEM_TM26 432
+#define ITEM_TM27 433
+#define ITEM_TM28 434
+#define ITEM_TM29 435
+#define ITEM_TM30 436
+#define ITEM_TM31 437
+#define ITEM_TM32 438
+#define ITEM_TM33 439
+#define ITEM_TM34 440
+#define ITEM_TM35 441
+#define ITEM_TM36 442
+#define ITEM_TM37 443
+#define ITEM_TM38 444
+#define ITEM_TM39 445
+#define ITEM_TM40 446
+#define ITEM_TM41 447
+#define ITEM_TM42 448
+#define ITEM_TM43 449
+#define ITEM_TM44 450
+#define ITEM_TM45 451
+#define ITEM_TM46 452
+#define ITEM_TM47 453
+#define ITEM_TM48 454
+#define ITEM_TM49 455
+#define ITEM_TM50 456
+#define ITEM_TM51 457
+#define ITEM_TM52 458
+#define ITEM_TM53 459
+#define ITEM_TM54 460
+#define ITEM_TM55 461
+#define ITEM_TM56 462
+#define ITEM_TM57 463
+#define ITEM_TM58 464
+#define ITEM_TM59 465
+#define ITEM_TM60 466
+#define ITEM_TM61 467
+#define ITEM_TM62 468
+#define ITEM_TM63 469
+#define ITEM_TM64 470
+#define ITEM_TM65 471
+#define ITEM_TM66 472
+#define ITEM_TM67 473
+#define ITEM_TM68 474
+#define ITEM_TM69 475
+#define ITEM_TM70 476
+#define ITEM_TM71 477
+#define ITEM_TM72 478
+#define ITEM_TM73 479
+#define ITEM_TM74 480
+#define ITEM_TM75 481
+#define ITEM_TM76 482
+#define ITEM_TM77 483
+#define ITEM_TM78 484
+#define ITEM_TM79 485
+#define ITEM_TM80 486
+#define ITEM_TM81 487
+#define ITEM_TM82 488
+#define ITEM_TM83 489
+#define ITEM_TM84 490
+#define ITEM_TM85 491
+#define ITEM_TM86 492
+#define ITEM_TM87 493
+#define ITEM_TM88 494
+#define ITEM_TM89 495
+#define ITEM_TM90 496
+#define ITEM_TM91 497
+#define ITEM_TM92 498
+#define ITEM_TM93 499
+#define ITEM_TM94 500
+#define ITEM_TM95 501
+#define ITEM_TM96 502
+#define ITEM_TM97 503
+#define ITEM_TM98 504
+#define ITEM_TM99 505
+#define ITEM_TM100 506
+#define LAST_TM_INDEX 506
+
+// HM
+#define FIRST_HM_INDEX 507
+#define ITEM_HM01 507
+#define ITEM_HM02 508
+#define ITEM_HM03 509
+#define ITEM_HM04 510
+#define ITEM_HM05 511
+#define ITEM_HM06 512
+#define ITEM_HM07 513
+#define LAST_HM_INDEX 513
+
+// Key Item
+#define FIRST_KEY_ITEM_INDEX 514
+#define ITEM_ACRO_BIKE 514
+#define ITEM_MACH_BIKE 515
+#define ITEM_COIN_CASE 516
+#define ITEM_ITEMFINDER 517
+#define ITEM_OLD_ROD 518
+#define ITEM_GOOD_ROD 519
+#define ITEM_SUPER_ROD 520
+#define ITEM_SS_TICKET 521
+#define ITEM_CONTEST_PASS 522
+#define ITEM_WAILMER_PAIL 523
+#define ITEM_DEVON_GOODS 524
+#define ITEM_SOOT_SACK 525
+#define ITEM_BASEMENT_KEY 526
+#define ITEM_POKEBLOCK_CASE 527
+#define ITEM_LETTER 528
+#define ITEM_EON_TICKET 529
+#define ITEM_RED_ORB 530
+#define ITEM_BLUE_ORB 531
+#define ITEM_SCANNER 532
+#define ITEM_GO_GOGGLES 533
+#define ITEM_METEORITE 534
+#define ITEM_ROOM_1_KEY 535
+#define ITEM_ROOM_2_KEY 536
+#define ITEM_ROOM_4_KEY 537
+#define ITEM_ROOM_6_KEY 538
+#define ITEM_STORAGE_KEY 539
+#define ITEM_DEVON_SCOPE 540
+#define ITEM_MAGMA_EMBLEM 541
+#define ITEM_OLD_SEA_MAP 542
+#define ITEM_OVAL_CHARM 543
+#define ITEM_MEGA_BRACELET 544
+#define LAST_KEY_ITEM_INDEX 544
+
+// FRLG Item
+#define FIRST_FRLG_ITEM_INDEX 545
+#define ITEM_OAKS_PARCEL 545
+#define ITEM_POKE_FLUTE 546
+#define ITEM_SECRET_KEY 547
+#define ITEM_BIKE_VOUCHER 548
+#define ITEM_GOLD_TEETH 549
+#define ITEM_OLD_AMBER 550
+#define ITEM_CARD_KEY 551
+#define ITEM_LIFT_KEY 552
+#define ITEM_SILPH_SCOPE 553
+#define ITEM_BICYCLE 554
+#define ITEM_TOWN_MAP 555
+#define ITEM_VS_SEEKER 556
+#define ITEM_FAME_CHECKER 557
+#define ITEM_TM_CASE 558
+#define ITEM_BERRY_POUCH 559
+#define ITEM_TEACHY_TV 560
+#define ITEM_TRI_PASS 561
+#define ITEM_RAINBOW_PASS 562
+#define ITEM_TEA 563
+#define ITEM_MYSTIC_TICKET 564
+#define ITEM_AURORA_TICKET 565
+#define ITEM_POWDER_JAR 566
+#define ITEM_RUBY 567
+#define ITEM_SAPPHIRE 568
+#define LAST_FRLG_ITEM_INDEX 568
+
+// Mega Item
+#define FIRST_MEGA_ITEM_INDEX 569
+#define ITEM_ABOMASITE 569
+#define ITEM_ABSOLITE 570
+#define ITEM_AERODACTYLITE 571
+#define ITEM_AGGRONITE 572
+#define ITEM_ALAKAZITE 573
+#define ITEM_ALTARIANITE 574
+#define ITEM_AMPHAROSITE 575
+#define ITEM_AUDINITE 576
+#define ITEM_BANETTITE 577
+#define ITEM_BEEDRILLITE 578
+#define ITEM_BLASTOISINITE 579
+#define ITEM_BLAZIKENITE 580
+#define ITEM_CAMERUPTITE 581
+#define ITEM_CHARIZARDITE_X 582
+#define ITEM_CHARIZARDITE_Y 583
+#define ITEM_DIANCITE 584
+#define ITEM_GALLADITE 585
+#define ITEM_GARCHOMPITE 586
+#define ITEM_GARDEVOIRITE 587
+#define ITEM_GENGARITE 588
+#define ITEM_GLALITITE 589
+#define ITEM_GYARADOSITE 590
+#define ITEM_HERACRONITE 591
+#define ITEM_HOUNDOOMINITE 592
+#define ITEM_KANGASKHANITE 593
+#define ITEM_LATIASITE 594
+#define ITEM_LATIOSITE 595
+#define ITEM_LOPUNNITE 596
+#define ITEM_LUCARIONITE 597
+#define ITEM_MANECTITE 598
+#define ITEM_MAWILITE 599
+#define ITEM_MEDICHAMITE 600
+#define ITEM_METAGROSSITE 601
+#define ITEM_MEWTWONITE_X 602
+#define ITEM_MEWTWONITE_Y 603
+#define ITEM_PIDGEOTITE 604
+#define ITEM_PINSIRITE 605
+#define ITEM_SABLENITE 606
+#define ITEM_SALAMENCITE 607
+#define ITEM_SCEPTILITE 608
+#define ITEM_SCIZORITE 609
+#define ITEM_SHARPEDONITE 610
+#define ITEM_SLOWBRONITE 611
+#define ITEM_STEELIXITE 612
+#define ITEM_SWAMPERTITE 613
+#define ITEM_TYRANITARITE 614
+#define ITEM_VENUSAURITE 615
+#define LAST_MEGA_ITEM_INDEX 615
+
+#define ITEMS_COUNT 616
 #define ITEM_FIELD_ARROW ITEMS_COUNT
-
-#define FIRST_BERRY_INDEX             ITEM_CHERI_BERRY
-#define LAST_BERRY_INDEX              ITEM_MARANGA_BERRY
 
 // Range of berries given out by various NPCS
 #define FIRST_BERRY_MASTER_BERRY      ITEM_POMEG_BERRY
@@ -666,10 +693,7 @@
 
 #define ITEM_TO_BERRY(itemId)(((itemId - FIRST_BERRY_INDEX) + 1))
 
-#define NUM_TECHNICAL_MACHINES 100
-#define NUM_HIDDEN_MACHINES 7
-
 // Check if the item is one that can be used on a Pokemon.
-#define ITEM_HAS_EFFECT(item) ((item) >= ITEM_POTION && (item) <= LAST_BERRY_INDEX)
+#define ITEM_HAS_EFFECT(item) ((item) >= FIRST_MEDICINE_INDEX && (item) <= LAST_BERRY_INDEX)
 
 #endif  // GUARD_CONSTANTS_ITEMS_H

@@ -4226,7 +4226,7 @@ static bool8 IsHPRecoveryItem(u16 item)
     if (item == ITEM_ENIGMA_BERRY)
         effect = gSaveBlock1Ptr->enigmaBerry.itemEffect;
     else
-        effect = gItemEffectTable[item - ITEM_POTION];
+        effect = gItemEffectTable[item - FIRST_MEDICINE_INDEX];
 
     if (effect[4] & ITEM4_HEAL_HP)
         return TRUE;
@@ -4640,7 +4640,7 @@ void ItemUseCB_PPRecovery(u8 taskId, TaskFunc task)
     if (item == ITEM_ENIGMA_BERRY)
         effect = gSaveBlock1Ptr->enigmaBerry.itemEffect;
     else
-        effect = gItemEffectTable[item - ITEM_POTION];
+        effect = gItemEffectTable[item - FIRST_MEDICINE_INDEX];
 
     if (!(effect[4] & ITEM4_HEAL_PP_ONE))
     {
@@ -4718,11 +4718,10 @@ u16 ItemIdToBattleMoveId(u16 item)
 
 bool8 IsMoveHm(u16 move)
 {
-    u8 i;
-
-    for (i = 0; i < NUM_HIDDEN_MACHINES; i++)
+    u16 i;
+    for (i = FIRST_HM_INDEX; i <= LAST_HM_INDEX; i++)
     {
-        if (sTMHMMoves[i + NUM_TECHNICAL_MACHINES] == move)
+        if (sTMHMMoves[i] == move)
             return TRUE;
     }
     return FALSE;
@@ -4800,8 +4799,6 @@ static void Task_LearnedMove(u8 taskId)
     if (move[1] == 0)
     {
         AdjustFriendship(mon, 4);
-        //if (item < ITEM_HM01)
-        //    RemoveBagItem(item, 1);
     }
     GetMonNickname(mon, gStringVar1);
     StringCopy(gStringVar2, gMoveNames[move[0]]);
@@ -5282,7 +5279,7 @@ u8 GetItemEffectType(u16 item)
     if (item == ITEM_ENIGMA_BERRY)
         itemEffect = gSaveBlock1Ptr->enigmaBerry.itemEffect;
     else
-        itemEffect = gItemEffectTable[item - ITEM_POTION];
+        itemEffect = gItemEffectTable[item - FIRST_MEDICINE_INDEX];
 
     if ((itemEffect[0] & (ITEM0_DIRE_HIT | ITEM0_X_ATTACK)) || itemEffect[1] || itemEffect[2] || (itemEffect[3] & ITEM3_GUARD_SPEC))
         return ITEM_EFFECT_X_ITEM;
