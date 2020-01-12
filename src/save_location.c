@@ -118,19 +118,6 @@ void TrySetMapSaveWarpStatus(void)
     sub_81AFD5C();
 }
 
-// Called when receiving the Pokedex
-// Only place field_A8 is written (aside from clearing on new game), never read
-void sub_81AFDA0(void)
-{
-    gSaveBlock2Ptr->field_A8 |= 0x8000;
-    gSaveBlock2Ptr->field_A8 |= 0x1;
-    gSaveBlock2Ptr->field_A8 |= 0x2;
-    gSaveBlock2Ptr->field_A8 |= 0x4;
-    gSaveBlock2Ptr->field_A8 |= 0x10;
-    gSaveBlock2Ptr->field_A8 |= 0x20;
-    gSaveBlock2Ptr->field_A8 |= 0x8;
-}
-
 void SetChampionSaveWarp(void)
 {
     gSaveBlock2Ptr->specialSaveWarpFlags |= CHAMPION_SAVEWARP;

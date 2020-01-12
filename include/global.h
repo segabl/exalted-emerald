@@ -480,7 +480,6 @@ struct SaveBlock2
     u8 filler_90[0x8];
     struct Time localTimeOffset;
     struct Time lastBerryTreeUpdate;
-    u32 field_A8; // Written to, but never read.
     u32 encryptionKey;
     struct PlayersApprentice playerApprentice;
     struct Apprentice apprentices[APPRENTICE_COUNT];
@@ -491,8 +490,8 @@ struct SaveBlock2
     struct RankingHall2P hallRecords2P[2][3]; // From record mixing.
     u16 contestLinkResults[5][4]; // 4 positions for 5 categories.
     struct BattleFrontier frontier;
-    u8 nuzlockeEncounterLocations[27];
-};
+    u8 nuzlockeEncounterLocations[MAPSEC_BIT_FIELD_SIZE];
+}; // sizeof = 3872U
 
 extern struct SaveBlock2 *gSaveBlock2Ptr;
 
@@ -931,10 +930,9 @@ struct SaveBlock1
     struct ItemSlot bagPocket_PokeBalls[BAG_POKEBALLS_COUNT];
     struct ItemSlot bagPocket_Berries[BAG_BERRIES_COUNT];
     struct Pokeblock pokeblocks[POKEBLOCKS_COUNT];
-    u8 ownedTMsHMs[1 + BAG_TMHM_COUNT / 8];
+    u8 ownedTMsHMs[TM_HM_BIT_FIELD_SIZE];
     u8 seen1[DEX_FLAGS_NO];
     u16 berryBlenderRecords[3];
-    u8 field_9C2[6];
     u16 trainerRematchStepCounter;
     u8 trainerRematches[MAX_REMATCH_ENTRIES];
     struct EventObject eventObjects[EVENT_OBJECTS_COUNT];
@@ -983,7 +981,6 @@ struct SaveBlock1
     struct Roamer roamer;
     struct EnigmaBerry enigmaBerry;
     struct MEventBuffers unk_322C;
-    u8 field_3598[0x180];
     u32 trainerHillTimes[4];
     struct RamScript ramScript;
     struct RecordMixingGift recordMixingGift;
@@ -994,7 +991,7 @@ struct SaveBlock1
     u8 filler3D5A[0xA];
     struct SaveTrainerHill trainerHill;
     struct WaldaPhrase waldaPhrase;
-};
+}; // sizeof = 15320U
 
 extern struct SaveBlock1* gSaveBlock1Ptr;
 
