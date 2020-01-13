@@ -2016,14 +2016,14 @@ void sub_81AD8C8(u8 taskId)
 
     PlaySE(SE_REGI);
     RemoveBagItem(gSpecialVar_ItemId, data[8]);
-    AddMoney(&gSaveBlock1Ptr->money, (ItemId_GetPrice(gSpecialVar_ItemId) / 2) * data[8]);
+    AddMoney((ItemId_GetPrice(gSpecialVar_ItemId) / 2) * data[8]);
     DestroyListMenuTask(data[0], scrollPos, cursorPos);
     UpdatePocketItemList(gBagPositionStruct.pocket);
     SetInitialScrollAndCursorPositions(gBagPositionStruct.pocket);
     LoadBagItemListBuffers(gBagPositionStruct.pocket);
     data[0] = ListMenuInit(&gMultiuseListMenuTemplate, *scrollPos, *cursorPos);
     BagMenu_PrintCursor_(data[0], 2);
-    PrintMoneyAmountInMoneyBox(gBagMenu->unk819, GetMoney(&gSaveBlock1Ptr->money), 0);
+    PrintMoneyAmountInMoneyBox(gBagMenu->unk819, gSaveBlock1Ptr->money, 0);
     gTasks[taskId].func = sub_81AD9C0;
 }
 
@@ -2362,7 +2362,7 @@ void BagMenu_YesNo(u8 a, u8 b, const struct YesNoFuncTable *funcTable)
 void bag_menu_AddMoney_window(void)
 {
     u8 windowId = BagMenu_AddWindow(9);
-    PrintMoneyAmountInMoneyBoxWithBorder(windowId, 1, 14, GetMoney(&gSaveBlock1Ptr->money));
+    PrintMoneyAmountInMoneyBoxWithBorder(windowId, 1, 14, gSaveBlock1Ptr->money);
     AddMoneyLabelObject(19, 11);
 }
 

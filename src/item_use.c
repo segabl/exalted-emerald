@@ -647,7 +647,7 @@ static void sub_80FDC00(u8 taskId)
 
 void ItemUseOutOfBattle_CoinCase(u8 taskId)
 {
-    ConvertIntToDecimalStringN(gStringVar1, GetCoins(), STR_CONV_MODE_LEFT_ALIGN, 4);
+    ConvertIntToDecimalStringN(gStringVar1, gSaveBlock1Ptr->coins, STR_CONV_MODE_LEFT_ALIGN, 4);
     StringExpandPlaceholders(gStringVar4, gText_CoinCase);
 
     if (!gTasks[taskId].tUsingRegisteredKeyItem)
@@ -662,7 +662,7 @@ void ItemUseOutOfBattle_CoinCase(u8 taskId)
 
 void ItemUseOutOfBattle_PowderJar(u8 taskId)
 {
-    ConvertIntToDecimalStringN(gStringVar1, GetBerryPowder(), STR_CONV_MODE_LEFT_ALIGN, 5);
+    ConvertIntToDecimalStringN(gStringVar1, gSaveBlock2Ptr->berryCrush.berryPowderAmount, STR_CONV_MODE_LEFT_ALIGN, 5);
     StringExpandPlaceholders(gStringVar4, gText_PowderQty);
 
     if (!gTasks[taskId].tUsingRegisteredKeyItem)

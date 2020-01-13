@@ -691,7 +691,7 @@ static void SetPlayerCardData(struct TrainerCard *trainerCard, u8 cardType)
 
     trainerCard->pokemonTrades = GetCappedGameStat(GAME_STAT_POKEMON_TRADES, 0xFFFF);
 
-    trainerCard->money = GetMoney(&gSaveBlock1Ptr->money);
+    trainerCard->money = gSaveBlock1Ptr->money;
 
     for (i = 0; i < 4; i++)
         trainerCard->var_28[i] = gSaveBlock1Ptr->easyChatProfile[i];

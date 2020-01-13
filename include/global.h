@@ -480,7 +480,6 @@ struct SaveBlock2
     u8 filler_90[0x8];
     struct Time localTimeOffset;
     struct Time lastBerryTreeUpdate;
-    u32 encryptionKey;
     struct PlayersApprentice playerApprentice;
     struct Apprentice apprentices[APPRENTICE_COUNT];
     struct BerryCrush berryCrush;
@@ -491,7 +490,7 @@ struct SaveBlock2
     u16 contestLinkResults[5][4]; // 4 positions for 5 categories.
     struct BattleFrontier frontier;
     u8 nuzlockeEncounterLocations[MAPSEC_BIT_FIELD_SIZE];
-}; // sizeof = 3872U
+}; // sizeof = 3868U
 
 extern struct SaveBlock2 *gSaveBlock2Ptr;
 

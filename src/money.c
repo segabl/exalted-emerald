@@ -69,27 +69,9 @@ static const struct CompressedSpritePalette sSpritePalette_MoneyLabel =
     .tag = MONEY_LABEL_TAG
 };
 
-u32 GetMoney(u32* moneyPtr)
+void AddMoney(u32 toAdd)
 {
-    return *moneyPtr ^ gSaveBlock2Ptr->encryptionKey;
-}
-
-void SetMoney(u32* moneyPtr, u32 newValue)
-{
-    *moneyPtr = gSaveBlock2Ptr->encryptionKey ^ newValue;
-}
-
-bool8 IsEnoughMoney(u32* moneyPtr, u32 cost)
-{
-    if (GetMoney(moneyPtr) >= cost)
-        return TRUE;
-    else
-        return FALSE;
-}
-
-void AddMoney(u32* moneyPtr, u32 toAdd)
-{
-    u32 toSet = GetMoney(moneyPtr);
+    u32 toSet = gSaveBlock1Ptr->money;
 
     // can't have more money than MAX
     if (toSet + toAdd > MAX_MONEY)
@@ -100,16 +82,16 @@ void AddMoney(u32* moneyPtr, u32 toAdd)
     {
         toSet += toAdd;
         // check overflow, can't have less money after you receive more
-        if (toSet < GetMoney(moneyPtr))
+        if (toSet < gSaveBlock1Ptr->money)
             toSet = MAX_MONEY;
     }
 
-    SetMoney(moneyPtr, toSet);
+    gSaveBlock1Ptr->money = toSet;
 }
 
-void RemoveMoney(u32* moneyPtr, u32 toSub)
+void RemoveMoney(u32 toSub)
 {
-    u32 toSet = GetMoney(moneyPtr);
+    u32 toSet = gSaveBlock1Ptr->money;
 
     // can't subtract more than you already have
     if (toSet < toSub)
@@ -117,17 +99,17 @@ void RemoveMoney(u32* moneyPtr, u32 toSub)
     else
         toSet -= toSub;
 
-    SetMoney(moneyPtr, toSet);
+    gSaveBlock1Ptr->money = toSet;
 }
 
 bool8 IsEnoughForCostInVar0x8005(void)
 {
-    return IsEnoughMoney(&gSaveBlock1Ptr->money, gSpecialVar_0x8005);
+    return gSaveBlock1Ptr->money >= gSpecialVar_0x8005;
 }
 
 void SubtractMoneyFromVar0x8005(void)
 {
-    RemoveMoney(&gSaveBlock1Ptr->money, gSpecialVar_0x8005);
+    RemoveMoney(gSpecialVar_0x8005);
 }
 
 void PrintMoneyAmountInMoneyBox(u8 windowId, int amount, u8 speed)

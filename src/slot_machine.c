@@ -843,7 +843,7 @@ static void SlotMachineSetup_0_1(void)
     sSlotMachine->matchedSymbols = 0;
     sSlotMachine->fairRollsLeft = 0;
     sSlotMachine->fairRollsUsed = 0;
-    sSlotMachine->coins = GetCoins();
+    sSlotMachine->coins = gSaveBlock1Ptr->coins;
     sSlotMachine->payout = 0;
     sSlotMachine->netCoinLoss = 0;
     sSlotMachine->bet = 0;
@@ -862,7 +862,7 @@ static void SlotMachineSetup_0_1(void)
         sSlotMachine->reelPixelOffsets[i] = REEL_NUM_TAGS * REEL_TAG_HEIGHT - sSlotMachine->reelTagOffsets[i] * REEL_TAG_HEIGHT;
         sSlotMachine->reelPixelOffsets[i] %= REEL_NUM_TAGS * REEL_TAG_HEIGHT;
     }
-    AlertTVThatPlayerPlayedSlotMachine(GetCoins());
+    AlertTVThatPlayerPlayedSlotMachine(gSaveBlock1Ptr->coins);
 }
 
 static void SlotMachineSetup_3_0(void)
@@ -1342,8 +1342,8 @@ static bool8 SlotAction_ExitMessage_NoMoreCoins(struct Task *task)
 
 static bool8 SlotAction_EndGame(struct Task *task)
 {
-    SetCoins(sSlotMachine->coins);
-    AlertTVOfNewCoinTotal(GetCoins());
+    gSaveBlock1Ptr->coins = sSlotMachine->coins;
+    AlertTVOfNewCoinTotal(gSaveBlock1Ptr->coins);
     BeginNormalPaletteFade(0xFFFFFFFF, 0, 0, 16, RGB(0, 0, 0));
     sSlotMachine->state++;
     return FALSE;

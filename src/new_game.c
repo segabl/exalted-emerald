@@ -154,7 +154,6 @@ void NewGameInitData(void)
         RtcReset();
 
     gDifferentSaveFile = 1;
-    gSaveBlock2Ptr->encryptionKey = 0;
     ZeroPlayerPartyMons();
     ZeroEnemyPartyMons();
     ResetPokedex();
@@ -170,8 +169,8 @@ void NewGameInitData(void)
     ResetGabbyAndTy();
     ClearSecretBases();
     ClearBerryTrees();
-    SetMoney(&gSaveBlock1Ptr->money, 3000);
-    SetCoins(0);
+    gSaveBlock1Ptr->money = 3000;
+    gSaveBlock1Ptr->coins = 0;
     ResetLinkContestBoolean();
     ResetGameStats();
     ClearAllContestWinnerPics();
@@ -211,7 +210,7 @@ void NewGameInitData(void)
 static void ResetMiniGamesResults(void)
 {
     CpuFill16(0, &gSaveBlock2Ptr->berryCrush, sizeof(struct BerryCrush));
-    SetBerryPowder(&gSaveBlock2Ptr->berryCrush.berryPowderAmount, 0);
+    gSaveBlock2Ptr->berryCrush.berryPowderAmount = 0;
     ResetPokeJumpResults();
     CpuFill16(0, &gSaveBlock2Ptr->berryPick, sizeof(struct BerryPickingResults));
 }

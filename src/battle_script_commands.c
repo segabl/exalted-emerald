@@ -5925,7 +5925,7 @@ static void Cmd_getmoneyreward(void)
     if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
         moneyReward += GetTrainerMoneyToGive(gTrainerBattleOpponent_B);
 
-    AddMoney(&gSaveBlock1Ptr->money, moneyReward);
+    AddMoney(moneyReward);
     PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff1, 5, moneyReward);
 
     gBattlescriptCurrInstr++;
@@ -8805,7 +8805,7 @@ static void Cmd_givepaydaymoney(void)
     if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_x2000000)) && gPaydayMoney != 0)
     {
         u32 bonusMoney = gPaydayMoney * gBattleStruct->moneyMultiplier;
-        AddMoney(&gSaveBlock1Ptr->money, bonusMoney);
+        AddMoney(bonusMoney);
 
         PREPARE_HWORD_NUMBER_BUFFER(gBattleTextBuff1, 5, bonusMoney)
 

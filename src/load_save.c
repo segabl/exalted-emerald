@@ -15,8 +15,6 @@
 #include "agb_flash.h"
 #include "constants/items.h"
 
-static void ApplyNewEncryptionKeyToAllEncryptedData(u32 encryptionKey);
-
 #define SAVEBLOCK_MOVE_RANGE    128
 
 struct LoadedSaveData
@@ -40,7 +38,6 @@ EWRAM_DATA struct PokemonStorage gPokemonStorage = {0};
 EWRAM_DATA u8 gSaveblock3_DMA[SAVEBLOCK_MOVE_RANGE] = {0};
 
 EWRAM_DATA struct LoadedSaveData gLoadedSaveData = {0};
-EWRAM_DATA u32 gLastEncryptionKey = 0;
 
 // IWRAM common
 bool32 gFlashMemoryPresent;
@@ -89,7 +86,6 @@ void SetSaveBlocksPointers(u16 offset)
 void MoveSaveBlocks_ResetHeap(void)
 {
     void *vblankCB, *hblankCB;
-    u32 encryptionKey;
     struct SaveBlock2 *saveBlock2Copy;
     struct SaveBlock1 *saveBlock1Copy;
     struct PokemonStorage *pokemonStorageCopy;
@@ -129,11 +125,6 @@ void MoveSaveBlocks_ResetHeap(void)
     // restore interrupt functions
     gMain.hblankCallback = hblankCB;
     gMain.vblankCallback = vblankCB;
-
-    // create a new encryption key
-    encryptionKey = (Random() << 0x10) + (Random());
-    ApplyNewEncryptionKeyToAllEncryptedData(encryptionKey);
-    gSaveBlock2Ptr->encryptionKey = encryptionKey;
 }
 
 u32 UseContinueGameWarp(void)
@@ -270,14 +261,11 @@ void LoadPlayerBag(void)
     // load mail.
     for (i = 0; i < MAIL_COUNT; i++)
         gLoadedSaveData.mail[i] = gSaveBlock1Ptr->mail[i];
-
-    gLastEncryptionKey = gSaveBlock2Ptr->encryptionKey;
 }
 
 void SavePlayerBag(void)
 {
     int i;
-    u32 encryptionKeyBackup;
     struct ItemSlot *itemSlot;
 
     // save player items.
@@ -303,28 +291,4 @@ void SavePlayerBag(void)
     // save mail.
     for (i = 0; i < MAIL_COUNT; i++)
         gSaveBlock1Ptr->mail[i] = gLoadedSaveData.mail[i];
-
-    encryptionKeyBackup = gSaveBlock2Ptr->encryptionKey;
-    gSaveBlock2Ptr->encryptionKey = gLastEncryptionKey;
-    gSaveBlock2Ptr->encryptionKey = encryptionKeyBackup; // updated twice?
-}
-
-void ApplyNewEncryptionKeyToHword(u16 *hWord, u32 newKey)
-{
-    *hWord ^= gSaveBlock2Ptr->encryptionKey;
-    *hWord ^= newKey;
-}
-
-void ApplyNewEncryptionKeyToWord(u32 *word, u32 newKey)
-{
-    *word ^= gSaveBlock2Ptr->encryptionKey;
-    *word ^= newKey;
-}
-
-static void ApplyNewEncryptionKeyToAllEncryptedData(u32 encryptionKey)
-{
-    ApplyNewEncryptionKeyToGameStats(encryptionKey);
-    ApplyNewEncryptionKeyToBerryPowder(encryptionKey);
-    ApplyNewEncryptionKeyToWord(&gSaveBlock1Ptr->money, encryptionKey);
-    ApplyNewEncryptionKeyToHword(&gSaveBlock1Ptr->coins, encryptionKey);
 }

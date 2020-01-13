@@ -2842,7 +2842,7 @@ u32 sub_8024048(struct BerryCrushGame *r5, u8 *r6)
         break;
     case 4:
         ConvertIntToDecimalStringN(gStringVar1, r5->unk1C, STR_CONV_MODE_LEFT_ALIGN, 6);
-        ConvertIntToDecimalStringN(gStringVar2, GetBerryPowder(), STR_CONV_MODE_LEFT_ALIGN, 6);
+        ConvertIntToDecimalStringN(gStringVar2, gSaveBlock2Ptr->berryCrush.berryPowderAmount, STR_CONV_MODE_LEFT_ALIGN, 6);
         sub_8024644(r6, 2, 3, 0, 0);
         r5->unkE = 19;
         sub_8022BEC(3, 1, NULL);

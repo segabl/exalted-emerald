@@ -969,7 +969,7 @@ static void sub_81405CC(void)
     case 6:
         AnimateSprites();
         BuildOamBuffer();
-        sub_8143514(GetCoins());
+        sub_8143514(gSaveBlock1Ptr->coins);
         sub_814372C(6);
         sub_81436D0(0);
         sub_81424FC(0);
@@ -995,8 +995,8 @@ static void sub_81405CC(void)
         BeginHardwarePaletteFade(0xFF, 0, 16, 0, 1);
         taskId = gUnknown_0203AB88->varA4 = CreateTask(sub_81408A8, 0);
         gTasks[taskId].data[6] = 6;
-        gTasks[taskId].data[13] = GetCoins();
-        AlertTVThatPlayerPlayedRoulette(GetCoins());
+        gTasks[taskId].data[13] = gSaveBlock1Ptr->coins;
+        AlertTVThatPlayerPlayedRoulette(gSaveBlock1Ptr->coins);
         gUnknown_0203AB88->varA5 = CreateTask(sub_8140814, 1);
         SetMainCallback2(sub_8140238);
         return;
@@ -1702,12 +1702,12 @@ static void sub_8141DE4(u8 taskId)
 {
     sub_8151A9C(&gUnknown_0203AB88->varB8, 0xFFFF);
     sub_8151678(&gUnknown_0203AB88->varB8);
-    SetCoins(gTasks[taskId].data[13]);
-    if (GetCoins() < gUnknown_0203AB88->var19)
+    gSaveBlock1Ptr->coins = gTasks[taskId].data[13];
+    if (gSaveBlock1Ptr->coins < gUnknown_0203AB88->var19)
         gSpecialVar_0x8004 = TRUE;
     else
         gSpecialVar_0x8004 = FALSE;
-    AlertTVOfNewCoinTotal(GetCoins());
+    AlertTVOfNewCoinTotal(gSaveBlock1Ptr->coins);
     BeginHardwarePaletteFade(0xFF, 0, 0, 16, 0);
     gTasks[taskId].func = sub_8141E7C;
 }
@@ -3170,9 +3170,9 @@ void PlayRoulette(void)
     u8 taskId;
 
     ScriptContext2_Enable();
-    ShowCoinsWindow(GetCoins(), 1, 1);
+    ShowCoinsWindow(gSaveBlock1Ptr->coins, 1, 1);
     taskId = CreateTask(Task_Roulette_0, 0);
-    gTasks[taskId].data[13] = GetCoins();
+    gTasks[taskId].data[13] = gSaveBlock1Ptr->coins;
 }
 
 static void sub_8142C0C(u8 r0)

@@ -1750,7 +1750,7 @@ bool8 ScrCmd_givemoney(struct ScriptContext *ctx)
     u8 ignore = ScriptReadByte(ctx);
 
     if (!ignore)
-        AddMoney(&gSaveBlock1Ptr->money, amount);
+        AddMoney(amount);
     return FALSE;
 }
 
@@ -1760,7 +1760,7 @@ bool8 ScrCmd_takemoney(struct ScriptContext *ctx)
     u8 ignore = ScriptReadByte(ctx);
 
     if (!ignore)
-        RemoveMoney(&gSaveBlock1Ptr->money, amount);
+        RemoveMoney(amount);
     return FALSE;
 }
 
@@ -1770,7 +1770,7 @@ bool8 ScrCmd_checkmoney(struct ScriptContext *ctx)
     u8 ignore = ScriptReadByte(ctx);
 
     if (!ignore)
-        gSpecialVar_Result = IsEnoughMoney(&gSaveBlock1Ptr->money, amount);
+        gSpecialVar_Result = gSaveBlock1Ptr->money >= amount;
     return FALSE;
 }
 
@@ -1781,7 +1781,7 @@ bool8 ScrCmd_showmoneybox(struct ScriptContext *ctx)
     u8 ignore = ScriptReadByte(ctx);
 
     if (!ignore)
-        DrawMoneyBox(GetMoney(&gSaveBlock1Ptr->money), x, y);
+        DrawMoneyBox(gSaveBlock1Ptr->money, x, y);
     return FALSE;
 }
 
@@ -1801,7 +1801,7 @@ bool8 ScrCmd_updatemoneybox(struct ScriptContext *ctx)
     u8 ignore = ScriptReadByte(ctx);
 
     if (!ignore)
-        ChangeAmountInMoneyBox(GetMoney(&gSaveBlock1Ptr->money));
+        ChangeAmountInMoneyBox(gSaveBlock1Ptr->money);
     return FALSE;
 }
 
@@ -1810,7 +1810,7 @@ bool8 ScrCmd_showcoinsbox(struct ScriptContext *ctx)
     u8 x = ScriptReadByte(ctx);
     u8 y = ScriptReadByte(ctx);
 
-    ShowCoinsWindow(GetCoins(), x, y);
+    ShowCoinsWindow(gSaveBlock1Ptr->coins, x, y);
     return FALSE;
 }
 
@@ -1828,7 +1828,7 @@ bool8 ScrCmd_updatecoinsbox(struct ScriptContext *ctx)
     u8 x = ScriptReadByte(ctx);
     u8 y = ScriptReadByte(ctx);
 
-    PrintCoinsString(GetCoins());
+    PrintCoinsString(gSaveBlock1Ptr->coins);
     return FALSE;
 }
 
@@ -2141,7 +2141,7 @@ bool8 ScrCmd_showelevmenu(struct ScriptContext *ctx)
 bool8 ScrCmd_checkcoins(struct ScriptContext *ctx)
 {
     u16 *ptr = GetVarPointer(ScriptReadHalfword(ctx));
-    *ptr = GetCoins();
+    *ptr = gSaveBlock1Ptr->coins;
     return FALSE;
 }
 
