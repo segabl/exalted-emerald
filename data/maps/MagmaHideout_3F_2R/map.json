@@ -39,6 +39,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MagmaHideout_3F_2R_EventScript_ItemPPMax",
       "flag": "FLAG_ITEM_MAGMA_HIDEOUT_3F_2R_PP_MAX"
+    },
+    {
+        "graphics_id": "EVENT_OBJ_GFX_ITEM_BALL",
+        "x": 19,
+        "y": 4,
+        "elevation": 0,
+        "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+        "movement_range_x": 1,
+        "movement_range_y": 1,
+        "trainer_type": "0",
+        "trainer_sight_or_berry_tree_id": "0",
+        "script": "MagmaHideout_3F_2R_EventScript_ItemTM97",
+        "flag": "FLAG_ITEM_MAGMA_HIDEOUT_3F_2R_TM97"
     }
   ],
   "warp_events": [

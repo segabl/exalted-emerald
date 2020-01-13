@@ -697,6 +697,10 @@ MagmaHideout_3F_2R_EventScript_ItemPPMax:: @ 8291512
 	finditem_std ITEM_PP_MAX
 	end
 
+MagmaHideout_3F_2R_EventScript_ItemTM97::
+	finditem_std ITEM_TM97
+	end
+
 MagmaHideout_4F_EventScript_MaxRevive:: @ 829151F
 	finditem_std ITEM_MAX_REVIVE
 	end
