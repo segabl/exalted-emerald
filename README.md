@@ -41,7 +41,10 @@ For DizzyEgg's modifications, check out <https://github.com/DizzyEggg/pokeemeral
 - Increases view distance when not using flash and removes the overlay completely when using flash
 - Updates berry yield and grow time to OrAs values
 - Allows you to also get the other bike once you beat the E4
+- Increases all bag item slot limits to 999 (like for berries)
 
 ## Cosmetic changes
+
+- Expands Mauville City to make it more lively
 - Changes Mossdeep City music to use Dewford Town music (Rustboro music is overused)
 - Makes the name rater actually rate your nicknames
