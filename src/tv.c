@@ -3482,7 +3482,7 @@ u8 GetMonNameScore(void)
     u16 species = GetBoxMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES, NULL);
     GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_NICKNAME, gStringVar1);
     different = FALSE;
-    for (i = 0; gSpeciesNames[species][i] != EOS && gStringVar1[i] != EOS; i++)
+    for (i = 0; gSpeciesNames[species][i] != EOS; i++)
     {
         if (gSpeciesNames[species][i] != gStringVar1[i])
         {
