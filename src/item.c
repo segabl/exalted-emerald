@@ -161,14 +161,9 @@ bool8 CheckBagHasSpace(u16 itemId, u16 count)
     else
     {
         u8 pocket;
-        u16 slotCapacity;
         u16 ownedCount;
 
         pocket = ItemId_GetPocket(itemId) - 1;
-        if (pocket != BERRIES_POCKET)
-            slotCapacity = 99;
-        else
-            slotCapacity = 999;
 
         // Check space in any existing item slots that already contain this item
         for (i = 0; i < gBagPockets[pocket].capacity; i++)
@@ -176,11 +171,11 @@ bool8 CheckBagHasSpace(u16 itemId, u16 count)
             if (gBagPockets[pocket].itemSlots[i].itemId == itemId)
             {
                 ownedCount = gBagPockets[pocket].itemSlots[i].quantity;
-                if (ownedCount + count <= slotCapacity)
+                if (ownedCount + count <= ITEM_SLOT_CAPACITY)
                     return TRUE;
                 if (pocket == TMHM_POCKET || pocket == BERRIES_POCKET)
                     return FALSE;
-                count -= slotCapacity - ownedCount;
+                count -= ITEM_SLOT_CAPACITY - ownedCount;
                 if (count == 0)
                     return TRUE;
             }
@@ -193,11 +188,11 @@ bool8 CheckBagHasSpace(u16 itemId, u16 count)
             {
                 if (gBagPockets[pocket].itemSlots[i].itemId == 0)
                 {
-                    if (count <= slotCapacity)
+                    if (count <= ITEM_SLOT_CAPACITY)
                         return TRUE;
                     if (pocket == TMHM_POCKET || pocket == BERRIES_POCKET)
                         return FALSE;
-                    count -= slotCapacity;
+                    count -= ITEM_SLOT_CAPACITY;
                 }
             }
             if (count > 0)
@@ -224,7 +219,6 @@ bool8 AddBagItem(u16 itemId, u16 count)
     {
         struct BagPocket *itemPocket;
         struct ItemSlot *newItems;
-        u16 slotCapacity;
         u16 ownedCount;
         u8 pocket = ItemId_GetPocket(itemId) - 1;
 
@@ -232,18 +226,13 @@ bool8 AddBagItem(u16 itemId, u16 count)
         newItems = AllocZeroed(itemPocket->capacity * sizeof(struct ItemSlot));
         memcpy(newItems, itemPocket->itemSlots, itemPocket->capacity * sizeof(struct ItemSlot));
 
-        if (pocket != BERRIES_POCKET)
-            slotCapacity = 99;
-        else
-            slotCapacity = 999;
-
         for (i = 0; i < itemPocket->capacity; i++)
         {
             if (newItems[i].itemId == itemId)
             {
                 ownedCount = newItems[i].quantity;
                 // check if won't exceed max slot capacity
-                if (ownedCount + count <= slotCapacity)
+                if (ownedCount + count <= ITEM_SLOT_CAPACITY)
                 {
                     // successfully added to already existing item's count
                     newItems[i].quantity = ownedCount + count;
@@ -265,8 +254,8 @@ bool8 AddBagItem(u16 itemId, u16 count)
                     }
                     else
                     {
-                        count -= slotCapacity - ownedCount;
-                        newItems[i].quantity = slotCapacity;
+                        count -= ITEM_SLOT_CAPACITY - ownedCount;
+                        newItems[i].quantity = ITEM_SLOT_CAPACITY;
                         // don't create another instance of the item if it's at max slot capacity and count is equal to 0
                         if (count == 0)
                         {
@@ -286,7 +275,7 @@ bool8 AddBagItem(u16 itemId, u16 count)
                 if (newItems[i].itemId == ITEM_NONE)
                 {
                     newItems[i].itemId = itemId;
-                    if (count > slotCapacity)
+                    if (count > ITEM_SLOT_CAPACITY)
                     {
                         // try creating a new slot with max capacity if duplicates are possible
                         if (pocket == TMHM_POCKET || pocket == BERRIES_POCKET)
@@ -294,8 +283,8 @@ bool8 AddBagItem(u16 itemId, u16 count)
                             Free(newItems);
                             return FALSE;
                         }
-                        count -= slotCapacity;
-                        newItems[i].quantity = slotCapacity;
+                        count -= ITEM_SLOT_CAPACITY;
+                        newItems[i].quantity = ITEM_SLOT_CAPACITY;
                     }
                     else
                     {
@@ -478,15 +467,15 @@ bool8 AddPCItem(u16 itemId, u16 count)
         if (newItems[i].itemId == itemId)
         {
             ownedCount = newItems[i].quantity;
-            if (ownedCount + count <= 999)
+            if (ownedCount + count <= ITEM_SLOT_CAPACITY)
             {
                 newItems[i].quantity = ownedCount + count;
                 memcpy(gSaveBlock1Ptr->pcItems, newItems, sizeof(gSaveBlock1Ptr->pcItems));
                 Free(newItems);
                 return TRUE;
             }
-            count += ownedCount - 999;
-            newItems[i].quantity = 999;
+            count += ownedCount - ITEM_SLOT_CAPACITY;
+            newItems[i].quantity = ITEM_SLOT_CAPACITY;
             if (count == 0)
             {
                 memcpy(gSaveBlock1Ptr->pcItems, newItems, sizeof(gSaveBlock1Ptr->pcItems));

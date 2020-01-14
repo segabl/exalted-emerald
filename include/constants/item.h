@@ -16,5 +16,6 @@
 #define KEYITEMS_POCKET    4
 #define POCKETS_COUNT      5
 
+#define ITEM_SLOT_CAPACITY 999
 
 #endif // GUARD_ITEM_CONSTANTS_H
