@@ -160,15 +160,13 @@ Elekid
 Exeggcute
   Safari Zone Northwest
 
-Fearow
-  Safari Zone South
-
 Feebas
   Safari Zone Northwest (Fishing)
   Safari Zone Southeast (Fishing)
   Safari Zone Southwest (Fishing)
 
 Furret
+  Route 118
   Route 119
 
 Gastly
@@ -193,6 +191,14 @@ Geodude
   Route 111 (Rock Smash)
   Route 114 (Rock Smash)
   Safari Zone North (Rock Smash)
+  Seafloor Cavern Room 1
+  Seafloor Cavern Room 2
+  Seafloor Cavern Room 3
+  Seafloor Cavern Room 4
+  Seafloor Cavern Room 5
+  Seafloor Cavern Room 6
+  Seafloor Cavern Room 7
+  Seafloor Cavern Room 8
   Victory Road B1F (Rock Smash)
 
 Girafarig
@@ -269,15 +275,23 @@ Graveler
   Magma Hideout 3F 2R
   Magma Hideout 3F 3R
   Magma Hideout 4F
+  Seafloor Cavern Room 1
+  Seafloor Cavern Room 2
+  Seafloor Cavern Room 3
+  Seafloor Cavern Room 4
+  Seafloor Cavern Room 5
+  Seafloor Cavern Room 6
+  Seafloor Cavern Room 7
+  Seafloor Cavern Room 8
   Victory Road B1F (Rock Smash)
 
 Grimer
   Fiery Path
+  Route 113
 
 Growlithe
   Mt Pyre Exterior
   Mt Pyre Summit
-  Route 112
 
 Gulpin
   Route 110
@@ -293,6 +307,7 @@ Heracross
   Safari Zone Northwest
 
 Hoothoot
+  Petalburg Woods
   Safari Zone South
 
 Hoppip
@@ -305,6 +320,7 @@ Horsea
 
 Houndour
   Altering Cave 4
+  Route 113
   Safari Zone Northeast
 
 Illumise
@@ -341,8 +357,11 @@ Lairon
 Larvitar
   Route 111
 
+Ledian
+  Safari Zone Northwest
+
 Ledyba
-  Route 101
+  Safari Zone Northwest
 
 Lickitung
   Safari Zone Southwest
@@ -462,6 +481,8 @@ Mantine
 
 Mareep
   Altering Cave 2
+  Route 110
+  Route 118
   Safari Zone Southeast
 
 Marill
@@ -496,7 +517,7 @@ Meditite
   Mt Pyre Summit
 
 Meowth
-  Route 103
+  Route 116
 
 Mightyena
   Route 120
@@ -528,9 +549,11 @@ Natu
   Safari Zone South
 
 Nidoran_F
+  Route 112
   Safari Zone North
 
 Nidoran_M
+  Route 112
   Safari Zone North
 
 Nincada
@@ -561,7 +584,7 @@ Onix
   Granite Cave B2F
 
 Paras
-  Petalburg Woods
+  Route 116
 
 Pelipper
   Dewford Town (Surf)
@@ -602,7 +625,10 @@ Phanpy
   Route 111
   Safari Zone North
 
-Pidgeotto
+Pidgey
+  Route 104
+  Route 115
+  Route 116
   Safari Zone South
 
 Pikachu
@@ -623,7 +649,11 @@ Poliwag
   Safari Zone Southwest (Surf)
 
 Poliwhirl
+  Route 120
   Safari Zone Southwest (Surf)
+
+Ponyta
+  Route 112
 
 Poochyena
   Petalburg Woods
@@ -655,6 +685,9 @@ Ralts
   Safari Zone Southwest
 
 Rattata
+  Route 101
+  Route 102
+  Route 103
   Safari Zone South
 
 Relicanth
@@ -669,7 +702,6 @@ Rhyhorn
   Safari Zone North
 
 Roselia
-  Route 110
   Route 117
   Safari Zone Southwest
 
@@ -708,6 +740,11 @@ Seel
   Safari Zone Southeast (Surf)
 
 Sentret
+  Route 101
+  Route 102
+  Route 103
+  Route 118
+  Route 119
   Safari Zone South
 
 Seviper
@@ -803,7 +840,10 @@ Solrock
   Meteor Falls Stevens Cave
 
 Spearow
-  Route 103
+  Route 104
+  Route 115
+  Route 116
+  Safari Zone South
 
 Spheal
   Shoal Cave Low Tide Entrance Room
@@ -832,6 +872,7 @@ Staryu
   Underwater 1 (Surf)
 
 Sunkern
+  Route 117
   Safari Zone Southeast
 
 Surskit
@@ -847,6 +888,7 @@ Surskit
 Swablu
   Route 114
   Route 115
+  Safari Zone South
 
 Swellow
   Route 115
@@ -855,7 +897,6 @@ Swinub
   Shoal Cave Low Tide Ice Room
 
 Taillow
-  Petalburg Woods
   Route 104
   Route 115
   Route 116
@@ -979,12 +1020,14 @@ Tropius
 Tyrogue
   Granite Cave 1F
   Granite Cave Stevens Room
+  Route 112
 
 Unown
   Desert Underpass
 
 Venonat
-  Route 101
+  Route 119
+  Route 120
 
 Volbeat
   Route 117
@@ -996,7 +1039,6 @@ Voltorb
 Vulpix
   Mt Pyre Exterior
   Mt Pyre Summit
-  Route 112
 
 Wailmer
   Dewford Town (Fishing)
@@ -1096,6 +1138,8 @@ Wobbuffet
   Safari Zone Southwest
 
 Wooper
+  Route 103
+  Route 110
   Safari Zone Southeast (Surf)
 
 Wurmple
@@ -1108,6 +1152,7 @@ Wynaut
   Route 130
 
 Yanma
+  Route 117
   Route 120 (Surf)
   Safari Zone Southwest
 
@@ -1120,6 +1165,7 @@ Zigzagoon
   Route 103
   Route 118
   Route 119
+  Safari Zone South
 
 Zubat
   Altering Cave 1
