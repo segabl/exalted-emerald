@@ -484,14 +484,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_Felix[] = {
     .species = SPECIES_MEDICHAM,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_PSYCHIC, MOVE_NONE, MOVE_NONE, MOVE_NONE
+    .moves = {MOVE_PSYCHIC, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
     .lvl = 43,
     .species = SPECIES_CLAYDOL,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_SKILL_SWAP, MOVE_EARTHQUAKE, MOVE_NONE, MOVE_NONE
+    .moves = {MOVE_SKILL_SWAP, MOVE_EARTHQUAKE, MOVE_NONE, MOVE_NONE}
     }
 };
 
@@ -594,7 +594,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Dusty1[] = {
     .species = SPECIES_SANDSLASH,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_DIG, MOVE_SLASH, MOVE_SAND_ATTACK, MOVE_POISON_STING
+    .moves = {MOVE_DIG, MOVE_SLASH, MOVE_SAND_ATTACK, MOVE_POISON_STING}
     }
 };
 
@@ -604,21 +604,21 @@ static const struct TrainerMonNoItemCustomMoves sParty_Chip[] = {
     .species = SPECIES_BALTOY,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_PSYBEAM, MOVE_SELF_DESTRUCT, MOVE_SANDSTORM, MOVE_ANCIENT_POWER
+    .moves = {MOVE_PSYBEAM, MOVE_SELF_DESTRUCT, MOVE_SANDSTORM, MOVE_ANCIENT_POWER}
     },
     {
     .lvl = 27,
     .species = SPECIES_SANDSHREW,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_DIG, MOVE_SLASH, MOVE_SAND_ATTACK, MOVE_POISON_STING
+    .moves = {MOVE_DIG, MOVE_SLASH, MOVE_SAND_ATTACK, MOVE_POISON_STING}
     },
     {
     .lvl = 27,
     .species = SPECIES_SANDSLASH,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_DIG, MOVE_SLASH, MOVE_SAND_ATTACK, MOVE_POISON_STING
+    .moves = {MOVE_DIG, MOVE_SLASH, MOVE_SAND_ATTACK, MOVE_POISON_STING}
     }
 };
 
@@ -628,14 +628,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_Foster[] = {
     .species = SPECIES_SANDSHREW,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_DIG, MOVE_SLASH, MOVE_SAND_ATTACK, MOVE_POISON_STING
+    .moves = {MOVE_DIG, MOVE_SLASH, MOVE_SAND_ATTACK, MOVE_POISON_STING}
     },
     {
     .lvl = 25,
     .species = SPECIES_SANDSLASH,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_DIG, MOVE_SLASH, MOVE_SAND_ATTACK, MOVE_POISON_STING
+    .moves = {MOVE_DIG, MOVE_SLASH, MOVE_SAND_ATTACK, MOVE_POISON_STING}
     }
 };
 
@@ -645,7 +645,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Dusty2[] = {
     .species = SPECIES_SANDSLASH,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_DIG, MOVE_SLASH, MOVE_SAND_ATTACK, MOVE_POISON_STING
+    .moves = {MOVE_DIG, MOVE_SLASH, MOVE_SAND_ATTACK, MOVE_POISON_STING}
     }
 };
 
@@ -655,7 +655,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Dusty3[] = {
     .species = SPECIES_SANDSLASH,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_DIG, MOVE_SLASH, MOVE_SAND_ATTACK, MOVE_POISON_STING
+    .moves = {MOVE_DIG, MOVE_SLASH, MOVE_SAND_ATTACK, MOVE_POISON_STING}
     }
 };
 
@@ -665,7 +665,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Dusty4[] = {
     .species = SPECIES_SANDSLASH,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_DIG, MOVE_SLASH, MOVE_SAND_ATTACK, MOVE_POISON_STING
+    .moves = {MOVE_DIG, MOVE_SLASH, MOVE_SAND_ATTACK, MOVE_POISON_STING}
     }
 };
 
@@ -675,7 +675,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Dusty5[] = {
     .species = SPECIES_SANDSLASH,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_DIG, MOVE_SLASH, MOVE_SAND_ATTACK, MOVE_POISON_STING
+    .moves = {MOVE_DIG, MOVE_SLASH, MOVE_SAND_ATTACK, MOVE_POISON_STING}
     }
 };
 
@@ -760,14 +760,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_GabbyAndTy6[] = {
     .species = SPECIES_MAGNETON,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_SONIC_BOOM, MOVE_THUNDER_WAVE, MOVE_METAL_SOUND, MOVE_THUNDERBOLT
+    .moves = {MOVE_SONIC_BOOM, MOVE_THUNDER_WAVE, MOVE_METAL_SOUND, MOVE_THUNDERBOLT}
     },
     {
     .lvl = 39,
     .species = SPECIES_EXPLOUD,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_ASTONISH, MOVE_STOMP, MOVE_SUPERSONIC, MOVE_HYPER_VOICE
+    .moves = {MOVE_ASTONISH, MOVE_STOMP, MOVE_SUPERSONIC, MOVE_HYPER_VOICE}
     }
 };
 
@@ -870,7 +870,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Ricky1[] = {
     .species = SPECIES_ZIGZAGOON,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_SAND_ATTACK, MOVE_HEADBUTT, MOVE_TAIL_WHIP, MOVE_SURF
+    .moves = {MOVE_SAND_ATTACK, MOVE_HEADBUTT, MOVE_TAIL_WHIP, MOVE_SURF}
     }
 };
 
@@ -904,7 +904,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Ricky2[] = {
     .species = SPECIES_LINOONE,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_SAND_ATTACK, MOVE_PIN_MISSILE, MOVE_TAIL_WHIP, MOVE_SURF
+    .moves = {MOVE_SAND_ATTACK, MOVE_PIN_MISSILE, MOVE_TAIL_WHIP, MOVE_SURF}
     }
 };
 
@@ -914,7 +914,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Ricky3[] = {
     .species = SPECIES_LINOONE,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_SAND_ATTACK, MOVE_PIN_MISSILE, MOVE_TAIL_WHIP, MOVE_SURF
+    .moves = {MOVE_SAND_ATTACK, MOVE_PIN_MISSILE, MOVE_TAIL_WHIP, MOVE_SURF}
     }
 };
 
@@ -924,7 +924,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Ricky4[] = {
     .species = SPECIES_LINOONE,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_SAND_ATTACK, MOVE_PIN_MISSILE, MOVE_TAIL_WHIP, MOVE_SURF
+    .moves = {MOVE_SAND_ATTACK, MOVE_PIN_MISSILE, MOVE_TAIL_WHIP, MOVE_SURF}
     }
 };
 
@@ -934,7 +934,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Ricky5[] = {
     .species = SPECIES_LINOONE,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_SAND_ATTACK, MOVE_PIN_MISSILE, MOVE_TAIL_WHIP, MOVE_SURF
+    .moves = {MOVE_SAND_ATTACK, MOVE_PIN_MISSILE, MOVE_TAIL_WHIP, MOVE_SURF}
     }
 };
 
@@ -945,7 +945,7 @@ static const struct TrainerMonItemCustomMoves sParty_Randall[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_QUICK_ATTACK, MOVE_AGILITY, MOVE_WING_ATTACK, MOVE_NONE
+    .moves = {MOVE_QUICK_ATTACK, MOVE_AGILITY, MOVE_WING_ATTACK, MOVE_NONE}
     }
 };
 
@@ -956,7 +956,7 @@ static const struct TrainerMonItemCustomMoves sParty_Parker[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_TEETER_DANCE, MOVE_DIZZY_PUNCH, MOVE_FOCUS_PUNCH, MOVE_NONE
+    .moves = {MOVE_TEETER_DANCE, MOVE_DIZZY_PUNCH, MOVE_FOCUS_PUNCH, MOVE_NONE}
     }
 };
 
@@ -967,7 +967,7 @@ static const struct TrainerMonItemCustomMoves sParty_George[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_SLACK_OFF, MOVE_COUNTER, MOVE_SHADOW_BALL, MOVE_NONE
+    .moves = {MOVE_SLACK_OFF, MOVE_COUNTER, MOVE_SHADOW_BALL, MOVE_NONE}
     }
 };
 
@@ -978,7 +978,7 @@ static const struct TrainerMonItemCustomMoves sParty_Berke[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_FOCUS_ENERGY, MOVE_SLASH, MOVE_NONE, MOVE_NONE
+    .moves = {MOVE_FOCUS_ENERGY, MOVE_SLASH, MOVE_NONE, MOVE_NONE}
     }
 };
 
@@ -988,35 +988,35 @@ static const struct TrainerMonNoItemCustomMoves sParty_Braxton[] = {
     .species = SPECIES_SWELLOW,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_FOCUS_ENERGY, MOVE_QUICK_ATTACK, MOVE_WING_ATTACK, MOVE_ENDEAVOR
+    .moves = {MOVE_FOCUS_ENERGY, MOVE_QUICK_ATTACK, MOVE_WING_ATTACK, MOVE_ENDEAVOR}
     },
     {
     .lvl = 28,
     .species = SPECIES_TRAPINCH,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_BITE, MOVE_DIG, MOVE_FAINT_ATTACK, MOVE_SAND_TOMB
+    .moves = {MOVE_BITE, MOVE_DIG, MOVE_FAINT_ATTACK, MOVE_SAND_TOMB}
     },
     {
     .lvl = 28,
     .species = SPECIES_WAILMER,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_ROLLOUT, MOVE_WHIRLPOOL, MOVE_ASTONISH, MOVE_WATER_PULSE
+    .moves = {MOVE_ROLLOUT, MOVE_WHIRLPOOL, MOVE_ASTONISH, MOVE_WATER_PULSE}
     },
     {
     .lvl = 28,
     .species = SPECIES_MAGNETON,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_THUNDERBOLT, MOVE_SUPERSONIC, MOVE_THUNDER_WAVE, MOVE_SONIC_BOOM
+    .moves = {MOVE_THUNDERBOLT, MOVE_SUPERSONIC, MOVE_THUNDER_WAVE, MOVE_SONIC_BOOM}
     },
     {
     .lvl = 28,
     .species = SPECIES_SHIFTRY,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_GIGA_DRAIN, MOVE_FAINT_ATTACK, MOVE_DOUBLE_TEAM, MOVE_SWAGGER
+    .moves = {MOVE_GIGA_DRAIN, MOVE_FAINT_ATTACK, MOVE_DOUBLE_TEAM, MOVE_SWAGGER}
     }
 };
 
@@ -1282,7 +1282,7 @@ static const struct TrainerMonItemCustomMoves sParty_Mary[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_FAINT_ATTACK, MOVE_SHOCK_WAVE, MOVE_NONE, MOVE_NONE
+    .moves = {MOVE_FAINT_ATTACK, MOVE_SHOCK_WAVE, MOVE_NONE, MOVE_NONE}
     }
 };
 
@@ -1293,7 +1293,7 @@ static const struct TrainerMonItemCustomMoves sParty_Alexia[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_DEFENSE_CURL, MOVE_DOUBLE_EDGE, MOVE_SHADOW_BALL, MOVE_NONE
+    .moves = {MOVE_DEFENSE_CURL, MOVE_DOUBLE_EDGE, MOVE_SHADOW_BALL, MOVE_NONE}
     }
 };
 
@@ -1304,7 +1304,7 @@ static const struct TrainerMonItemCustomMoves sParty_Jody[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SWORDS_DANCE, MOVE_SLASH, MOVE_NONE, MOVE_NONE
+    .moves = {MOVE_SWORDS_DANCE, MOVE_SLASH, MOVE_NONE, MOVE_NONE}
     }
 };
 
@@ -1314,21 +1314,21 @@ static const struct TrainerMonNoItemCustomMoves sParty_Wendy[] = {
     .species = SPECIES_MAWILE,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_BATON_PASS, MOVE_FAINT_ATTACK, MOVE_FAKE_TEARS, MOVE_BITE
+    .moves = {MOVE_BATON_PASS, MOVE_FAINT_ATTACK, MOVE_FAKE_TEARS, MOVE_BITE}
     },
     {
     .lvl = 29,
     .species = SPECIES_ROSELIA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_MEGA_DRAIN, MOVE_MAGICAL_LEAF, MOVE_GRASS_WHISTLE, MOVE_LEECH_SEED
+    .moves = {MOVE_MEGA_DRAIN, MOVE_MAGICAL_LEAF, MOVE_GRASS_WHISTLE, MOVE_LEECH_SEED}
     },
     {
     .lvl = 29,
     .species = SPECIES_PELIPPER,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_FLY, MOVE_WATER_GUN, MOVE_MIST, MOVE_PROTECT
+    .moves = {MOVE_FLY, MOVE_WATER_GUN, MOVE_MIST, MOVE_PROTECT}
     }
 };
 
@@ -1682,7 +1682,7 @@ static const struct TrainerMonItemCustomMoves sParty_Daphne[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NUGGET,
-    .moves = MOVE_ATTRACT, MOVE_SWEET_KISS, MOVE_FLAIL, MOVE_WATER_PULSE
+    .moves = {MOVE_ATTRACT, MOVE_SWEET_KISS, MOVE_FLAIL, MOVE_WATER_PULSE}
     },
     {
     .lvl = 39,
@@ -1690,7 +1690,7 @@ static const struct TrainerMonItemCustomMoves sParty_Daphne[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NUGGET,
-    .moves = MOVE_ATTRACT, MOVE_SAFEGUARD, MOVE_TAKE_DOWN, MOVE_WATER_PULSE
+    .moves = {MOVE_ATTRACT, MOVE_SAFEGUARD, MOVE_TAKE_DOWN, MOVE_WATER_PULSE}
     }
 };
 
@@ -1722,7 +1722,7 @@ static const struct TrainerMonItemCustomMoves sParty_Cindy2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NUGGET,
-    .moves = MOVE_TACKLE, MOVE_TAIL_WHIP, MOVE_NONE, MOVE_NONE
+    .moves = {MOVE_TACKLE, MOVE_TAIL_WHIP, MOVE_NONE, MOVE_NONE}
     }
 };
 
@@ -1783,7 +1783,7 @@ static const struct TrainerMonItemCustomMoves sParty_Cindy6[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NUGGET,
-    .moves = MOVE_FURY_SWIPES, MOVE_MUD_SPORT, MOVE_ODOR_SLEUTH, MOVE_SAND_ATTACK
+    .moves = {MOVE_FURY_SWIPES, MOVE_MUD_SPORT, MOVE_ODOR_SLEUTH, MOVE_SAND_ATTACK}
     }
 };
 
@@ -1820,14 +1820,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_Jessica1[] = {
     .species = SPECIES_KECLEON,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_BIND, MOVE_LICK, MOVE_FURY_SWIPES, MOVE_FAINT_ATTACK
+    .moves = {MOVE_BIND, MOVE_LICK, MOVE_FURY_SWIPES, MOVE_FAINT_ATTACK}
     },
     {
     .lvl = 29,
     .species = SPECIES_SEVIPER,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_POISON_TAIL, MOVE_SCREECH, MOVE_GLARE, MOVE_CRUNCH
+    .moves = {MOVE_POISON_TAIL, MOVE_SCREECH, MOVE_GLARE, MOVE_CRUNCH}
     }
 };
 
@@ -1855,21 +1855,21 @@ static const struct TrainerMonNoItemCustomMoves sParty_Olivia[] = {
     .species = SPECIES_CLAMPERL,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_IRON_DEFENSE, MOVE_WHIRLPOOL, MOVE_RAIN_DANCE, MOVE_WATER_PULSE
+    .moves = {MOVE_IRON_DEFENSE, MOVE_WHIRLPOOL, MOVE_RAIN_DANCE, MOVE_WATER_PULSE}
     },
     {
     .lvl = 37,
     .species = SPECIES_CORPHISH,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_TAUNT, MOVE_CRABHAMMER, MOVE_WATER_PULSE, MOVE_NONE
+    .moves = {MOVE_TAUNT, MOVE_CRABHAMMER, MOVE_WATER_PULSE, MOVE_NONE}
     },
     {
     .lvl = 39,
     .species = SPECIES_LOMBRE,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_UPROAR, MOVE_FURY_SWIPES, MOVE_FAKE_OUT, MOVE_WATER_PULSE
+    .moves = {MOVE_UPROAR, MOVE_FURY_SWIPES, MOVE_FAKE_OUT, MOVE_WATER_PULSE}
     }
 };
 
@@ -1894,14 +1894,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_Jessica2[] = {
     .species = SPECIES_KECLEON,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_BIND, MOVE_LICK, MOVE_FURY_SWIPES, MOVE_FAINT_ATTACK
+    .moves = {MOVE_BIND, MOVE_LICK, MOVE_FURY_SWIPES, MOVE_FAINT_ATTACK}
     },
     {
     .lvl = 35,
     .species = SPECIES_SEVIPER,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_POISON_TAIL, MOVE_SCREECH, MOVE_GLARE, MOVE_CRUNCH
+    .moves = {MOVE_POISON_TAIL, MOVE_SCREECH, MOVE_GLARE, MOVE_CRUNCH}
     }
 };
 
@@ -1911,14 +1911,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_Jessica3[] = {
     .species = SPECIES_KECLEON,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_BIND, MOVE_LICK, MOVE_FURY_SWIPES, MOVE_FAINT_ATTACK
+    .moves = {MOVE_BIND, MOVE_LICK, MOVE_FURY_SWIPES, MOVE_FAINT_ATTACK}
     },
     {
     .lvl = 38,
     .species = SPECIES_SEVIPER,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_POISON_TAIL, MOVE_SCREECH, MOVE_GLARE, MOVE_CRUNCH
+    .moves = {MOVE_POISON_TAIL, MOVE_SCREECH, MOVE_GLARE, MOVE_CRUNCH}
     }
 };
 
@@ -1928,14 +1928,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_Jessica4[] = {
     .species = SPECIES_KECLEON,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_BIND, MOVE_LICK, MOVE_FURY_SWIPES, MOVE_FAINT_ATTACK
+    .moves = {MOVE_BIND, MOVE_LICK, MOVE_FURY_SWIPES, MOVE_FAINT_ATTACK}
     },
     {
     .lvl = 41,
     .species = SPECIES_SEVIPER,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_POISON_TAIL, MOVE_SCREECH, MOVE_GLARE, MOVE_CRUNCH
+    .moves = {MOVE_POISON_TAIL, MOVE_SCREECH, MOVE_GLARE, MOVE_CRUNCH}
     }
 };
 
@@ -1945,14 +1945,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_Jessica5[] = {
     .species = SPECIES_KECLEON,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_BIND, MOVE_LICK, MOVE_FURY_SWIPES, MOVE_FAINT_ATTACK
+    .moves = {MOVE_BIND, MOVE_LICK, MOVE_FURY_SWIPES, MOVE_FAINT_ATTACK}
     },
     {
     .lvl = 44,
     .species = SPECIES_SEVIPER,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_POISON_TAIL, MOVE_SCREECH, MOVE_GLARE, MOVE_CRUNCH
+    .moves = {MOVE_POISON_TAIL, MOVE_SCREECH, MOVE_GLARE, MOVE_CRUNCH}
     }
 };
 
@@ -2028,7 +2028,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winston5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NUGGET,
-    .moves = MOVE_FURY_SWIPES, MOVE_MUD_SPORT, MOVE_ODOR_SLEUTH, MOVE_SAND_ATTACK
+    .moves = {MOVE_FURY_SWIPES, MOVE_MUD_SPORT, MOVE_ODOR_SLEUTH, MOVE_SAND_ATTACK}
     }
 };
 
@@ -2636,14 +2636,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_Kirk[] = {
     .species = SPECIES_ELECTRIKE,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_QUICK_ATTACK, MOVE_THUNDER_WAVE, MOVE_SPARK, MOVE_LEER
+    .moves = {MOVE_QUICK_ATTACK, MOVE_THUNDER_WAVE, MOVE_SPARK, MOVE_LEER}
     },
     {
     .lvl = 17,
     .species = SPECIES_VOLTORB,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_CHARGE, MOVE_SHOCK_WAVE, MOVE_SCREECH, MOVE_NONE
+    .moves = {MOVE_CHARGE, MOVE_SHOCK_WAVE, MOVE_SCREECH, MOVE_NONE}
     }
 };
 
@@ -2932,7 +2932,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Drew[] = {
     .species = SPECIES_SANDSHREW,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_DIG, MOVE_SAND_ATTACK, MOVE_POISON_STING, MOVE_SLASH
+    .moves = {MOVE_DIG, MOVE_SAND_ATTACK, MOVE_POISON_STING, MOVE_SLASH}
     }
 };
 
@@ -2942,21 +2942,21 @@ static const struct TrainerMonNoItemCustomMoves sParty_Beau[] = {
     .species = SPECIES_BALTOY,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_RAPID_SPIN, MOVE_MUD_SLAP, MOVE_PSYBEAM, MOVE_ROCK_TOMB
+    .moves = {MOVE_RAPID_SPIN, MOVE_MUD_SLAP, MOVE_PSYBEAM, MOVE_ROCK_TOMB}
     },
     {
     .lvl = 21,
     .species = SPECIES_SANDSHREW,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_POISON_STING, MOVE_SAND_ATTACK, MOVE_SCRATCH, MOVE_DIG
+    .moves = {MOVE_POISON_STING, MOVE_SAND_ATTACK, MOVE_SCRATCH, MOVE_DIG}
     },
     {
     .lvl = 21,
     .species = SPECIES_BALTOY,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_RAPID_SPIN, MOVE_MUD_SLAP, MOVE_PSYBEAM, MOVE_ROCK_TOMB
+    .moves = {MOVE_RAPID_SPIN, MOVE_MUD_SLAP, MOVE_PSYBEAM, MOVE_ROCK_TOMB}
     }
 };
 
@@ -3298,7 +3298,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Edward[] = {
     .species = SPECIES_ABRA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_HIDDEN_POWER, MOVE_NONE, MOVE_NONE, MOVE_NONE
+    .moves = {MOVE_HIDDEN_POWER, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 };
 
@@ -3440,7 +3440,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Jaclyn[] = {
     .species = SPECIES_ABRA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_HIDDEN_POWER, MOVE_NONE, MOVE_NONE, MOVE_NONE
+    .moves = {MOVE_HIDDEN_POWER, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 };
 
@@ -3630,14 +3630,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_Walter3[] = {
     .species = SPECIES_LINOONE,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_HEADBUTT, MOVE_SAND_ATTACK, MOVE_ODOR_SLEUTH, MOVE_FURY_SWIPES
+    .moves = {MOVE_HEADBUTT, MOVE_SAND_ATTACK, MOVE_ODOR_SLEUTH, MOVE_FURY_SWIPES}
     },
     {
     .lvl = 36,
     .species = SPECIES_MANECTRIC,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_QUICK_ATTACK, MOVE_SPARK, MOVE_ODOR_SLEUTH, MOVE_ROAR
+    .moves = {MOVE_QUICK_ATTACK, MOVE_SPARK, MOVE_ODOR_SLEUTH, MOVE_ROAR}
     }
 };
 
@@ -3647,14 +3647,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_Walter4[] = {
     .species = SPECIES_LINOONE,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_HEADBUTT, MOVE_SAND_ATTACK, MOVE_ODOR_SLEUTH, MOVE_FURY_SWIPES
+    .moves = {MOVE_HEADBUTT, MOVE_SAND_ATTACK, MOVE_ODOR_SLEUTH, MOVE_FURY_SWIPES}
     },
     {
     .lvl = 39,
     .species = SPECIES_MANECTRIC,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_QUICK_ATTACK, MOVE_SPARK, MOVE_ODOR_SLEUTH, MOVE_NONE
+    .moves = {MOVE_QUICK_ATTACK, MOVE_SPARK, MOVE_ODOR_SLEUTH, MOVE_NONE}
     }
 };
 
@@ -3664,21 +3664,21 @@ static const struct TrainerMonNoItemCustomMoves sParty_Walter5[] = {
     .species = SPECIES_LINOONE,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_HEADBUTT, MOVE_SAND_ATTACK, MOVE_ODOR_SLEUTH, MOVE_FURY_SWIPES
+    .moves = {MOVE_HEADBUTT, MOVE_SAND_ATTACK, MOVE_ODOR_SLEUTH, MOVE_FURY_SWIPES}
     },
     {
     .lvl = 41,
     .species = SPECIES_GOLDUCK,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_FURY_SWIPES, MOVE_DISABLE, MOVE_CONFUSION, MOVE_PSYCH_UP
+    .moves = {MOVE_FURY_SWIPES, MOVE_DISABLE, MOVE_CONFUSION, MOVE_PSYCH_UP}
     },
     {
     .lvl = 41,
     .species = SPECIES_MANECTRIC,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_QUICK_ATTACK, MOVE_SPARK, MOVE_ODOR_SLEUTH, MOVE_ROAR
+    .moves = {MOVE_QUICK_ATTACK, MOVE_SPARK, MOVE_ODOR_SLEUTH, MOVE_ROAR}
     }
 };
 
@@ -3689,7 +3689,7 @@ static const struct TrainerMonItemCustomMoves sParty_Sidney[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 0,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_IRON_TAIL, MOVE_PLAY_ROUGH, MOVE_TAUNT, MOVE_CRUNCH
+    .moves = {MOVE_IRON_TAIL, MOVE_PLAY_ROUGH, MOVE_TAUNT, MOVE_CRUNCH}
     },
     {
     .lvl = 48,
@@ -3697,7 +3697,7 @@ static const struct TrainerMonItemCustomMoves sParty_Sidney[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 1,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_KNOCK_OFF, MOVE_ROCK_SLIDE, MOVE_SEED_BOMB, MOVE_SWORDS_DANCE
+    .moves = {MOVE_KNOCK_OFF, MOVE_ROCK_SLIDE, MOVE_SEED_BOMB, MOVE_SWORDS_DANCE}
     },
     {
     .lvl = 46,
@@ -3705,7 +3705,7 @@ static const struct TrainerMonItemCustomMoves sParty_Sidney[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 2,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_LEECH_SEED, MOVE_DARK_PULSE, MOVE_GIGA_DRAIN, MOVE_SPIKES
+    .moves = {MOVE_LEECH_SEED, MOVE_DARK_PULSE, MOVE_GIGA_DRAIN, MOVE_SPIKES}
     },
     {
     .lvl = 48,
@@ -3713,7 +3713,7 @@ static const struct TrainerMonItemCustomMoves sParty_Sidney[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 0,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_CRABHAMMER, MOVE_SWORDS_DANCE, MOVE_SUPERPOWER, MOVE_AQUA_JET
+    .moves = {MOVE_CRABHAMMER, MOVE_SWORDS_DANCE, MOVE_SUPERPOWER, MOVE_AQUA_JET}
     },
     {
     .lvl = 49,
@@ -3721,7 +3721,7 @@ static const struct TrainerMonItemCustomMoves sParty_Sidney[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 0,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_PURSUIT, MOVE_SUCKER_PUNCH, MOVE_SWORDS_DANCE, MOVE_PLAY_ROUGH
+    .moves = {MOVE_PURSUIT, MOVE_SUCKER_PUNCH, MOVE_SWORDS_DANCE, MOVE_PLAY_ROUGH}
     }
 };
 
@@ -3732,7 +3732,7 @@ static const struct TrainerMonItemCustomMoves sParty_Phoebe[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 0,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_CALM_MIND, MOVE_REST, MOVE_SHADOW_BALL, MOVE_PROTECT
+    .moves = {MOVE_CALM_MIND, MOVE_REST, MOVE_SHADOW_BALL, MOVE_PROTECT}
     },
     {
     .lvl = 49,
@@ -3740,7 +3740,7 @@ static const struct TrainerMonItemCustomMoves sParty_Phoebe[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 2,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SUCKER_PUNCH, MOVE_SHADOW_CLAW, MOVE_DAZZLING_GLEAM, MOVE_WILL_O_WISP
+    .moves = {MOVE_SUCKER_PUNCH, MOVE_SHADOW_CLAW, MOVE_DAZZLING_GLEAM, MOVE_WILL_O_WISP}
     },
     {
     .lvl = 50,
@@ -3748,7 +3748,7 @@ static const struct TrainerMonItemCustomMoves sParty_Phoebe[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 2,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_RECOVER, MOVE_FAKE_OUT, MOVE_FOUL_PLAY, MOVE_TAUNT
+    .moves = {MOVE_RECOVER, MOVE_FAKE_OUT, MOVE_FOUL_PLAY, MOVE_TAUNT}
     },
     {
     .lvl = 49,
@@ -3756,7 +3756,7 @@ static const struct TrainerMonItemCustomMoves sParty_Phoebe[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 2,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SHADOW_BALL, MOVE_SLUDGE_WAVE, MOVE_FOCUS_BLAST, MOVE_SUBSTITUTE
+    .moves = {MOVE_SHADOW_BALL, MOVE_SLUDGE_WAVE, MOVE_FOCUS_BLAST, MOVE_SUBSTITUTE}
     },
     {
     .lvl = 50,
@@ -3764,7 +3764,7 @@ static const struct TrainerMonItemCustomMoves sParty_Phoebe[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 0,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_HEX, MOVE_WILL_O_WISP, MOVE_PAIN_SPLIT, MOVE_THUNDER_WAVE
+    .moves = {MOVE_HEX, MOVE_WILL_O_WISP, MOVE_PAIN_SPLIT, MOVE_THUNDER_WAVE}
     }
 };
 
@@ -3775,7 +3775,7 @@ static const struct TrainerMonItemCustomMoves sParty_Glacia[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 2,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SPIKES, MOVE_ICE_SHARD, MOVE_EXPLOSION, MOVE_HAIL
+    .moves = {MOVE_SPIKES, MOVE_ICE_SHARD, MOVE_EXPLOSION, MOVE_HAIL}
     },
     {
     .lvl = 50,
@@ -3783,7 +3783,7 @@ static const struct TrainerMonItemCustomMoves sParty_Glacia[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 2,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_STEALTH_ROCK, MOVE_ICICLE_CRASH, MOVE_EARTHQUAKE, MOVE_CURSE
+    .moves = {MOVE_STEALTH_ROCK, MOVE_ICICLE_CRASH, MOVE_EARTHQUAKE, MOVE_CURSE}
     },
     {
     .lvl = 52,
@@ -3791,7 +3791,7 @@ static const struct TrainerMonItemCustomMoves sParty_Glacia[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 0,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_FREEZE_DRY, MOVE_HYDRO_PUMP, MOVE_PERISH_SONG, MOVE_THUNDERBOLT
+    .moves = {MOVE_FREEZE_DRY, MOVE_HYDRO_PUMP, MOVE_PERISH_SONG, MOVE_THUNDERBOLT}
     },
     {
     .lvl = 52,
@@ -3799,7 +3799,7 @@ static const struct TrainerMonItemCustomMoves sParty_Glacia[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 2,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_KNOCK_OFF, MOVE_ICICLE_CRASH, MOVE_LOW_KICK, MOVE_PURSUIT
+    .moves = {MOVE_KNOCK_OFF, MOVE_ICICLE_CRASH, MOVE_LOW_KICK, MOVE_PURSUIT}
     },
     {
     .lvl = 53,
@@ -3807,7 +3807,7 @@ static const struct TrainerMonItemCustomMoves sParty_Glacia[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 1,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_SURF, MOVE_TOXIC, MOVE_BLIZZARD, MOVE_HAIL
+    .moves = {MOVE_SURF, MOVE_TOXIC, MOVE_BLIZZARD, MOVE_HAIL}
     }
 };
 
@@ -3818,7 +3818,7 @@ static const struct TrainerMonItemCustomMoves sParty_Drake[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 0,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_DAZZLING_GLEAM, MOVE_ROOST, MOVE_DRAGON_DANCE, MOVE_DRAGON_CLAW
+    .moves = {MOVE_DAZZLING_GLEAM, MOVE_ROOST, MOVE_DRAGON_DANCE, MOVE_DRAGON_CLAW}
     },
     {
     .lvl = 55,
@@ -3826,7 +3826,7 @@ static const struct TrainerMonItemCustomMoves sParty_Drake[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 2,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_OUTRAGE, MOVE_EXTREME_SPEED, MOVE_EARTHQUAKE, MOVE_DRAGON_DANCE
+    .moves = {MOVE_OUTRAGE, MOVE_EXTREME_SPEED, MOVE_EARTHQUAKE, MOVE_DRAGON_DANCE}
     },
     {
     .lvl = 52,
@@ -3834,7 +3834,7 @@ static const struct TrainerMonItemCustomMoves sParty_Drake[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 1,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_HYDRO_PUMP, MOVE_DRACO_METEOR, MOVE_SCALD, MOVE_ICE_BEAM
+    .moves = {MOVE_HYDRO_PUMP, MOVE_DRACO_METEOR, MOVE_SCALD, MOVE_ICE_BEAM}
     },
     {
     .lvl = 52,
@@ -3842,7 +3842,7 @@ static const struct TrainerMonItemCustomMoves sParty_Drake[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 0,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_DRAGON_CLAW, MOVE_CRUNCH, MOVE_U_TURN, MOVE_EARTHQUAKE
+    .moves = {MOVE_DRAGON_CLAW, MOVE_CRUNCH, MOVE_U_TURN, MOVE_EARTHQUAKE}
     },
     {
     .lvl = 55,
@@ -3850,7 +3850,7 @@ static const struct TrainerMonItemCustomMoves sParty_Drake[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 0,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_FLAMETHROWER, MOVE_DRAGON_CLAW, MOVE_ROCK_SLIDE, MOVE_ROOST
+    .moves = {MOVE_FLAMETHROWER, MOVE_DRAGON_CLAW, MOVE_ROCK_SLIDE, MOVE_ROOST}
     }
 };
 
@@ -3861,7 +3861,7 @@ static const struct TrainerMonItemCustomMoves sParty_Roxanne1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_TACKLE, MOVE_DEFENSE_CURL, MOVE_ROCK_THROW, MOVE_ROCK_TOMB
+    .moves = {MOVE_TACKLE, MOVE_DEFENSE_CURL, MOVE_ROCK_THROW, MOVE_ROCK_TOMB}
     },
     {
     .lvl = 12,
@@ -3869,7 +3869,7 @@ static const struct TrainerMonItemCustomMoves sParty_Roxanne1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_TACKLE, MOVE_DEFENSE_CURL, MOVE_ROCK_THROW, MOVE_ROCK_TOMB
+    .moves = {MOVE_TACKLE, MOVE_DEFENSE_CURL, MOVE_ROCK_THROW, MOVE_ROCK_TOMB}
     },
     {
     .lvl = 15,
@@ -3877,7 +3877,7 @@ static const struct TrainerMonItemCustomMoves sParty_Roxanne1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_ORAN_BERRY,
-    .moves = MOVE_BLOCK, MOVE_HARDEN, MOVE_TACKLE, MOVE_ROCK_TOMB
+    .moves = {MOVE_BLOCK, MOVE_HARDEN, MOVE_TACKLE, MOVE_ROCK_TOMB}
     }
 };
 
@@ -3888,7 +3888,7 @@ static const struct TrainerMonItemCustomMoves sParty_Brawly1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_KARATE_CHOP, MOVE_LOW_KICK, MOVE_SEISMIC_TOSS, MOVE_BULK_UP
+    .moves = {MOVE_KARATE_CHOP, MOVE_LOW_KICK, MOVE_SEISMIC_TOSS, MOVE_BULK_UP}
     },
     {
     .lvl = 16,
@@ -3896,7 +3896,7 @@ static const struct TrainerMonItemCustomMoves sParty_Brawly1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_FOCUS_PUNCH, MOVE_LIGHT_SCREEN, MOVE_REFLECT, MOVE_BULK_UP
+    .moves = {MOVE_FOCUS_PUNCH, MOVE_LIGHT_SCREEN, MOVE_REFLECT, MOVE_BULK_UP}
     },
     {
     .lvl = 19,
@@ -3904,7 +3904,7 @@ static const struct TrainerMonItemCustomMoves sParty_Brawly1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_ARM_THRUST, MOVE_VITAL_THROW, MOVE_REVERSAL, MOVE_BULK_UP
+    .moves = {MOVE_ARM_THRUST, MOVE_VITAL_THROW, MOVE_REVERSAL, MOVE_BULK_UP}
     }
 };
 
@@ -3915,7 +3915,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_ROLLOUT, MOVE_SPARK, MOVE_SELF_DESTRUCT, MOVE_VOLT_SWITCH
+    .moves = {MOVE_ROLLOUT, MOVE_SPARK, MOVE_SELF_DESTRUCT, MOVE_VOLT_SWITCH}
     },
     {
     .lvl = 20,
@@ -3923,7 +3923,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_VOLT_SWITCH, MOVE_SHOCK_WAVE, MOVE_QUICK_ATTACK, MOVE_HOWL
+    .moves = {MOVE_VOLT_SWITCH, MOVE_SHOCK_WAVE, MOVE_QUICK_ATTACK, MOVE_HOWL}
     },
     {
     .lvl = 22,
@@ -3931,7 +3931,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SUPERSONIC, MOVE_VOLT_SWITCH, MOVE_THUNDER_WAVE, MOVE_SONIC_BOOM
+    .moves = {MOVE_SUPERSONIC, MOVE_VOLT_SWITCH, MOVE_THUNDER_WAVE, MOVE_SONIC_BOOM}
     },
     {
     .lvl = 24,
@@ -3939,7 +3939,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_QUICK_ATTACK, MOVE_SHOCK_WAVE, MOVE_VOLT_SWITCH, MOVE_HOWL
+    .moves = {MOVE_QUICK_ATTACK, MOVE_SHOCK_WAVE, MOVE_VOLT_SWITCH, MOVE_HOWL}
     }
 };
 
@@ -3950,7 +3950,7 @@ static const struct TrainerMonItemCustomMoves sParty_Flannery1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_OVERHEAT, MOVE_TAKE_DOWN, MOVE_MAGNITUDE, MOVE_SUNNY_DAY
+    .moves = {MOVE_OVERHEAT, MOVE_TAKE_DOWN, MOVE_MAGNITUDE, MOVE_SUNNY_DAY}
     },
     {
     .lvl = 24,
@@ -3958,7 +3958,7 @@ static const struct TrainerMonItemCustomMoves sParty_Flannery1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_OVERHEAT, MOVE_SMOG, MOVE_LIGHT_SCREEN, MOVE_SUNNY_DAY
+    .moves = {MOVE_OVERHEAT, MOVE_SMOG, MOVE_LIGHT_SCREEN, MOVE_SUNNY_DAY}
     },
     {
     .lvl = 26,
@@ -3966,7 +3966,7 @@ static const struct TrainerMonItemCustomMoves sParty_Flannery1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_OVERHEAT, MOVE_TACKLE, MOVE_SUNNY_DAY, MOVE_ATTRACT
+    .moves = {MOVE_OVERHEAT, MOVE_TACKLE, MOVE_SUNNY_DAY, MOVE_ATTRACT}
     },
     {
     .lvl = 29,
@@ -3974,7 +3974,7 @@ static const struct TrainerMonItemCustomMoves sParty_Flannery1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_WHITE_HERB,
-    .moves = MOVE_OVERHEAT, MOVE_SUNNY_DAY, MOVE_BODY_SLAM, MOVE_ATTRACT
+    .moves = {MOVE_OVERHEAT, MOVE_SUNNY_DAY, MOVE_BODY_SLAM, MOVE_ATTRACT}
     }
 };
 
@@ -3985,7 +3985,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_TEETER_DANCE, MOVE_PSYBEAM, MOVE_RETALIATE, MOVE_ENCORE
+    .moves = {MOVE_TEETER_DANCE, MOVE_PSYBEAM, MOVE_RETALIATE, MOVE_ENCORE}
     },
     {
     .lvl = 27,
@@ -3993,7 +3993,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SLASH, MOVE_RETALIATE, MOVE_ENCORE, MOVE_FAINT_ATTACK
+    .moves = {MOVE_SLASH, MOVE_RETALIATE, MOVE_ENCORE, MOVE_FAINT_ATTACK}
     },
     {
     .lvl = 29,
@@ -4001,7 +4001,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SLASH, MOVE_BELLY_DRUM, MOVE_RETALIATE, MOVE_HEADBUTT
+    .moves = {MOVE_SLASH, MOVE_BELLY_DRUM, MOVE_RETALIATE, MOVE_HEADBUTT}
     },
     {
     .lvl = 31,
@@ -4009,7 +4009,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_COUNTER, MOVE_YAWN, MOVE_RETALIATE, MOVE_FAINT_ATTACK
+    .moves = {MOVE_COUNTER, MOVE_YAWN, MOVE_RETALIATE, MOVE_FAINT_ATTACK}
     }
 };
 
@@ -4020,7 +4020,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_PERISH_SONG, MOVE_MIRROR_MOVE, MOVE_SAFEGUARD, MOVE_ROOST
+    .moves = {MOVE_PERISH_SONG, MOVE_MIRROR_MOVE, MOVE_SAFEGUARD, MOVE_ROOST}
     },
     {
     .lvl = 29,
@@ -4028,7 +4028,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SUNNY_DAY, MOVE_ROOST, MOVE_SOLAR_BEAM, MOVE_SYNTHESIS
+    .moves = {MOVE_SUNNY_DAY, MOVE_ROOST, MOVE_SOLAR_BEAM, MOVE_SYNTHESIS}
     },
     {
     .lvl = 30,
@@ -4036,7 +4036,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_WATER_PULSE, MOVE_WING_ATTACK, MOVE_PROTECT, MOVE_ROOST
+    .moves = {MOVE_WATER_PULSE, MOVE_WING_ATTACK, MOVE_PROTECT, MOVE_ROOST}
     },
     {
     .lvl = 31,
@@ -4044,7 +4044,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_AERIAL_ACE, MOVE_SPIKES, MOVE_STEEL_WING, MOVE_ROOST
+    .moves = {MOVE_AERIAL_ACE, MOVE_SPIKES, MOVE_STEEL_WING, MOVE_ROOST}
     },
     {
     .lvl = 33,
@@ -4052,7 +4052,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_ORAN_BERRY,
-    .moves = MOVE_EARTHQUAKE, MOVE_DRAGON_BREATH, MOVE_DRAGON_DANCE, MOVE_ROOST
+    .moves = {MOVE_EARTHQUAKE, MOVE_DRAGON_BREATH, MOVE_DRAGON_DANCE, MOVE_ROOST}
     }
 };
 
@@ -4063,7 +4063,7 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_EARTHQUAKE, MOVE_ANCIENT_POWER, MOVE_PSYCHIC, MOVE_LIGHT_SCREEN
+    .moves = {MOVE_EARTHQUAKE, MOVE_ANCIENT_POWER, MOVE_PSYCHIC, MOVE_LIGHT_SCREEN}
     },
     {
     .lvl = 41,
@@ -4071,7 +4071,7 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_PSYCHIC, MOVE_SUNNY_DAY, MOVE_CONFUSE_RAY, MOVE_CALM_MIND
+    .moves = {MOVE_PSYCHIC, MOVE_SUNNY_DAY, MOVE_CONFUSE_RAY, MOVE_CALM_MIND}
     },
     {
     .lvl = 42,
@@ -4079,7 +4079,7 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_LIGHT_SCREEN, MOVE_PSYCHIC, MOVE_HYPNOSIS, MOVE_CALM_MIND
+    .moves = {MOVE_LIGHT_SCREEN, MOVE_PSYCHIC, MOVE_HYPNOSIS, MOVE_CALM_MIND}
     },
     {
     .lvl = 42,
@@ -4087,7 +4087,7 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_SUNNY_DAY, MOVE_SOLAR_BEAM, MOVE_PSYCHIC, MOVE_FLAMETHROWER
+    .moves = {MOVE_SUNNY_DAY, MOVE_SOLAR_BEAM, MOVE_PSYCHIC, MOVE_FLAMETHROWER}
     }
 };
 
@@ -4098,7 +4098,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SCALD, MOVE_ATTRACT, MOVE_SWEET_KISS, MOVE_FLAIL
+    .moves = {MOVE_SCALD, MOVE_ATTRACT, MOVE_SWEET_KISS, MOVE_FLAIL}
     },
     {
     .lvl = 41,
@@ -4106,7 +4106,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_RAIN_DANCE, MOVE_SCALD, MOVE_AMNESIA, MOVE_EARTHQUAKE
+    .moves = {MOVE_RAIN_DANCE, MOVE_SCALD, MOVE_AMNESIA, MOVE_EARTHQUAKE}
     },
     {
     .lvl = 43,
@@ -4114,7 +4114,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_ENCORE, MOVE_BODY_SLAM, MOVE_AURORA_BEAM, MOVE_SCALD
+    .moves = {MOVE_ENCORE, MOVE_BODY_SLAM, MOVE_AURORA_BEAM, MOVE_SCALD}
     },
     {
     .lvl = 43,
@@ -4122,7 +4122,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SCALD, MOVE_CRABHAMMER, MOVE_TAUNT, MOVE_NIGHT_SLASH
+    .moves = {MOVE_SCALD, MOVE_CRABHAMMER, MOVE_TAUNT, MOVE_NIGHT_SLASH}
     },
     {
     .lvl = 46,
@@ -4130,7 +4130,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_CHESTO_BERRY,
-    .moves = MOVE_SCALD, MOVE_DRAGON_PULSE, MOVE_ICE_BEAM, MOVE_REST
+    .moves = {MOVE_SCALD, MOVE_DRAGON_PULSE, MOVE_ICE_BEAM, MOVE_REST}
     }
 };
 
@@ -4329,14 +4329,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_KateAndJoy[] = {
     .species = SPECIES_SPINDA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_HYPNOSIS, MOVE_PSYBEAM, MOVE_DIZZY_PUNCH, MOVE_TEETER_DANCE
+    .moves = {MOVE_HYPNOSIS, MOVE_PSYBEAM, MOVE_DIZZY_PUNCH, MOVE_TEETER_DANCE}
     },
     {
     .lvl = 32,
     .species = SPECIES_SLAKING,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_FOCUS_PUNCH, MOVE_YAWN, MOVE_SLACK_OFF, MOVE_FAINT_ATTACK
+    .moves = {MOVE_FOCUS_PUNCH, MOVE_YAWN, MOVE_SLACK_OFF, MOVE_FAINT_ATTACK}
     }
 };
 
@@ -4346,14 +4346,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_AnnaAndMeg1[] = {
     .species = SPECIES_ZIGZAGOON,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_GROWL, MOVE_TAIL_WHIP, MOVE_HEADBUTT, MOVE_ODOR_SLEUTH
+    .moves = {MOVE_GROWL, MOVE_TAIL_WHIP, MOVE_HEADBUTT, MOVE_ODOR_SLEUTH}
     },
     {
     .lvl = 17,
     .species = SPECIES_MAKUHITA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_TACKLE, MOVE_FOCUS_ENERGY, MOVE_ARM_THRUST, MOVE_NONE
+    .moves = {MOVE_TACKLE, MOVE_FOCUS_ENERGY, MOVE_ARM_THRUST, MOVE_NONE}
     }
 };
 
@@ -4363,14 +4363,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_AnnaAndMeg2[] = {
     .species = SPECIES_ZIGZAGOON,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_GROWL, MOVE_TAIL_WHIP, MOVE_HEADBUTT, MOVE_ODOR_SLEUTH
+    .moves = {MOVE_GROWL, MOVE_TAIL_WHIP, MOVE_HEADBUTT, MOVE_ODOR_SLEUTH}
     },
     {
     .lvl = 30,
     .species = SPECIES_MAKUHITA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_TACKLE, MOVE_FOCUS_ENERGY, MOVE_ARM_THRUST, MOVE_NONE
+    .moves = {MOVE_TACKLE, MOVE_FOCUS_ENERGY, MOVE_ARM_THRUST, MOVE_NONE}
     }
 };
 
@@ -4380,14 +4380,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_AnnaAndMeg3[] = {
     .species = SPECIES_ZIGZAGOON,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_GROWL, MOVE_TAIL_WHIP, MOVE_HEADBUTT, MOVE_ODOR_SLEUTH
+    .moves = {MOVE_GROWL, MOVE_TAIL_WHIP, MOVE_HEADBUTT, MOVE_ODOR_SLEUTH}
     },
     {
     .lvl = 33,
     .species = SPECIES_MAKUHITA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_TACKLE, MOVE_FOCUS_ENERGY, MOVE_ARM_THRUST, MOVE_NONE
+    .moves = {MOVE_TACKLE, MOVE_FOCUS_ENERGY, MOVE_ARM_THRUST, MOVE_NONE}
     }
 };
 
@@ -4397,14 +4397,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_AnnaAndMeg4[] = {
     .species = SPECIES_LINOONE,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_GROWL, MOVE_TAIL_WHIP, MOVE_HEADBUTT, MOVE_ODOR_SLEUTH
+    .moves = {MOVE_GROWL, MOVE_TAIL_WHIP, MOVE_HEADBUTT, MOVE_ODOR_SLEUTH}
     },
     {
     .lvl = 36,
     .species = SPECIES_MAKUHITA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_TACKLE, MOVE_FOCUS_ENERGY, MOVE_ARM_THRUST, MOVE_NONE
+    .moves = {MOVE_TACKLE, MOVE_FOCUS_ENERGY, MOVE_ARM_THRUST, MOVE_NONE}
     }
 };
 
@@ -4414,14 +4414,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_AnnaAndMeg5[] = {
     .species = SPECIES_LINOONE,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_GROWL, MOVE_TAIL_WHIP, MOVE_HEADBUTT, MOVE_ODOR_SLEUTH
+    .moves = {MOVE_GROWL, MOVE_TAIL_WHIP, MOVE_HEADBUTT, MOVE_ODOR_SLEUTH}
     },
     {
     .lvl = 38,
     .species = SPECIES_HARIYAMA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_TACKLE, MOVE_FOCUS_ENERGY, MOVE_ARM_THRUST, MOVE_NONE
+    .moves = {MOVE_TACKLE, MOVE_FOCUS_ENERGY, MOVE_ARM_THRUST, MOVE_NONE}
     }
 };
 
@@ -4459,7 +4459,7 @@ static const struct TrainerMonItemCustomMoves sParty_Colton[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_ORAN_BERRY,
-    .moves = MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK, MOVE_HEAL_BELL
+    .moves = {MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK, MOVE_HEAL_BELL}
     },
     {
     .lvl = 36,
@@ -4467,7 +4467,7 @@ static const struct TrainerMonItemCustomMoves sParty_Colton[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_ORAN_BERRY,
-    .moves = MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK, MOVE_HEAL_BELL
+    .moves = {MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK, MOVE_HEAL_BELL}
     },
     {
     .lvl = 40,
@@ -4475,7 +4475,7 @@ static const struct TrainerMonItemCustomMoves sParty_Colton[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_ORAN_BERRY,
-    .moves = MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK, MOVE_HEAL_BELL
+    .moves = {MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK, MOVE_HEAL_BELL}
     },
     {
     .lvl = 12,
@@ -4483,7 +4483,7 @@ static const struct TrainerMonItemCustomMoves sParty_Colton[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_ORAN_BERRY,
-    .moves = MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK, MOVE_HEAL_BELL
+    .moves = {MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK, MOVE_HEAL_BELL}
     },
     {
     .lvl = 30,
@@ -4491,7 +4491,7 @@ static const struct TrainerMonItemCustomMoves sParty_Colton[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_ORAN_BERRY,
-    .moves = MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK, MOVE_HEAL_BELL
+    .moves = {MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK, MOVE_HEAL_BELL}
     },
     {
     .lvl = 42,
@@ -4499,7 +4499,7 @@ static const struct TrainerMonItemCustomMoves sParty_Colton[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_ORAN_BERRY,
-    .moves = MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK, MOVE_HEAL_BELL
+    .moves = {MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK, MOVE_HEAL_BELL}
     }
 };
 
@@ -4687,7 +4687,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Timothy2[] = {
     .species = SPECIES_HARIYAMA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_ARM_THRUST, MOVE_KNOCK_OFF, MOVE_SAND_ATTACK, MOVE_DIG
+    .moves = {MOVE_ARM_THRUST, MOVE_KNOCK_OFF, MOVE_SAND_ATTACK, MOVE_DIG}
     }
 };
 
@@ -4697,7 +4697,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Timothy3[] = {
     .species = SPECIES_HARIYAMA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_ARM_THRUST, MOVE_KNOCK_OFF, MOVE_SAND_ATTACK, MOVE_DIG
+    .moves = {MOVE_ARM_THRUST, MOVE_KNOCK_OFF, MOVE_SAND_ATTACK, MOVE_DIG}
     }
 };
 
@@ -4707,7 +4707,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Timothy4[] = {
     .species = SPECIES_HARIYAMA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_ARM_THRUST, MOVE_BELLY_DRUM, MOVE_SAND_ATTACK, MOVE_DIG
+    .moves = {MOVE_ARM_THRUST, MOVE_BELLY_DRUM, MOVE_SAND_ATTACK, MOVE_DIG}
     }
 };
 
@@ -4717,7 +4717,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Timothy5[] = {
     .species = SPECIES_HARIYAMA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_ARM_THRUST, MOVE_BELLY_DRUM, MOVE_SAND_ATTACK, MOVE_DIG
+    .moves = {MOVE_ARM_THRUST, MOVE_BELLY_DRUM, MOVE_SAND_ATTACK, MOVE_DIG}
     }
 };
 
@@ -4727,7 +4727,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Vicky[] = {
     .species = SPECIES_MEDITITE,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_HI_JUMP_KICK, MOVE_MEDITATE, MOVE_CONFUSION, MOVE_DETECT
+    .moves = {MOVE_HI_JUMP_KICK, MOVE_MEDITATE, MOVE_CONFUSION, MOVE_DETECT}
     }
 };
 
@@ -4836,7 +4836,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Josh[] = {
     .species = SPECIES_GEODUDE,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE
+    .moves = {MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 };
 
@@ -4870,14 +4870,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_Ben[] = {
     .species = SPECIES_ZIGZAGOON,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_HEADBUTT, MOVE_SAND_ATTACK, MOVE_GROWL, MOVE_THUNDERBOLT
+    .moves = {MOVE_HEADBUTT, MOVE_SAND_ATTACK, MOVE_GROWL, MOVE_THUNDERBOLT}
     },
     {
     .lvl = 17,
     .species = SPECIES_GULPIN,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_AMNESIA, MOVE_SLUDGE, MOVE_YAWN, MOVE_POUND
+    .moves = {MOVE_AMNESIA, MOVE_SLUDGE, MOVE_YAWN, MOVE_POUND}
     }
 };
 
@@ -4887,14 +4887,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_Quincy[] = {
     .species = SPECIES_SLAKING,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_ATTRACT, MOVE_ICE_BEAM, MOVE_THUNDERBOLT, MOVE_FLAMETHROWER
+    .moves = {MOVE_ATTRACT, MOVE_ICE_BEAM, MOVE_THUNDERBOLT, MOVE_FLAMETHROWER}
     },
     {
     .lvl = 43,
     .species = SPECIES_DUSCLOPS,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_SKILL_SWAP, MOVE_PROTECT, MOVE_WILL_O_WISP, MOVE_TOXIC
+    .moves = {MOVE_SKILL_SWAP, MOVE_PROTECT, MOVE_WILL_O_WISP, MOVE_TOXIC}
     }
 };
 
@@ -4904,14 +4904,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_Katelynn[] = {
     .species = SPECIES_GARDEVOIR,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_SKILL_SWAP, MOVE_PSYCHIC, MOVE_THUNDERBOLT, MOVE_CALM_MIND
+    .moves = {MOVE_SKILL_SWAP, MOVE_PSYCHIC, MOVE_THUNDERBOLT, MOVE_CALM_MIND}
     },
     {
     .lvl = 43,
     .species = SPECIES_SLAKING,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_EARTHQUAKE, MOVE_SHADOW_BALL, MOVE_AERIAL_ACE, MOVE_BRICK_BREAK
+    .moves = {MOVE_EARTHQUAKE, MOVE_SHADOW_BALL, MOVE_AERIAL_ACE, MOVE_BRICK_BREAK}
     }
 };
 
@@ -5051,7 +5051,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wallace[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 2,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SUBSTITUTE, MOVE_AQUA_RING, MOVE_PROTECT, MOVE_SCALD
+    .moves = {MOVE_SUBSTITUTE, MOVE_AQUA_RING, MOVE_PROTECT, MOVE_SCALD}
     },
     {
     .lvl = 55,
@@ -5059,7 +5059,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wallace[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 1,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_BARRIER, MOVE_HYDRO_PUMP, MOVE_SLUDGE_BOMB, MOVE_TOXIC_SPIKES
+    .moves = {MOVE_BARRIER, MOVE_HYDRO_PUMP, MOVE_SLUDGE_BOMB, MOVE_TOXIC_SPIKES}
     },
     {
     .lvl = 56,
@@ -5067,7 +5067,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wallace[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 1,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_GIGA_DRAIN, MOVE_SURF, MOVE_LEECH_SEED, MOVE_KNOCK_OFF
+    .moves = {MOVE_GIGA_DRAIN, MOVE_SURF, MOVE_LEECH_SEED, MOVE_KNOCK_OFF}
     },
     {
     .lvl = 56,
@@ -5075,7 +5075,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wallace[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 2,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_EARTHQUAKE, MOVE_WATERFALL, MOVE_DRAGON_DANCE, MOVE_STONE_EDGE
+    .moves = {MOVE_EARTHQUAKE, MOVE_WATERFALL, MOVE_DRAGON_DANCE, MOVE_STONE_EDGE}
     },
     {
     .lvl = 56,
@@ -5083,7 +5083,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wallace[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 0,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE, MOVE_BOUNCE, MOVE_WATERFALL
+    .moves = {MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE, MOVE_BOUNCE, MOVE_WATERFALL}
     },
     {
     .lvl = 58,
@@ -5091,7 +5091,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wallace[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 0,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_RECOVER, MOVE_SCALD, MOVE_ICE_BEAM, MOVE_HAZE
+    .moves = {MOVE_RECOVER, MOVE_SCALD, MOVE_ICE_BEAM, MOVE_HAZE}
     }
 };
 
@@ -5935,7 +5935,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Aaron[] = {
     .species = SPECIES_BAGON,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_DRAGON_BREATH, MOVE_HEADBUTT, MOVE_FOCUS_ENERGY, MOVE_EMBER
+    .moves = {MOVE_DRAGON_BREATH, MOVE_HEADBUTT, MOVE_FOCUS_ENERGY, MOVE_EMBER}
     }
 };
 
@@ -6207,7 +6207,7 @@ static const struct TrainerMonItemCustomMoves sParty_Dianne[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SKILL_SWAP, MOVE_EARTHQUAKE, MOVE_NONE, MOVE_NONE
+    .moves = {MOVE_SKILL_SWAP, MOVE_EARTHQUAKE, MOVE_NONE, MOVE_NONE}
     },
     {
     .lvl = 43,
@@ -6215,7 +6215,7 @@ static const struct TrainerMonItemCustomMoves sParty_Dianne[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_THUNDERBOLT, MOVE_EARTHQUAKE, MOVE_NONE, MOVE_NONE
+    .moves = {MOVE_THUNDERBOLT, MOVE_EARTHQUAKE, MOVE_NONE, MOVE_NONE}
     }
 };
 
@@ -6234,21 +6234,21 @@ static const struct TrainerMonNoItemCustomMoves sParty_Lao1[] = {
     .species = SPECIES_KOFFING,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SMOG, MOVE_SELF_DESTRUCT
+    .moves = {MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SMOG, MOVE_SELF_DESTRUCT}
     },
     {
     .lvl = 17,
     .species = SPECIES_KOFFING,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SMOG, MOVE_SELF_DESTRUCT
+    .moves = {MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SMOG, MOVE_SELF_DESTRUCT}
     },
     {
     .lvl = 17,
     .species = SPECIES_KOFFING,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SLUDGE, MOVE_SELF_DESTRUCT
+    .moves = {MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SLUDGE, MOVE_SELF_DESTRUCT}
     }
 };
 
@@ -6273,28 +6273,28 @@ static const struct TrainerMonNoItemCustomMoves sParty_Lao2[] = {
     .species = SPECIES_KOFFING,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SLUDGE, MOVE_SELF_DESTRUCT
+    .moves = {MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SLUDGE, MOVE_SELF_DESTRUCT}
     },
     {
     .lvl = 24,
     .species = SPECIES_KOFFING,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SLUDGE, MOVE_NONE
+    .moves = {MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SLUDGE, MOVE_NONE}
     },
     {
     .lvl = 24,
     .species = SPECIES_KOFFING,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SLUDGE, MOVE_SELF_DESTRUCT
+    .moves = {MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SLUDGE, MOVE_SELF_DESTRUCT}
     },
     {
     .lvl = 26,
     .species = SPECIES_KOFFING,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_TACKLE, MOVE_SLUDGE, MOVE_NONE, MOVE_NONE
+    .moves = {MOVE_TACKLE, MOVE_SLUDGE, MOVE_NONE, MOVE_NONE}
     }
 };
 
@@ -6304,28 +6304,28 @@ static const struct TrainerMonNoItemCustomMoves sParty_Lao3[] = {
     .species = SPECIES_KOFFING,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SLUDGE, MOVE_SELF_DESTRUCT
+    .moves = {MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SLUDGE, MOVE_SELF_DESTRUCT}
     },
     {
     .lvl = 27,
     .species = SPECIES_KOFFING,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SLUDGE, MOVE_SELF_DESTRUCT
+    .moves = {MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SLUDGE, MOVE_SELF_DESTRUCT}
     },
     {
     .lvl = 27,
     .species = SPECIES_KOFFING,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SLUDGE, MOVE_NONE
+    .moves = {MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SLUDGE, MOVE_NONE}
     },
     {
     .lvl = 29,
     .species = SPECIES_KOFFING,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_TACKLE, MOVE_SLUDGE, MOVE_NONE, MOVE_NONE
+    .moves = {MOVE_TACKLE, MOVE_SLUDGE, MOVE_NONE, MOVE_NONE}
     }
 };
 
@@ -6335,28 +6335,28 @@ static const struct TrainerMonNoItemCustomMoves sParty_Lao4[] = {
     .species = SPECIES_KOFFING,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SLUDGE, MOVE_NONE
+    .moves = {MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SLUDGE, MOVE_NONE}
     },
     {
     .lvl = 30,
     .species = SPECIES_KOFFING,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SLUDGE, MOVE_NONE
+    .moves = {MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SLUDGE, MOVE_NONE}
     },
     {
     .lvl = 30,
     .species = SPECIES_KOFFING,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SLUDGE, MOVE_NONE
+    .moves = {MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SLUDGE, MOVE_NONE}
     },
     {
     .lvl = 32,
     .species = SPECIES_KOFFING,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_TACKLE, MOVE_SLUDGE, MOVE_NONE, MOVE_NONE
+    .moves = {MOVE_TACKLE, MOVE_SLUDGE, MOVE_NONE, MOVE_NONE}
     }
 };
 
@@ -6367,7 +6367,7 @@ static const struct TrainerMonItemCustomMoves sParty_Lao5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SLUDGE, MOVE_NONE
+    .moves = {MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SLUDGE, MOVE_NONE}
     },
     {
     .lvl = 33,
@@ -6375,7 +6375,7 @@ static const struct TrainerMonItemCustomMoves sParty_Lao5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SLUDGE, MOVE_SELF_DESTRUCT
+    .moves = {MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SLUDGE, MOVE_SELF_DESTRUCT}
     },
     {
     .lvl = 33,
@@ -6383,7 +6383,7 @@ static const struct TrainerMonItemCustomMoves sParty_Lao5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SLUDGE, MOVE_SELF_DESTRUCT
+    .moves = {MOVE_POISON_GAS, MOVE_TACKLE, MOVE_SLUDGE, MOVE_SELF_DESTRUCT}
     },
     {
     .lvl = 35,
@@ -6391,7 +6391,7 @@ static const struct TrainerMonItemCustomMoves sParty_Lao5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SMOKE_BALL,
-    .moves = MOVE_TACKLE, MOVE_SLUDGE, MOVE_NONE, MOVE_NONE
+    .moves = {MOVE_TACKLE, MOVE_SLUDGE, MOVE_NONE, MOVE_NONE}
     }
 };
 
@@ -6512,7 +6512,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Madeline1[] = {
     .species = SPECIES_NUMEL,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_EMBER, MOVE_TACKLE, MOVE_MAGNITUDE, MOVE_SUNNY_DAY
+    .moves = {MOVE_EMBER, MOVE_TACKLE, MOVE_MAGNITUDE, MOVE_SUNNY_DAY}
     }
 };
 
@@ -6537,7 +6537,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Angelica[] = {
     .species = SPECIES_CASTFORM,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_RAIN_DANCE, MOVE_WEATHER_BALL, MOVE_THUNDER, MOVE_WATER_PULSE
+    .moves = {MOVE_RAIN_DANCE, MOVE_WEATHER_BALL, MOVE_THUNDER, MOVE_WATER_PULSE}
     }
 };
 
@@ -6547,7 +6547,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Madeline2[] = {
     .species = SPECIES_NUMEL,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_EMBER, MOVE_TACKLE, MOVE_MAGNITUDE, MOVE_SUNNY_DAY
+    .moves = {MOVE_EMBER, MOVE_TACKLE, MOVE_MAGNITUDE, MOVE_SUNNY_DAY}
     }
 };
 
@@ -6557,7 +6557,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Madeline3[] = {
     .species = SPECIES_NUMEL,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_EMBER, MOVE_TAKE_DOWN, MOVE_MAGNITUDE, MOVE_SUNNY_DAY
+    .moves = {MOVE_EMBER, MOVE_TAKE_DOWN, MOVE_MAGNITUDE, MOVE_SUNNY_DAY}
     }
 };
 
@@ -6567,14 +6567,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_Madeline4[] = {
     .species = SPECIES_ROSELIA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_LEECH_SEED, MOVE_MEGA_DRAIN, MOVE_GRASS_WHISTLE, MOVE_SUNNY_DAY
+    .moves = {MOVE_LEECH_SEED, MOVE_MEGA_DRAIN, MOVE_GRASS_WHISTLE, MOVE_SUNNY_DAY}
     },
     {
     .lvl = 34,
     .species = SPECIES_NUMEL,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_FLAMETHROWER, MOVE_TAKE_DOWN, MOVE_MAGNITUDE, MOVE_SUNNY_DAY
+    .moves = {MOVE_FLAMETHROWER, MOVE_TAKE_DOWN, MOVE_MAGNITUDE, MOVE_SUNNY_DAY}
     }
 };
 
@@ -6584,14 +6584,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_Madeline5[] = {
     .species = SPECIES_ROSELIA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_LEECH_SEED, MOVE_GIGA_DRAIN, MOVE_SOLAR_BEAM, MOVE_SUNNY_DAY
+    .moves = {MOVE_LEECH_SEED, MOVE_GIGA_DRAIN, MOVE_SOLAR_BEAM, MOVE_SUNNY_DAY}
     },
     {
     .lvl = 37,
     .species = SPECIES_CAMERUPT,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_FLAMETHROWER, MOVE_TAKE_DOWN, MOVE_EARTHQUAKE, MOVE_SUNNY_DAY
+    .moves = {MOVE_FLAMETHROWER, MOVE_TAKE_DOWN, MOVE_EARTHQUAKE, MOVE_SUNNY_DAY}
     }
 };
 
@@ -6937,14 +6937,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_Heidi[] = {
     .species = SPECIES_SANDSHREW,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_DIG, MOVE_SAND_ATTACK, MOVE_POISON_STING, MOVE_SLASH
+    .moves = {MOVE_DIG, MOVE_SAND_ATTACK, MOVE_POISON_STING, MOVE_SLASH}
     },
     {
     .lvl = 22,
     .species = SPECIES_BALTOY,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_RAPID_SPIN, MOVE_MUD_SLAP, MOVE_PSYBEAM, MOVE_ROCK_TOMB
+    .moves = {MOVE_RAPID_SPIN, MOVE_MUD_SLAP, MOVE_PSYBEAM, MOVE_ROCK_TOMB}
     }
 };
 
@@ -6954,14 +6954,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_Becky[] = {
     .species = SPECIES_SANDSHREW,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_SAND_ATTACK, MOVE_POISON_STING, MOVE_SLASH, MOVE_DIG
+    .moves = {MOVE_SAND_ATTACK, MOVE_POISON_STING, MOVE_SLASH, MOVE_DIG}
     },
     {
     .lvl = 22,
     .species = SPECIES_MARILL,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_ROLLOUT, MOVE_BUBBLE_BEAM, MOVE_TAIL_WHIP, MOVE_DEFENSE_CURL
+    .moves = {MOVE_ROLLOUT, MOVE_BUBBLE_BEAM, MOVE_TAIL_WHIP, MOVE_DEFENSE_CURL}
     }
 };
 
@@ -7037,7 +7037,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Cedric[] = {
     .species = SPECIES_WOBBUFFET,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_DESTINY_BOND, MOVE_SAFEGUARD, MOVE_COUNTER, MOVE_MIRROR_COAT
+    .moves = {MOVE_DESTINY_BOND, MOVE_SAFEGUARD, MOVE_COUNTER, MOVE_MIRROR_COAT}
     }
 };
 
@@ -7221,14 +7221,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_GinaAndMia2[] = {
     .species = SPECIES_DUSKULL,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_NIGHT_SHADE, MOVE_DISABLE, MOVE_NONE, MOVE_NONE
+    .moves = {MOVE_NIGHT_SHADE, MOVE_DISABLE, MOVE_NONE, MOVE_NONE}
     },
     {
     .lvl = 10,
     .species = SPECIES_SHROOMISH,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_ABSORB, MOVE_LEECH_SEED, MOVE_NONE, MOVE_NONE
+    .moves = {MOVE_ABSORB, MOVE_LEECH_SEED, MOVE_NONE, MOVE_NONE}
     }
 };
 
@@ -7253,14 +7253,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_AmyAndLiv5[] = {
     .species = SPECIES_PLUSLE,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_SPARK, MOVE_CHARGE, MOVE_FAKE_TEARS, MOVE_HELPING_HAND
+    .moves = {MOVE_SPARK, MOVE_CHARGE, MOVE_FAKE_TEARS, MOVE_HELPING_HAND}
     },
     {
     .lvl = 33,
     .species = SPECIES_MINUN,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_SPARK, MOVE_CHARGE, MOVE_CHARM, MOVE_HELPING_HAND
+    .moves = {MOVE_SPARK, MOVE_CHARGE, MOVE_CHARM, MOVE_HELPING_HAND}
     }
 };
 
@@ -7270,14 +7270,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_AmyAndLiv6[] = {
     .species = SPECIES_PLUSLE,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_THUNDER, MOVE_CHARGE, MOVE_FAKE_TEARS, MOVE_HELPING_HAND
+    .moves = {MOVE_THUNDER, MOVE_CHARGE, MOVE_FAKE_TEARS, MOVE_HELPING_HAND}
     },
     {
     .lvl = 36,
     .species = SPECIES_MINUN,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_THUNDER, MOVE_CHARGE, MOVE_CHARM, MOVE_HELPING_HAND
+    .moves = {MOVE_THUNDER, MOVE_CHARGE, MOVE_CHARM, MOVE_HELPING_HAND}
     }
 };
 
@@ -7492,7 +7492,7 @@ static const struct TrainerMonItemCustomMoves sParty_Annika[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_ORAN_BERRY,
-    .moves = MOVE_FLAIL, MOVE_WATER_PULSE, MOVE_RETURN, MOVE_ATTRACT
+    .moves = {MOVE_FLAIL, MOVE_WATER_PULSE, MOVE_RETURN, MOVE_ATTRACT}
     },
     {
     .lvl = 39,
@@ -7500,7 +7500,7 @@ static const struct TrainerMonItemCustomMoves sParty_Annika[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_ORAN_BERRY,
-    .moves = MOVE_FLAIL, MOVE_WATER_PULSE, MOVE_RETURN, MOVE_ATTRACT
+    .moves = {MOVE_FLAIL, MOVE_WATER_PULSE, MOVE_RETURN, MOVE_ATTRACT}
     }
 };
 
@@ -7519,7 +7519,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Jonas[] = {
     .species = SPECIES_KOFFING,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_TOXIC, MOVE_THUNDER, MOVE_SELF_DESTRUCT, MOVE_SLUDGE_BOMB
+    .moves = {MOVE_TOXIC, MOVE_THUNDER, MOVE_SELF_DESTRUCT, MOVE_SLUDGE_BOMB}
     }
 };
 
@@ -7529,7 +7529,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Kayley[] = {
     .species = SPECIES_CASTFORM,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_SUNNY_DAY, MOVE_WEATHER_BALL, MOVE_FLAMETHROWER, MOVE_SOLAR_BEAM
+    .moves = {MOVE_SUNNY_DAY, MOVE_WEATHER_BALL, MOVE_FLAMETHROWER, MOVE_SOLAR_BEAM}
     }
 };
 
@@ -7570,7 +7570,7 @@ static const struct TrainerMonItemCustomMoves sParty_Marley[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_BITE, MOVE_ROAR, MOVE_THUNDER_WAVE, MOVE_THUNDERBOLT
+    .moves = {MOVE_BITE, MOVE_ROAR, MOVE_THUNDER_WAVE, MOVE_THUNDERBOLT}
     }
 };
 
@@ -7724,309 +7724,333 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Edwin5[] = {
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_BrendanRoute103Mudkip[] = {
+static const struct TrainerMonNoItemDefaultMoves sParty_RivalRoute103Mudkip[] = {
     {
     .lvl = 5,
     .species = SPECIES_TREECKO,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 0,
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_BrendanRoute110Mudkip[] = {
+static const struct TrainerMonNoItemDefaultMoves sParty_RivalRustboroMudkip[] = {
     {
-    .lvl = 18,
-    .species = SPECIES_SLUGMA,
+    .lvl = 13,
+    .species = SPECIES_TAILLOW,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 0,
     },
     {
-    .lvl = 18,
-    .species = SPECIES_WINGULL,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 20,
-    .species = SPECIES_GROVYLE,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    }
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_BrendanRoute119Mudkip[] = {
-    {
-    .lvl = 29,
-    .species = SPECIES_SLUGMA,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 29,
-    .species = SPECIES_PELIPPER,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 31,
-    .species = SPECIES_GROVYLE,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    }
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_BrendanRoute103Treecko[] = {
-    {
-    .lvl = 5,
-    .species = SPECIES_TORCHIC,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    }
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_BrendanRoute110Treecko[] = {
-    {
-    .lvl = 18,
-    .species = SPECIES_WINGULL,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 18,
-    .species = SPECIES_LOMBRE,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 20,
-    .species = SPECIES_COMBUSKEN,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    }
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_BrendanRoute119Treecko[] = {
-    {
-    .lvl = 29,
-    .species = SPECIES_PELIPPER,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 29,
-    .species = SPECIES_LOMBRE,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 31,
-    .species = SPECIES_COMBUSKEN,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    }
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_BrendanRoute103Torchic[] = {
-    {
-    .lvl = 5,
-    .species = SPECIES_MUDKIP,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    }
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_BrendanRoute110Torchic[] = {
-    {
-    .lvl = 18,
-    .species = SPECIES_LOMBRE,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 18,
-    .species = SPECIES_SLUGMA,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 20,
-    .species = SPECIES_MARSHTOMP,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    }
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_BrendanRoute119Torchic[] = {
-    {
-    .lvl = 29,
-    .species = SPECIES_LOMBRE,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 29,
-    .species = SPECIES_SLUGMA,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 31,
-    .species = SPECIES_MARSHTOMP,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    }
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_MayRoute103Mudkip[] = {
-    {
-    .lvl = 5,
+    .lvl = 15,
     .species = SPECIES_TREECKO,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 0,
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_MayRoute110Mudkip[] = {
+static const struct TrainerMonNoItemDefaultMoves sParty_RivalRoute110Mudkip[] = {
     {
     .lvl = 18,
-    .species = SPECIES_WINGULL,
+    .species = SPECIES_TAILLOW,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 0,
     },
     {
-    .lvl = 18,
-    .species = SPECIES_SLUGMA,
+    .lvl = 16,
+    .species = SPECIES_FLAAFFY,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 0,
     },
     {
     .lvl = 20,
     .species = SPECIES_GROVYLE,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 0,
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_MayRoute119Mudkip[] = {
+static const struct TrainerMonNoItemDefaultMoves sParty_RivalRoute119Mudkip[] = {
     {
-    .lvl = 29,
-    .species = SPECIES_SLUGMA,
+    .lvl = 28,
+    .species = SPECIES_FLAAFFY,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 0,
     },
     {
     .lvl = 29,
-    .species = SPECIES_LOMBRE,
+    .species = SPECIES_AZUMARILL,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 1,
     },
     {
-    .lvl = 31,
+    .lvl = 29,
+    .species = SPECIES_SWELLOW,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 0,
+    },
+    {
+    .lvl = 32,
     .species = SPECIES_GROVYLE,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 0,
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_MayRoute103Treecko[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_RivalLilycoveMudkip[] = {
+    {
+    .lvl = 35,
+    .species = SPECIES_AMPHAROS,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 0,
+    .moves = {MOVE_POWER_GEM, MOVE_CONFUSE_RAY, MOVE_THUNDERBOLT, MOVE_THUNDER_WAVE}
+    },
+    {
+    .lvl = 34,
+    .species = SPECIES_RAPIDASH,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 1,
+    .moves = {MOVE_SUNNY_DAY, MOVE_FLAME_CHARGE, MOVE_MORNING_SUN, MOVE_STOMP}
+    },
+    {
+    .lvl = 34,
+    .species = SPECIES_AZUMARILL,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 1,
+    .moves = {MOVE_PLAY_ROUGH, MOVE_AQUA_TAIL, MOVE_AQUA_RING, MOVE_ROLLOUT}
+    },
+    {
+    .lvl = 34,
+    .species = SPECIES_SWELLOW,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 0,
+    .moves = {MOVE_FACADE, MOVE_AGILITY, MOVE_AERIAL_ACE, MOVE_ROOST}
+    },
+    {
+    .lvl = 36,
+    .species = SPECIES_SCEPTILE,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 0,
+    .moves = {MOVE_TOXIC, MOVE_GIGA_DRAIN, MOVE_BRICK_BREAK, MOVE_PURSUIT}
+    }
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_RivalRoute103Treecko[] = {
     {
     .lvl = 5,
     .species = SPECIES_TORCHIC,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 0,
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_MayRoute110Treecko[] = {
+static const struct TrainerMonNoItemDefaultMoves sParty_RivalRustboroTreecko[] = {
     {
-    .lvl = 18,
-    .species = SPECIES_WINGULL,
+    .lvl = 13,
+    .species = SPECIES_TAILLOW,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 0,
     },
     {
-    .lvl = 18,
-    .species = SPECIES_LOMBRE,
+    .lvl = 15,
+    .species = SPECIES_TORCHIC,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 0,
+    }
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_RivalRoute110Treecko[] = {
+    {
+    .lvl = 18,
+    .species = SPECIES_SWELLOW,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 0,
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_FLAAFFY,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 0,
     },
     {
     .lvl = 20,
     .species = SPECIES_COMBUSKEN,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 0,
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_MayRoute119Treecko[] = {
+static const struct TrainerMonNoItemDefaultMoves sParty_RivalRoute119Treecko[] = {
     {
-    .lvl = 29,
-    .species = SPECIES_PELIPPER,
+    .lvl = 28,
+    .species = SPECIES_FLAAFFY,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 0,
     },
     {
     .lvl = 29,
-    .species = SPECIES_LOMBRE,
+    .species = SPECIES_AZUMARILL,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 1,
     },
     {
-    .lvl = 31,
+    .lvl = 29,
+    .species = SPECIES_SWELLOW,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 0,
+    },
+    {
+    .lvl = 32,
     .species = SPECIES_COMBUSKEN,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 0,
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_MayRoute103Torchic[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_RivalLilycoveTreecko[] = {
+    {
+    .lvl = 35,
+    .species = SPECIES_AMPHAROS,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 0,
+    .moves = {MOVE_POWER_GEM, MOVE_CONFUSE_RAY, MOVE_THUNDERBOLT, MOVE_THUNDER_WAVE}
+    },
+    {
+    .lvl = 34,
+    .species = SPECIES_VILEPLUME,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 0,
+    .moves = {MOVE_GIGA_DRAIN, MOVE_TOXIC, MOVE_INFESTATION, MOVE_VENOSHOCK}
+    },
+    {
+    .lvl = 34,
+    .species = SPECIES_AZUMARILL,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 1,
+    .moves = {MOVE_PLAY_ROUGH, MOVE_AQUA_TAIL, MOVE_AQUA_RING, MOVE_ROLLOUT}
+    },
+    {
+    .lvl = 34,
+    .species = SPECIES_SWELLOW,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 0,
+    .moves = {MOVE_FACADE, MOVE_AGILITY, MOVE_AERIAL_ACE, MOVE_ROOST}
+    },
+    {
+    .lvl = 36,
+    .species = SPECIES_BLAZIKEN,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 0,
+    .moves = {MOVE_BULK_UP, MOVE_FLAME_CHARGE, MOVE_DOUBLE_KICK, MOVE_FOCUS_ENERGY}
+    }
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_RivalRoute103Torchic[] = {
     {
     .lvl = 5,
     .species = SPECIES_MUDKIP,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 0,
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_MayRoute110Torchic[] = {
+static const struct TrainerMonNoItemDefaultMoves sParty_RivalRustboroTorchic[] = {
     {
-    .lvl = 18,
-    .species = SPECIES_LOMBRE,
+    .lvl = 13,
+    .species = SPECIES_TAILLOW,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 0,
     },
     {
-    .lvl = 18,
-    .species = SPECIES_SLUGMA,
+    .lvl = 15,
+    .species = SPECIES_MUDKIP,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 0,
+    }
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_RivalRoute110Torchic[] = {
+    {
+    .lvl = 18,
+    .species = SPECIES_TAILLOW,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 0,
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_FLAAFFY,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 0,
     },
     {
     .lvl = 20,
     .species = SPECIES_MARSHTOMP,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 0,
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_MayRoute119Torchic[] = {
+static const struct TrainerMonNoItemDefaultMoves sParty_RivalRoute119Torchic[] = {
     {
-    .lvl = 29,
-    .species = SPECIES_LOMBRE,
+    .lvl = 28,
+    .species = SPECIES_FLAAFFY,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 0,
     },
     {
     .lvl = 29,
-    .species = SPECIES_SLUGMA,
+    .species = SPECIES_GLOOM,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 0,
+    },
+    {
+    .lvl = 29,
+    .species = SPECIES_SWELLOW,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 0,
     },
     {
     .lvl = 31,
     .species = SPECIES_MARSHTOMP,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 0,
+    }
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_RivalLilycoveTorchic[] = {
+    {
+    .lvl = 35,
+    .species = SPECIES_AMPHAROS,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 0,
+    .moves = {MOVE_POWER_GEM, MOVE_CONFUSE_RAY, MOVE_THUNDERBOLT, MOVE_THUNDER_WAVE}
+    },
+    {
+    .lvl = 34,
+    .species = SPECIES_RAPIDASH,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 1,
+    .moves = {MOVE_SUNNY_DAY, MOVE_FLAME_CHARGE, MOVE_MORNING_SUN, MOVE_STOMP}
+    },
+    {
+    .lvl = 34,
+    .species = SPECIES_VILEPLUME,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 0,
+    .moves = {MOVE_GIGA_DRAIN, MOVE_TOXIC, MOVE_INFESTATION, MOVE_VENOSHOCK}
+    },
+    {
+    .lvl = 34,
+    .species = SPECIES_SWELLOW,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 0,
+    .moves = {MOVE_FACADE, MOVE_AGILITY, MOVE_AERIAL_ACE, MOVE_ROOST}
+    },
+    {
+    .lvl = 36,
+    .species = SPECIES_SWAMPERT,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 0,
+    .moves = {MOVE_BULLDOZE, MOVE_SURF, MOVE_ROCK_SLIDE, MOVE_PROTECT}
     }
 };
 
@@ -8084,14 +8108,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_Mitchell[] = {
     .species = SPECIES_LUNATONE,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_EXPLOSION, MOVE_REFLECT, MOVE_LIGHT_SCREEN, MOVE_PSYCHIC
+    .moves = {MOVE_EXPLOSION, MOVE_REFLECT, MOVE_LIGHT_SCREEN, MOVE_PSYCHIC}
     },
     {
     .lvl = 43,
     .species = SPECIES_SOLROCK,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_EXPLOSION, MOVE_REFLECT, MOVE_LIGHT_SCREEN, MOVE_SHADOW_BALL
+    .moves = {MOVE_EXPLOSION, MOVE_REFLECT, MOVE_LIGHT_SCREEN, MOVE_SHADOW_BALL}
     }
 };
 
@@ -8798,7 +8822,7 @@ static const struct TrainerMonItemCustomMoves sParty_Athena[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_THUNDER, MOVE_THUNDER_WAVE, MOVE_QUICK_ATTACK, MOVE_NONE
+    .moves = {MOVE_THUNDER, MOVE_THUNDER_WAVE, MOVE_QUICK_ATTACK, MOVE_NONE}
     },
     {
     .lvl = 32,
@@ -8806,7 +8830,7 @@ static const struct TrainerMonItemCustomMoves sParty_Athena[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SURF, MOVE_THIEF, MOVE_NONE, MOVE_NONE
+    .moves = {MOVE_SURF, MOVE_THIEF, MOVE_NONE, MOVE_NONE}
     }
 };
 
@@ -8942,36 +8966,6 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Macey[] = {
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_BrendanRustboroTreecko[] = {//Brendan10
-    {
-    .lvl = 13,
-    .species = SPECIES_LOTAD,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 15,
-    .species = SPECIES_TORCHIC,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    }
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_BrendanRustboroMudkip[] = {//Brendan11
-    {
-    .lvl = 13,
-    .species = SPECIES_WINGULL,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 15,
-    .species = SPECIES_TREECKO,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    }
-};
-
 static const struct TrainerMonNoItemDefaultMoves sParty_Paxton[] = {
     {
     .lvl = 33,
@@ -9048,36 +9042,6 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Jonathan[] = {
     {
     .lvl = 33,
     .species = SPECIES_LOUDRED,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    }
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_BrendanRustboroTorchic[] = {//Brendan12
-    {
-    .lvl = 13,
-    .species = SPECIES_SLUGMA,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 15,
-    .species = SPECIES_MUDKIP,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    }
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_MayRustboroMudkip[] = {//May10
-    {
-    .lvl = 13,
-    .species = SPECIES_WINGULL,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 15,
-    .species = SPECIES_TREECKO,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     }
@@ -9605,7 +9569,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Lucas2[] = {
     .species = SPECIES_WAILMER,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_SPLASH, MOVE_WATER_GUN, MOVE_NONE, MOVE_NONE
+    .moves = {MOVE_SPLASH, MOVE_WATER_GUN, MOVE_NONE, MOVE_NONE}
     }
 };
 
@@ -9615,14 +9579,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_Mike1[] = {
     .species = SPECIES_PELIPPER,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_GUST, MOVE_GROWL, MOVE_NONE, MOVE_NONE
+    .moves = {MOVE_GUST, MOVE_GROWL, MOVE_NONE, MOVE_NONE}
     },
     {
     .lvl = 10,
     .species = SPECIES_POOCHYENA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_BITE, MOVE_SCARY_FACE, MOVE_NONE, MOVE_NONE
+    .moves = {MOVE_BITE, MOVE_SCARY_FACE, MOVE_NONE, MOVE_NONE}
     }
 };
 
@@ -9875,7 +9839,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Gerald[] = {
     .species = SPECIES_KECLEON,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_FLAMETHROWER, MOVE_FURY_SWIPES, MOVE_FAINT_ATTACK, MOVE_BIND
+    .moves = {MOVE_FLAMETHROWER, MOVE_FURY_SWIPES, MOVE_FAINT_ATTACK, MOVE_BIND}
     }
 };
 
@@ -9885,14 +9849,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_Vivian[] = {
     .species = SPECIES_MEDITITE,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_BIDE, MOVE_DETECT, MOVE_CONFUSION, MOVE_THUNDER_PUNCH
+    .moves = {MOVE_BIDE, MOVE_DETECT, MOVE_CONFUSION, MOVE_THUNDER_PUNCH}
     },
     {
     .lvl = 17,
     .species = SPECIES_MEDITITE,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_THUNDER_PUNCH, MOVE_DETECT, MOVE_CONFUSION, MOVE_MEDITATE
+    .moves = {MOVE_THUNDER_PUNCH, MOVE_DETECT, MOVE_CONFUSION, MOVE_MEDITATE}
     }
 };
 
@@ -9902,7 +9866,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Danielle[] = {
     .species = SPECIES_MEDITITE,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_BIDE, MOVE_DETECT, MOVE_CONFUSION, MOVE_FIRE_PUNCH
+    .moves = {MOVE_BIDE, MOVE_DETECT, MOVE_CONFUSION, MOVE_FIRE_PUNCH}
     }
 };
 
@@ -9912,14 +9876,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_Hideo[] = {
     .species = SPECIES_KOFFING,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_TACKLE, MOVE_SELF_DESTRUCT, MOVE_SLUDGE, MOVE_SMOKESCREEN
+    .moves = {MOVE_TACKLE, MOVE_SELF_DESTRUCT, MOVE_SLUDGE, MOVE_SMOKESCREEN}
     },
     {
     .lvl = 25,
     .species = SPECIES_KOFFING,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_TACKLE, MOVE_POISON_GAS, MOVE_SLUDGE, MOVE_SMOKESCREEN
+    .moves = {MOVE_TACKLE, MOVE_POISON_GAS, MOVE_SLUDGE, MOVE_SMOKESCREEN}
     }
 };
 
@@ -9929,14 +9893,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_Keigo[] = {
     .species = SPECIES_KOFFING,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_POISON_GAS, MOVE_SELF_DESTRUCT, MOVE_SLUDGE, MOVE_SMOKESCREEN
+    .moves = {MOVE_POISON_GAS, MOVE_SELF_DESTRUCT, MOVE_SLUDGE, MOVE_SMOKESCREEN}
     },
     {
     .lvl = 28,
     .species = SPECIES_NINJASK,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_SAND_ATTACK, MOVE_DOUBLE_TEAM, MOVE_FURY_CUTTER, MOVE_SWORDS_DANCE
+    .moves = {MOVE_SAND_ATTACK, MOVE_DOUBLE_TEAM, MOVE_FURY_CUTTER, MOVE_SWORDS_DANCE}
     }
 };
 
@@ -9946,14 +9910,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_Riley[] = {
     .species = SPECIES_NINCADA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_LEECH_LIFE, MOVE_FURY_SWIPES, MOVE_MIND_READER, MOVE_DIG
+    .moves = {MOVE_LEECH_LIFE, MOVE_FURY_SWIPES, MOVE_MIND_READER, MOVE_DIG}
     },
     {
     .lvl = 28,
     .species = SPECIES_KOFFING,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_TACKLE, MOVE_SELF_DESTRUCT, MOVE_SLUDGE, MOVE_SMOKESCREEN
+    .moves = {MOVE_TACKLE, MOVE_SELF_DESTRUCT, MOVE_SLUDGE, MOVE_SMOKESCREEN}
     }
 };
 
@@ -10008,35 +9972,35 @@ static const struct TrainerMonNoItemCustomMoves sParty_WallyVR1[] = {
     .species = SPECIES_ALTARIA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 0,
-    .moves = MOVE_AERIAL_ACE, MOVE_SAFEGUARD, MOVE_DRAGON_PULSE, MOVE_DRAGON_DANCE
+    .moves = {MOVE_AERIAL_ACE, MOVE_SAFEGUARD, MOVE_DRAGON_PULSE, MOVE_DRAGON_DANCE}
     },
     {
     .lvl = 43,
     .species = SPECIES_DELCATTY,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 1,
-    .moves = MOVE_SING, MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK
+    .moves = {MOVE_SING, MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK}
     },
     {
     .lvl = 44,
     .species = SPECIES_ROSELIA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 0,
-    .moves = MOVE_SLUDGE_BOMB, MOVE_LEECH_SEED, MOVE_GIGA_DRAIN, MOVE_TOXIC
+    .moves = {MOVE_SLUDGE_BOMB, MOVE_LEECH_SEED, MOVE_GIGA_DRAIN, MOVE_TOXIC}
     },
     {
     .lvl = 41,
     .species = SPECIES_MAGNETON,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 1,
-    .moves = MOVE_SUPERSONIC, MOVE_THUNDERBOLT, MOVE_TRI_ATTACK, MOVE_FLASH_CANNON
+    .moves = {MOVE_SUPERSONIC, MOVE_THUNDERBOLT, MOVE_TRI_ATTACK, MOVE_FLASH_CANNON}
     },
     {
     .lvl = 45,
     .species = SPECIES_GARDEVOIR,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 0,
-    .moves = MOVE_DOUBLE_TEAM, MOVE_CALM_MIND, MOVE_PSYCHIC, MOVE_DAZZLING_GLEAM
+    .moves = {MOVE_DOUBLE_TEAM, MOVE_CALM_MIND, MOVE_PSYCHIC, MOVE_DAZZLING_GLEAM}
     }
 };
 
@@ -10046,35 +10010,35 @@ static const struct TrainerMonNoItemCustomMoves sParty_WallyVR2[] = {
     .species = SPECIES_ALTARIA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 0,
-    .moves = MOVE_AERIAL_ACE, MOVE_SAFEGUARD, MOVE_DRAGON_PULSE, MOVE_DRAGON_DANCE
+    .moves = {MOVE_AERIAL_ACE, MOVE_SAFEGUARD, MOVE_DRAGON_PULSE, MOVE_DRAGON_DANCE}
     },
     {
     .lvl = 46,
     .species = SPECIES_DELCATTY,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 1,
-    .moves = MOVE_SING, MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK
+    .moves = {MOVE_SING, MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK}
     },
     {
     .lvl = 47,
     .species = SPECIES_ROSELIA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 0,
-    .moves = MOVE_SLUDGE_BOMB, MOVE_LEECH_SEED, MOVE_GIGA_DRAIN, MOVE_TOXIC
+    .moves = {MOVE_SLUDGE_BOMB, MOVE_LEECH_SEED, MOVE_GIGA_DRAIN, MOVE_TOXIC}
     },
     {
     .lvl = 44,
     .species = SPECIES_MAGNETON,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 1,
-    .moves = MOVE_SUPERSONIC, MOVE_THUNDERBOLT, MOVE_TRI_ATTACK, MOVE_FLASH_CANNON
+    .moves = {MOVE_SUPERSONIC, MOVE_THUNDERBOLT, MOVE_TRI_ATTACK, MOVE_FLASH_CANNON}
     },
     {
     .lvl = 48,
     .species = SPECIES_GARDEVOIR,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 0,
-    .moves = MOVE_DOUBLE_TEAM, MOVE_CALM_MIND, MOVE_PSYCHIC, MOVE_DAZZLING_GLEAM
+    .moves = {MOVE_DOUBLE_TEAM, MOVE_CALM_MIND, MOVE_PSYCHIC, MOVE_DAZZLING_GLEAM}
     }
 };
 
@@ -10084,35 +10048,35 @@ static const struct TrainerMonNoItemCustomMoves sParty_WallyVR3[] = {
     .species = SPECIES_ALTARIA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 0,
-    .moves = MOVE_AERIAL_ACE, MOVE_SAFEGUARD, MOVE_DRAGON_PULSE, MOVE_DRAGON_DANCE
+    .moves = {MOVE_AERIAL_ACE, MOVE_SAFEGUARD, MOVE_DRAGON_PULSE, MOVE_DRAGON_DANCE}
     },
     {
     .lvl = 49,
     .species = SPECIES_DELCATTY,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 1,
-    .moves = MOVE_SING, MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK
+    .moves = {MOVE_SING, MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK}
     },
     {
     .lvl = 50,
     .species = SPECIES_ROSELIA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 0,
-    .moves = MOVE_SLUDGE_BOMB, MOVE_LEECH_SEED, MOVE_GIGA_DRAIN, MOVE_TOXIC
+    .moves = {MOVE_SLUDGE_BOMB, MOVE_LEECH_SEED, MOVE_GIGA_DRAIN, MOVE_TOXIC}
     },
     {
     .lvl = 47,
     .species = SPECIES_MAGNETON,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 1,
-    .moves = MOVE_SUPERSONIC, MOVE_THUNDERBOLT, MOVE_TRI_ATTACK, MOVE_FLASH_CANNON
+    .moves = {MOVE_SUPERSONIC, MOVE_THUNDERBOLT, MOVE_TRI_ATTACK, MOVE_FLASH_CANNON}
     },
     {
     .lvl = 51,
     .species = SPECIES_GARDEVOIR,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 0,
-    .moves = MOVE_DOUBLE_TEAM, MOVE_CALM_MIND, MOVE_PSYCHIC, MOVE_DAZZLING_GLEAM
+    .moves = {MOVE_DOUBLE_TEAM, MOVE_CALM_MIND, MOVE_PSYCHIC, MOVE_DAZZLING_GLEAM}
     }
 };
 
@@ -10122,35 +10086,35 @@ static const struct TrainerMonNoItemCustomMoves sParty_WallyVR4[] = {
     .species = SPECIES_ALTARIA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 0,
-    .moves = MOVE_AERIAL_ACE, MOVE_SAFEGUARD, MOVE_DRAGON_PULSE, MOVE_DRAGON_DANCE
+    .moves = {MOVE_AERIAL_ACE, MOVE_SAFEGUARD, MOVE_DRAGON_PULSE, MOVE_DRAGON_DANCE}
     },
     {
     .lvl = 52,
     .species = SPECIES_DELCATTY,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 1,
-    .moves = MOVE_SING, MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK
+    .moves = {MOVE_SING, MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK}
     },
     {
     .lvl = 53,
     .species = SPECIES_ROSELIA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 0,
-    .moves = MOVE_SLUDGE_BOMB, MOVE_LEECH_SEED, MOVE_GIGA_DRAIN, MOVE_TOXIC
+    .moves = {MOVE_SLUDGE_BOMB, MOVE_LEECH_SEED, MOVE_GIGA_DRAIN, MOVE_TOXIC}
     },
     {
     .lvl = 50,
     .species = SPECIES_MAGNETON,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 1,
-    .moves = MOVE_SUPERSONIC, MOVE_THUNDERBOLT, MOVE_TRI_ATTACK, MOVE_FLASH_CANNON
+    .moves = {MOVE_SUPERSONIC, MOVE_THUNDERBOLT, MOVE_TRI_ATTACK, MOVE_FLASH_CANNON}
     },
     {
     .lvl = 54,
     .species = SPECIES_GARDEVOIR,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 0,
-    .moves = MOVE_DOUBLE_TEAM, MOVE_CALM_MIND, MOVE_PSYCHIC, MOVE_DAZZLING_GLEAM
+    .moves = {MOVE_DOUBLE_TEAM, MOVE_CALM_MIND, MOVE_PSYCHIC, MOVE_DAZZLING_GLEAM}
     }
 };
 
@@ -10160,197 +10124,35 @@ static const struct TrainerMonNoItemCustomMoves sParty_WallyVR5[] = {
     .species = SPECIES_ALTARIA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 0,
-    .moves = MOVE_AERIAL_ACE, MOVE_SAFEGUARD, MOVE_DRAGON_PULSE, MOVE_DRAGON_DANCE
+    .moves = {MOVE_AERIAL_ACE, MOVE_SAFEGUARD, MOVE_DRAGON_PULSE, MOVE_DRAGON_DANCE}
     },
     {
     .lvl = 55,
     .species = SPECIES_DELCATTY,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 1,
-    .moves = MOVE_SING, MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK
+    .moves = {MOVE_SING, MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK}
     },
     {
     .lvl = 56,
     .species = SPECIES_ROSELIA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 0,
-    .moves = MOVE_SLUDGE_BOMB, MOVE_LEECH_SEED, MOVE_GIGA_DRAIN, MOVE_TOXIC
+    .moves = {MOVE_SLUDGE_BOMB, MOVE_LEECH_SEED, MOVE_GIGA_DRAIN, MOVE_TOXIC}
     },
     {
     .lvl = 53,
     .species = SPECIES_MAGNETON,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 1,
-    .moves = MOVE_SUPERSONIC, MOVE_THUNDERBOLT, MOVE_TRI_ATTACK, MOVE_FLASH_CANNON
+    .moves = {MOVE_SUPERSONIC, MOVE_THUNDERBOLT, MOVE_TRI_ATTACK, MOVE_FLASH_CANNON}
     },
     {
     .lvl = 57,
     .species = SPECIES_GARDEVOIR,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 0,
-    .moves = MOVE_DOUBLE_TEAM, MOVE_CALM_MIND, MOVE_PSYCHIC, MOVE_DAZZLING_GLEAM
-    }
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_BrendanLilycoveMudkip[] = {//Brendan13
-    {
-    .lvl = 31,
-    .species = SPECIES_TROPIUS,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 32,
-    .species = SPECIES_SLUGMA,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 32,
-    .species = SPECIES_PELIPPER,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 34,
-    .species = SPECIES_GROVYLE,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    }
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_BrendanLilycoveTreecko[] = {//Brendan14
-    {
-    .lvl = 31,
-    .species = SPECIES_TROPIUS,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 32,
-    .species = SPECIES_PELIPPER,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 32,
-    .species = SPECIES_LUDICOLO,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 34,
-    .species = SPECIES_COMBUSKEN,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    }
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_BrendanLilycoveTorchic[] = {//Brendan15
-    {
-    .lvl = 31,
-    .species = SPECIES_TROPIUS,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 32,
-    .species = SPECIES_LUDICOLO,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 32,
-    .species = SPECIES_SLUGMA,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 34,
-    .species = SPECIES_MARSHTOMP,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    }
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_MayLilycoveMudkip[] = {//May11
-    {
-    .lvl = 31,
-    .species = SPECIES_TROPIUS,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 32,
-    .species = SPECIES_SLUGMA,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 32,
-    .species = SPECIES_PELIPPER,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 34,
-    .species = SPECIES_GROVYLE,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    }
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_MayLilycoveTreecko[] = {//May12
-    {
-    .lvl = 31,
-    .species = SPECIES_TROPIUS,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 32,
-    .species = SPECIES_PELIPPER,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 32,
-    .species = SPECIES_LUDICOLO,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 34,
-    .species = SPECIES_COMBUSKEN,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    }
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_MayLilycoveTorchic[] = {//May13
-    {
-    .lvl = 31,
-    .species = SPECIES_TROPIUS,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 32,
-    .species = SPECIES_LUDICOLO,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 32,
-    .species = SPECIES_SLUGMA,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 34,
-    .species = SPECIES_MARSHTOMP,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .moves = {MOVE_DOUBLE_TEAM, MOVE_CALM_MIND, MOVE_PSYCHIC, MOVE_DAZZLING_GLEAM}
     }
 };
 
@@ -10531,14 +10333,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_KimAndIris[] = {
     .species = SPECIES_SWABLU,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_SING, MOVE_FURY_ATTACK, MOVE_SAFEGUARD, MOVE_AERIAL_ACE
+    .moves = {MOVE_SING, MOVE_FURY_ATTACK, MOVE_SAFEGUARD, MOVE_AERIAL_ACE}
     },
     {
     .lvl = 35,
     .species = SPECIES_NUMEL,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_FLAMETHROWER, MOVE_TAKE_DOWN, MOVE_REST, MOVE_EARTHQUAKE
+    .moves = {MOVE_FLAMETHROWER, MOVE_TAKE_DOWN, MOVE_REST, MOVE_EARTHQUAKE}
     }
 };
 
@@ -10548,14 +10350,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_TyraAndIvy[] = {
     .species = SPECIES_ROSELIA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_GROWTH, MOVE_STUN_SPORE, MOVE_MEGA_DRAIN, MOVE_LEECH_SEED
+    .moves = {MOVE_GROWTH, MOVE_STUN_SPORE, MOVE_MEGA_DRAIN, MOVE_LEECH_SEED}
     },
     {
     .lvl = 20,
     .species = SPECIES_GRAVELER,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_DEFENSE_CURL, MOVE_ROLLOUT, MOVE_MUD_SPORT, MOVE_ROCK_THROW
+    .moves = {MOVE_DEFENSE_CURL, MOVE_ROLLOUT, MOVE_MUD_SPORT, MOVE_ROCK_THROW}
     }
 };
 
@@ -10565,14 +10367,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_MelAndPaul[] = {
     .species = SPECIES_DUSTOX,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_GUST, MOVE_PSYBEAM, MOVE_TOXIC, MOVE_PROTECT
+    .moves = {MOVE_GUST, MOVE_PSYBEAM, MOVE_TOXIC, MOVE_PROTECT}
     },
     {
     .lvl = 27,
     .species = SPECIES_BEAUTIFLY,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_GUST, MOVE_MEGA_DRAIN, MOVE_ATTRACT, MOVE_STUN_SPORE
+    .moves = {MOVE_GUST, MOVE_MEGA_DRAIN, MOVE_ATTRACT, MOVE_STUN_SPORE}
     }
 };
 
@@ -10582,14 +10384,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_JohnAndJay1[] = {
     .species = SPECIES_MEDICHAM,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_PSYCHIC, MOVE_FIRE_PUNCH, MOVE_PSYCH_UP, MOVE_PROTECT
+    .moves = {MOVE_PSYCHIC, MOVE_FIRE_PUNCH, MOVE_PSYCH_UP, MOVE_PROTECT}
     },
     {
     .lvl = 39,
     .species = SPECIES_HARIYAMA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_FOCUS_PUNCH, MOVE_ROCK_TOMB, MOVE_REST, MOVE_BELLY_DRUM
+    .moves = {MOVE_FOCUS_PUNCH, MOVE_ROCK_TOMB, MOVE_REST, MOVE_BELLY_DRUM}
     }
 };
 
@@ -10599,14 +10401,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_JohnAndJay2[] = {
     .species = SPECIES_MEDICHAM,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_PSYCHIC, MOVE_FIRE_PUNCH, MOVE_PSYCH_UP, MOVE_PROTECT
+    .moves = {MOVE_PSYCHIC, MOVE_FIRE_PUNCH, MOVE_PSYCH_UP, MOVE_PROTECT}
     },
     {
     .lvl = 43,
     .species = SPECIES_HARIYAMA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_FOCUS_PUNCH, MOVE_ROCK_TOMB, MOVE_REST, MOVE_BELLY_DRUM
+    .moves = {MOVE_FOCUS_PUNCH, MOVE_ROCK_TOMB, MOVE_REST, MOVE_BELLY_DRUM}
     }
 };
 
@@ -10616,14 +10418,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_JohnAndJay3[] = {
     .species = SPECIES_MEDICHAM,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_PSYCHIC, MOVE_FIRE_PUNCH, MOVE_PSYCH_UP, MOVE_PROTECT
+    .moves = {MOVE_PSYCHIC, MOVE_FIRE_PUNCH, MOVE_PSYCH_UP, MOVE_PROTECT}
     },
     {
     .lvl = 46,
     .species = SPECIES_HARIYAMA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_FOCUS_PUNCH, MOVE_ROCK_TOMB, MOVE_REST, MOVE_BELLY_DRUM
+    .moves = {MOVE_FOCUS_PUNCH, MOVE_ROCK_TOMB, MOVE_REST, MOVE_BELLY_DRUM}
     }
 };
 
@@ -10633,14 +10435,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_JohnAndJay4[] = {
     .species = SPECIES_MEDICHAM,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_PSYCHIC, MOVE_FIRE_PUNCH, MOVE_PSYCH_UP, MOVE_PROTECT
+    .moves = {MOVE_PSYCHIC, MOVE_FIRE_PUNCH, MOVE_PSYCH_UP, MOVE_PROTECT}
     },
     {
     .lvl = 49,
     .species = SPECIES_HARIYAMA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_FOCUS_PUNCH, MOVE_ROCK_TOMB, MOVE_REST, MOVE_BELLY_DRUM
+    .moves = {MOVE_FOCUS_PUNCH, MOVE_ROCK_TOMB, MOVE_REST, MOVE_BELLY_DRUM}
     }
 };
 
@@ -10650,14 +10452,14 @@ static const struct TrainerMonNoItemCustomMoves sParty_JohnAndJay5[] = {
     .species = SPECIES_MEDICHAM,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_PSYCHIC, MOVE_FIRE_PUNCH, MOVE_PSYCH_UP, MOVE_PROTECT
+    .moves = {MOVE_PSYCHIC, MOVE_FIRE_PUNCH, MOVE_PSYCH_UP, MOVE_PROTECT}
     },
     {
     .lvl = 52,
     .species = SPECIES_HARIYAMA,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_FOCUS_PUNCH, MOVE_ROCK_TOMB, MOVE_REST, MOVE_BELLY_DRUM
+    .moves = {MOVE_FOCUS_PUNCH, MOVE_ROCK_TOMB, MOVE_REST, MOVE_BELLY_DRUM}
     }
 };
 
@@ -11663,7 +11465,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Leonel[] = {
     .species = SPECIES_MANECTRIC,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = MOVE_THUNDER, MOVE_QUICK_ATTACK, MOVE_THUNDER_WAVE, MOVE_NONE
+    .moves = {MOVE_THUNDER, MOVE_QUICK_ATTACK, MOVE_THUNDER_WAVE, MOVE_NONE}
     }
 };
 
@@ -11790,36 +11592,6 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Cristin1[] = {
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_MayRustboroTreecko[] = {//May14
-    {
-    .lvl = 13,
-    .species = SPECIES_LOTAD,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 15,
-    .species = SPECIES_TORCHIC,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    }
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_MayRustboroTorchic[] = {//May15
-    {
-    .lvl = 13,
-    .species = SPECIES_TORKOAL,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    },
-    {
-    .lvl = 15,
-    .species = SPECIES_MUDKIP,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    }
-};
-
 static const struct TrainerMonItemCustomMoves sParty_Roxanne2[] = {
     {
     .lvl = 32,
@@ -11827,7 +11599,7 @@ static const struct TrainerMonItemCustomMoves sParty_Roxanne2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_PROTECT, MOVE_ROLLOUT, MOVE_MAGNITUDE, MOVE_EXPLOSION
+    .moves = {MOVE_PROTECT, MOVE_ROLLOUT, MOVE_MAGNITUDE, MOVE_EXPLOSION}
     },
     {
     .lvl = 35,
@@ -11835,7 +11607,7 @@ static const struct TrainerMonItemCustomMoves sParty_Roxanne2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_SWORDS_DANCE, MOVE_ICE_BEAM, MOVE_SURF, MOVE_ROCK_SLIDE
+    .moves = {MOVE_SWORDS_DANCE, MOVE_ICE_BEAM, MOVE_SURF, MOVE_ROCK_SLIDE}
     },
     {
     .lvl = 35,
@@ -11843,7 +11615,7 @@ static const struct TrainerMonItemCustomMoves sParty_Roxanne2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_IRON_TAIL, MOVE_EXPLOSION, MOVE_ROAR, MOVE_ROCK_SLIDE
+    .moves = {MOVE_IRON_TAIL, MOVE_EXPLOSION, MOVE_ROAR, MOVE_ROCK_SLIDE}
     },
     {
     .lvl = 37,
@@ -11851,7 +11623,7 @@ static const struct TrainerMonItemCustomMoves sParty_Roxanne2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_DOUBLE_TEAM, MOVE_EXPLOSION, MOVE_PROTECT, MOVE_ROCK_SLIDE
+    .moves = {MOVE_DOUBLE_TEAM, MOVE_EXPLOSION, MOVE_PROTECT, MOVE_ROCK_SLIDE}
     }
 };
 
@@ -11862,7 +11634,7 @@ static const struct TrainerMonItemCustomMoves sParty_Roxanne3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_PROTECT, MOVE_ICE_BEAM, MOVE_ROCK_SLIDE, MOVE_SURF
+    .moves = {MOVE_PROTECT, MOVE_ICE_BEAM, MOVE_ROCK_SLIDE, MOVE_SURF}
     },
     {
     .lvl = 37,
@@ -11870,7 +11642,7 @@ static const struct TrainerMonItemCustomMoves sParty_Roxanne3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_PROTECT, MOVE_ROLLOUT, MOVE_MAGNITUDE, MOVE_EXPLOSION
+    .moves = {MOVE_PROTECT, MOVE_ROLLOUT, MOVE_MAGNITUDE, MOVE_EXPLOSION}
     },
     {
     .lvl = 40,
@@ -11878,7 +11650,7 @@ static const struct TrainerMonItemCustomMoves sParty_Roxanne3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_SWORDS_DANCE, MOVE_ICE_BEAM, MOVE_SURF, MOVE_ROCK_SLIDE
+    .moves = {MOVE_SWORDS_DANCE, MOVE_ICE_BEAM, MOVE_SURF, MOVE_ROCK_SLIDE}
     },
     {
     .lvl = 40,
@@ -11886,7 +11658,7 @@ static const struct TrainerMonItemCustomMoves sParty_Roxanne3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_IRON_TAIL, MOVE_EXPLOSION, MOVE_ROAR, MOVE_ROCK_SLIDE
+    .moves = {MOVE_IRON_TAIL, MOVE_EXPLOSION, MOVE_ROAR, MOVE_ROCK_SLIDE}
     },
     {
     .lvl = 42,
@@ -11894,7 +11666,7 @@ static const struct TrainerMonItemCustomMoves sParty_Roxanne3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_DOUBLE_TEAM, MOVE_EXPLOSION, MOVE_PROTECT, MOVE_ROCK_SLIDE
+    .moves = {MOVE_DOUBLE_TEAM, MOVE_EXPLOSION, MOVE_PROTECT, MOVE_ROCK_SLIDE}
     }
 };
 
@@ -11905,7 +11677,7 @@ static const struct TrainerMonItemCustomMoves sParty_Roxanne4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_PROTECT, MOVE_ICE_BEAM, MOVE_ROCK_SLIDE, MOVE_SURF
+    .moves = {MOVE_PROTECT, MOVE_ICE_BEAM, MOVE_ROCK_SLIDE, MOVE_SURF}
     },
     {
     .lvl = 42,
@@ -11913,7 +11685,7 @@ static const struct TrainerMonItemCustomMoves sParty_Roxanne4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_PROTECT, MOVE_ROLLOUT, MOVE_EARTHQUAKE, MOVE_EXPLOSION
+    .moves = {MOVE_PROTECT, MOVE_ROLLOUT, MOVE_EARTHQUAKE, MOVE_EXPLOSION}
     },
     {
     .lvl = 45,
@@ -11921,7 +11693,7 @@ static const struct TrainerMonItemCustomMoves sParty_Roxanne4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_SWORDS_DANCE, MOVE_ICE_BEAM, MOVE_SURF, MOVE_ROCK_SLIDE
+    .moves = {MOVE_SWORDS_DANCE, MOVE_ICE_BEAM, MOVE_SURF, MOVE_ROCK_SLIDE}
     },
     {
     .lvl = 45,
@@ -11929,7 +11701,7 @@ static const struct TrainerMonItemCustomMoves sParty_Roxanne4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_IRON_TAIL, MOVE_EXPLOSION, MOVE_ROAR, MOVE_ROCK_SLIDE
+    .moves = {MOVE_IRON_TAIL, MOVE_EXPLOSION, MOVE_ROAR, MOVE_ROCK_SLIDE}
     },
     {
     .lvl = 47,
@@ -11937,7 +11709,7 @@ static const struct TrainerMonItemCustomMoves sParty_Roxanne4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_DOUBLE_TEAM, MOVE_EXPLOSION, MOVE_PROTECT, MOVE_ROCK_SLIDE
+    .moves = {MOVE_DOUBLE_TEAM, MOVE_EXPLOSION, MOVE_PROTECT, MOVE_ROCK_SLIDE}
     }
 };
 
@@ -11948,7 +11720,7 @@ static const struct TrainerMonItemCustomMoves sParty_Roxanne5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_ROCK_SLIDE, MOVE_HYPER_BEAM, MOVE_SUPERSONIC, MOVE_PROTECT
+    .moves = {MOVE_ROCK_SLIDE, MOVE_HYPER_BEAM, MOVE_SUPERSONIC, MOVE_PROTECT}
     },
     {
     .lvl = 47,
@@ -11956,7 +11728,7 @@ static const struct TrainerMonItemCustomMoves sParty_Roxanne5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_FOCUS_PUNCH, MOVE_ROLLOUT, MOVE_EARTHQUAKE, MOVE_EXPLOSION
+    .moves = {MOVE_FOCUS_PUNCH, MOVE_ROLLOUT, MOVE_EARTHQUAKE, MOVE_EXPLOSION}
     },
     {
     .lvl = 47,
@@ -11964,7 +11736,7 @@ static const struct TrainerMonItemCustomMoves sParty_Roxanne5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_PROTECT, MOVE_ICE_BEAM, MOVE_ROCK_SLIDE, MOVE_SURF
+    .moves = {MOVE_PROTECT, MOVE_ICE_BEAM, MOVE_ROCK_SLIDE, MOVE_SURF}
     },
     {
     .lvl = 50,
@@ -11972,7 +11744,7 @@ static const struct TrainerMonItemCustomMoves sParty_Roxanne5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_SWORDS_DANCE, MOVE_ICE_BEAM, MOVE_SURF, MOVE_ROCK_SLIDE
+    .moves = {MOVE_SWORDS_DANCE, MOVE_ICE_BEAM, MOVE_SURF, MOVE_ROCK_SLIDE}
     },
     {
     .lvl = 50,
@@ -11980,7 +11752,7 @@ static const struct TrainerMonItemCustomMoves sParty_Roxanne5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_IRON_TAIL, MOVE_EXPLOSION, MOVE_ROAR, MOVE_ROCK_SLIDE
+    .moves = {MOVE_IRON_TAIL, MOVE_EXPLOSION, MOVE_ROAR, MOVE_ROCK_SLIDE}
     },
     {
     .lvl = 52,
@@ -11988,7 +11760,7 @@ static const struct TrainerMonItemCustomMoves sParty_Roxanne5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_DOUBLE_TEAM, MOVE_EXPLOSION, MOVE_PROTECT, MOVE_ROCK_SLIDE
+    .moves = {MOVE_DOUBLE_TEAM, MOVE_EXPLOSION, MOVE_PROTECT, MOVE_ROCK_SLIDE}
     }
 };
 
@@ -11999,7 +11771,7 @@ static const struct TrainerMonItemCustomMoves sParty_Brawly2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_KARATE_CHOP, MOVE_ROCK_SLIDE, MOVE_FOCUS_PUNCH, MOVE_BULK_UP
+    .moves = {MOVE_KARATE_CHOP, MOVE_ROCK_SLIDE, MOVE_FOCUS_PUNCH, MOVE_BULK_UP}
     },
     {
     .lvl = 33,
@@ -12007,7 +11779,7 @@ static const struct TrainerMonItemCustomMoves sParty_Brawly2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_PSYCHIC, MOVE_LIGHT_SCREEN, MOVE_REFLECT, MOVE_FOCUS_PUNCH
+    .moves = {MOVE_PSYCHIC, MOVE_LIGHT_SCREEN, MOVE_REFLECT, MOVE_FOCUS_PUNCH}
     },
     {
     .lvl = 35,
@@ -12015,7 +11787,7 @@ static const struct TrainerMonItemCustomMoves sParty_Brawly2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_PURSUIT, MOVE_COUNTER, MOVE_PROTECT, MOVE_TRIPLE_KICK
+    .moves = {MOVE_PURSUIT, MOVE_COUNTER, MOVE_PROTECT, MOVE_TRIPLE_KICK}
     },
     {
     .lvl = 37,
@@ -12023,7 +11795,7 @@ static const struct TrainerMonItemCustomMoves sParty_Brawly2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_FAKE_OUT, MOVE_FOCUS_PUNCH, MOVE_BELLY_DRUM, MOVE_EARTHQUAKE
+    .moves = {MOVE_FAKE_OUT, MOVE_FOCUS_PUNCH, MOVE_BELLY_DRUM, MOVE_EARTHQUAKE}
     }
 };
 
@@ -12034,7 +11806,7 @@ static const struct TrainerMonItemCustomMoves sParty_Brawly3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_KARATE_CHOP, MOVE_ROCK_SLIDE, MOVE_FOCUS_PUNCH, MOVE_BULK_UP
+    .moves = {MOVE_KARATE_CHOP, MOVE_ROCK_SLIDE, MOVE_FOCUS_PUNCH, MOVE_BULK_UP}
     },
     {
     .lvl = 38,
@@ -12042,7 +11814,7 @@ static const struct TrainerMonItemCustomMoves sParty_Brawly3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_PSYCHIC, MOVE_LIGHT_SCREEN, MOVE_REFLECT, MOVE_FOCUS_PUNCH
+    .moves = {MOVE_PSYCHIC, MOVE_LIGHT_SCREEN, MOVE_REFLECT, MOVE_FOCUS_PUNCH}
     },
     {
     .lvl = 40,
@@ -12050,7 +11822,7 @@ static const struct TrainerMonItemCustomMoves sParty_Brawly3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_PURSUIT, MOVE_COUNTER, MOVE_PROTECT, MOVE_TRIPLE_KICK
+    .moves = {MOVE_PURSUIT, MOVE_COUNTER, MOVE_PROTECT, MOVE_TRIPLE_KICK}
     },
     {
     .lvl = 42,
@@ -12058,7 +11830,7 @@ static const struct TrainerMonItemCustomMoves sParty_Brawly3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_FAKE_OUT, MOVE_FOCUS_PUNCH, MOVE_BELLY_DRUM, MOVE_EARTHQUAKE
+    .moves = {MOVE_FAKE_OUT, MOVE_FOCUS_PUNCH, MOVE_BELLY_DRUM, MOVE_EARTHQUAKE}
     }
 };
 
@@ -12069,7 +11841,7 @@ static const struct TrainerMonItemCustomMoves sParty_Brawly4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SKY_UPPERCUT, MOVE_PROTECT, MOVE_FIRE_PUNCH, MOVE_ICE_PUNCH
+    .moves = {MOVE_SKY_UPPERCUT, MOVE_PROTECT, MOVE_FIRE_PUNCH, MOVE_ICE_PUNCH}
     },
     {
     .lvl = 43,
@@ -12077,7 +11849,7 @@ static const struct TrainerMonItemCustomMoves sParty_Brawly4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_KARATE_CHOP, MOVE_ROCK_SLIDE, MOVE_FOCUS_PUNCH, MOVE_BULK_UP
+    .moves = {MOVE_KARATE_CHOP, MOVE_ROCK_SLIDE, MOVE_FOCUS_PUNCH, MOVE_BULK_UP}
     },
     {
     .lvl = 43,
@@ -12085,7 +11857,7 @@ static const struct TrainerMonItemCustomMoves sParty_Brawly4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_FOCUS_PUNCH, MOVE_LIGHT_SCREEN, MOVE_REFLECT, MOVE_PSYCHIC
+    .moves = {MOVE_FOCUS_PUNCH, MOVE_LIGHT_SCREEN, MOVE_REFLECT, MOVE_PSYCHIC}
     },
     {
     .lvl = 45,
@@ -12093,7 +11865,7 @@ static const struct TrainerMonItemCustomMoves sParty_Brawly4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_PURSUIT, MOVE_COUNTER, MOVE_PROTECT, MOVE_TRIPLE_KICK
+    .moves = {MOVE_PURSUIT, MOVE_COUNTER, MOVE_PROTECT, MOVE_TRIPLE_KICK}
     },
     {
     .lvl = 47,
@@ -12101,7 +11873,7 @@ static const struct TrainerMonItemCustomMoves sParty_Brawly4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_FAKE_OUT, MOVE_FOCUS_PUNCH, MOVE_BELLY_DRUM, MOVE_EARTHQUAKE
+    .moves = {MOVE_FAKE_OUT, MOVE_FOCUS_PUNCH, MOVE_BELLY_DRUM, MOVE_EARTHQUAKE}
     }
 };
 
@@ -12112,7 +11884,7 @@ static const struct TrainerMonItemCustomMoves sParty_Brawly5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_MEGA_KICK, MOVE_FOCUS_PUNCH, MOVE_EARTHQUAKE, MOVE_BULK_UP
+    .moves = {MOVE_MEGA_KICK, MOVE_FOCUS_PUNCH, MOVE_EARTHQUAKE, MOVE_BULK_UP}
     },
     {
     .lvl = 46,
@@ -12120,7 +11892,7 @@ static const struct TrainerMonItemCustomMoves sParty_Brawly5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SKY_UPPERCUT, MOVE_PROTECT, MOVE_FIRE_PUNCH, MOVE_ICE_PUNCH
+    .moves = {MOVE_SKY_UPPERCUT, MOVE_PROTECT, MOVE_FIRE_PUNCH, MOVE_ICE_PUNCH}
     },
     {
     .lvl = 48,
@@ -12128,7 +11900,7 @@ static const struct TrainerMonItemCustomMoves sParty_Brawly5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_CROSS_CHOP, MOVE_ROCK_SLIDE, MOVE_FOCUS_PUNCH, MOVE_BULK_UP
+    .moves = {MOVE_CROSS_CHOP, MOVE_ROCK_SLIDE, MOVE_FOCUS_PUNCH, MOVE_BULK_UP}
     },
     {
     .lvl = 48,
@@ -12136,7 +11908,7 @@ static const struct TrainerMonItemCustomMoves sParty_Brawly5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_FOCUS_PUNCH, MOVE_LIGHT_SCREEN, MOVE_REFLECT, MOVE_PSYCHIC
+    .moves = {MOVE_FOCUS_PUNCH, MOVE_LIGHT_SCREEN, MOVE_REFLECT, MOVE_PSYCHIC}
     },
     {
     .lvl = 50,
@@ -12144,7 +11916,7 @@ static const struct TrainerMonItemCustomMoves sParty_Brawly5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_PURSUIT, MOVE_COUNTER, MOVE_PROTECT, MOVE_TRIPLE_KICK
+    .moves = {MOVE_PURSUIT, MOVE_COUNTER, MOVE_PROTECT, MOVE_TRIPLE_KICK}
     },
     {
     .lvl = 52,
@@ -12152,7 +11924,7 @@ static const struct TrainerMonItemCustomMoves sParty_Brawly5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_FAKE_OUT, MOVE_FOCUS_PUNCH, MOVE_BELLY_DRUM, MOVE_EARTHQUAKE
+    .moves = {MOVE_FAKE_OUT, MOVE_FOCUS_PUNCH, MOVE_BELLY_DRUM, MOVE_EARTHQUAKE}
     }
 };
 
@@ -12163,7 +11935,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_THUNDER, MOVE_PROTECT, MOVE_THUNDER_WAVE, MOVE_LIGHT_SCREEN
+    .moves = {MOVE_THUNDER, MOVE_PROTECT, MOVE_THUNDER_WAVE, MOVE_LIGHT_SCREEN}
     },
     {
     .lvl = 36,
@@ -12171,7 +11943,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_ROLLOUT, MOVE_THUNDER, MOVE_EXPLOSION, MOVE_RAIN_DANCE
+    .moves = {MOVE_ROLLOUT, MOVE_THUNDER, MOVE_EXPLOSION, MOVE_RAIN_DANCE}
     },
     {
     .lvl = 38,
@@ -12179,7 +11951,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_SUPERSONIC, MOVE_PROTECT, MOVE_THUNDER, MOVE_RAIN_DANCE
+    .moves = {MOVE_SUPERSONIC, MOVE_PROTECT, MOVE_THUNDER, MOVE_RAIN_DANCE}
     },
     {
     .lvl = 40,
@@ -12187,7 +11959,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_BITE, MOVE_THUNDER_WAVE, MOVE_THUNDER, MOVE_PROTECT
+    .moves = {MOVE_BITE, MOVE_THUNDER_WAVE, MOVE_THUNDER, MOVE_PROTECT}
     }
 };
 
@@ -12198,7 +11970,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_THUNDER, MOVE_SLAM, MOVE_RAIN_DANCE, MOVE_SHOCK_WAVE
+    .moves = {MOVE_THUNDER, MOVE_SLAM, MOVE_RAIN_DANCE, MOVE_SHOCK_WAVE}
     },
     {
     .lvl = 41,
@@ -12206,7 +11978,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_THUNDER, MOVE_PROTECT, MOVE_THUNDER_WAVE, MOVE_LIGHT_SCREEN
+    .moves = {MOVE_THUNDER, MOVE_PROTECT, MOVE_THUNDER_WAVE, MOVE_LIGHT_SCREEN}
     },
     {
     .lvl = 41,
@@ -12214,7 +11986,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_ROLLOUT, MOVE_THUNDER, MOVE_EXPLOSION, MOVE_RAIN_DANCE
+    .moves = {MOVE_ROLLOUT, MOVE_THUNDER, MOVE_EXPLOSION, MOVE_RAIN_DANCE}
     },
     {
     .lvl = 43,
@@ -12222,7 +11994,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_SUPERSONIC, MOVE_PROTECT, MOVE_THUNDER, MOVE_RAIN_DANCE
+    .moves = {MOVE_SUPERSONIC, MOVE_PROTECT, MOVE_THUNDER, MOVE_RAIN_DANCE}
     },
     {
     .lvl = 45,
@@ -12230,7 +12002,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_BITE, MOVE_THUNDER_WAVE, MOVE_THUNDER, MOVE_PROTECT
+    .moves = {MOVE_BITE, MOVE_THUNDER_WAVE, MOVE_THUNDER, MOVE_PROTECT}
     }
 };
 
@@ -12241,7 +12013,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_THUNDER, MOVE_SLAM, MOVE_RAIN_DANCE, MOVE_PROTECT
+    .moves = {MOVE_THUNDER, MOVE_SLAM, MOVE_RAIN_DANCE, MOVE_PROTECT}
     },
     {
     .lvl = 46,
@@ -12249,7 +12021,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_THUNDER, MOVE_PROTECT, MOVE_THUNDER_WAVE, MOVE_LIGHT_SCREEN
+    .moves = {MOVE_THUNDER, MOVE_PROTECT, MOVE_THUNDER_WAVE, MOVE_LIGHT_SCREEN}
     },
     {
     .lvl = 46,
@@ -12257,7 +12029,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_ROLLOUT, MOVE_THUNDER, MOVE_EXPLOSION, MOVE_RAIN_DANCE
+    .moves = {MOVE_ROLLOUT, MOVE_THUNDER, MOVE_EXPLOSION, MOVE_RAIN_DANCE}
     },
     {
     .lvl = 48,
@@ -12265,7 +12037,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_SUPERSONIC, MOVE_PROTECT, MOVE_THUNDER, MOVE_RAIN_DANCE
+    .moves = {MOVE_SUPERSONIC, MOVE_PROTECT, MOVE_THUNDER, MOVE_RAIN_DANCE}
     },
     {
     .lvl = 50,
@@ -12273,7 +12045,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_BITE, MOVE_THUNDER_WAVE, MOVE_THUNDER, MOVE_PROTECT
+    .moves = {MOVE_BITE, MOVE_THUNDER_WAVE, MOVE_THUNDER, MOVE_PROTECT}
     }
 };
 
@@ -12284,7 +12056,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SWIFT, MOVE_FOCUS_PUNCH, MOVE_THUNDER_PUNCH, MOVE_LIGHT_SCREEN
+    .moves = {MOVE_SWIFT, MOVE_FOCUS_PUNCH, MOVE_THUNDER_PUNCH, MOVE_LIGHT_SCREEN}
     },
     {
     .lvl = 51,
@@ -12292,7 +12064,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_THUNDER, MOVE_SLAM, MOVE_RAIN_DANCE, MOVE_PROTECT
+    .moves = {MOVE_THUNDER, MOVE_SLAM, MOVE_RAIN_DANCE, MOVE_PROTECT}
     },
     {
     .lvl = 51,
@@ -12300,7 +12072,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_THUNDER, MOVE_PROTECT, MOVE_THUNDER_WAVE, MOVE_LIGHT_SCREEN
+    .moves = {MOVE_THUNDER, MOVE_PROTECT, MOVE_THUNDER_WAVE, MOVE_LIGHT_SCREEN}
     },
     {
     .lvl = 53,
@@ -12308,7 +12080,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_ROLLOUT, MOVE_THUNDER, MOVE_EXPLOSION, MOVE_RAIN_DANCE
+    .moves = {MOVE_ROLLOUT, MOVE_THUNDER, MOVE_EXPLOSION, MOVE_RAIN_DANCE}
     },
     {
     .lvl = 53,
@@ -12316,7 +12088,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_SUPERSONIC, MOVE_PROTECT, MOVE_THUNDER, MOVE_RAIN_DANCE
+    .moves = {MOVE_SUPERSONIC, MOVE_PROTECT, MOVE_THUNDER, MOVE_RAIN_DANCE}
     },
     {
     .lvl = 55,
@@ -12324,7 +12096,7 @@ static const struct TrainerMonItemCustomMoves sParty_Wattson5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_BITE, MOVE_THUNDER_WAVE, MOVE_THUNDER, MOVE_PROTECT
+    .moves = {MOVE_BITE, MOVE_THUNDER_WAVE, MOVE_THUNDER, MOVE_PROTECT}
     }
 };
 
@@ -12335,7 +12107,7 @@ static const struct TrainerMonItemCustomMoves sParty_Flannery2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_WHITE_HERB,
-    .moves = MOVE_OVERHEAT, MOVE_ATTRACT, MOVE_LIGHT_SCREEN, MOVE_ROCK_SLIDE
+    .moves = {MOVE_OVERHEAT, MOVE_ATTRACT, MOVE_LIGHT_SCREEN, MOVE_ROCK_SLIDE}
     },
     {
     .lvl = 36,
@@ -12343,7 +12115,7 @@ static const struct TrainerMonItemCustomMoves sParty_Flannery2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_FLAMETHROWER, MOVE_ATTRACT, MOVE_SOLAR_BEAM, MOVE_BOUNCE
+    .moves = {MOVE_FLAMETHROWER, MOVE_ATTRACT, MOVE_SOLAR_BEAM, MOVE_BOUNCE}
     },
     {
     .lvl = 38,
@@ -12351,7 +12123,7 @@ static const struct TrainerMonItemCustomMoves sParty_Flannery2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_WHITE_HERB,
-    .moves = MOVE_OVERHEAT, MOVE_SUNNY_DAY, MOVE_EARTHQUAKE, MOVE_ATTRACT
+    .moves = {MOVE_OVERHEAT, MOVE_SUNNY_DAY, MOVE_EARTHQUAKE, MOVE_ATTRACT}
     },
     {
     .lvl = 40,
@@ -12359,7 +12131,7 @@ static const struct TrainerMonItemCustomMoves sParty_Flannery2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_WHITE_HERB,
-    .moves = MOVE_OVERHEAT, MOVE_SUNNY_DAY, MOVE_EXPLOSION, MOVE_ATTRACT
+    .moves = {MOVE_OVERHEAT, MOVE_SUNNY_DAY, MOVE_EXPLOSION, MOVE_ATTRACT}
     }
 };
 
@@ -12370,7 +12142,7 @@ static const struct TrainerMonItemCustomMoves sParty_Flannery3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_HELPING_HAND, MOVE_FLAMETHROWER, MOVE_ROAR, MOVE_SUNNY_DAY
+    .moves = {MOVE_HELPING_HAND, MOVE_FLAMETHROWER, MOVE_ROAR, MOVE_SUNNY_DAY}
     },
     {
     .lvl = 43,
@@ -12378,7 +12150,7 @@ static const struct TrainerMonItemCustomMoves sParty_Flannery3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_WHITE_HERB,
-    .moves = MOVE_OVERHEAT, MOVE_ATTRACT, MOVE_LIGHT_SCREEN, MOVE_ROCK_SLIDE
+    .moves = {MOVE_OVERHEAT, MOVE_ATTRACT, MOVE_LIGHT_SCREEN, MOVE_ROCK_SLIDE}
     },
     {
     .lvl = 41,
@@ -12386,7 +12158,7 @@ static const struct TrainerMonItemCustomMoves sParty_Flannery3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_FLAMETHROWER, MOVE_ATTRACT, MOVE_SOLAR_BEAM, MOVE_BOUNCE
+    .moves = {MOVE_FLAMETHROWER, MOVE_ATTRACT, MOVE_SOLAR_BEAM, MOVE_BOUNCE}
     },
     {
     .lvl = 43,
@@ -12394,7 +12166,7 @@ static const struct TrainerMonItemCustomMoves sParty_Flannery3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_WHITE_HERB,
-    .moves = MOVE_OVERHEAT, MOVE_SUNNY_DAY, MOVE_EARTHQUAKE, MOVE_ATTRACT
+    .moves = {MOVE_OVERHEAT, MOVE_SUNNY_DAY, MOVE_EARTHQUAKE, MOVE_ATTRACT}
     },
     {
     .lvl = 45,
@@ -12402,7 +12174,7 @@ static const struct TrainerMonItemCustomMoves sParty_Flannery3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_WHITE_HERB,
-    .moves = MOVE_OVERHEAT, MOVE_SUNNY_DAY, MOVE_EXPLOSION, MOVE_ATTRACT
+    .moves = {MOVE_OVERHEAT, MOVE_SUNNY_DAY, MOVE_EXPLOSION, MOVE_ATTRACT}
     }
 };
 
@@ -12413,7 +12185,7 @@ static const struct TrainerMonItemCustomMoves sParty_Flannery4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_ROAR, MOVE_SOLAR_BEAM, MOVE_TAUNT, MOVE_SUNNY_DAY
+    .moves = {MOVE_ROAR, MOVE_SOLAR_BEAM, MOVE_TAUNT, MOVE_SUNNY_DAY}
     },
     {
     .lvl = 46,
@@ -12421,7 +12193,7 @@ static const struct TrainerMonItemCustomMoves sParty_Flannery4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_HELPING_HAND, MOVE_FLAMETHROWER, MOVE_SUNNY_DAY, MOVE_ROAR
+    .moves = {MOVE_HELPING_HAND, MOVE_FLAMETHROWER, MOVE_SUNNY_DAY, MOVE_ROAR}
     },
     {
     .lvl = 48,
@@ -12429,7 +12201,7 @@ static const struct TrainerMonItemCustomMoves sParty_Flannery4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_WHITE_HERB,
-    .moves = MOVE_OVERHEAT, MOVE_ATTRACT, MOVE_LIGHT_SCREEN, MOVE_ROCK_SLIDE
+    .moves = {MOVE_OVERHEAT, MOVE_ATTRACT, MOVE_LIGHT_SCREEN, MOVE_ROCK_SLIDE}
     },
     {
     .lvl = 46,
@@ -12437,7 +12209,7 @@ static const struct TrainerMonItemCustomMoves sParty_Flannery4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_FLAMETHROWER, MOVE_ATTRACT, MOVE_SOLAR_BEAM, MOVE_BOUNCE
+    .moves = {MOVE_FLAMETHROWER, MOVE_ATTRACT, MOVE_SOLAR_BEAM, MOVE_BOUNCE}
     },
     {
     .lvl = 48,
@@ -12445,7 +12217,7 @@ static const struct TrainerMonItemCustomMoves sParty_Flannery4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_WHITE_HERB,
-    .moves = MOVE_OVERHEAT, MOVE_SUNNY_DAY, MOVE_EARTHQUAKE, MOVE_ATTRACT
+    .moves = {MOVE_OVERHEAT, MOVE_SUNNY_DAY, MOVE_EARTHQUAKE, MOVE_ATTRACT}
     },
     {
     .lvl = 50,
@@ -12453,7 +12225,7 @@ static const struct TrainerMonItemCustomMoves sParty_Flannery4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_WHITE_HERB,
-    .moves = MOVE_OVERHEAT, MOVE_SUNNY_DAY, MOVE_EXPLOSION, MOVE_ATTRACT
+    .moves = {MOVE_OVERHEAT, MOVE_SUNNY_DAY, MOVE_EXPLOSION, MOVE_ATTRACT}
     }
 };
 
@@ -12464,7 +12236,7 @@ static const struct TrainerMonItemCustomMoves sParty_Flannery5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_HELPING_HAND, MOVE_FLAMETHROWER, MOVE_SUNNY_DAY, MOVE_ROAR
+    .moves = {MOVE_HELPING_HAND, MOVE_FLAMETHROWER, MOVE_SUNNY_DAY, MOVE_ROAR}
     },
     {
     .lvl = 53,
@@ -12472,7 +12244,7 @@ static const struct TrainerMonItemCustomMoves sParty_Flannery5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_WHITE_HERB,
-    .moves = MOVE_OVERHEAT, MOVE_ATTRACT, MOVE_LIGHT_SCREEN, MOVE_ROCK_SLIDE
+    .moves = {MOVE_OVERHEAT, MOVE_ATTRACT, MOVE_LIGHT_SCREEN, MOVE_ROCK_SLIDE}
     },
     {
     .lvl = 51,
@@ -12480,7 +12252,7 @@ static const struct TrainerMonItemCustomMoves sParty_Flannery5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_ROAR, MOVE_SOLAR_BEAM, MOVE_TAUNT, MOVE_SUNNY_DAY
+    .moves = {MOVE_ROAR, MOVE_SOLAR_BEAM, MOVE_TAUNT, MOVE_SUNNY_DAY}
     },
     {
     .lvl = 51,
@@ -12488,7 +12260,7 @@ static const struct TrainerMonItemCustomMoves sParty_Flannery5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_FLAMETHROWER, MOVE_ATTRACT, MOVE_SOLAR_BEAM, MOVE_BOUNCE
+    .moves = {MOVE_FLAMETHROWER, MOVE_ATTRACT, MOVE_SOLAR_BEAM, MOVE_BOUNCE}
     },
     {
     .lvl = 53,
@@ -12496,7 +12268,7 @@ static const struct TrainerMonItemCustomMoves sParty_Flannery5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_WHITE_HERB,
-    .moves = MOVE_OVERHEAT, MOVE_SUNNY_DAY, MOVE_EARTHQUAKE, MOVE_ATTRACT
+    .moves = {MOVE_OVERHEAT, MOVE_SUNNY_DAY, MOVE_EARTHQUAKE, MOVE_ATTRACT}
     },
     {
     .lvl = 55,
@@ -12504,7 +12276,7 @@ static const struct TrainerMonItemCustomMoves sParty_Flannery5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_WHITE_HERB,
-    .moves = MOVE_OVERHEAT, MOVE_SUNNY_DAY, MOVE_EXPLOSION, MOVE_ATTRACT
+    .moves = {MOVE_OVERHEAT, MOVE_SUNNY_DAY, MOVE_EXPLOSION, MOVE_ATTRACT}
     }
 };
 
@@ -12515,7 +12287,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_LIGHT_SCREEN, MOVE_SING, MOVE_SKILL_SWAP, MOVE_FOCUS_PUNCH
+    .moves = {MOVE_LIGHT_SCREEN, MOVE_SING, MOVE_SKILL_SWAP, MOVE_FOCUS_PUNCH}
     },
     {
     .lvl = 42,
@@ -12523,7 +12295,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_BLIZZARD, MOVE_SHADOW_BALL, MOVE_DOUBLE_EDGE, MOVE_FIRE_BLAST
+    .moves = {MOVE_BLIZZARD, MOVE_SHADOW_BALL, MOVE_DOUBLE_EDGE, MOVE_FIRE_BLAST}
     },
     {
     .lvl = 43,
@@ -12531,7 +12303,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_TEETER_DANCE, MOVE_SKILL_SWAP, MOVE_FACADE, MOVE_HYPNOSIS
+    .moves = {MOVE_TEETER_DANCE, MOVE_SKILL_SWAP, MOVE_FACADE, MOVE_HYPNOSIS}
     },
     {
     .lvl = 45,
@@ -12539,7 +12311,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_HYPER_BEAM, MOVE_FLAMETHROWER, MOVE_THUNDERBOLT, MOVE_SHADOW_BALL
+    .moves = {MOVE_HYPER_BEAM, MOVE_FLAMETHROWER, MOVE_THUNDERBOLT, MOVE_SHADOW_BALL}
     }
 };
 
@@ -12550,7 +12322,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_BLIZZARD, MOVE_SHADOW_BALL, MOVE_DOUBLE_EDGE, MOVE_FIRE_BLAST
+    .moves = {MOVE_BLIZZARD, MOVE_SHADOW_BALL, MOVE_DOUBLE_EDGE, MOVE_FIRE_BLAST}
     },
     {
     .lvl = 47,
@@ -12558,7 +12330,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_LIGHT_SCREEN, MOVE_SING, MOVE_SKILL_SWAP, MOVE_FOCUS_PUNCH
+    .moves = {MOVE_LIGHT_SCREEN, MOVE_SING, MOVE_SKILL_SWAP, MOVE_FOCUS_PUNCH}
     },
     {
     .lvl = 45,
@@ -12566,7 +12338,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_FAKE_OUT, MOVE_DIZZY_PUNCH, MOVE_ENDURE, MOVE_REVERSAL
+    .moves = {MOVE_FAKE_OUT, MOVE_DIZZY_PUNCH, MOVE_ENDURE, MOVE_REVERSAL}
     },
     {
     .lvl = 48,
@@ -12574,7 +12346,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_TEETER_DANCE, MOVE_SKILL_SWAP, MOVE_FACADE, MOVE_HYPNOSIS
+    .moves = {MOVE_TEETER_DANCE, MOVE_SKILL_SWAP, MOVE_FACADE, MOVE_HYPNOSIS}
     },
     {
     .lvl = 50,
@@ -12582,7 +12354,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_HYPER_BEAM, MOVE_FLAMETHROWER, MOVE_THUNDERBOLT, MOVE_SHADOW_BALL
+    .moves = {MOVE_HYPER_BEAM, MOVE_FLAMETHROWER, MOVE_THUNDERBOLT, MOVE_SHADOW_BALL}
     }
 };
 
@@ -12593,7 +12365,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_BLIZZARD, MOVE_SHADOW_BALL, MOVE_DOUBLE_EDGE, MOVE_FIRE_BLAST
+    .moves = {MOVE_BLIZZARD, MOVE_SHADOW_BALL, MOVE_DOUBLE_EDGE, MOVE_FIRE_BLAST}
     },
     {
     .lvl = 52,
@@ -12601,7 +12373,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_LIGHT_SCREEN, MOVE_SING, MOVE_SKILL_SWAP, MOVE_FOCUS_PUNCH
+    .moves = {MOVE_LIGHT_SCREEN, MOVE_SING, MOVE_SKILL_SWAP, MOVE_FOCUS_PUNCH}
     },
     {
     .lvl = 50,
@@ -12609,7 +12381,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_FAKE_OUT, MOVE_DIZZY_PUNCH, MOVE_ENDURE, MOVE_REVERSAL
+    .moves = {MOVE_FAKE_OUT, MOVE_DIZZY_PUNCH, MOVE_ENDURE, MOVE_REVERSAL}
     },
     {
     .lvl = 53,
@@ -12617,7 +12389,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_TEETER_DANCE, MOVE_SKILL_SWAP, MOVE_FACADE, MOVE_HYPNOSIS
+    .moves = {MOVE_TEETER_DANCE, MOVE_SKILL_SWAP, MOVE_FACADE, MOVE_HYPNOSIS}
     },
     {
     .lvl = 55,
@@ -12625,7 +12397,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_HYPER_BEAM, MOVE_FLAMETHROWER, MOVE_THUNDERBOLT, MOVE_SHADOW_BALL
+    .moves = {MOVE_HYPER_BEAM, MOVE_FLAMETHROWER, MOVE_THUNDERBOLT, MOVE_SHADOW_BALL}
     }
 };
 
@@ -12636,7 +12408,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_BLIZZARD, MOVE_SHADOW_BALL, MOVE_DOUBLE_EDGE, MOVE_FIRE_BLAST
+    .moves = {MOVE_BLIZZARD, MOVE_SHADOW_BALL, MOVE_DOUBLE_EDGE, MOVE_FIRE_BLAST}
     },
     {
     .lvl = 57,
@@ -12644,7 +12416,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_PROTECT, MOVE_SING, MOVE_SKILL_SWAP, MOVE_FOCUS_PUNCH
+    .moves = {MOVE_PROTECT, MOVE_SING, MOVE_SKILL_SWAP, MOVE_FOCUS_PUNCH}
     },
     {
     .lvl = 55,
@@ -12652,7 +12424,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_FAKE_OUT, MOVE_DIZZY_PUNCH, MOVE_ENDURE, MOVE_REVERSAL
+    .moves = {MOVE_FAKE_OUT, MOVE_DIZZY_PUNCH, MOVE_ENDURE, MOVE_REVERSAL}
     },
     {
     .lvl = 57,
@@ -12660,7 +12432,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_TAKE_DOWN, MOVE_PROTECT, MOVE_FIRE_BLAST, MOVE_EARTHQUAKE
+    .moves = {MOVE_TAKE_DOWN, MOVE_PROTECT, MOVE_FIRE_BLAST, MOVE_EARTHQUAKE}
     },
     {
     .lvl = 58,
@@ -12668,7 +12440,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_TEETER_DANCE, MOVE_SKILL_SWAP, MOVE_FACADE, MOVE_HYPNOSIS
+    .moves = {MOVE_TEETER_DANCE, MOVE_SKILL_SWAP, MOVE_FACADE, MOVE_HYPNOSIS}
     },
     {
     .lvl = 60,
@@ -12676,7 +12448,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_HYPER_BEAM, MOVE_FLAMETHROWER, MOVE_THUNDERBOLT, MOVE_SHADOW_BALL
+    .moves = {MOVE_HYPER_BEAM, MOVE_FLAMETHROWER, MOVE_THUNDERBOLT, MOVE_SHADOW_BALL}
     }
 };
 
@@ -12687,7 +12459,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_THUNDER_WAVE, MOVE_THUNDERBOLT, MOVE_PROTECT, MOVE_ICE_BEAM
+    .moves = {MOVE_THUNDER_WAVE, MOVE_THUNDERBOLT, MOVE_PROTECT, MOVE_ICE_BEAM}
     },
     {
     .lvl = 38,
@@ -12695,7 +12467,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SUNNY_DAY, MOVE_AERIAL_ACE, MOVE_SOLAR_BEAM, MOVE_EARTHQUAKE
+    .moves = {MOVE_SUNNY_DAY, MOVE_AERIAL_ACE, MOVE_SOLAR_BEAM, MOVE_EARTHQUAKE}
     },
     {
     .lvl = 41,
@@ -12703,7 +12475,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SURF, MOVE_SUPERSONIC, MOVE_PROTECT, MOVE_AERIAL_ACE
+    .moves = {MOVE_SURF, MOVE_SUPERSONIC, MOVE_PROTECT, MOVE_AERIAL_ACE}
     },
     {
     .lvl = 43,
@@ -12711,7 +12483,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_WHIRLWIND, MOVE_SPIKES, MOVE_STEEL_WING, MOVE_AERIAL_ACE
+    .moves = {MOVE_WHIRLWIND, MOVE_SPIKES, MOVE_STEEL_WING, MOVE_AERIAL_ACE}
     },
     {
     .lvl = 45,
@@ -12719,7 +12491,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_CHESTO_BERRY,
-    .moves = MOVE_AERIAL_ACE, MOVE_REST, MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE
+    .moves = {MOVE_AERIAL_ACE, MOVE_REST, MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE}
     }
 };
 
@@ -12730,7 +12502,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_HYPNOSIS, MOVE_PSYCHIC, MOVE_REFLECT, MOVE_DREAM_EATER
+    .moves = {MOVE_HYPNOSIS, MOVE_PSYCHIC, MOVE_REFLECT, MOVE_DREAM_EATER}
     },
     {
     .lvl = 43,
@@ -12738,7 +12510,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SUNNY_DAY, MOVE_AERIAL_ACE, MOVE_SOLAR_BEAM, MOVE_EARTHQUAKE
+    .moves = {MOVE_SUNNY_DAY, MOVE_AERIAL_ACE, MOVE_SOLAR_BEAM, MOVE_EARTHQUAKE}
     },
     {
     .lvl = 45,
@@ -12746,7 +12518,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_THUNDER_WAVE, MOVE_THUNDERBOLT, MOVE_PROTECT, MOVE_ICE_BEAM
+    .moves = {MOVE_THUNDER_WAVE, MOVE_THUNDERBOLT, MOVE_PROTECT, MOVE_ICE_BEAM}
     },
     {
     .lvl = 46,
@@ -12754,7 +12526,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SURF, MOVE_SUPERSONIC, MOVE_PROTECT, MOVE_AERIAL_ACE
+    .moves = {MOVE_SURF, MOVE_SUPERSONIC, MOVE_PROTECT, MOVE_AERIAL_ACE}
     },
     {
     .lvl = 48,
@@ -12762,7 +12534,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_WHIRLWIND, MOVE_SPIKES, MOVE_STEEL_WING, MOVE_AERIAL_ACE
+    .moves = {MOVE_WHIRLWIND, MOVE_SPIKES, MOVE_STEEL_WING, MOVE_AERIAL_ACE}
     },
     {
     .lvl = 50,
@@ -12770,7 +12542,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_CHESTO_BERRY,
-    .moves = MOVE_AERIAL_ACE, MOVE_REST, MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE
+    .moves = {MOVE_AERIAL_ACE, MOVE_REST, MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE}
     }
 };
 
@@ -12781,7 +12553,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_HYPNOSIS, MOVE_PSYCHIC, MOVE_REFLECT, MOVE_DREAM_EATER
+    .moves = {MOVE_HYPNOSIS, MOVE_PSYCHIC, MOVE_REFLECT, MOVE_DREAM_EATER}
     },
     {
     .lvl = 49,
@@ -12789,7 +12561,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SUNNY_DAY, MOVE_AERIAL_ACE, MOVE_SOLAR_BEAM, MOVE_EARTHQUAKE
+    .moves = {MOVE_SUNNY_DAY, MOVE_AERIAL_ACE, MOVE_SOLAR_BEAM, MOVE_EARTHQUAKE}
     },
     {
     .lvl = 50,
@@ -12797,7 +12569,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_THUNDER_WAVE, MOVE_THUNDERBOLT, MOVE_PROTECT, MOVE_ICE_BEAM
+    .moves = {MOVE_THUNDER_WAVE, MOVE_THUNDERBOLT, MOVE_PROTECT, MOVE_ICE_BEAM}
     },
     {
     .lvl = 51,
@@ -12805,7 +12577,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SURF, MOVE_SUPERSONIC, MOVE_PROTECT, MOVE_AERIAL_ACE
+    .moves = {MOVE_SURF, MOVE_SUPERSONIC, MOVE_PROTECT, MOVE_AERIAL_ACE}
     },
     {
     .lvl = 53,
@@ -12813,7 +12585,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_WHIRLWIND, MOVE_SPIKES, MOVE_STEEL_WING, MOVE_AERIAL_ACE
+    .moves = {MOVE_WHIRLWIND, MOVE_SPIKES, MOVE_STEEL_WING, MOVE_AERIAL_ACE}
     },
     {
     .lvl = 55,
@@ -12821,7 +12593,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_CHESTO_BERRY,
-    .moves = MOVE_AERIAL_ACE, MOVE_REST, MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE
+    .moves = {MOVE_AERIAL_ACE, MOVE_REST, MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE}
     }
 };
 
@@ -12832,7 +12604,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_HYPNOSIS, MOVE_PSYCHIC, MOVE_REFLECT, MOVE_DREAM_EATER
+    .moves = {MOVE_HYPNOSIS, MOVE_PSYCHIC, MOVE_REFLECT, MOVE_DREAM_EATER}
     },
     {
     .lvl = 54,
@@ -12840,7 +12612,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SUNNY_DAY, MOVE_AERIAL_ACE, MOVE_SOLAR_BEAM, MOVE_EARTHQUAKE
+    .moves = {MOVE_SUNNY_DAY, MOVE_AERIAL_ACE, MOVE_SOLAR_BEAM, MOVE_EARTHQUAKE}
     },
     {
     .lvl = 55,
@@ -12848,7 +12620,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SURF, MOVE_SUPERSONIC, MOVE_PROTECT, MOVE_AERIAL_ACE
+    .moves = {MOVE_SURF, MOVE_SUPERSONIC, MOVE_PROTECT, MOVE_AERIAL_ACE}
     },
     {
     .lvl = 55,
@@ -12856,7 +12628,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_HYPER_BEAM, MOVE_THUNDERBOLT, MOVE_EARTHQUAKE, MOVE_ICE_BEAM
+    .moves = {MOVE_HYPER_BEAM, MOVE_THUNDERBOLT, MOVE_EARTHQUAKE, MOVE_ICE_BEAM}
     },
     {
     .lvl = 58,
@@ -12864,7 +12636,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_WHIRLWIND, MOVE_SPIKES, MOVE_STEEL_WING, MOVE_AERIAL_ACE
+    .moves = {MOVE_WHIRLWIND, MOVE_SPIKES, MOVE_STEEL_WING, MOVE_AERIAL_ACE}
     },
     {
     .lvl = 60,
@@ -12872,7 +12644,7 @@ static const struct TrainerMonItemCustomMoves sParty_Winona5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_CHESTO_BERRY,
-    .moves = MOVE_SKY_ATTACK, MOVE_REST, MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE
+    .moves = {MOVE_SKY_ATTACK, MOVE_REST, MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE}
     }
 };
 
@@ -12883,7 +12655,7 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_YAWN, MOVE_PSYCHIC, MOVE_CALM_MIND, MOVE_PROTECT
+    .moves = {MOVE_YAWN, MOVE_PSYCHIC, MOVE_CALM_MIND, MOVE_PROTECT}
     },
     {
     .lvl = 49,
@@ -12891,7 +12663,7 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_EARTHQUAKE, MOVE_ANCIENT_POWER, MOVE_PSYCHIC, MOVE_LIGHT_SCREEN
+    .moves = {MOVE_EARTHQUAKE, MOVE_ANCIENT_POWER, MOVE_PSYCHIC, MOVE_LIGHT_SCREEN}
     },
     {
     .lvl = 49,
@@ -12899,7 +12671,7 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_CHESTO_BERRY,
-    .moves = MOVE_PSYCHIC, MOVE_REST, MOVE_CONFUSE_RAY, MOVE_CALM_MIND
+    .moves = {MOVE_PSYCHIC, MOVE_REST, MOVE_CONFUSE_RAY, MOVE_CALM_MIND}
     },
     {
     .lvl = 50,
@@ -12907,7 +12679,7 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_CHESTO_BERRY,
-    .moves = MOVE_EARTHQUAKE, MOVE_PSYCHIC, MOVE_REST, MOVE_CALM_MIND
+    .moves = {MOVE_EARTHQUAKE, MOVE_PSYCHIC, MOVE_REST, MOVE_CALM_MIND}
     },
     {
     .lvl = 50,
@@ -12915,7 +12687,7 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_SUNNY_DAY, MOVE_SOLAR_BEAM, MOVE_PSYCHIC, MOVE_FLAMETHROWER
+    .moves = {MOVE_SUNNY_DAY, MOVE_SOLAR_BEAM, MOVE_PSYCHIC, MOVE_FLAMETHROWER}
     }
 };
 
@@ -12926,7 +12698,7 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_HYPNOSIS, MOVE_DREAM_EATER, MOVE_HEADBUTT, MOVE_PROTECT
+    .moves = {MOVE_HYPNOSIS, MOVE_DREAM_EATER, MOVE_HEADBUTT, MOVE_PROTECT}
     },
     {
     .lvl = 53,
@@ -12934,7 +12706,7 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_YAWN, MOVE_PSYCHIC, MOVE_CALM_MIND, MOVE_PROTECT
+    .moves = {MOVE_YAWN, MOVE_PSYCHIC, MOVE_CALM_MIND, MOVE_PROTECT}
     },
     {
     .lvl = 54,
@@ -12942,7 +12714,7 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_EARTHQUAKE, MOVE_EXPLOSION, MOVE_PSYCHIC, MOVE_LIGHT_SCREEN
+    .moves = {MOVE_EARTHQUAKE, MOVE_EXPLOSION, MOVE_PSYCHIC, MOVE_LIGHT_SCREEN}
     },
     {
     .lvl = 54,
@@ -12950,7 +12722,7 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_CHESTO_BERRY,
-    .moves = MOVE_PSYCHIC, MOVE_REST, MOVE_CONFUSE_RAY, MOVE_CALM_MIND
+    .moves = {MOVE_PSYCHIC, MOVE_REST, MOVE_CONFUSE_RAY, MOVE_CALM_MIND}
     },
     {
     .lvl = 55,
@@ -12958,7 +12730,7 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_CHESTO_BERRY,
-    .moves = MOVE_EARTHQUAKE, MOVE_PSYCHIC, MOVE_REST, MOVE_CALM_MIND
+    .moves = {MOVE_EARTHQUAKE, MOVE_PSYCHIC, MOVE_REST, MOVE_CALM_MIND}
     },
     {
     .lvl = 55,
@@ -12966,7 +12738,7 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_SUNNY_DAY, MOVE_SOLAR_BEAM, MOVE_PSYCHIC, MOVE_FLAMETHROWER
+    .moves = {MOVE_SUNNY_DAY, MOVE_SOLAR_BEAM, MOVE_PSYCHIC, MOVE_FLAMETHROWER}
     }
 };
 
@@ -12977,7 +12749,7 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_HYPNOSIS, MOVE_DREAM_EATER, MOVE_HEADBUTT, MOVE_PROTECT
+    .moves = {MOVE_HYPNOSIS, MOVE_DREAM_EATER, MOVE_HEADBUTT, MOVE_PROTECT}
     },
     {
     .lvl = 59,
@@ -12985,7 +12757,7 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_EARTHQUAKE, MOVE_EXPLOSION, MOVE_PSYCHIC, MOVE_LIGHT_SCREEN
+    .moves = {MOVE_EARTHQUAKE, MOVE_EXPLOSION, MOVE_PSYCHIC, MOVE_LIGHT_SCREEN}
     },
     {
     .lvl = 58,
@@ -12993,7 +12765,7 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_YAWN, MOVE_PSYCHIC, MOVE_CALM_MIND, MOVE_PROTECT
+    .moves = {MOVE_YAWN, MOVE_PSYCHIC, MOVE_CALM_MIND, MOVE_PROTECT}
     },
     {
     .lvl = 59,
@@ -13001,7 +12773,7 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_CHESTO_BERRY,
-    .moves = MOVE_PSYCHIC, MOVE_REST, MOVE_CONFUSE_RAY, MOVE_CALM_MIND
+    .moves = {MOVE_PSYCHIC, MOVE_REST, MOVE_CONFUSE_RAY, MOVE_CALM_MIND}
     },
     {
     .lvl = 60,
@@ -13009,7 +12781,7 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_CHESTO_BERRY,
-    .moves = MOVE_EARTHQUAKE, MOVE_PSYCHIC, MOVE_REST, MOVE_CALM_MIND
+    .moves = {MOVE_EARTHQUAKE, MOVE_PSYCHIC, MOVE_REST, MOVE_CALM_MIND}
     },
     {
     .lvl = 60,
@@ -13017,7 +12789,7 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_SUNNY_DAY, MOVE_SOLAR_BEAM, MOVE_PSYCHIC, MOVE_FLAMETHROWER
+    .moves = {MOVE_SUNNY_DAY, MOVE_SOLAR_BEAM, MOVE_PSYCHIC, MOVE_FLAMETHROWER}
     }
 };
 
@@ -13028,7 +12800,7 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_HYPNOSIS, MOVE_DREAM_EATER, MOVE_HEADBUTT, MOVE_PROTECT
+    .moves = {MOVE_HYPNOSIS, MOVE_DREAM_EATER, MOVE_HEADBUTT, MOVE_PROTECT}
     },
     {
     .lvl = 64,
@@ -13036,7 +12808,7 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_EARTHQUAKE, MOVE_EXPLOSION, MOVE_PSYCHIC, MOVE_LIGHT_SCREEN
+    .moves = {MOVE_EARTHQUAKE, MOVE_EXPLOSION, MOVE_PSYCHIC, MOVE_LIGHT_SCREEN}
     },
     {
     .lvl = 63,
@@ -13044,7 +12816,7 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_YAWN, MOVE_PSYCHIC, MOVE_CALM_MIND, MOVE_PROTECT
+    .moves = {MOVE_YAWN, MOVE_PSYCHIC, MOVE_CALM_MIND, MOVE_PROTECT}
     },
     {
     .lvl = 64,
@@ -13052,7 +12824,7 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_CHESTO_BERRY,
-    .moves = MOVE_PSYCHIC, MOVE_REST, MOVE_CONFUSE_RAY, MOVE_CALM_MIND
+    .moves = {MOVE_PSYCHIC, MOVE_REST, MOVE_CONFUSE_RAY, MOVE_CALM_MIND}
     },
     {
     .lvl = 65,
@@ -13060,7 +12832,7 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_CHESTO_BERRY,
-    .moves = MOVE_EARTHQUAKE, MOVE_PSYCHIC, MOVE_REST, MOVE_CALM_MIND
+    .moves = {MOVE_EARTHQUAKE, MOVE_PSYCHIC, MOVE_REST, MOVE_CALM_MIND}
     },
     {
     .lvl = 65,
@@ -13068,7 +12840,7 @@ static const struct TrainerMonItemCustomMoves sParty_TateAndLiza5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_SUNNY_DAY, MOVE_SOLAR_BEAM, MOVE_PSYCHIC, MOVE_FLAMETHROWER
+    .moves = {MOVE_SUNNY_DAY, MOVE_SOLAR_BEAM, MOVE_PSYCHIC, MOVE_FLAMETHROWER}
     }
 };
 
@@ -13079,7 +12851,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_HYPNOSIS, MOVE_RAIN_DANCE, MOVE_PROTECT, MOVE_HYDRO_PUMP
+    .moves = {MOVE_HYPNOSIS, MOVE_RAIN_DANCE, MOVE_PROTECT, MOVE_HYDRO_PUMP}
     },
     {
     .lvl = 46,
@@ -13087,7 +12859,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_RAIN_DANCE, MOVE_WATER_PULSE, MOVE_DOUBLE_TEAM, MOVE_FISSURE
+    .moves = {MOVE_RAIN_DANCE, MOVE_WATER_PULSE, MOVE_DOUBLE_TEAM, MOVE_FISSURE}
     },
     {
     .lvl = 48,
@@ -13095,7 +12867,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_WATER_PULSE, MOVE_BODY_SLAM, MOVE_PROTECT, MOVE_ICE_BEAM
+    .moves = {MOVE_WATER_PULSE, MOVE_BODY_SLAM, MOVE_PROTECT, MOVE_ICE_BEAM}
     },
     {
     .lvl = 48,
@@ -13103,7 +12875,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_CHESTO_BERRY,
-    .moves = MOVE_REST, MOVE_CRABHAMMER, MOVE_TAUNT, MOVE_DOUBLE_TEAM
+    .moves = {MOVE_REST, MOVE_CRABHAMMER, MOVE_TAUNT, MOVE_DOUBLE_TEAM}
     },
     {
     .lvl = 51,
@@ -13111,7 +12883,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan2[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_CHESTO_BERRY,
-    .moves = MOVE_WATER_PULSE, MOVE_DOUBLE_TEAM, MOVE_ICE_BEAM, MOVE_REST
+    .moves = {MOVE_WATER_PULSE, MOVE_DOUBLE_TEAM, MOVE_ICE_BEAM, MOVE_REST}
     }
 };
 
@@ -13122,7 +12894,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_HYPNOSIS, MOVE_RAIN_DANCE, MOVE_PROTECT, MOVE_HYDRO_PUMP
+    .moves = {MOVE_HYPNOSIS, MOVE_RAIN_DANCE, MOVE_PROTECT, MOVE_HYDRO_PUMP}
     },
     {
     .lvl = 51,
@@ -13130,7 +12902,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_RAIN_DANCE, MOVE_WATER_PULSE, MOVE_DOUBLE_TEAM, MOVE_FISSURE
+    .moves = {MOVE_RAIN_DANCE, MOVE_WATER_PULSE, MOVE_DOUBLE_TEAM, MOVE_FISSURE}
     },
     {
     .lvl = 53,
@@ -13138,7 +12910,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_WATER_PULSE, MOVE_BODY_SLAM, MOVE_PROTECT, MOVE_ICE_BEAM
+    .moves = {MOVE_WATER_PULSE, MOVE_BODY_SLAM, MOVE_PROTECT, MOVE_ICE_BEAM}
     },
     {
     .lvl = 53,
@@ -13146,7 +12918,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_CHESTO_BERRY,
-    .moves = MOVE_REST, MOVE_GUILLOTINE, MOVE_TAUNT, MOVE_DOUBLE_TEAM
+    .moves = {MOVE_REST, MOVE_GUILLOTINE, MOVE_TAUNT, MOVE_DOUBLE_TEAM}
     },
     {
     .lvl = 56,
@@ -13154,7 +12926,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan3[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_CHESTO_BERRY,
-    .moves = MOVE_WATER_PULSE, MOVE_DOUBLE_TEAM, MOVE_ICE_BEAM, MOVE_REST
+    .moves = {MOVE_WATER_PULSE, MOVE_DOUBLE_TEAM, MOVE_ICE_BEAM, MOVE_REST}
     }
 };
 
@@ -13165,7 +12937,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_HYDRO_PUMP, MOVE_PERISH_SONG, MOVE_ICE_BEAM, MOVE_CONFUSE_RAY
+    .moves = {MOVE_HYDRO_PUMP, MOVE_PERISH_SONG, MOVE_ICE_BEAM, MOVE_CONFUSE_RAY}
     },
     {
     .lvl = 58,
@@ -13173,7 +12945,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_RAIN_DANCE, MOVE_WATER_PULSE, MOVE_DOUBLE_TEAM, MOVE_FISSURE
+    .moves = {MOVE_RAIN_DANCE, MOVE_WATER_PULSE, MOVE_DOUBLE_TEAM, MOVE_FISSURE}
     },
     {
     .lvl = 56,
@@ -13181,7 +12953,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_HYPNOSIS, MOVE_RAIN_DANCE, MOVE_PROTECT, MOVE_HYDRO_PUMP
+    .moves = {MOVE_HYPNOSIS, MOVE_RAIN_DANCE, MOVE_PROTECT, MOVE_HYDRO_PUMP}
     },
     {
     .lvl = 58,
@@ -13189,7 +12961,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_WATER_PULSE, MOVE_BODY_SLAM, MOVE_PROTECT, MOVE_ICE_BEAM
+    .moves = {MOVE_WATER_PULSE, MOVE_BODY_SLAM, MOVE_PROTECT, MOVE_ICE_BEAM}
     },
     {
     .lvl = 58,
@@ -13197,7 +12969,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_CHESTO_BERRY,
-    .moves = MOVE_REST, MOVE_GUILLOTINE, MOVE_TAUNT, MOVE_DOUBLE_TEAM
+    .moves = {MOVE_REST, MOVE_GUILLOTINE, MOVE_TAUNT, MOVE_DOUBLE_TEAM}
     },
     {
     .lvl = 61,
@@ -13205,7 +12977,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan4[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_CHESTO_BERRY,
-    .moves = MOVE_WATER_PULSE, MOVE_DOUBLE_TEAM, MOVE_ICE_BEAM, MOVE_REST
+    .moves = {MOVE_WATER_PULSE, MOVE_DOUBLE_TEAM, MOVE_ICE_BEAM, MOVE_REST}
     }
 };
 
@@ -13216,7 +12988,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_HYDRO_PUMP, MOVE_PERISH_SONG, MOVE_ICE_BEAM, MOVE_CONFUSE_RAY
+    .moves = {MOVE_HYDRO_PUMP, MOVE_PERISH_SONG, MOVE_ICE_BEAM, MOVE_CONFUSE_RAY}
     },
     {
     .lvl = 63,
@@ -13224,7 +12996,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_RAIN_DANCE, MOVE_WATER_PULSE, MOVE_DOUBLE_TEAM, MOVE_FISSURE
+    .moves = {MOVE_RAIN_DANCE, MOVE_WATER_PULSE, MOVE_DOUBLE_TEAM, MOVE_FISSURE}
     },
     {
     .lvl = 61,
@@ -13232,7 +13004,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_HYPNOSIS, MOVE_RAIN_DANCE, MOVE_HYDRO_PUMP, MOVE_PERISH_SONG
+    .moves = {MOVE_HYPNOSIS, MOVE_RAIN_DANCE, MOVE_HYDRO_PUMP, MOVE_PERISH_SONG}
     },
     {
     .lvl = 63,
@@ -13240,7 +13012,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_WATER_PULSE, MOVE_BODY_SLAM, MOVE_PROTECT, MOVE_SHEER_COLD
+    .moves = {MOVE_WATER_PULSE, MOVE_BODY_SLAM, MOVE_PROTECT, MOVE_SHEER_COLD}
     },
     {
     .lvl = 63,
@@ -13248,7 +13020,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_CHESTO_BERRY,
-    .moves = MOVE_REST, MOVE_GUILLOTINE, MOVE_TAUNT, MOVE_DOUBLE_TEAM
+    .moves = {MOVE_REST, MOVE_GUILLOTINE, MOVE_TAUNT, MOVE_DOUBLE_TEAM}
     },
     {
     .lvl = 66,
@@ -13256,7 +13028,7 @@ static const struct TrainerMonItemCustomMoves sParty_Juan5[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_CHESTO_BERRY,
-    .moves = MOVE_WATER_PULSE, MOVE_DOUBLE_TEAM, MOVE_ICE_BEAM, MOVE_REST
+    .moves = {MOVE_WATER_PULSE, MOVE_DOUBLE_TEAM, MOVE_ICE_BEAM, MOVE_REST}
     }
 };
 
@@ -13267,7 +13039,7 @@ static const struct TrainerMonItemCustomMoves sParty_Angelo[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SHOCK_WAVE, MOVE_QUICK_ATTACK, MOVE_CHARM, MOVE_NONE
+    .moves = {MOVE_SHOCK_WAVE, MOVE_QUICK_ATTACK, MOVE_CHARM, MOVE_NONE}
     },
     {
     .lvl = 17,
@@ -13275,7 +13047,7 @@ static const struct TrainerMonItemCustomMoves sParty_Angelo[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_SHOCK_WAVE, MOVE_QUICK_ATTACK, MOVE_CONFUSE_RAY, MOVE_NONE
+    .moves = {MOVE_SHOCK_WAVE, MOVE_QUICK_ATTACK, MOVE_CONFUSE_RAY, MOVE_NONE}
     }
 };
 
@@ -13295,7 +13067,7 @@ static const struct TrainerMonItemCustomMoves sParty_Steven[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_TOXIC, MOVE_AERIAL_ACE, MOVE_SPIKES, MOVE_STEEL_WING
+    .moves = {MOVE_TOXIC, MOVE_AERIAL_ACE, MOVE_SPIKES, MOVE_STEEL_WING}
     },
     {
     .lvl = 75,
@@ -13303,7 +13075,7 @@ static const struct TrainerMonItemCustomMoves sParty_Steven[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_REFLECT, MOVE_LIGHT_SCREEN, MOVE_ANCIENT_POWER, MOVE_EARTHQUAKE
+    .moves = {MOVE_REFLECT, MOVE_LIGHT_SCREEN, MOVE_ANCIENT_POWER, MOVE_EARTHQUAKE}
     },
     {
     .lvl = 76,
@@ -13311,7 +13083,7 @@ static const struct TrainerMonItemCustomMoves sParty_Steven[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_THUNDER, MOVE_EARTHQUAKE, MOVE_SOLAR_BEAM, MOVE_DRAGON_CLAW
+    .moves = {MOVE_THUNDER, MOVE_EARTHQUAKE, MOVE_SOLAR_BEAM, MOVE_DRAGON_CLAW}
     },
     {
     .lvl = 76,
@@ -13319,7 +13091,7 @@ static const struct TrainerMonItemCustomMoves sParty_Steven[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_GIGA_DRAIN, MOVE_ANCIENT_POWER, MOVE_INGRAIN, MOVE_CONFUSE_RAY
+    .moves = {MOVE_GIGA_DRAIN, MOVE_ANCIENT_POWER, MOVE_INGRAIN, MOVE_CONFUSE_RAY}
     },
     {
     .lvl = 76,
@@ -13327,7 +13099,7 @@ static const struct TrainerMonItemCustomMoves sParty_Steven[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = MOVE_WATER_PULSE, MOVE_ANCIENT_POWER, MOVE_AERIAL_ACE, MOVE_SLASH
+    .moves = {MOVE_WATER_PULSE, MOVE_ANCIENT_POWER, MOVE_AERIAL_ACE, MOVE_SLASH}
     },
     {
     .lvl = 78,
@@ -13335,7 +13107,7 @@ static const struct TrainerMonItemCustomMoves sParty_Steven[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = MOVE_EARTHQUAKE, MOVE_PSYCHIC, MOVE_METEOR_MASH, MOVE_SHADOW_BALL
+    .moves = {MOVE_EARTHQUAKE, MOVE_PSYCHIC, MOVE_METEOR_MASH, MOVE_SHADOW_BALL}
     }
 };
 
@@ -14245,19 +14017,10 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Leaf[] = {
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_BrendanLinkPlaceholder[] = {
+static const struct TrainerMonNoItemDefaultMoves sParty_RivalLinkPlaceholder[] = {
     {
     .lvl = 5,
     .species = SPECIES_GROUDON,
-    .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
-    }
-};
-
-static const struct TrainerMonNoItemDefaultMoves sParty_MayLinkPlaceholder[] = {
-    {
-    .lvl = 5,
-    .species = SPECIES_KYOGRE,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     }
