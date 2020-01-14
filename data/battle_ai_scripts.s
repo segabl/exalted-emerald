@@ -264,10 +264,9 @@ AI_CBM_FollowMe:
 	end
 	
 AI_CBM_HealBell:
-	if_status AI_TARGET, STATUS1_ANY, AI_CBM_HealBell_End
-	if_status_in_party AI_TARGET, STATUS1_ANY, AI_CBM_HealBell_End
-	score -5
-AI_CBM_HealBell_End:
+	if_status AI_TARGET, STATUS1_ANY, Score_Plus2
+	if_status_in_party AI_TARGET, STATUS1_ANY, Score_Plus2
+	score -10
 	end
 	
 AI_CBM_Taunt:
@@ -339,6 +338,11 @@ AI_CBM_PsychicShift:
 	end
 	
 AI_CBM_Bestow:
+	if_target_is_ally AI_CBM_Bestow2
+	score -10
+	end
+
+AI_CBM_Bestow2:
 	if_holds_no_item AI_USER, Score_Minus10
 	end
 	
@@ -823,9 +827,10 @@ AI_CBM_WillOWisp: @ 82DC6B4
 	if_equal ABILITY_WATER_VEIL, Score_Minus10
 	if_equal ABILITY_FLARE_BOOST, Score_Minus10
 	if_status AI_TARGET, STATUS1_ANY, Score_Minus10
-	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
-	if_type_effectiveness AI_EFFECTIVENESS_x0_5, Score_Minus10
-	if_type_effectiveness AI_EFFECTIVENESS_x0_25, Score_Minus10
+	get_target_type1
+	if_equal TYPE_FIRE, Score_Minus10
+	get_target_type2
+	if_equal TYPE_FIRE, Score_Minus10
 	if_side_affecting AI_TARGET, SIDE_STATUS_SAFEGUARD, Score_Minus10
 	end
 
@@ -1543,24 +1548,12 @@ AI_CV_AttackDown3: @ 82DCE1B
 	score -2
 
 AI_CV_AttackDown4: @ 82DCE24
-	get_target_type1
-	if_in_bytes AI_CV_AttackDown_UnknownTypeList, AI_CV_AttackDown_End
-	get_target_type2
-	if_in_bytes AI_CV_AttackDown_UnknownTypeList, AI_CV_AttackDown_End
+	if_has_physical_move AI_TARGET, AI_CV_AttackDown_End
 	if_random_less_than 50, AI_CV_AttackDown_End
 	score -2
 
 AI_CV_AttackDown_End: @ 82DCE42
 	end
-
-AI_CV_AttackDown_UnknownTypeList:
-    .byte TYPE_NORMAL
-    .byte TYPE_FIGHTING
-    .byte TYPE_GROUND
-    .byte TYPE_ROCK
-    .byte TYPE_BUG
-    .byte TYPE_STEEL
-    .byte -1
 
 AI_CV_DefenseDown:
 	if_hp_less_than AI_USER, 70, AI_CV_DefenseDown2
@@ -1609,26 +1602,12 @@ AI_CV_SpAtkDown3:
 	score -2
 
 AI_CV_SpAtkDown4:
-	get_target_type1
-	if_in_bytes AI_CV_SpAtkDown_SpecialTypeList, AI_CV_SpAtkDown_End
-	get_target_type2
-	if_in_bytes AI_CV_SpAtkDown_SpecialTypeList, AI_CV_SpAtkDown_End
+	if_has_special_move AI_TARGET, AI_CV_SpAtkDown_End
 	if_random_less_than 50, AI_CV_SpAtkDown_End
 	score -2
 
 AI_CV_SpAtkDown_End: @ 82DCEE1
 	end
-
-AI_CV_SpAtkDown_SpecialTypeList: @ 82DCEE2
-    .byte TYPE_FIRE
-    .byte TYPE_WATER
-    .byte TYPE_GRASS
-    .byte TYPE_ELECTRIC
-    .byte TYPE_PSYCHIC
-    .byte TYPE_ICE
-    .byte TYPE_DRAGON
-    .byte TYPE_DARK
-    .byte -1
 
 AI_CV_SpDefDown: @ 82DCEEB
 	if_hp_less_than AI_USER, 70, AI_CV_SpDefDown2
@@ -1861,26 +1840,12 @@ AI_CV_Toxic_End:
 AI_CV_LightScreen:
 	call EncourageLightClay
 	if_hp_less_than AI_USER, 50, AI_CV_LightScreen_ScoreDown2
-	get_target_type1
-	if_in_bytes AI_CV_LightScreen_SpecialTypeList, AI_CV_LightScreen_End
-	get_target_type2
-	if_in_bytes AI_CV_LightScreen_SpecialTypeList, AI_CV_LightScreen_End
+	if_has_special_move AI_TARGET, AI_CV_LightScreen_End
 	if_random_less_than 50, AI_CV_LightScreen_End
 AI_CV_LightScreen_ScoreDown2:
 	score -2
 AI_CV_LightScreen_End:
 	end
-
-AI_CV_LightScreen_SpecialTypeList:
-    .byte TYPE_FIRE
-    .byte TYPE_WATER
-    .byte TYPE_GRASS
-    .byte TYPE_ELECTRIC
-    .byte TYPE_PSYCHIC
-    .byte TYPE_ICE
-    .byte TYPE_DRAGON
-    .byte TYPE_DARK
-    .byte -1
 
 AI_CV_Rest:
 	if_target_faster AI_CV_Rest4
@@ -2032,27 +1997,12 @@ AI_CV_AuroraVeil:
 AI_CV_Reflect:
 	call EncourageLightClay
 	if_hp_less_than AI_USER, 50, AI_CV_Reflect_ScoreDown2
-	get_target_type1
-	if_in_bytes AI_CV_Reflect_PhysicalTypeList, AI_CV_Reflect_End
-	get_target_type2
-	if_in_bytes AI_CV_Reflect_PhysicalTypeList, AI_CV_Reflect_End
+	if_has_physical_move AI_TARGET, AI_CV_Reflect_End
 	if_random_less_than 50, AI_CV_Reflect_End
 AI_CV_Reflect_ScoreDown2:
 	score -2
 AI_CV_Reflect_End:
 	end
-
-AI_CV_Reflect_PhysicalTypeList:
-    .byte TYPE_NORMAL
-    .byte TYPE_FIGHTING
-    .byte TYPE_FLYING
-    .byte TYPE_POISON
-    .byte TYPE_GROUND
-    .byte TYPE_ROCK
-    .byte TYPE_BUG
-    .byte TYPE_GHOST
-    .byte TYPE_STEEL
-    .byte -1
 
 AI_CV_ToxicThread:
 	if_status AI_TARGET, STATUS1_ANY, AI_CV_ToxicThreadSpd
@@ -2206,8 +2156,8 @@ AI_CV_Counter3:
 
 AI_CV_Counter4:
 	get_last_used_bank_move AI_TARGET
-	get_move_type_from_result
-	if_not_in_bytes AI_CV_Counter_PhysicalTypeList, AI_CV_Counter_ScoreDown1
+	get_move_split_from_result
+	if_not_equal SPLIT_PHYSICAL, AI_CV_Counter_ScoreDown1
 	if_random_less_than 100, AI_CV_Counter_End
 	score +1
 	goto AI_CV_Counter_End
@@ -2218,10 +2168,7 @@ AI_CV_Counter5:
 	score +1
 
 AI_CV_Counter6:
-	get_target_type1
-	if_in_bytes AI_CV_Counter_PhysicalTypeList, AI_CV_Counter_End
-	get_target_type2
-	if_in_bytes AI_CV_Counter_PhysicalTypeList, AI_CV_Counter_End
+	if_has_physical_move AI_TARGET, AI_CV_Counter_End
 	if_random_less_than 50, AI_CV_Counter_End
 
 AI_CV_Counter7:
@@ -2236,18 +2183,6 @@ AI_CV_Counter_ScoreDown1:
 
 AI_CV_Counter_End:
 	end
-
-AI_CV_Counter_PhysicalTypeList:
-    .byte TYPE_NORMAL
-    .byte TYPE_FIGHTING
-    .byte TYPE_FLYING
-    .byte TYPE_POISON
-    .byte TYPE_GROUND
-    .byte TYPE_ROCK
-    .byte TYPE_BUG
-    .byte TYPE_GHOST
-    .byte TYPE_STEEL
-    .byte -1
 
 AI_CV_Encore:
 	if_any_move_disabled AI_TARGET, AI_CV_Encore2
@@ -2625,6 +2560,7 @@ AI_CV_Pursuit:
 	if_equal TYPE_GHOST, AI_CV_Pursuit2
 	get_target_type2
 	if_equal TYPE_PSYCHIC, AI_CV_Pursuit2
+	if_hp_less_than AI_TARGET, 30, Score_Plus5
 	goto AI_CV_Pursuit_End
 
 AI_CV_Pursuit2:
@@ -2748,8 +2684,8 @@ AI_CV_MirrorCoat3:
 
 AI_CV_MirrorCoat4:
 	get_last_used_bank_move AI_TARGET
-	get_move_type_from_result
-	if_not_in_bytes AI_CV_MirrorCoat_SpecialTypeList, AI_CV_MirrorCoat_ScoreDown1
+	get_move_split_from_result
+	if_not_equal SPLIT_SPECIAL, AI_CV_MirrorCoat_ScoreDown1
 	if_random_less_than 100, AI_CV_MirrorCoat_End
 	score +1
 	goto AI_CV_MirrorCoat_End
@@ -2760,10 +2696,7 @@ AI_CV_MirrorCoat5:
 	score +1
 
 AI_CV_MirrorCoat6:
-	get_target_type1
-	if_in_bytes AI_CV_MirrorCoat_SpecialTypeList, AI_CV_MirrorCoat_End
-	get_target_type2
-	if_in_bytes AI_CV_MirrorCoat_SpecialTypeList, AI_CV_MirrorCoat_End
+	if_has_special_move AI_TARGET, AI_CV_MirrorCoat_End
 	if_random_less_than 50, AI_CV_MirrorCoat_End
 
 AI_CV_MirrorCoat_ScoreUp4:
@@ -2779,27 +2712,13 @@ AI_CV_MirrorCoat_ScoreDown1:
 AI_CV_MirrorCoat_End:
 	end
 
-AI_CV_MirrorCoat_SpecialTypeList:
-    .byte TYPE_FIRE
-    .byte TYPE_WATER
-    .byte TYPE_GRASS
-    .byte TYPE_ELECTRIC
-    .byte TYPE_PSYCHIC
-    .byte TYPE_ICE
-    .byte TYPE_DRAGON
-    .byte TYPE_DARK
-    .byte -1
-
 AI_CV_ChargeUpMove:
-	if_type_effectiveness AI_EFFECTIVENESS_x0_25, AI_CV_ChargeUpMove_ScoreDown2
-	if_type_effectiveness AI_EFFECTIVENESS_x0_5, AI_CV_ChargeUpMove_ScoreDown2
-	if_has_move_with_effect AI_TARGET, EFFECT_PROTECT, AI_CV_ChargeUpMove_ScoreDown2
+	if_type_effectiveness AI_EFFECTIVENESS_x0_25, Score_Minus5
+	if_type_effectiveness AI_EFFECTIVENESS_x0_5, Score_Minus3
+	if_has_move_with_effect AI_TARGET, EFFECT_PROTECT, Score_Minus8
 	if_hp_more_than AI_USER, 38, AI_CV_ChargeUpMove_End
 	score -1
 	goto AI_CV_ChargeUpMove_End
-
-AI_CV_ChargeUpMove_ScoreDown2:
-	score -2
 
 AI_CV_ChargeUpMove_End:
 	end
@@ -2852,8 +2771,10 @@ AI_CV_Fly_TypesToEncourage:
     .byte -1
 
 AI_CV_FakeOut:
-	score +2
-	end
+	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
+	is_first_turn_for AI_USER
+	if_not_equal 0, Score_Plus10
+	goto Score_Minus10
 
 AI_CV_SpitUp:
 	get_stockpile_count AI_USER
@@ -2918,11 +2839,8 @@ AI_CV_Sandstorm_End:
 	end
 
 AI_CV_Facade:
-	if_not_status AI_TARGET, STATUS1_POISON | STATUS1_BURN | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON, AI_CV_Facade_End
-	score +1
-
-AI_CV_Facade_End:
-	end
+	if_not_status AI_TARGET, STATUS1_POISON | STATUS1_BURN | STATUS1_PARALYSIS | STATUS1_TOXIC_POISON, AI_Ret
+	goto Score_Plus2
 
 AI_CV_FocusPunch:
 	if_type_effectiveness AI_EFFECTIVENESS_x0_25, AI_CV_FocusPunch2
@@ -3090,6 +3008,7 @@ AI_CV_Recycle_ItemsToEncourage:
     .byte ITEM_CHESTO_BERRY
     .byte ITEM_LUM_BERRY
     .byte ITEM_STARF_BERRY
+		.byte ITEM_SITRUS_BERRY
     .byte -1
 
 AI_CV_Revenge:
@@ -3170,14 +3089,8 @@ AI_CV_Imprison_End:
 	end
 
 AI_CV_Refresh:
-	if_hp_less_than AI_TARGET, 50, AI_CV_Refresh_ScoreDown1
-	goto AI_CV_Refresh_End
-
-AI_CV_Refresh_ScoreDown1:
-	score -1
-
-AI_CV_Refresh_End:
-	end
+	if_status AI_USER, STATUS1_ANY, Score_Plus3
+	goto Score_Minus8
 
 AI_CV_Snatch:
 	is_first_turn_for AI_USER
