@@ -1930,6 +1930,7 @@ AI_CV_Trap5:
 	score +2
 	goto AI_CV_TrapItem
 AI_CV_Trap2:
+	score +1
 	if_random_less_than 128, AI_CV_TrapItem
 	score +1
 AI_CV_TrapItem:
