@@ -9,6 +9,7 @@
 
 s32 AI_CalcDamage(u16 move, u8 battlerAtk, u8 battlerDef);
 s32 AI_CalcPartyMonDamage(u16 move, u8 battlerAtk, u8 battlerDef, struct Pokemon *mon);
+s32 AI_CalcDamageOnPartyMon(u16 move, u8 battlerAtk, u8 battlerDef, struct Pokemon *mon);
 u16 AI_GetTypeEffectiveness(u16 move, u8 battlerAtk, u8 battlerDef);
 void BattleAI_SetupItems(void);
 void BattleAI_SetupFlags(void);

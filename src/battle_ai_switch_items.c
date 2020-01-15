@@ -8,6 +8,7 @@
 #include "random.h"
 #include "util.h"
 #include "constants/abilities.h"
+#include "constants/battle_move_effects.h"
 #include "constants/item_effects.h"
 #include "constants/items.h"
 #include "constants/moves.h"
@@ -221,6 +222,104 @@ static bool8 FindMonThatAbsorbsOpponentsMove(void)
     return FALSE;
 }
 
+static bool8 FindMonThatResistsTwoTurnMove(void)
+{
+    u8 battlerIn1, battlerIn2;
+    s32 firstId;
+    s32 lastId;
+    struct Pokemon *party;
+    s32 i;
+    u8 switchToMon = PARTY_SIZE;
+    u16 bestDamage;
+    u8 opposingBattler = GetBattlerAtPosition(BATTLE_OPPOSITE(GetBattlerPosition(gActiveBattler)));
+
+    if (gLastMoves[opposingBattler] == 0 || gLastMoves[opposingBattler] == 0xFFFF)
+        return FALSE;
+
+    // If we're below 1/3 hp, switching doesn't really make sense since we're dead anyways
+    if (gBattleMons[gActiveBattler].hp * 3 < gBattleMons[gActiveBattler].maxHP)
+        return FALSE;
+
+    if (gBattleMoves[gLastMoves[opposingBattler]].effect != EFFECT_SOLARBEAM
+    && gBattleMoves[gLastMoves[opposingBattler]].effect != EFFECT_SKULL_BASH
+    && gBattleMoves[gLastMoves[opposingBattler]].effect != EFFECT_TWO_TURNS_ATTACK
+    && gBattleMoves[gLastMoves[opposingBattler]].effect != EFFECT_SEMI_INVULNERABLE)
+        return FALSE;
+
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
+        u16 move = gBattleMons[gActiveBattler].moves[i];
+        if (move == MOVE_NONE)
+            continue;
+        // If we have a protect move, don't switch
+        if (gBattleMoves[move].effect == EFFECT_PROTECT)
+            return FALSE;
+    }
+    
+    bestDamage = AI_CalcDamage(gLastMoves[opposingBattler], opposingBattler, gActiveBattler);
+    // if damage is neglegible compared to max hp, don't try to switch
+    if (bestDamage * 4 < gBattleMons[gActiveBattler].maxHP)
+        return FALSE;
+
+    if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+    {
+        battlerIn1 = gActiveBattler;
+        if (gAbsentBattlerFlags & gBitTable[GetBattlerAtPosition(BATTLE_PARTNER(GetBattlerPosition(gActiveBattler)))])
+            battlerIn2 = gActiveBattler;
+        else
+            battlerIn2 = GetBattlerAtPosition(BATTLE_PARTNER(GetBattlerPosition(gActiveBattler)));
+    }
+    else
+    {
+        battlerIn1 = gActiveBattler;
+        battlerIn2 = gActiveBattler;
+    }
+
+    GetAIPartyIndexes(gActiveBattler, &firstId, &lastId);
+
+    if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
+        party = gPlayerParty;
+    else
+        party = gEnemyParty;
+
+    for (i = firstId; i < lastId; i++)
+    {
+        u16 damage;
+        u16 hp = GetMonData(&party[i], MON_DATA_HP);
+
+        if (hp == 0)
+            continue;
+        if (GetMonData(&party[i], MON_DATA_SPECIES2) == SPECIES_NONE)
+            continue;
+        if (GetMonData(&party[i], MON_DATA_SPECIES2) == SPECIES_EGG)
+            continue;
+        if (i == gBattlerPartyIndexes[battlerIn1])
+            continue;
+        if (i == gBattlerPartyIndexes[battlerIn2])
+            continue;
+        if (i == *(gBattleStruct->monToSwitchIntoId + battlerIn1))
+            continue;
+        if (i == *(gBattleStruct->monToSwitchIntoId + battlerIn2))
+            continue;
+
+        damage = AI_CalcDamageOnPartyMon(gLastMoves[opposingBattler], opposingBattler, gActiveBattler, &party[i]);
+        if (damage < bestDamage && damage * 4 < hp) // We gotta take at least less damage than a quarter of our hp to switch in
+        {
+            bestDamage = damage;
+            switchToMon = i;
+        }
+    }
+    if (switchToMon != PARTY_SIZE)
+    {
+        // we found a mon.
+        *(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler) = switchToMon;
+        BtlController_EmitTwoReturnValues(1, B_ACTION_SWITCH, 0);
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
 static bool8 ShouldSwitchIfNaturalCure(void)
 {
     if (!(gBattleMons[gActiveBattler].status1 & STATUS1_SLEEP))
@@ -427,8 +526,15 @@ static bool8 ShouldSwitch(void)
         return FALSE;
     if (IsAbilityOnOpposingSide(gActiveBattler, ABILITY_SHADOW_TAG))
         return FALSE;
-    if (IsAbilityOnOpposingSide(gActiveBattler, ABILITY_ARENA_TRAP)) // Misses the flying type and Levitate check.
-        return FALSE;
+    if (IsAbilityOnOpposingSide(gActiveBattler, ABILITY_ARENA_TRAP))
+    {
+        if (gBattleMons[gActiveBattler].type1 == TYPE_FLYING)
+            return FALSE;
+        if (gBattleMons[gActiveBattler].type2 == TYPE_FLYING)
+            return FALSE;
+        if (gBattleMons[gActiveBattler].ability == ABILITY_LEVITATE)
+            return FALSE;
+    }
     if (IsAbilityOnField(ABILITY_MAGNET_PULL))
     {
         if (gBattleMons[gActiveBattler].type1 == TYPE_STEEL)
@@ -490,6 +596,8 @@ static bool8 ShouldSwitch(void)
     if (ShouldSwitchIfWonderGuard())
         return TRUE;
     if (FindMonThatAbsorbsOpponentsMove())
+        return TRUE;
+    if (FindMonThatResistsTwoTurnMove())
         return TRUE;
     if (ShouldSwitchIfNaturalCure())
         return TRUE;
