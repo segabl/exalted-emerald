@@ -2770,10 +2770,8 @@ AI_CV_Fly_TypesToEncourage:
     .byte -1
 
 AI_CV_FakeOut:
-	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
-	is_first_turn_for AI_USER
-	if_not_equal 0, Score_Plus10
-	goto Score_Minus10
+	score + 5
+	end
 
 AI_CV_SpitUp:
 	get_stockpile_count AI_USER
