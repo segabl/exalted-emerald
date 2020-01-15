@@ -1125,6 +1125,17 @@ AI_CheckViability:
 	if_effect EFFECT_PERISH_SONG, AI_CV_PerishSong
 	if_effect EFFECT_ROLLOUT, AI_CV_Rollout
 	if_effect EFFECT_VENOSHOCK, AI_CV_Venoshock
+	if_effect EFFECT_MULTI_HIT, AI_CV_MultiHit
+	end
+
+AI_CV_MultiHit:
+	if_ability AI_USER, ABILITY_SKILL_LINK, AI_CV_MultiHit2
+	goto AI_CV_MultiHit3
+
+AI_CV_MultiHit2:
+	score +2
+AI_CV_MultiHit3:
+	if_status2 AI_USER, STATUS2_FOCUS_ENERGY, Score_Plus1
 	end
 
 AI_CV_Venoshock:
@@ -1962,6 +1973,7 @@ AI_CV_HighCrit_End:
 
 AI_CV_FocusEnergy:
 	if_has_move_with_flag AI_USER, FLAG_HIGH_CRIT, AI_CV_FocusEnergy2
+	if_has_move_with_effect AI_USER, EFFECT_MULTI_HIT, AI_CV_FocusEnergy2
 AI_CV_FocusEnergy3:
 	get_hold_effect AI_USER
 	if_not_equal HOLD_EFFECT_SCOPE_LENS, AI_CV_FocusEnergyEnd
