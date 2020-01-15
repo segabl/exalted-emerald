@@ -368,7 +368,8 @@ static void CreateBattleStartTask(u8 transition, u16 song)
 
 void BattleSetup_StartWildBattle(void)
 {
-    FlagSet(FLAG_TEMP_F);
+    if (NUZLOCKE)
+        FlagSet(FLAG_NUZLOCKE_STANDARD_ENCOUNTER);
     if (GetSafariZoneFlag())
         DoSafariBattle();
     else
@@ -377,13 +378,15 @@ void BattleSetup_StartWildBattle(void)
 
 void BattleSetup_StartDoubleWildBattle(void)
 {
-    FlagSet(FLAG_TEMP_F);
+    if (NUZLOCKE)
+        FlagSet(FLAG_NUZLOCKE_STANDARD_ENCOUNTER);
     DoStandardWildBattle(TRUE);
 }
 
 void BattleSetup_StartBattlePikeWildBattle(void)
 {
-    FlagSet(FLAG_TEMP_F);
+    if (NUZLOCKE)
+        FlagSet(FLAG_NUZLOCKE_STANDARD_ENCOUNTER);
     DoBattlePikeWildBattle();
 }
 
