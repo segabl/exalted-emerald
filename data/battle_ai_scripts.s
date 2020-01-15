@@ -677,6 +677,10 @@ AI_CBM_Reflect: @ 82DC53A
 
 AI_CBM_Paralyze: @ 82DC545
 	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
+	get_target_type1
+	if_equal TYPE_ELECTRIC, Score_Minus10
+	get_target_type2
+	if_equal TYPE_ELECTRIC, Score_Minus10
 	get_ability AI_TARGET
 	if_equal ABILITY_LIMBER, Score_Minus10
 	if_status AI_TARGET, STATUS1_ANY, Score_Minus10
@@ -2551,24 +2555,19 @@ AI_CV_BatonPass_End:
 
 AI_CV_Pursuit:
 	is_first_turn_for AI_USER
-	if_not_equal 0, AI_CV_Pursuit_End
-	get_target_type1
-	if_equal TYPE_GHOST, AI_CV_Pursuit2
-	get_target_type1
-	if_equal TYPE_PSYCHIC, AI_CV_Pursuit2
-	get_target_type2
-	if_equal TYPE_GHOST, AI_CV_Pursuit2
-	get_target_type2
-	if_equal TYPE_PSYCHIC, AI_CV_Pursuit2
-	if_hp_less_than AI_TARGET, 30, Score_Plus5
-	goto AI_CV_Pursuit_End
-
+	if_not_equal 0, AI_Ret
+	if_type_effectiveness AI_EFFECTIVENESS_x0_25, AI_Ret
+	if_type_effectiveness AI_EFFECTIVENESS_x0_5, AI_Ret
+	if_hp_more_than AI_TARGET, 40, AI_CV_Pursuit2
+	score +2 @ If the target is low, it is likely to switch out, so encourage Purusit use
 AI_CV_Pursuit2:
-	if_random_less_than 128, AI_CV_Pursuit_End
-	score +1
-
-AI_CV_Pursuit_End:
+	if_type_effectiveness AI_EFFECTIVENESS_x2, AI_CV_Pursuit3
+	if_type_effectiveness AI_EFFECTIVENESS_x4, AI_CV_Pursuit3
 	end
+
+AI_CV_Pursuit3:
+	if_random_less_than 128, AI_Ret
+	goto Score_Plus1
 
 AI_CV_RainDance:
 	if_user_faster AI_CV_RainDance2
