@@ -879,6 +879,7 @@ static bool32 AI_GetIfCrit(u32 move, u8 battlerAtk, u8 battlerDef)
 s32 AI_CalcDamage(u16 move, u8 battlerAtk, u8 battlerDef)
 {
     s32 dmg, moveType;
+    u8 rolloutTimer, rolloutTimerStartValue;
 
     SaveBattlerData(battlerAtk);
     SaveBattlerData(battlerDef);
@@ -886,10 +887,18 @@ s32 AI_CalcDamage(u16 move, u8 battlerAtk, u8 battlerDef)
     SetBattlerData(battlerAtk);
     SetBattlerData(battlerDef);
 
+    rolloutTimer = gDisableStructs[battlerAtk].rolloutTimer;
+    rolloutTimerStartValue = gDisableStructs[battlerAtk].rolloutTimerStartValue;
+    gDisableStructs[battlerAtk].rolloutTimer = 5; // calculate damage based on initial rollout value, since we're locked into it otherwise anyways
+    gDisableStructs[battlerAtk].rolloutTimerStartValue = 5;
+
     gBattleStruct->dynamicMoveType = 0;
     SetTypeBeforeUsingMove(move, battlerAtk);
     GET_MOVE_TYPE(move, moveType);
     dmg = CalculateMoveDamage(move, battlerAtk, battlerDef, moveType, 0, AI_GetIfCrit(move, battlerAtk, battlerDef), FALSE, FALSE);
+
+    gDisableStructs[battlerAtk].rolloutTimer = rolloutTimer;
+    gDisableStructs[battlerAtk].rolloutTimerStartValue = rolloutTimerStartValue;
 
     RestoreBattlerData(battlerAtk);
     RestoreBattlerData(battlerDef);
