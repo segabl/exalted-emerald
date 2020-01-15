@@ -673,6 +673,10 @@ AI_CBM_Reflect: @ 82DC53A
 
 AI_CBM_Paralyze: @ 82DC545
 	if_type_effectiveness AI_EFFECTIVENESS_x0, Score_Minus10
+	get_target_type1
+	if_equal TYPE_ELECTRIC, Score_Minus10
+	get_target_type2
+	if_equal TYPE_ELECTRIC, Score_Minus10
 	get_ability AI_TARGET
 	if_equal ABILITY_LIMBER, Score_Minus10
 	if_status AI_TARGET, STATUS1_ANY, Score_Minus10
