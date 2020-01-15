@@ -1123,8 +1123,29 @@ AI_CheckViability:
 	if_effect EFFECT_STICKY_WEB, AI_CV_Hazards
 	if_effect EFFECT_TOXIC_SPIKES, AI_CV_Hazards
 	if_effect EFFECT_PERISH_SONG, AI_CV_PerishSong
+	if_effect EFFECT_ROLLOUT, AI_CV_Rollout
+	if_effect EFFECT_VENOSHOCK, AI_CV_Venoshock
 	end
-	
+
+AI_CV_Venoshock:
+	if_status AI_TARGET, STATUS1_PSN_ANY, Score_Plus2
+	end
+
+AI_CV_Rollout:
+	if_status AI_USER, STATUS1_ANY, Score_Minus10
+	if_status2 AI_USER, STATUS2_CONFUSION | STATUS2_INFATUATION, Score_Minus10
+	if_stat_level_less_than AI_USER, STAT_ACC, 6, Score_Minus5
+	if_stat_level_more_than AI_TARGET, STAT_EVASION, 6, Score_Minus5
+	if_status2 AI_TARGET, STATUS2_CONFUSION | STATUS2_INFATUATION, AI_CV_Rollout2
+	if_status AI_TARGET, STATUS1_PARALYSIS, AI_CV_Rollout2
+	goto AI_CV_Rollout3
+
+AI_CV_Rollout2:
+	score +1
+AI_CV_Rollout3:
+	if_status AI_TARGET, STATUS1_SLEEP | STATUS1_FREEZE, Score_Plus2
+	end
+
 AI_CV_PerishSong:
 	get_ability AI_USER
 	if_equal ABILITY_ARENA_TRAP, AI_CV_PerishSong_ArenaTrap
