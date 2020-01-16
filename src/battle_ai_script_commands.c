@@ -28,7 +28,8 @@
 #define AI_ACTION_UNK8          0x0080
 
 #define AI_THINKING_STRUCT ((struct AI_ThinkingStruct *)(gBattleResources->ai))
-#define BATTLE_HISTORY ((struct BattleHistory *)(gBattleResources->battleHistory))
+#define BATTLE_HISTORY (gBattleResources->battleHistory)
+#define BATTLE_HISTORY_USED_MOVES(battler) (gBattleResources->battleHistory->usedMoves[GET_BATTLER_SIDE2(battler)][gBattlerPartyIndexes[battler]].moves)
 
 // AI states
 enum
@@ -456,7 +457,7 @@ bool32 IsTruantMonVulnerable(u32 battlerAI, u32 opposingBattler)
 
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
-        u32 move = gBattleResources->battleHistory->usedMoves[opposingBattler].moves[i];
+        u32 move = BATTLE_HISTORY_USED_MOVES(opposingBattler)[i];
         if (gBattleMoves[move].effect == EFFECT_PROTECT && move != MOVE_ENDURE)
             return TRUE;
         if (gBattleMoves[move].effect == EFFECT_SEMI_INVULNERABLE && GetWhoStrikesFirst(battlerAI, opposingBattler, TRUE) == 1)
@@ -723,12 +724,11 @@ static void RecordLastUsedMoveByTarget(void)
 
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
-        if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] == gLastMoves[gBattlerTarget])
+        if (BATTLE_HISTORY_USED_MOVES(gBattlerTarget)[i] == gLastMoves[gBattlerTarget])
             break;
-        if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] != gLastMoves[gBattlerTarget]  // HACK: This redundant condition is a hack to make the asm match.
-         && BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] == MOVE_NONE)
+        if (BATTLE_HISTORY_USED_MOVES(gBattlerTarget)[i] == MOVE_NONE)
         {
-            BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] = gLastMoves[gBattlerTarget];
+            BATTLE_HISTORY_USED_MOVES(gBattlerTarget)[i] = gLastMoves[gBattlerTarget];
             break;
         }
     }
@@ -753,32 +753,14 @@ static bool32 IsBattlerAIControlled(u32 battlerId)
     }
 }
 
-void ClearBattlerMoveHistory(u8 battlerId)
-{
-    s32 i;
-
-    for (i = 0; i < MAX_MON_MOVES; i++)
-        BATTLE_HISTORY->usedMoves[battlerId].moves[i] = MOVE_NONE;
-}
-
 void RecordAbilityBattle(u8 battlerId, u8 abilityId)
 {
-    BATTLE_HISTORY->abilities[battlerId] = abilityId;
-}
-
-void ClearBattlerAbilityHistory(u8 battlerId)
-{
-    BATTLE_HISTORY->abilities[battlerId] = ABILITY_NONE;
+    BATTLE_HISTORY->abilities[GET_BATTLER_SIDE2(battlerId)][gBattlerPartyIndexes[battlerId]] = abilityId;
 }
 
 void RecordItemEffectBattle(u8 battlerId, u8 itemEffect)
 {
-    BATTLE_HISTORY->itemEffects[battlerId] = itemEffect;
-}
-
-void ClearBattlerItemEffectHistory(u8 battlerId)
-{
-    BATTLE_HISTORY->itemEffects[battlerId] = 0;
+    BATTLE_HISTORY->itemEffects[GET_BATTLER_SIDE2(battlerId)][gBattlerPartyIndexes[battlerId]] = itemEffect;
 }
 
 static void SaveBattlerData(u8 battlerId)
@@ -803,8 +785,8 @@ static void SetBattlerData(u8 battlerId)
         u32 i;
 
         // Use the known battler's ability.
-        if (BATTLE_HISTORY->abilities[battlerId] != ABILITY_NONE)
-            gBattleMons[battlerId].ability = BATTLE_HISTORY->abilities[battlerId];
+        if (BATTLE_HISTORY->abilities[GET_BATTLER_SIDE2(battlerId)][gBattlerPartyIndexes[battlerId]] != ABILITY_NONE)
+            gBattleMons[battlerId].ability = BATTLE_HISTORY->abilities[GET_BATTLER_SIDE2(battlerId)][gBattlerPartyIndexes[battlerId]];
         // Check if mon can only have one ability.
         else if (gBaseStats[gBattleMons[battlerId].species].abilities[1] == gBaseStats[gBattleMons[battlerId].species].abilities[0])
             gBattleMons[battlerId].ability = gBaseStats[gBattleMons[battlerId].species].abilities[0];
@@ -812,12 +794,12 @@ static void SetBattlerData(u8 battlerId)
         else
             gBattleMons[battlerId].ability = ABILITY_NONE;
 
-        if (BATTLE_HISTORY->itemEffects[battlerId] == 0)
+        if (BATTLE_HISTORY->itemEffects[GET_BATTLER_SIDE2(battlerId)][gBattlerPartyIndexes[battlerId]] == 0)
             gBattleMons[battlerId].item = 0;
 
         for (i = 0; i < 4; i++)
         {
-            if (BATTLE_HISTORY->usedMoves[battlerId].moves[i] == 0)
+            if (BATTLE_HISTORY_USED_MOVES(battlerId)[i] == 0)
                 gBattleMons[battlerId].moves[i] = 0;
         }
 
@@ -1406,7 +1388,7 @@ static bool32 CompareTwoMoves(u32 bestMove, u32 goodMove)
 
     // Check if physical moves hurt.
     if (GetBattlerHoldEffect(sBattler_AI, TRUE) != HOLD_EFFECT_PROTECTIVE_PADS
-        && (BATTLE_HISTORY->itemEffects[gBattlerTarget] == HOLD_EFFECT_ROCKY_HELMET
+        && (BATTLE_HISTORY->itemEffects[GET_BATTLER_SIDE2(gBattlerTarget)][gBattlerPartyIndexes[gBattlerTarget]] == HOLD_EFFECT_ROCKY_HELMET
         || defAbility == ABILITY_IRON_BARBS || defAbility == ABILITY_ROUGH_SKIN))
     {
         if (IS_MOVE_PHYSICAL(goodMove) && !IS_MOVE_PHYSICAL(bestMove))
@@ -1580,7 +1562,7 @@ static s32 CountUsablePartyMons(u8 battlerId)
     s32 battlerOnField1, battlerOnField2, i, ret;
     struct Pokemon *party;
 
-    if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
+    if (GET_BATTLER_SIDE2(battlerId) == B_SIDE_PLAYER)
         party = gPlayerParty;
     else
         party = gEnemyParty;
@@ -1635,8 +1617,8 @@ static s32 AI_GetAbility(u32 battlerId, bool32 guess)
     if (IsBattlerAIControlled)
         return gBattleMons[battlerId].ability;
 
-    if (BATTLE_HISTORY->abilities[battlerId] != 0)
-        return BATTLE_HISTORY->abilities[battlerId];
+    if (BATTLE_HISTORY->abilities[GET_BATTLER_SIDE2(battlerId)][gBattlerPartyIndexes[battlerId]] != 0)
+        return BATTLE_HISTORY->abilities[GET_BATTLER_SIDE2(battlerId)][gBattlerPartyIndexes[battlerId]];
 
     // Abilities that prevent fleeing.
     if (gBattleMons[battlerId].ability == ABILITY_SHADOW_TAG
@@ -1787,7 +1769,7 @@ static void Cmd_if_status_in_party(void)
     u32 statusToCompareTo;
     u8 battlerId = BattleAI_GetWantedBattler(gAIScriptPtr[1]);
 
-    party = (GetBattlerSide(battlerId) == B_SIDE_PLAYER) ? gPlayerParty : gEnemyParty;
+    party = (GET_BATTLER_SIDE2(battlerId) == B_SIDE_PLAYER) ? gPlayerParty : gEnemyParty;
 
     statusToCompareTo = T1_READ_32(gAIScriptPtr + 2);
 
@@ -1814,7 +1796,7 @@ static void Cmd_if_status_not_in_party(void)
     u32 statusToCompareTo;
     u8 battlerId = BattleAI_GetWantedBattler(gAIScriptPtr[1]);
 
-    party = (GetBattlerSide(battlerId) == B_SIDE_PLAYER) ? gPlayerParty : gEnemyParty;
+    party = (GET_BATTLER_SIDE2(battlerId) == B_SIDE_PLAYER) ? gPlayerParty : gEnemyParty;
 
     statusToCompareTo = T1_READ_32(gAIScriptPtr + 2);
 
@@ -2001,7 +1983,7 @@ static void Cmd_if_has_move(void)
     case AI_TARGET_PARTNER:
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
-            if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] == *movePtr)
+            if (BATTLE_HISTORY_USED_MOVES(gBattlerTarget)[i] == *movePtr)
                 break;
         }
         if (i == MAX_MON_MOVES)
@@ -2035,7 +2017,7 @@ static void Cmd_if_doesnt_have_move(void)
     case AI_TARGET_PARTNER:
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
-            if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] == *movePtr)
+            if (BATTLE_HISTORY_USED_MOVES(gBattlerTarget)[i] == *movePtr)
                 break;
         }
         if (i != MAX_MON_MOVES)
@@ -2068,7 +2050,7 @@ static void Cmd_if_has_move_with_effect(void)
     case AI_TARGET_PARTNER:
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
-            if (gBattleMons[gBattlerTarget].moves[i] != 0 && gBattleMoves[BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i]].effect == gAIScriptPtr[2])
+            if (gBattleMons[gBattlerTarget].moves[i] != 0 && gBattleMoves[BATTLE_HISTORY_USED_MOVES(gBattlerTarget)[i]].effect == gAIScriptPtr[2])
                 break;
         }
         if (i == MAX_MON_MOVES)
@@ -2101,7 +2083,7 @@ static void Cmd_if_doesnt_have_move_with_effect(void)
     case AI_TARGET_PARTNER:
         for (i = 0; i < MAX_MON_MOVES; i++)
         {
-            if (BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i] && gBattleMoves[BATTLE_HISTORY->usedMoves[gBattlerTarget].moves[i]].effect == gAIScriptPtr[2])
+            if (BATTLE_HISTORY_USED_MOVES(gBattlerTarget)[i] && gBattleMoves[BATTLE_HISTORY_USED_MOVES(gBattlerTarget)[i]].effect == gAIScriptPtr[2])
                 break;
         }
         if (i != MAX_MON_MOVES)
@@ -2188,7 +2170,7 @@ static void Cmd_get_hold_effect(void)
     u32 battlerId = BattleAI_GetWantedBattler(gAIScriptPtr[1]);
 
     if (!IsBattlerAIControlled(battlerId))
-        AI_THINKING_STRUCT->funcResult = BATTLE_HISTORY->itemEffects[battlerId];
+        AI_THINKING_STRUCT->funcResult = BATTLE_HISTORY->itemEffects[GET_BATTLER_SIDE2(battlerId)][gBattlerPartyIndexes[battlerId]];
     else
         AI_THINKING_STRUCT->funcResult = GetBattlerHoldEffect(battlerId, FALSE);
 
@@ -2203,7 +2185,7 @@ static void Cmd_if_holds_item(void)
     if ((battlerId & BIT_SIDE) == (sBattler_AI & BIT_SIDE))
         item = gBattleMons[battlerId].item;
     else
-        item = BATTLE_HISTORY->itemEffects[battlerId];
+        item = BATTLE_HISTORY->itemEffects[GET_BATTLER_SIDE2(battlerId)][gBattlerPartyIndexes[battlerId]];
 
     if (T1_READ_16(gAIScriptPtr + 2) == item)
         gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 4);
@@ -2497,7 +2479,7 @@ static void Cmd_if_has_no_attacking_moves(void)
     {
         for (i = 0; i < 4; i++)
         {
-            if (BATTLE_HISTORY->usedMoves[battlerId].moves[i] != 0 && gBattleMoves[BATTLE_HISTORY->usedMoves[battlerId].moves[i]].power != 0)
+            if (BATTLE_HISTORY_USED_MOVES(battlerId)[i] != 0 && gBattleMoves[BATTLE_HISTORY_USED_MOVES(battlerId)[i]].power != 0)
                 break;
         }
     }
@@ -2511,7 +2493,7 @@ static void Cmd_if_has_no_attacking_moves(void)
 static void Cmd_get_hazards_count(void)
 {
     u8 battlerId = BattleAI_GetWantedBattler(gAIScriptPtr[1]);
-    u8 side = GetBattlerSide(battlerId);
+    u8 side = GET_BATTLER_SIDE2(battlerId);
 
     switch (T1_READ_16(gAIScriptPtr + 2))
     {
@@ -2534,7 +2516,7 @@ static void Cmd_if_doesnt_hold_berry(void)
     if (IsBattlerAIControlled(battlerId))
         item = gBattleMons[battlerId].item;
     else
-        item = BATTLE_HISTORY->itemEffects[battlerId];
+        item = BATTLE_HISTORY->itemEffects[GET_BATTLER_SIDE2(battlerId)][gBattlerPartyIndexes[battlerId]];
 
     if (ItemId_GetPocket(item) == POCKET_BERRIES)
         gAIScriptPtr += 6;
@@ -2571,7 +2553,7 @@ static bool32 HasMoveWithSplit(u32 battler, u32 split)
     if (IsBattlerAIControlled(battler) || IsBattlerAIControlled(BATTLE_PARTNER(battler)))
         moves = gBattleMons[battler].moves;
     else
-        moves = gBattleResources->battleHistory->usedMoves[battler].moves;
+        moves = BATTLE_HISTORY_USED_MOVES(battler);
 
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
@@ -2610,7 +2592,7 @@ static bool32 MovesWithSplitUnusable(u32 attacker, u32 target, u32 split)
     if (IsBattlerAIControlled(attacker))
         moves = gBattleMons[attacker].moves;
     else
-        moves = gBattleResources->battleHistory->usedMoves[attacker].moves;
+        moves = BATTLE_HISTORY_USED_MOVES(attacker);
 
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
@@ -2642,7 +2624,7 @@ static void Cmd_if_ai_can_go_down(void)
 {
     s32 i, dmg;
     u32 unusable = CheckMoveLimitations(gBattlerTarget, 0, 0xFF & ~MOVE_LIMITATION_PP);
-    u16 *moves = gBattleResources->battleHistory->usedMoves[gBattlerTarget].moves;
+    u16 *moves = BATTLE_HISTORY_USED_MOVES(gBattlerTarget);
 
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
@@ -2675,7 +2657,7 @@ static void Cmd_if_has_move_with_type(void)
     if (IsBattlerAIControlled(battler))
         moves = gBattleMons[battler].moves;
     else
-        moves = BATTLE_HISTORY->usedMoves[battler].moves;
+        moves = BATTLE_HISTORY_USED_MOVES(battler);
 
     for (i = 0; i < 4; i++)
     {
@@ -2702,7 +2684,7 @@ static void Cmd_if_has_move_with_flag(void)
     if (IsBattlerAIControlled(battler))
         moves = gBattleMons[battler].moves;
     else
-        moves = BATTLE_HISTORY->usedMoves[battler].moves;
+        moves = BATTLE_HISTORY_USED_MOVES(battler);
 
     flag = T1_READ_32(gAIScriptPtr + 2);
     for (i = 0; i < 4; i++)
@@ -2725,7 +2707,7 @@ static void Cmd_if_no_move_used(void)
     {
         for (i = 0; i < 4; i++)
         {
-            if (BATTLE_HISTORY->usedMoves[battler].moves[i] != 0 && BATTLE_HISTORY->usedMoves[battler].moves[i] != 0xFFFF)
+            if (BATTLE_HISTORY_USED_MOVES(battler)[i] != 0 && BATTLE_HISTORY_USED_MOVES(battler)[i] != 0xFFFF)
             {
                 gAIScriptPtr += 6;
                 return;

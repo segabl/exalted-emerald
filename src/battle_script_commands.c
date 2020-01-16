@@ -6173,7 +6173,7 @@ static void Cmd_removeitem(void)
     BtlController_EmitSetMonData(0, REQUEST_HELDITEM_BATTLE, 0, 2, &gBattleMons[gActiveBattler].item);
     MarkBattlerForControllerExec(gActiveBattler);
 
-    ClearBattlerItemEffectHistory(gActiveBattler);
+    gBattleResources->battleHistory->itemEffects[GetBattlerSide(gActiveBattler)][gBattlerPartyIndexes[gActiveBattler]] = 0;
 
     gBattlescriptCurrInstr += 2;
 }

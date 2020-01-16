@@ -8,11 +8,15 @@
 #include "random.h"
 #include "util.h"
 #include "constants/abilities.h"
+#include "constants/battle_ai.h"
 #include "constants/battle_move_effects.h"
 #include "constants/item_effects.h"
 #include "constants/items.h"
 #include "constants/moves.h"
 #include "constants/species.h"
+
+#define BATTLE_HISTORY (gBattleResources->battleHistory)
+#define BATTLE_HISTORY_USED_MOVES(battler) (gBattleResources->battleHistory->usedMoves[GET_BATTLER_SIDE2(battler)][gBattlerPartyIndexes[battler]].moves)
 
 // this file's functions
 static bool8 HasSuperEffectiveMoveAgainstOpponents(bool8 noRng);
@@ -100,7 +104,7 @@ static bool8 ShouldSwitchIfWonderGuard(void)
     // Get party information.
     GetAIPartyIndexes(gActiveBattler, &firstId, &lastId);
 
-    if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
+    if (GET_BATTLER_SIDE2(gActiveBattler) == B_SIDE_PLAYER)
         party = gPlayerParty;
     else
         party = gEnemyParty;
@@ -183,7 +187,7 @@ static bool8 FindMonThatAbsorbsOpponentsMove(void)
 
     GetAIPartyIndexes(gActiveBattler, &firstId, &lastId);
 
-    if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
+    if (GET_BATTLER_SIDE2(gActiveBattler) == B_SIDE_PLAYER)
         party = gPlayerParty;
     else
         party = gEnemyParty;
@@ -256,7 +260,7 @@ static bool8 FindMonImmuneToOpponentsMove(void)
 
     GetAIPartyIndexes(gActiveBattler, &firstId, &lastId);
 
-    if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
+    if (GET_BATTLER_SIDE2(gActiveBattler) == B_SIDE_PLAYER)
         party = gPlayerParty;
     else
         party = gEnemyParty;
@@ -338,7 +342,7 @@ static bool8 FindMonThatResistsTwoTurnMove(void)
 
     GetAIPartyIndexes(gActiveBattler, &firstId, &lastId);
 
-    if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
+    if (GET_BATTLER_SIDE2(gActiveBattler) == B_SIDE_PLAYER)
         party = gPlayerParty;
     else
         party = gEnemyParty;
@@ -519,7 +523,7 @@ static bool8 FindMonWithFlagsAndSuperEffective(u16 flags, u8 moduloPercent)
 
     GetAIPartyIndexes(gActiveBattler, &firstId, &lastId);
 
-    if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
+    if (GET_BATTLER_SIDE2(gActiveBattler) == B_SIDE_PLAYER)
         party = gPlayerParty;
     else
         party = gEnemyParty;
@@ -581,6 +585,10 @@ static bool8 ShouldSwitch(void)
     s32 i;
     s32 availableToSwitch;
 
+    // If AI isn't smart, don't do advanced mon switches
+    if (!(gBattleResources->ai->aiFlags & (AI_SCRIPT_CHECK_VIABILITY)))
+        return FALSE;
+
     if (gBattleMons[*(activeBattlerPtr = &gActiveBattler)].status2 & (STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION))
         return FALSE;
     if (gStatuses3[gActiveBattler] & STATUS3_ROOTED)
@@ -623,7 +631,7 @@ static bool8 ShouldSwitch(void)
 
     GetAIPartyIndexes(gActiveBattler, &firstId, &lastId);
 
-    if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
+    if (GET_BATTLER_SIDE2(gActiveBattler) == B_SIDE_PLAYER)
         party = gPlayerParty;
     else
         party = gEnemyParty;
@@ -683,7 +691,7 @@ void AI_TrySwitchOrUseItem(void)
     s32 lastId; // + 1
     u8 battlerIdentity = GetBattlerPosition(gActiveBattler);
 
-    if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
+    if (GET_BATTLER_SIDE2(gActiveBattler) == B_SIDE_PLAYER)
         party = gPlayerParty;
     else
         party = gEnemyParty;
@@ -877,7 +885,7 @@ static u32 GestBestMonDefensive(struct Pokemon *party, int firstId, int lastId, 
             checkedTypes |= 1 << atkType2;
             for (j = 0; j < MAX_MON_MOVES; j++)
             {
-                u16 move = gBattleResources->battleHistory->usedMoves[opposingBattler].moves[j];
+                u16 move = BATTLE_HISTORY_USED_MOVES(opposingBattler)[j];
                 if (move == 0 || move == 0xFFFF || gBattleMoves[move].power == 0 || (checkedTypes & (1 << gBattleMoves[move].type)))
                     continue;
                 checkedTypes |= 1 << gBattleMoves[move].type;
@@ -940,7 +948,6 @@ u8 GetMostSuitableMonToSwitchInto(void)
     struct Pokemon *party;
     s32 i, j, aliveCount = 0;
     u8 invalidMons = 0;
-    bool8 fainted;
 
     if (*(gBattleStruct->monToSwitchIntoId + gActiveBattler) != PARTY_SIZE)
         return *(gBattleStruct->monToSwitchIntoId + gActiveBattler);
@@ -968,7 +975,7 @@ u8 GetMostSuitableMonToSwitchInto(void)
 
     GetAIPartyIndexes(gActiveBattler, &firstId, &lastId);
 
-    if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
+    if (GET_BATTLER_SIDE2(gActiveBattler) == B_SIDE_PLAYER)
         party = gPlayerParty;
     else
         party = gEnemyParty;
@@ -992,8 +999,7 @@ u8 GetMostSuitableMonToSwitchInto(void)
     if (bestMonId != PARTY_SIZE)
         return bestMonId;
 
-    fainted = GetMonData(&party[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_HP) == 0;
-    if (fainted)
+    if (gBattleMons[gActiveBattler].hp == 0)
     {
         // if we switch because we fainted check for offensive first
         bestMonId = GestBestMonOffensive(party, firstId, lastId, invalidMons, opposingBattler);
@@ -1043,7 +1049,7 @@ static bool8 ShouldUseItem(void)
     if (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER && GetBattlerPosition(gActiveBattler) == B_POSITION_PLAYER_RIGHT)
         return FALSE;
 
-    if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
+    if (GET_BATTLER_SIDE2(gActiveBattler) == B_SIDE_PLAYER)
         party = gPlayerParty;
     else
         party = gEnemyParty;
@@ -1065,9 +1071,9 @@ static bool8 ShouldUseItem(void)
         u8 paramOffset;
         u8 battlerSide;
 
-        if (i != 0 && validMons > (gBattleResources->battleHistory->itemsNo - i) + 1)
+        if (i != 0 && validMons > (BATTLE_HISTORY->itemsNo - i) + 1)
             continue;
-        item = gBattleResources->battleHistory->trainerItems[i];
+        item = BATTLE_HISTORY->trainerItems[i];
         if (item == ITEM_NONE)
             continue;
         if (gItemEffectTable[item - FIRST_MEDICINE_INDEX] == NULL)
@@ -1150,7 +1156,7 @@ static bool8 ShouldUseItem(void)
             shouldUse = TRUE;
             break;
         case AI_ITEM_GUARD_SPECS:
-            battlerSide = GetBattlerSide(gActiveBattler);
+            battlerSide = GET_BATTLER_SIDE2(gActiveBattler);
             if (gDisableStructs[gActiveBattler].isFirstTurn != 0 && gSideTimers[battlerSide].mistTimer == 0)
                 shouldUse = TRUE;
             break;
@@ -1162,7 +1168,7 @@ static bool8 ShouldUseItem(void)
         {
             BtlController_EmitTwoReturnValues(1, B_ACTION_USE_ITEM, 0);
             *(gBattleStruct->chosenItem + (gActiveBattler / 2) * 2) = item;
-            gBattleResources->battleHistory->trainerItems[i] = 0;
+            BATTLE_HISTORY->trainerItems[i] = 0;
             return shouldUse;
         }
     }

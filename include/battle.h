@@ -260,14 +260,13 @@ struct AI_ThinkingStruct
 struct UsedMoves
 {
     u16 moves[MAX_MON_MOVES];
-    u16 unknown[MAX_MON_MOVES];
 };
 
 struct BattleHistory
 {
-    struct UsedMoves usedMoves[MAX_BATTLERS_COUNT];
-    u8 abilities[MAX_BATTLERS_COUNT];
-    u8 itemEffects[MAX_BATTLERS_COUNT];
+    struct UsedMoves usedMoves[2][PARTY_SIZE];
+    u8 abilities[2][PARTY_SIZE];
+    u8 itemEffects[2][PARTY_SIZE];
     u16 trainerItems[MAX_BATTLERS_COUNT];
     u8 itemsNo;
 };

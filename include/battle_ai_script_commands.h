@@ -16,10 +16,7 @@ void BattleAI_SetupFlags(void);
 void BattleAI_SetupAIData(u8 defaultScoreMoves);
 u8 BattleAI_ChooseMoveOrAction(void);
 bool32 IsTruantMonVulnerable(u32 battlerAI, u32 opposingBattler);
-void ClearBattlerMoveHistory(u8 battlerId);
 void RecordAbilityBattle(u8 battlerId, u8 abilityId);
-void ClearBattlerAbilityHistory(u8 battlerId);
 void RecordItemEffectBattle(u8 battlerId, u8 itemEffect);
-void ClearBattlerItemEffectHistory(u8 battlerId);
 
 #endif // GUARD_BATTLE_AI_SCRIPT_COMMANDS_H
