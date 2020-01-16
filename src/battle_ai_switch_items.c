@@ -853,7 +853,7 @@ static u32 GestBestMonOffensive(struct Pokemon *party, int firstId, int lastId, 
 static u32 GestBestMonDefensive(struct Pokemon *party, int firstId, int lastId, u8 invalidMons, u32 opposingBattler)
 {
     int i, j;
-    u16 bestDmg = UQ_4_12(1.0);
+    u16 bestDmg = UQ_4_12(1.0) + 1; // +1 to take normal effectiveness (1.0) too
     u16 bestHp = 0;
     u32 bestMonId = PARTY_SIZE;
     // Find the mon whose type is the most suitable defensively.
@@ -865,35 +865,41 @@ static u32 GestBestMonDefensive(struct Pokemon *party, int firstId, int lastId, 
             u16 species = GetMonData(&party[i], MON_DATA_SPECIES);
             u16 hp = GetMonData(&party[i], MON_DATA_HP);
             u16 typeDmg = UQ_4_12(1.0);
-
-            u8 atkType1 = gBattleMons[opposingBattler].type1;
-            u8 atkType2 = gBattleMons[opposingBattler].type2;
             u8 defType1 = gBaseStats[species].type1;
             u8 defType2 = gBaseStats[species].type2;
-
-            MulModifier(&typeDmg, GetTypeModifier(atkType1, defType1));
-            if (atkType2 != atkType1)
-                MulModifier(&typeDmg, GetTypeModifier(atkType2, defType1));
-            if (defType2 != defType1)
-            {
-                MulModifier(&typeDmg, GetTypeModifier(atkType1, defType2));
-                if (atkType2 != atkType1)
-                    MulModifier(&typeDmg, GetTypeModifier(atkType2, defType2));
-            }
-            // Also consider known opponent moves for types
-            checkedTypes |= 1 << atkType1;
-            checkedTypes |= 1 << atkType2;
+            // Consider the opponent's known move types for resistance
+            u8 knownMoves = 0;
             for (j = 0; j < MAX_MON_MOVES; j++)
             {
                 u16 move = BATTLE_HISTORY_USED_MOVES(opposingBattler)[j];
-                if (move == 0 || move == 0xFFFF || gBattleMoves[move].power == 0 || (checkedTypes & (1 << gBattleMoves[move].type)))
+                if (move == 0 || move == 0xFFFF)
+                    continue;
+                knownMoves++;
+                if (gBattleMoves[move].power == 0 || (checkedTypes & (1 << gBattleMoves[move].type)))
                     continue;
                 checkedTypes |= 1 << gBattleMoves[move].type;
                 MulModifier(&typeDmg, GetTypeModifier(gBattleMoves[move].type, defType1));
                 if (defType2 != defType1)
                     MulModifier(&typeDmg, GetTypeModifier(gBattleMoves[move].type, defType2));
             }
-            // If type resistance is higher than current one, take the mon
+            // If we don't know all of the opponent's moves, assume they have one of their typing
+            if (knownMoves < MAX_MON_MOVES)
+            {
+                u8 atkType1 = gBattleMons[opposingBattler].type1;
+                u8 atkType2 = gBattleMons[opposingBattler].type2;
+                if (!(checkedTypes & (1 << atkType1)))
+                    MulModifier(&typeDmg, GetTypeModifier(atkType1, defType1));
+                if (atkType2 != atkType1 && !(checkedTypes & (1 << atkType2)))
+                    MulModifier(&typeDmg, GetTypeModifier(atkType2, defType1));
+                if (defType2 != defType1)
+                {
+                    if (!(checkedTypes & (1 << atkType1)))
+                        MulModifier(&typeDmg, GetTypeModifier(atkType1, defType2));
+                    if (atkType2 != atkType1 && !(checkedTypes & (1 << atkType2)))
+                        MulModifier(&typeDmg, GetTypeModifier(atkType2, defType2));
+                }
+            }
+            // If type effectiveness is lower than current one, take the mon
             // If it is equal, take the mon if it has higher HP
             if (typeDmg < bestDmg || (typeDmg == bestDmg && bestHp > 0 && hp > bestHp))
             {
