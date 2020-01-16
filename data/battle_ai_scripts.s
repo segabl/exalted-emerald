@@ -1124,7 +1124,6 @@ AI_CheckViability:
 	if_effect EFFECT_TOXIC_SPIKES, AI_CV_Hazards
 	if_effect EFFECT_PERISH_SONG, AI_CV_PerishSong
 	if_effect EFFECT_ROLLOUT, AI_CV_Rollout
-	if_effect EFFECT_VENOSHOCK, AI_CV_Venoshock
 	if_effect EFFECT_MULTI_HIT, AI_CV_MultiHit
 	end
 
@@ -1136,10 +1135,6 @@ AI_CV_MultiHit2:
 	score +2
 AI_CV_MultiHit3:
 	if_status2 AI_USER, STATUS2_FOCUS_ENERGY, Score_Plus1
-	end
-
-AI_CV_Venoshock:
-	if_status AI_TARGET, STATUS1_PSN_ANY, Score_Plus2
 	end
 
 AI_CV_Rollout:
