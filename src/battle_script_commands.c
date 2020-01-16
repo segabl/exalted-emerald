@@ -65,9 +65,6 @@ extern const u8* const gBattleScriptsForMoveEffects[];
 #define STAT_CHANGE_WORKED      0
 #define STAT_CHANGE_DIDNT_WORK  1
 
-#define BATTLE_HISTORY (gBattleResources->battleHistory)
-#define BATTLE_HISTORY_USED_MOVES(battler) (gBattleResources->battleHistory->usedMoves[GET_BATTLER_SIDE2(battler)][gBattlerPartyIndexes[battler]].moves)
-
 static bool8 IsTwoTurnsMove(u16 move);
 static void TrySetDestinyBondToHappen(void);
 static u8 AttacksThisTurn(u8 battlerId, u16 move); // Note: returns 1 if it's a charging turn, otherwise 2.
@@ -4659,18 +4656,10 @@ static void Cmd_moveend(void)
                     gLastLandedMoves[gBattlerTarget] = 0xFFFF;
                 }
             }
-            if (gHitMarker & HITMARKER_OBEYS && !(gBattleTypeFlags & BATTLE_TYPE_LINK))
+            if (gHitMarker & HITMARKER_OBEYS && !(gBattleTypeFlags & BATTLE_TYPE_LINK) && gChosenMove != 0xFFFF)
             {
-                for (i = 0; i < MAX_MON_MOVES; i++)
-                {
-                    if (BATTLE_HISTORY_USED_MOVES(gBattlerAttacker)[i] == gCurrentMove)
-                        break;
-                    if (BATTLE_HISTORY_USED_MOVES(gBattlerAttacker)[i] == MOVE_NONE)
-                    {
-                        BATTLE_HISTORY_USED_MOVES(gBattlerAttacker)[i] = gCurrentMove;
-                        break;
-                    }
-                }
+                // Check if there are still unconfirmed slots left to save the used move to
+                BattleAI_UpdateKnownMoves(gBattlerAttacker, gChosenMove);
             }
             gBattleScripting.moveendState++;
             break;

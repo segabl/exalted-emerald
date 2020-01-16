@@ -260,6 +260,7 @@ struct AI_ThinkingStruct
 struct UsedMoves
 {
     u16 moves[MAX_MON_MOVES];
+    u8 confirmed; // Bit field with confirmed moves
 };
 
 struct BattleHistory

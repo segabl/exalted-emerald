@@ -16,7 +16,7 @@
 #include "constants/species.h"
 
 #define BATTLE_HISTORY (gBattleResources->battleHistory)
-#define BATTLE_HISTORY_USED_MOVES(battler) (gBattleResources->battleHistory->usedMoves[GET_BATTLER_SIDE2(battler)][gBattlerPartyIndexes[battler]].moves)
+#define BATTLE_HISTORY_USED_MOVES(battler) (gBattleResources->battleHistory->usedMoves[GET_BATTLER_SIDE2(battler)][gBattlerPartyIndexes[battler]])
 
 // this file's functions
 static bool8 HasSuperEffectiveMoveAgainstOpponents(bool8 noRng);
@@ -850,7 +850,7 @@ static u32 GestBestMonOffensive(struct Pokemon *party, int firstId, int lastId, 
     return PARTY_SIZE;
 }
 
-static u32 GestBestMonDefensive(struct Pokemon *party, int firstId, int lastId, u8 invalidMons, u32 opposingBattler)
+static u32 GetBestMonDefensive(struct Pokemon *party, int firstId, int lastId, u8 invalidMons, u32 opposingBattler)
 {
     int i, j;
     u16 bestDmg = UQ_4_12(1.0) + 1; // +1 to take normal effectiveness (1.0) too
@@ -868,22 +868,18 @@ static u32 GestBestMonDefensive(struct Pokemon *party, int firstId, int lastId, 
             u8 defType1 = gBaseStats[species].type1;
             u8 defType2 = gBaseStats[species].type2;
             // Consider the opponent's known move types for resistance
-            u8 knownMoves = 0;
             for (j = 0; j < MAX_MON_MOVES; j++)
             {
-                u16 move = BATTLE_HISTORY_USED_MOVES(opposingBattler)[j];
-                if (move == 0 || move == 0xFFFF)
-                    continue;
-                knownMoves++;
-                if (gBattleMoves[move].power == 0 || (checkedTypes & (1 << gBattleMoves[move].type)))
+                u16 move = BATTLE_HISTORY_USED_MOVES(opposingBattler).moves[j];
+                if (move == 0 || move == 0xFFFF || gBattleMoves[move].power == 0 || (checkedTypes & (1 << gBattleMoves[move].type)))
                     continue;
                 checkedTypes |= 1 << gBattleMoves[move].type;
                 MulModifier(&typeDmg, GetTypeModifier(gBattleMoves[move].type, defType1));
                 if (defType2 != defType1)
                     MulModifier(&typeDmg, GetTypeModifier(gBattleMoves[move].type, defType2));
             }
-            // If we don't know all of the opponent's moves, assume they have one of their typing
-            if (knownMoves < MAX_MON_MOVES)
+            // If we haven't confirmed all of the opponent's moves, check the user typing too
+            if (BATTLE_HISTORY_USED_MOVES(gBattlerAttacker).confirmed < (1 << MAX_MON_MOVES) - 1)
             {
                 u8 atkType1 = gBattleMons[opposingBattler].type1;
                 u8 atkType2 = gBattleMons[opposingBattler].type2;
@@ -1010,12 +1006,12 @@ u8 GetMostSuitableMonToSwitchInto(void)
         // if we switch because we fainted check for offensive first
         bestMonId = GestBestMonOffensive(party, firstId, lastId, invalidMons, opposingBattler);
         if (bestMonId == PARTY_SIZE)
-            bestMonId = GestBestMonDefensive(party, firstId, lastId, invalidMons, opposingBattler);
+            bestMonId = GetBestMonDefensive(party, firstId, lastId, invalidMons, opposingBattler);
     }
     else
     {
         // otherwise prefer a type that resists the enemy
-        bestMonId = GestBestMonDefensive(party, firstId, lastId, invalidMons, opposingBattler);
+        bestMonId = GetBestMonDefensive(party, firstId, lastId, invalidMons, opposingBattler);
         if (bestMonId == PARTY_SIZE)
             bestMonId = GestBestMonOffensive(party, firstId, lastId, invalidMons, opposingBattler);
     }
