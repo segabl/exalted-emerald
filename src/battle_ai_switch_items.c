@@ -144,14 +144,15 @@ static bool8 FindMonThatAbsorbsOpponentsMove(void)
     s32 lastId; // + 1
     struct Pokemon *party;
     s32 i;
+    u8 attacker = gLastHitBy[gActiveBattler];
 
-    if (HasSuperEffectiveMoveAgainstOpponents(TRUE) && Random() % 3 != 0)
+    if (attacker == 0xFF)
         return FALSE;
-    if (gLastLandedMoves[gActiveBattler] == 0)
+    if (gLastMoves[attacker] == 0 || gLastMoves[attacker] == 0xFFFF)
         return FALSE;
-    if (gLastLandedMoves[gActiveBattler] == 0xFFFF)
+    if (gBattleMoves[gLastMoves[attacker]].power == 0)
         return FALSE;
-    if (gBattleMoves[gLastLandedMoves[gActiveBattler]].power == 0)
+    if (HasSuperEffectiveMoveAgainstOpponents(TRUE) && Random() & 1)
         return FALSE;
 
     if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
@@ -168,11 +169,11 @@ static bool8 FindMonThatAbsorbsOpponentsMove(void)
         battlerIn2 = gActiveBattler;
     }
 
-    if (gBattleMoves[gLastLandedMoves[gActiveBattler]].type == TYPE_FIRE)
+    if (gBattleMoves[gLastMoves[attacker]].type == TYPE_FIRE)
         absorbingTypeAbility = ABILITY_FLASH_FIRE;
-    else if (gBattleMoves[gLastLandedMoves[gActiveBattler]].type == TYPE_WATER)
+    else if (gBattleMoves[gLastMoves[attacker]].type == TYPE_WATER)
         absorbingTypeAbility = ABILITY_WATER_ABSORB;
-    else if (gBattleMoves[gLastLandedMoves[gActiveBattler]].type == TYPE_ELECTRIC)
+    else if (gBattleMoves[gLastMoves[attacker]].type == TYPE_ELECTRIC)
         absorbingTypeAbility = ABILITY_VOLT_ABSORB;
     else
         return FALSE;
@@ -189,14 +190,12 @@ static bool8 FindMonThatAbsorbsOpponentsMove(void)
 
     for (i = firstId; i < lastId; i++)
     {
-        u16 species;
-        u8 monAbility;
-
+        u16 species = GetMonData(&party[i], MON_DATA_SPECIES2);
         if (GetMonData(&party[i], MON_DATA_HP) == 0)
             continue;
-        if (GetMonData(&party[i], MON_DATA_SPECIES2) == SPECIES_NONE)
+        if (species == SPECIES_NONE)
             continue;
-        if (GetMonData(&party[i], MON_DATA_SPECIES2) == SPECIES_EGG)
+        if (species == SPECIES_EGG)
             continue;
         if (i == gBattlerPartyIndexes[battlerIn1])
             continue;
@@ -207,10 +206,80 @@ static bool8 FindMonThatAbsorbsOpponentsMove(void)
         if (i == *(gBattleStruct->monToSwitchIntoId + battlerIn2))
             continue;
 
-        species = GetMonData(&party[i], MON_DATA_SPECIES);
-        monAbility = gBaseStats[species].abilities[GetMonData(&party[i], MON_DATA_ABILITY_NUM)];
+        if (absorbingTypeAbility == gBaseStats[species].abilities[GetMonData(&party[i], MON_DATA_ABILITY_NUM)])
+        {
+            // we found a mon.
+            *(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler) = i;
+            BtlController_EmitTwoReturnValues(1, B_ACTION_SWITCH, 0);
+            return TRUE;
+        }
+    }
 
-        if (absorbingTypeAbility == monAbility && Random() & 1)
+    return FALSE;
+}
+
+static bool8 FindMonImmuneToOpponentsMove(void)
+{
+    u8 battlerIn1, battlerIn2;
+    s32 firstId;
+    s32 lastId; // + 1
+    struct Pokemon *party;
+    s32 i;
+    u8 attacker = gLastHitBy[gActiveBattler];
+
+    if (attacker == 0xFF)
+        return FALSE;
+    if (gLastMoves[attacker] == 0 || gLastMoves[attacker] == 0xFFFF)
+        return FALSE;
+    if (gBattleMoves[gLastMoves[attacker]].power == 0)
+        return FALSE;
+    if (gBattleMons[gActiveBattler].hp * 4 < gBattleMons[gActiveBattler].maxHP) // If HP are low, switching doesn't really make sense
+        return FALSE;
+    if (HasSuperEffectiveMoveAgainstOpponents(TRUE) && Random() & 1)
+        return FALSE;
+    if (AI_CalcDamage(gLastMoves[attacker], attacker, gActiveBattler) * 4 < gBattleMons[gActiveBattler].maxHP) // if damage is low, don't try to switch
+        return FALSE;
+
+    if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+    {
+        battlerIn1 = gActiveBattler;
+        if (gAbsentBattlerFlags & gBitTable[GetBattlerAtPosition(BATTLE_PARTNER(GetBattlerPosition(gActiveBattler)))])
+            battlerIn2 = gActiveBattler;
+        else
+            battlerIn2 = GetBattlerAtPosition(BATTLE_PARTNER(GetBattlerPosition(gActiveBattler)));
+    }
+    else
+    {
+        battlerIn1 = gActiveBattler;
+        battlerIn2 = gActiveBattler;
+    }
+
+    GetAIPartyIndexes(gActiveBattler, &firstId, &lastId);
+
+    if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
+        party = gPlayerParty;
+    else
+        party = gEnemyParty;
+
+    for (i = firstId; i < lastId; i++)
+    {
+        u16 species = GetMonData(&party[i], MON_DATA_SPECIES2);
+        if (GetMonData(&party[i], MON_DATA_HP) == 0)
+            continue;
+        if (species == SPECIES_NONE)
+            continue;
+        if (species == SPECIES_EGG)
+            continue;
+        if (i == gBattlerPartyIndexes[battlerIn1])
+            continue;
+        if (i == gBattlerPartyIndexes[battlerIn2])
+            continue;
+        if (i == *(gBattleStruct->monToSwitchIntoId + battlerIn1))
+            continue;
+        if (i == *(gBattleStruct->monToSwitchIntoId + battlerIn2))
+            continue;
+
+        if (AI_CalcDamageOnPartyMon(gLastMoves[attacker], attacker, gActiveBattler, &party[i]) == 0)
         {
             // we found a mon.
             *(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler) = i;
@@ -235,31 +304,23 @@ static bool8 FindMonThatResistsTwoTurnMove(void)
 
     if (gLastMoves[opposingBattler] == 0 || gLastMoves[opposingBattler] == 0xFFFF)
         return FALSE;
-
-    // If we're below 1/3 hp, switching doesn't really make sense since we're dead anyways
-    if (gBattleMons[gActiveBattler].hp * 3 < gBattleMons[gActiveBattler].maxHP)
+    if (gBattleMons[gActiveBattler].hp * 4 < gBattleMons[gActiveBattler].maxHP) // If HP are low, switching doesn't really make sense
         return FALSE;
-
     if (gBattleMoves[gLastMoves[opposingBattler]].effect != EFFECT_SOLARBEAM
     && gBattleMoves[gLastMoves[opposingBattler]].effect != EFFECT_SKULL_BASH
     && gBattleMoves[gLastMoves[opposingBattler]].effect != EFFECT_TWO_TURNS_ATTACK
     && gBattleMoves[gLastMoves[opposingBattler]].effect != EFFECT_SEMI_INVULNERABLE)
         return FALSE;
+    if ((bestDamage = AI_CalcDamage(gLastMoves[opposingBattler], opposingBattler, gActiveBattler) * 4 < gBattleMons[gActiveBattler].maxHP)) // if damage is low, don't try to switch
+        return FALSE;
 
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
         u16 move = gBattleMons[gActiveBattler].moves[i];
-        if (move == MOVE_NONE)
-            continue;
         // If we have a protect move, don't switch
-        if (gBattleMoves[move].effect == EFFECT_PROTECT)
+        if (move != MOVE_NONE && gBattleMoves[move].effect == EFFECT_PROTECT)
             return FALSE;
     }
-    
-    bestDamage = AI_CalcDamage(gLastMoves[opposingBattler], opposingBattler, gActiveBattler);
-    // if damage is neglegible compared to max hp, don't try to switch
-    if (bestDamage * 4 < gBattleMons[gActiveBattler].maxHP)
-        return FALSE;
 
     if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
     {
@@ -599,6 +660,8 @@ static bool8 ShouldSwitch(void)
         return TRUE;
     if (FindMonThatResistsTwoTurnMove())
         return TRUE;
+    if (FindMonImmuneToOpponentsMove())
+        return TRUE;
     if (ShouldSwitchIfNaturalCure())
         return TRUE;
     if (HasSuperEffectiveMoveAgainstOpponents(FALSE))
@@ -781,7 +844,7 @@ static u32 GestBestMonOffensive(struct Pokemon *party, int firstId, int lastId, 
 
 static u32 GestBestMonDefensive(struct Pokemon *party, int firstId, int lastId, u8 invalidMons, u32 opposingBattler)
 {
-    int i = 0;
+    int i, j;
     u16 bestDmg = UQ_4_12(1.0);
     u16 bestHp = 0;
     u32 bestMonId = PARTY_SIZE;
@@ -790,6 +853,7 @@ static u32 GestBestMonDefensive(struct Pokemon *party, int firstId, int lastId, 
     {
         if (!(gBitTable[i] & invalidMons))
         {
+            u32 checkedTypes = 0;
             u16 species = GetMonData(&party[i], MON_DATA_SPECIES);
             u16 hp = GetMonData(&party[i], MON_DATA_HP);
             u16 typeDmg = UQ_4_12(1.0);
@@ -807,6 +871,19 @@ static u32 GestBestMonDefensive(struct Pokemon *party, int firstId, int lastId, 
                 MulModifier(&typeDmg, GetTypeModifier(atkType1, defType2));
                 if (atkType2 != atkType1)
                     MulModifier(&typeDmg, GetTypeModifier(atkType2, defType2));
+            }
+            // Also consider known opponent moves for types
+            checkedTypes |= 1 << atkType1;
+            checkedTypes |= 1 << atkType2;
+            for (j = 0; j < MAX_MON_MOVES; j++)
+            {
+                u16 move = gBattleResources->battleHistory->usedMoves[opposingBattler].moves[j];
+                if (move == 0 || move == 0xFFFF || gBattleMoves[move].power == 0 || (checkedTypes & (1 << gBattleMoves[move].type)))
+                    continue;
+                checkedTypes |= 1 << gBattleMoves[move].type;
+                MulModifier(&typeDmg, GetTypeModifier(gBattleMoves[move].type, defType1));
+                if (defType2 != defType1)
+                    MulModifier(&typeDmg, GetTypeModifier(gBattleMoves[move].type, defType2));
             }
             // If type resistance is higher than current one, take the mon
             // If it is equal, take the mon if it has higher HP
