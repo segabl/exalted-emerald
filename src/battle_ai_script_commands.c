@@ -52,7 +52,6 @@ extern const u8 *const gBattleAI_ScriptsTable[];
 
 static u8 ChooseMoveOrAction_Singles(void);
 static u8 ChooseMoveOrAction_Doubles(void);
-static void RecordLastUsedMoveByTarget(void);
 static void BattleAI_DoAIProcessing(void);
 static void AIStackPushVar(const u8 *);
 static bool8 AIStackPop(void);
@@ -474,8 +473,6 @@ static u8 ChooseMoveOrAction_Singles(void)
     s32 i, id;
     u32 flags = AI_THINKING_STRUCT->aiFlags;
 
-    RecordLastUsedMoveByTarget();
-
     while (flags != 0)
     {
         if (flags & 1)
@@ -586,9 +583,6 @@ static u8 ChooseMoveOrAction_Doubles(void)
                 BattleAI_SetupAIData(0xF);
 
             gBattlerTarget = i;
-
-            if ((i & BIT_SIDE) != (sBattler_AI & BIT_SIDE))
-                RecordLastUsedMoveByTarget();
 
             AI_THINKING_STRUCT->aiLogicId = 0;
             AI_THINKING_STRUCT->movesetIndex = 0;
@@ -714,22 +708,6 @@ static void BattleAI_DoAIProcessing(void)
                     AI_THINKING_STRUCT->aiAction &= ~(AI_ACTION_DONE);
                 }
                 break;
-        }
-    }
-}
-
-static void RecordLastUsedMoveByTarget(void)
-{
-    s32 i;
-
-    for (i = 0; i < MAX_MON_MOVES; i++)
-    {
-        if (BATTLE_HISTORY_USED_MOVES(gBattlerTarget)[i] == gLastMoves[gBattlerTarget])
-            break;
-        if (BATTLE_HISTORY_USED_MOVES(gBattlerTarget)[i] == MOVE_NONE)
-        {
-            BATTLE_HISTORY_USED_MOVES(gBattlerTarget)[i] = gLastMoves[gBattlerTarget];
-            break;
         }
     }
 }
