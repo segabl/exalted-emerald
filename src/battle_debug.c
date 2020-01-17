@@ -88,6 +88,7 @@ enum
     LIST_ITEM_SIDE_STATUS,
     LIST_ITEM_AI,
     LIST_ITEM_AI_MOVES_PTS,
+    LIST_ITEM_AI_KNOWLEDGE,
     LIST_ITEM_VARIOUS,
     LIST_ITEM_COUNT
 };
@@ -211,6 +212,7 @@ static const u8 sText_HpAware[] = _("HP aware");
 static const u8 sText_Unknown[] = _("Unknown");
 static const u8 sText_InLove[] = _("In Love");
 static const u8 sText_AIMovePts[] = _("AI Move Pts");
+static const u8 sText_AIKnowledge[] = _("AI Est. Move");
 static const u8 sText_EffectOverride[] = _("Effect Override");
 
 static const u8 sText_EmptyString[] = _("");
@@ -308,6 +310,7 @@ static const struct ListMenuItem sMainListItems[] =
     {sText_SideStatus, LIST_ITEM_SIDE_STATUS},
     {sText_AI, LIST_ITEM_AI},
     {sText_AIMovePts, LIST_ITEM_AI_MOVES_PTS},
+    {sText_AIKnowledge, LIST_ITEM_AI_KNOWLEDGE},
     {sText_Various, LIST_ITEM_VARIOUS},
 };
 
@@ -547,6 +550,7 @@ static const bool8 sHasChangeableEntries[LIST_ITEM_COUNT] =
 {
     [LIST_ITEM_MOVES] = TRUE,
     [LIST_ITEM_AI_MOVES_PTS] = TRUE,
+    [LIST_ITEM_AI_KNOWLEDGE] = TRUE,
     [LIST_ITEM_PP] = TRUE,
     [LIST_ITEM_ABILITY] = TRUE,
     [LIST_ITEM_TYPES] = TRUE,
@@ -906,6 +910,7 @@ static void CreateSecondaryListMenu(struct BattleDebugMenu *data)
         itemsCount = ARRAY_COUNT(sSideStatusListItems);
         break;
     case LIST_ITEM_AI_MOVES_PTS:
+    case LIST_ITEM_AI_KNOWLEDGE:
         itemsCount = 4;
         break;
     }
@@ -1026,6 +1031,15 @@ static void PrintSecondaryEntries(struct BattleDebugMenu *data)
             txtPtr[3] = EOS;
 
             PadString(text, text);
+            printer.currentY = printer.y = (i * yMultiplier) + sSecondaryListTemplate.upText_Y;
+            AddTextPrinter(&printer, 0, NULL);
+        }
+        break;
+    case LIST_ITEM_AI_KNOWLEDGE:
+        for (i = 0; i < 4; i++)
+        {
+            u16 move = gBattleResources->battleHistory->usedMoves[GET_BATTLER_SIDE2(data->battlerId)][gBattlerPartyIndexes[data->battlerId]].moves[i];
+            PadString(gMoveNames[move], text);
             printer.currentY = printer.y = (i * yMultiplier) + sSecondaryListTemplate.upText_Y;
             AddTextPrinter(&printer, 0, NULL);
         }
@@ -1329,6 +1343,11 @@ static void SetUpModifyArrows(struct BattleDebugMenu *data)
             data->modifyArrows.currValue = gBattleMons[data->battlerId].moves[data->currentSecondaryListItemId];
             data->modifyArrows.typeOfVal = VAL_U16;
         }
+        break;
+    case LIST_ITEM_AI_KNOWLEDGE:
+        data->modifyArrows.modifiedValPtr = &gBattleResources->battleHistory->usedMoves[GET_BATTLER_SIDE2(data->battlerId)][gBattlerPartyIndexes[data->battlerId]].moves[data->currentSecondaryListItemId];
+        data->modifyArrows.currValue = gBattleResources->battleHistory->usedMoves[GET_BATTLER_SIDE2(data->battlerId)][gBattlerPartyIndexes[data->battlerId]].moves[data->currentSecondaryListItemId];
+        data->modifyArrows.typeOfVal = VAL_U16;
         break;
     case LIST_ITEM_PP:
         data->modifyArrows.minValue = 0;
