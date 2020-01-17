@@ -435,14 +435,43 @@ void BattleAI_PopulateKnownMoves(struct Pokemon* party, u8 partyIndex)
     for (i = 0; i < PARTY_SIZE; i++)
     {
         u16 species = GetMonData(&party[i], MON_DATA_SPECIES2);
+        u8 typeMove1Slot = 0xFF;
+        u8 typeMove2Slot = 0xFF;
         if (species == SPECIES_NONE || species == SPECIES_EGG)
             continue;
         k = 0;
         for (j = 0; gLevelUpLearnsets[species][j].move != LEVEL_UP_END; j++)
         {
+            u16 move = gLevelUpLearnsets[species][j].move;
             if (gLevelUpLearnsets[species][j].level > party[i].level)
                 break;
-            BATTLE_HISTORY->usedMoves[partyIndex][i].moves[k++] = gLevelUpLearnsets[species][j].move;
+            // Moves with the same typing as the pokemon are prioritized
+            if (gBattleMoves[move].power > 0 && gBattleMoves[move].type == gBaseStats[species].type1)
+            {
+                if (typeMove1Slot == 0xFF || gBattleMoves[move].power > gBattleMoves[BATTLE_HISTORY->usedMoves[partyIndex][i].moves[typeMove1Slot]].power)
+                {
+                    typeMove1Slot = typeMove1Slot == 0xFF ? k : typeMove1Slot;
+                    BATTLE_HISTORY->usedMoves[partyIndex][i].moves[typeMove1Slot] = move;
+                    k++;
+                }
+            }
+            else if (gBattleMoves[move].power > 0 && gBattleMoves[move].type == gBaseStats[species].type2)
+            {
+                if (typeMove2Slot == 0xFF || gBattleMoves[move].power > gBattleMoves[BATTLE_HISTORY->usedMoves[partyIndex][i].moves[typeMove2Slot]].power)
+                {
+                    typeMove2Slot = typeMove2Slot == 0xFF ? k : typeMove2Slot;
+                    BATTLE_HISTORY->usedMoves[partyIndex][i].moves[typeMove2Slot] = move;
+                    k++;
+                }
+            }
+            else
+            {
+                if (k == typeMove1Slot)
+                    k = ++k % MAX_MON_MOVES;
+                if (k == typeMove2Slot)
+                    k = ++k % MAX_MON_MOVES;
+                BATTLE_HISTORY->usedMoves[partyIndex][i].moves[k++] = move;
+            }
             k = k % MAX_MON_MOVES;
         }
     }
@@ -450,30 +479,37 @@ void BattleAI_PopulateKnownMoves(struct Pokemon* party, u8 partyIndex)
 
 void BattleAI_UpdateKnownMoves(u8 battlerId, u16 battlerMove)
 {
-    if (BATTLE_HISTORY_USED_MOVES(battlerId).confirmed < (1 << MAX_MON_MOVES) - 1)
+    u8 i;
+    u8 freeSlot = 0xFF;
+    u16 freeSlotMove;
+    // If all moves are confirmed already, return
+    if (BATTLE_HISTORY_USED_MOVES(battlerId).confirmed >= (1 << MAX_MON_MOVES) - 1)
+        return;
+
+    for (i = 0; i < MAX_MON_MOVES; i++)
     {
-        u16 move;
-        u8 freeSlot = 0xFF;
-        int i;
-        for (i = 0; i < MAX_MON_MOVES; i++)
+        u16 move = BATTLE_HISTORY_USED_MOVES(battlerId).moves[i];
+        bool8 confirmed = BATTLE_HISTORY_USED_MOVES(battlerId).confirmed & (1 << i);
+        if (move == battlerMove)
         {
-            if (BATTLE_HISTORY_USED_MOVES(battlerId).confirmed & (1 << i))
-                continue;
-            move = BATTLE_HISTORY_USED_MOVES(battlerId).moves[i];
-            if (move == battlerMove)
-            {
-                freeSlot = i;
-                break;
-            }
-            // Prefer replacing the weakest unconfirmed move
-            if (freeSlot == 0xFF || gBattleMoves[move].power < gBattleMoves[freeSlot].power)
-                freeSlot = i;
+            if (confirmed)
+                return;
+            freeSlot = i;
+            break;
         }
-        if (freeSlot != 0xFF)
+        if (confirmed)
+            continue;
+        // Prefer replacing the weakest unconfirmed move
+        if (freeSlot == 0xFF || gBattleMoves[move].power < gBattleMoves[freeSlotMove].power)
         {
-            BATTLE_HISTORY_USED_MOVES(battlerId).confirmed |= 1 << freeSlot;
-            BATTLE_HISTORY_USED_MOVES(battlerId).moves[freeSlot] = battlerMove;
+            freeSlot = i;
+            freeSlotMove = move;
         }
+    }
+    if (freeSlot != 0xFF)
+    {
+        BATTLE_HISTORY_USED_MOVES(battlerId).confirmed |= 1 << freeSlot;
+        BATTLE_HISTORY_USED_MOVES(battlerId).moves[freeSlot] = battlerMove;
     }
 }
 
@@ -1668,9 +1704,8 @@ static s32 AI_GetAbility(u32 battlerId, bool32 guess)
         }
         else
         {
-            return gBaseStats[gBattleMons[battlerId].species].abilities[Random() & 2];
+            return gBaseStats[gBattleMons[battlerId].species].abilities[Random() % 3];
         }
-
     }
 
     return -1; // Unknown.
