@@ -5111,6 +5111,7 @@ BattleScript_DamagingWeatherLoop::
 	hitanimation BS_ATTACKER
 	goto BattleScript_DamagingWeatherHpChange
 BattleScript_DamagingWeatherHeal:
+	call BattleScript_AbilityPopUp
 	printstring STRINGID_ICEBODYHPGAIN
 	waitmessage 0x40
 BattleScript_DamagingWeatherHpChange:
@@ -5884,6 +5885,7 @@ BattleScript_MegaEvolution::
 	
 BattleScript_StanceChangeActivates::
 	pause 0x5
+	copybyte gBattlerAbility, gBattlerAttacker
 	call BattleScript_AbilityPopUp
 	printstring STRINGID_EMPTYSTRING3
 	waitmessage 0x1
@@ -6715,6 +6717,7 @@ BattleScript_WeakArmorActivatesEnd:
 	
 BattleScript_AttackerAbilityStatRaise::
 	setgraphicalstatchangevalues
+	copybyte gBattlerAbility, gBattlerAttacker
 	call BattleScript_AbilityPopUp
 	playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
 	waitanimation
