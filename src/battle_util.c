@@ -1519,7 +1519,10 @@ u8 DoBattlerEndTurnEffects(void)
                 && gBattleMons[gActiveBattler].hp != 0
                 && ability != ABILITY_MAGIC_GUARD)
             {
-                gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 8;
+                if(B_BURN_DAMAGE == GEN_7)
+                    gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 16;
+                else
+                    gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 8;
                 if (ability == ABILITY_HEATPROOF)
                     gBattleMoveDamage /= 2;
                 if (gBattleMoveDamage == 0)
@@ -5846,7 +5849,12 @@ static u32 CalcFinalDmg(u32 dmg, u16 move, u8 battlerAtk, u8 battlerDef, u8 move
 
     // check crit
     if (isCrit)
-        dmg = ApplyModifier(UQ_4_12(1.5), dmg);
+    {
+        if(B_CRIT_MULTIPLIER >= GEN_6)
+            dmg = ApplyModifier(UQ_4_12(1.5), dmg);
+        else
+            dmg = ApplyModifier(UQ_4_12(2.0), dmg);
+    }
 
     // check burn
     if (gBattleMons[battlerAtk].status1 & STATUS1_BURN && IS_MOVE_PHYSICAL(move)
