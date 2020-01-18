@@ -70,7 +70,8 @@ static void PredictOpponentMove(u8 opponent, u16 *predictedMove, s32 *predictedD
         u16 move = BATTLE_HISTORY_USED_MOVES(opponent).moves[i];
         if (move != MOVE_NONE && move != 0xFFFF)
         {
-            weights[i] = 500;
+            damage[i] = 0;
+            weights[i] = 100;
             if (gBattleMoves[move].power > 0)
             {
                 damage[i] = AI_CalcDamage(move, opponent, gActiveBattler);
@@ -207,14 +208,15 @@ static bool8 FindResistingOrImmuneMon()
     u8 bestMon = PARTY_SIZE;
     u8 attacker = OPPONENT(gActiveBattler);
 
-    if (gChosenActionByBattler[attacker] == B_ACTION_SWITCH)
+    if (gChosenActionByBattler[attacker] == B_ACTION_SWITCH
+    || gChosenActionByBattler[gActiveBattler] == B_ACTION_SWITCH)
         return FALSE;
 
     PredictOpponentMove(attacker, &predictedMove, &predictedDamage);
 
     if (gBattleMons[gActiveBattler].hp * 4 < gBattleMons[gActiveBattler].maxHP) // If HP are low, switching doesn't really make sense
         return FALSE;
-    if (predictedDamage * 2 < gBattleMons[gActiveBattler].maxHP) // if damage is low, don't try to switch
+    if (predictedDamage * 3 < gBattleMons[gActiveBattler].maxHP) // if damage is low, don't try to switch
         return FALSE;
 
     if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
@@ -283,14 +285,14 @@ static bool8 FindResistingOrImmuneMon()
             bestMon = i;
             break;
         }
-        else if (dmg * 2 < hp && dmg < bestDamage && dmg * 2 < predictedDamage)
+        else if (dmg * 2 < hp && dmg < bestDamage)
         {
             bestMon = i;
             bestDamage = dmg;
         }
     }
     LoadBattleMons(battleMons);
-    if (bestMon != PARTY_SIZE && (bestDamage == 0 || (Random() & 1)))
+    if (bestMon != PARTY_SIZE && bestDamage < Random32() % predictedDamage)
     {
         // we found a mon.
         *(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler) = bestMon;
