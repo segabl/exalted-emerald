@@ -2799,8 +2799,17 @@ AI_CV_Fly_TypesToEncourage:
     .byte -1
 
 AI_CV_FakeOut:
-	score + 5
+	get_ability AI_TARGET
+	if_in_bytes AI_CV_Trick_AbilitiesToDiscourage, Score_Minus1
+	if_status2 AI_TARGET, STATUS2_SUBSTITUTE, Score_Minus1
+	score +5
 	end
+
+AI_CV_Trick_AbilitiesToDiscourage:
+    .byte ABILITY_INNER_FOCUS
+    .byte ABILITY_SHIELD_DUST
+    .byte ABILITY_STEADFAST
+    .byte -1
 
 AI_CV_SpitUp:
 	get_stockpile_count AI_USER
