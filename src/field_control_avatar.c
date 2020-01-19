@@ -547,11 +547,11 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
 
     if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_6) && !MetatileBehavior_IsForcedMovementTile(metatileBehavior))
     {
-        if (UpdatePoisonStepCounter() == TRUE)
+        /*if (UpdatePoisonStepCounter() == TRUE)
         {
             ScriptContext1_SetupScript(EventScript_FieldPoison);
             return TRUE;
-        }
+        }*/
         if (ShouldEggHatch())
         {
             IncrementGameStat(GAME_STAT_HATCHED_EGGS);
