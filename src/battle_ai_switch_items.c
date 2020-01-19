@@ -323,7 +323,8 @@ static bool8 FindMonThatResistsTwoTurnMove(void)
     && gBattleMoves[gLastMoves[attacker]].effect != EFFECT_TWO_TURNS_ATTACK
     && gBattleMoves[gLastMoves[attacker]].effect != EFFECT_SEMI_INVULNERABLE)
         return FALSE;
-    if ((bestDamage = AI_CalcDamage(gLastMoves[attacker], attacker, gActiveBattler) * 4 < gBattleMons[gActiveBattler].maxHP)) // if damage is low, don't try to switch
+    bestDamage = AI_CalcDamage(gLastMoves[attacker], attacker, gActiveBattler);
+    if (bestDamage * 3 < gBattleMons[gActiveBattler].maxHP) // if damage is low, don't try to switch
         return FALSE;
 
     for (i = 0; i < MAX_MON_MOVES; i++)
@@ -384,15 +385,14 @@ static bool8 FindMonThatResistsTwoTurnMove(void)
             switchToMon = i;
         }
     }
+    LoadBattleMons(battleMons);
     if (switchToMon != PARTY_SIZE)
     {
-        LoadBattleMons(battleMons);
         // we found a mon.
         *(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler) = switchToMon;
         BtlController_EmitTwoReturnValues(1, B_ACTION_SWITCH, 0);
         return TRUE;
     }
-    LoadBattleMons(battleMons);
     return FALSE;
 }
 
