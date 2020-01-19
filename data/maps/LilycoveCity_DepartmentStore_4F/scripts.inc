@@ -2,11 +2,11 @@ LilycoveCity_DepartmentStore_4F_MapScripts:: @ 821FDEA
 	.byte 0
 
 LilycoveCity_DepartmentStore_4F_EventScript_Gentleman:: @ 821FDEB
-	msgbox LilycoveCity_DepartmentStore_4F_Text_EvolutionStones, MSGBOX_NPC
+	msgbox LilycoveCity_DepartmentStore_4F_Text_100DifferentTMs, MSGBOX_NPC
 	end
 
 LilycoveCity_DepartmentStore_4F_EventScript_Woman:: @ 821FDF4
-	msgbox LilycoveCity_DepartmentStore_4F_Text_FiftyDifferentTMs, MSGBOX_NPC
+	msgbox LilycoveCity_DepartmentStore_4F_Text_EvolutionStones, MSGBOX_NPC
 	end
 
 LilycoveCity_DepartmentStore_4F_EventScript_Youngster:: @ 821FDFD
@@ -69,11 +69,11 @@ LilycoveCity_DepartmentStore_4F_Text_EvolutionStones: @ 821FE50
 	.string "a WATER STONE to evolve my EEVEE...\p"
 	.string "Maybe I shouldn't evolve it at all?$"
 
-LilycoveCity_DepartmentStore_4F_Text_FiftyDifferentTMs: @ 821FEC7
+LilycoveCity_DepartmentStore_4F_Text_100DifferentTMs: @ 821FEC7
 	.string "There are so many different kinds of\n"
 	.string "TM moves.\p"
-	.string "A catalog I read said there are fifty\n"
-	.string "different kinds.$"
+	.string "A catalog I read said there are 100\n"
+	.string "different kinds!$"
 
 LilycoveCity_DepartmentStore_4F_Text_PokemonOnlyHaveFourMoves: @ 821FF2D
 	.string "I'd like to get all the different TMs,\n"
