@@ -20,6 +20,26 @@ SootopolisCity_House2_EventScript_DontKnowAboutOrbs:: @ 8226AA2
 	msgbox SootopolisCity_House2_Text_OughtToVisitAndSee, MSGBOX_DEFAULT
 	return
 
+SootopolisCity_House2_EventScript_BallCollector::
+	lock
+	faceplayer
+	dotimebasedevents
+	goto_if_set FLAG_DAILY_BALL_COLLECTOR_RECEIVED_BALL, SootopolisCity_House2_EventScript_ReceivedBallToday
+	msgbox SootopolisCity_House2_Text_ShareBallsWithYou, MSGBOX_DEFAULT
+	random NUM_BALL_COLLECTOR_BALLS
+	addvar VAR_RESULT, FIRST_BALL_COLLECTOR_BALL
+	giveitem_std VAR_RESULT
+	compare VAR_RESULT, FALSE
+	goto_if_eq Common_EventScript_ShowBagIsFull
+	setflag FLAG_DAILY_BALL_COLLECTOR_RECEIVED_BALL
+	goto SootopolisCity_House2_EventScript_ReceivedBallToday
+	end
+
+SootopolisCity_House2_EventScript_ReceivedBallToday::
+	msgbox SootopolisCity_House2_Text_ThisOneWasPopular, MSGBOX_DEFAULT
+	release
+	end
+
 SootopolisCity_House2_Text_DidYouKnowAboutMtPyreOrbs: @ 8226AAB
 	.string "MT. PYRE…\p"
 	.string "At its peak are two orbs placed side\n"
@@ -34,3 +54,13 @@ SootopolisCity_House2_Text_OughtToVisitAndSee: @ 8226B41
 	.string "Is that so?\n"
 	.string "Perhaps you ought to visit and see…$"
 
+SootopolisCity_House2_Text_ShareBallsWithYou:
+	.string "When I was younger I used to\n"
+	.string "collect rare POKé BALLS on my\l"
+	.string "trips all over the world…\p"
+	.string "Here, let me give you one…$"
+
+SootopolisCity_House2_Text_ThisOneWasPopular:
+	.string "This BALL was made in the JOHTO region\n"
+	.string "from a fruit known as APRICORN…\p"
+	.string "It was quite popular there…$"
