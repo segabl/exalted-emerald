@@ -13,9 +13,9 @@ MossdeepCity_Mart_EventScript_Clerk:: @ 82223C8
 
 	.align 2
 MossdeepCity_Mart_Pokemart: @ 82223E0
+	.2byte ITEM_GREAT_BALL
 	.2byte ITEM_ULTRA_BALL
-	.2byte ITEM_NET_BALL
-	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_SUPER_POTION
 	.2byte ITEM_HYPER_POTION
 	.2byte ITEM_FULL_HEAL
 	.2byte ITEM_REVIVE
@@ -67,10 +67,9 @@ MossdeepCity_Mart_Text_MaxRepelLastsLongest: @ 82224A0
 	.string "the longest.$"
 
 MossdeepCity_Mart_Text_NetAndDiveBallsRare: @ 82224FA
-	.string "The NET and DIVE BALLS are rare POKé\n"
-	.string "BALLS that are only made in MOSSDEEP.\p"
-	.string "A NET BALL is effective against\n"
-	.string "BUG-type and WATER-type POKéMON.\p"
-	.string "A DIVE BALL works best on POKéMON\n"
-	.string "at the bottom of the sea.$"
+	.string "The NET and DIVE BALL production\n"
+	.string "was recently moved to RUSTBORO CITY…\p"
+	.string "Now that the DEVON CORPORATION produces\n"
+	.string "them, they are easier to get but harder\l"
+	.string "to come by here in MOSSDEEP CITY…$"
 

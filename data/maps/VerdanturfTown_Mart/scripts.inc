@@ -13,8 +13,8 @@ VerdanturfTown_Mart_EventScript_Clerk:: @ 8202587
 
 	.align 2
 VerdanturfTown_Mart_Pokemart: @ 82025A0
+	.2byte ITEM_POKE_BALL
 	.2byte ITEM_GREAT_BALL
-	.2byte ITEM_NEST_BALL
 	.2byte ITEM_SUPER_POTION
 	.2byte ITEM_ANTIDOTE
 	.2byte ITEM_PARALYZE_HEAL
@@ -56,6 +56,8 @@ VerdanturfTown_Mart_Text_NoStrategyGuidesForBattleTent: @ 820264C
 VerdanturfTown_Mart_Text_NestBallOnWeakenedPokemon: @ 82026C9
 	.string "The NEST BALL works better on\n"
 	.string "weakened POKéMON.\p"
-	.string "VERDANTURF is the only place you can\n"
-	.string "buy it.$"
+	.string "VERDANTURF used to be the only place\n"
+	.string "you can buy it at, but now the DEVON\l"
+	.string "CORPORATION took over production\l"
+	.string "and is selling it in RUSTBORO CITY…$"
 
