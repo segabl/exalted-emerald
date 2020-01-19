@@ -188,19 +188,16 @@ Route121_EventScript_HexManiacExplainDreamEater::
 	end
 
 Route121_Text_EatingDreams:
-	.string "Eating dreams is weird…\p"
-	.string "Though it seems that some PSYCHIC\n"
-	.string "and GHOST-type POKéMON love to do it…\p"
-	.string "I have tried it myself but\n"
-	.string "I did not really like the taste,\l"
+	.string "Eating dreams must be weird…\p"
+	.string "Some PSYCHIC and GHOST-type POKéMON\n"
+	.string "seem to love it though…\p"
+	.string "I don't think I would like the taste\n"
 	.string "so you can have this!$"
 
 Route121_Text_DreamEaterExplanation:
-	.string "TM85 contains DREAM EATER…\p"
-	.string "The POKéMON using it will consume\n"
-	.string "the dreams of a sleeping opponent…\p"
-	.string "It will also heal itself a bit\n"
-	.string "with each dream eaten…$"
+	.string "A POKéMON using DREAM EATER will\n"
+	.string "consume the dreams of a sleeping foe\l"
+	.string "and heal itself with each dream eaten…$"
 
 Route121_Text_OkayMoveOutToMtPyre: @ 81F605A
 	.string "Okay!\n"

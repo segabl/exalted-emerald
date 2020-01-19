@@ -317,20 +317,20 @@ LavaridgeTown_EventScript_BlackbeltExplainSwordsDance::
 LavaridgeTown_Text_GotWhatItTakes:
 	.string "Hey kid!\p"
 	.string "You think you got what it takes\n"
-	.string "to take me on?!$"
+	.string "to take me on?$"
 
 LavaridgeTown_Text_ThatsTheSpirit:
 	.string "That's the spirit!\p"
-	.string "Keep at it, champ!$"
+	.string "Don't let anyone intimidate you!$"
 
 LavaridgeTown_Text_ThenTakeThis:
 	.string "Then take this!$"
 
 LavaridgeTown_Text_SwordsDanceExplanation:
-	.string "This TM contains SWORDS DANCE!\p"
+	.string "TM75 contains SWORDS DANCE!\p"
 	.string "It sharply raises the ATTACK!\p"
-	.string "Use it and you too can get\n"
-	.string "what it takes!$"
+	.string "With a boosted ATTACK stat\n"
+	.string "you can take on anything!$"
 
 LavaridgeTown_Text_MayNiceBadgesTakeThis: @ 81EA7C0
 	.string "MAY: {PLAYER}{KUN}! Long time no see!\p"

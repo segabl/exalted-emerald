@@ -7,7 +7,7 @@ SSTidalRooms_EventScript_EmbargoGiver:: @ 823C9F2
 	checkitem ITEM_TM63, 1
 	compare VAR_RESULT, TRUE
 	goto_if_eq SSTidalRooms_EventScript_ExplainEmbargo
-	msgbox SSTidalRooms_Text_NotSuspiciousTakeThis, MSGBOX_DEFAULT
+	msgbox SSTidalRooms_Text_ForgotToBringItems, MSGBOX_DEFAULT
 	giveitem_std ITEM_TM63
 	msgbox SSTidalRooms_Text_ExplainEmbargo, MSGBOX_DEFAULT
 	release
@@ -161,11 +161,12 @@ SSTidalRooms_Text_NaomiPostBattle: @ 823D013
 	.string "But, I will admit there is an appealing\n"
 	.string "side to touring HOENN by ferry.$"
 
-SSTidalRooms_Text_NotSuspiciousTakeThis: @ 823D098
-	.string "Uh… While I was out looking for POKéMON\n"
-	.string "someone seized all the items from my room!\p"
-	.string "Everything is gone, I only have this\n"
-	.string "thing left…\p"
+SSTidalRooms_Text_ForgotToBringItems: @ 823D098
+	.string "Huh… I forgot to bring any items\n"
+	.string "for my POKéMON on this trip…\p"
+	.string "Well… At least EMBARGO won't be\n"
+	.string "a problem for me then, right?\p"
+	.string "Uh… Where did this come from?\p"
 	.string "Here, you can have it…$"
 
 SSTidalRooms_Text_ExplainEmbargo: @ 823D145
