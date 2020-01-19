@@ -481,6 +481,7 @@ void BattleAI_UpdateKnownMoves(u8 battlerId, u16 battlerMove)
 {
     u8 i;
     u8 freeSlot = 0xFF;
+    u8 sameType = FALSE;
     u16 freeSlotMove;
     // If all moves are confirmed already, return
     if (BATTLE_HISTORY_USED_MOVES(battlerId).confirmed >= (1 << MAX_MON_MOVES) - 1)
@@ -499,11 +500,15 @@ void BattleAI_UpdateKnownMoves(u8 battlerId, u16 battlerMove)
         }
         if (confirmed)
             continue;
-        // Prefer replacing the weakest unconfirmed move
-        if (freeSlot == 0xFF || gBattleMoves[move].power < gBattleMoves[freeSlotMove].power)
+        if (freeSlot == 0xFF || gBattleMoves[move].power < gBattleMoves[freeSlotMove].power // Prefer replacing the weakest unconfirmed move
+        || (!sameType && gBattleMoves[move].type == gBattleMoves[battlerMove].type)) // prefer replacing a move of the same type
         {
-            freeSlot = i;
-            freeSlotMove = move;
+            if (!sameType || gBattleMoves[move].type == gBattleMoves[battlerMove].type)
+            {
+                freeSlot = i;
+                freeSlotMove = move;
+                sameType = gBattleMoves[move].type == gBattleMoves[battlerMove].type;
+            }
         }
     }
     if (freeSlot != 0xFF)
