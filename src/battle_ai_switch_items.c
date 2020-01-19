@@ -20,6 +20,8 @@
 
 #define OPPONENT(battler) (gLastHitBy[battler] != 0xFF ? gLastHitBy[battler] : GetBattlerAtPosition(BATTLE_OPPOSITE(GET_BATTLER_POSITION(gActiveBattler))))
 
+#define IS_VALID_MOVE(move) (move != 0 && move != 0xFFFF)
+
 // this file's functions
 static bool8 HasSuperEffectiveMoveAgainstOpponents(bool8 noRng);
 static bool8 FindMonWithFlagsAndSuperEffective(u16 flags, u8 moduloPercent);
@@ -68,7 +70,7 @@ static void PredictOpponentMove(u8 opponent, u16 *predictedMove, s32 *predictedD
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
         u16 move = BATTLE_HISTORY_USED_MOVES(opponent).moves[i];
-        if (move != MOVE_NONE && move != 0xFFFF)
+        if (IS_VALID_MOVE(move))
         {
             damage[i] = 0;
             weights[i] = 100;
@@ -314,7 +316,7 @@ static bool8 FindMonThatResistsTwoTurnMove(void)
     u16 bestDamage;
     u8 attacker = OPPONENT(gActiveBattler);
 
-    if (gLastMoves[attacker] == 0 || gLastMoves[attacker] == 0xFFFF)
+    if (!IS_VALID_MOVE(gLastMoves[attacker]))
         return FALSE;
     if (gBattleMons[gActiveBattler].hp * 4 < gBattleMons[gActiveBattler].maxHP) // If HP are low, switching doesn't really make sense
         return FALSE;
@@ -405,13 +407,7 @@ static bool8 ShouldSwitchIfNaturalCure(void)
     if (gBattleMons[gActiveBattler].hp < gBattleMons[gActiveBattler].maxHP / 2)
         return FALSE;
 
-    if ((gLastLandedMoves[gActiveBattler] == 0 || gLastLandedMoves[gActiveBattler] == 0xFFFF) && Random() & 1)
-    {
-        *(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler) = PARTY_SIZE;
-        BtlController_EmitTwoReturnValues(1, B_ACTION_SWITCH, 0);
-        return TRUE;
-    }
-    else if (gBattleMoves[gLastLandedMoves[gActiveBattler]].power == 0 && Random() & 1)
+    if ((!IS_VALID_MOVE(gLastLandedMoves[gActiveBattler]) || gBattleMoves[gLastLandedMoves[gActiveBattler]].power == 0) && (Random() & 1))
     {
         *(gBattleStruct->AI_monToSwitchIntoId + gActiveBattler) = PARTY_SIZE;
         BtlController_EmitTwoReturnValues(1, B_ACTION_SWITCH, 0);
@@ -509,13 +505,9 @@ static bool8 FindMonWithFlagsAndSuperEffective(u16 flags, u8 moduloPercent)
     s32 i, j;
     u16 move;
 
-    if (gLastLandedMoves[gActiveBattler] == 0)
-        return FALSE;
-    if (gLastLandedMoves[gActiveBattler] == 0xFFFF)
+    if (!IS_VALID_MOVE(gLastLandedMoves[gActiveBattler]) || gBattleMoves[gLastLandedMoves[gActiveBattler]].power == 0)
         return FALSE;
     if (gLastHitBy[gActiveBattler] == 0xFF)
-        return FALSE;
-    if (gBattleMoves[gLastLandedMoves[gActiveBattler]].power == 0)
         return FALSE;
 
     if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
