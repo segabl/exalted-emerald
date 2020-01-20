@@ -11018,6 +11018,19 @@ static void Cmd_pickup(void)
                 heldItem = GetBattlePyramidPickupItemId();
                 SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &heldItem);
             }
+            else if (ability == ABILITY_HONEY_GATHER
+                && species != 0
+                && species != SPECIES_EGG
+                && heldItem == ITEM_NONE)
+            {
+                s32 j;
+                s32 rand = Random() % 100;
+
+                if ((lvlDivBy10 + 1 ) * 5 > rand)
+                {
+                    SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, ITEM_HONEY);
+                }
+            }
         }
     }
     else
@@ -11055,6 +11068,21 @@ static void Cmd_pickup(void)
                     }
                 }
             }
+            #if (defined ITEM_HONEY)
+            else if (ability == ABILITY_HONEY_GATHER
+                && species != 0
+                && species != SPECIES_EGG
+                && heldItem == ITEM_NONE)
+            {
+                s32 j;
+                s32 rand = Random() % 100;
+
+                if ((lvlDivBy10 + 1 ) * 5 > rand)
+                {
+                    SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, ITEM_HONEY);
+                }
+            }
+            #endif
         }
     }
 
