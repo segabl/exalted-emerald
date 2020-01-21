@@ -63,76 +63,76 @@ static const u8 sPremierBallDesc[] = _(
     "of some event.");
 
 static const u8 sLevelBallDesc[] = _(
-    "A Ball that works\n"
+    "A BALL that works\n"
     "well on lower\n"
     "level POKéMON.");
 
 static const u8 sLureBallDesc[] = _(
-    "A Ball that works\n"
+    "A BALL that works\n"
     "well on fished\n"
     "up POKéMON.");
 
 static const u8 sMoonBallDesc[] = _(
-    "A Ball that works\n"
-    "well on Moon\n"
-    "Stone users.");
+    "A BALL that works\n"
+    "well on MOON\n"
+    "STONE users.");
 
 static const u8 sFriendBallDesc[] = _(
-    "A Ball that makes\n"
+    "A BALL that makes\n"
     "a POKéMON friendly\n"
     "when caught.");
 
 static const u8 sLoveBallDesc[] = _(
-    "Works well on\n"
-    "POKéMON of the\n"
+    "A BALL that works\n"
+    "well on the\n"
     "opposite gender.");
 
 static const u8 sHeavyBallDesc[] = _(
-    "Works well on\n"
-    "very heavy\n"
+    "A BALL that works\n"
+    "well on heavy\n"
     "POKéMON.");
 
 static const u8 sFastBallDesc[] = _(
-    "Works well on\n"
-    "very fast\n"
+    "A BALL that works\n"
+    "well on very fast\n"
     "POKéMON.");
 
 static const u8 sHealBallDesc[] = _(
-    "A remedial Ball\n"
+    "A remedial BALL\n"
     "that restores\n"
     "caught POKéMON.");
 
 static const u8 sQuickBallDesc[] = _(
-    "Works well if\n"
-    "used on the\n"
+    "A BALL that works\n"
+    "well on the\n"
     "first turn.");
 
 static const u8 sDuskBallDesc[] = _(
-    "Works well if\n"
-    "used in a\n"
-    "dark place.");
+    "A BALL that works\n"
+    "well in dark\n"
+    "places.");
 
 static const u8 sCherishBallDesc[] = _(
-    "A rare Ball made\n"
+    "A rare BALL made\n"
     "in commemoration\n"
     "of some event.");
 
 static const u8 sSportBallDesc[] = _(
-    "A special Ball used\n"
-    "in the Bug-Catching\n"
+    "A special BALL for\n"
+    "the Bug-Catching\n"
     "Contest.");
 
 static const u8 sParkBallDesc[] = _(
-    "A special Ball for\n"
+    "A special BALL for\n"
     "the Pal Park.");
 
 static const u8 sDreamBallDesc[] = _(
-    "A Poké Ball used in\n"
+    "A BALL used in\n"
     "the Entree Forest.\n"
     "It doesn't fail.");
 
 static const u8 sBeastBallDesc[] = _(
-    "A Ball designed to\n"
+    "A BALL designed to\n"
     "catch Ultra Beasts.");
 
 // Medicine
