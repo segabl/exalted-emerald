@@ -23,14 +23,11 @@ MauvilleCity_House3_2F_EventScript_OldMan::
 
 MauvilleCity_House3_2F_Text_ILikeDoingUTurns:
 	.string "I like doing U-TURNS!\p"
-	.string "Do you want to join me?\p"
+	.string "Come and join me!\p"
 	.string "You will need this!$"
 
 MauvilleCity_House3_2F_Text_UTurnExplanation:
 	.string "TM89 contains U-TURN!\p"
-	.string "A POKéMON using it will attack\n"
-	.string "and then immediately switch\l"
-	.string "places with an ally.\p"
 	.string "I don't have any POKéMON yet,\n"
 	.string "so I'm doing the U-TURNS myself!$"
 

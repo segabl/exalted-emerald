@@ -72,11 +72,11 @@ PacifidlogTown_Text_TownSign: @ 81EBC7A
 PacifidlogTown_Text_SoAngry:
 	.string "Aaargh, I'm so angry, I could\n"
 	.string "FLING this TM into the sea!\p"
-	.string "None of my POKéMON can learn it\n"
-	.string "so take it before I really do it!$"
+	.string "None of my POKéMON can learn it,\n"
+	.string "so take it before I throw it away!$"
 
 PacifidlogTown_Text_FlingExplanation:
-	.string "This TM contains FLING!\p"
+	.string "TM56 contains FLING!\p"
 	.string "A POKéMON using this move will\n"
 	.string "throw its ITEM at the opponent.\p"
 	.string "How effective it is depends on\n"

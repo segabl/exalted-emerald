@@ -58,9 +58,10 @@ SootopolisCity_House2_Text_ShareBallsWithYou:
 	.string "When I was younger I used to\n"
 	.string "collect rare POKé BALLS on my\l"
 	.string "trips all over the world…\p"
-	.string "Here, let me give you one…$"
+	.string "Here, let me give you one.$"
 
 SootopolisCity_House2_Text_ThisOneWasPopular:
-	.string "This BALL was made in the JOHTO region\n"
-	.string "from a fruit known as APRICORN…\p"
-	.string "It was quite popular there…$"
+	.string "This BALL was made in the\n"
+	.string "JOHTO region from a regional\n"
+	.string "fruit known as APRICORN.\p"
+	.string "It's quite popular there!$"
