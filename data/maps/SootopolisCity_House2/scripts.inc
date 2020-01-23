@@ -62,6 +62,6 @@ SootopolisCity_House2_Text_ShareBallsWithYou:
 
 SootopolisCity_House2_Text_ThisOneWasPopular:
 	.string "This BALL was made in the\n"
-	.string "JOHTO region from a regional\n"
+	.string "JOHTO region from a regional\l"
 	.string "fruit known as APRICORN.\p"
 	.string "It's quite popular there!$"
