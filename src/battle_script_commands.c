@@ -11006,6 +11006,9 @@ static void Cmd_pickup(void)
         {
             species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2);
             heldItem = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
+            lvlDivBy10 = (GetMonData(&gPlayerParty[i], MON_DATA_LEVEL)-1) / 10;
+            if (lvlDivBy10 > 9)
+                lvlDivBy10 = 9;
 
             ability = gBaseStats[species].abilities[GetMonData(&gPlayerParty[i], MON_DATA_ABILITY_NUM)];
 
@@ -11028,7 +11031,8 @@ static void Cmd_pickup(void)
 
                 if ((lvlDivBy10 + 1 ) * 5 > rand)
                 {
-                    SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, ITEM_HONEY);
+                    heldItem = ITEM_HONEY;
+                    SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &heldItem);
                 }
             }
         }
@@ -11039,7 +11043,7 @@ static void Cmd_pickup(void)
         {
             species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2);
             heldItem = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
-            lvlDivBy10 = (GetMonData(&gPlayerParty[i], MON_DATA_LEVEL)-1) / 10; //Moving this here makes it easier to add in abilities like Honey Gather
+            lvlDivBy10 = (GetMonData(&gPlayerParty[i], MON_DATA_LEVEL)-1) / 10;
             if (lvlDivBy10 > 9)
                 lvlDivBy10 = 9;
 
@@ -11068,7 +11072,6 @@ static void Cmd_pickup(void)
                     }
                 }
             }
-            #if (defined ITEM_HONEY)
             else if (ability == ABILITY_HONEY_GATHER
                 && species != 0
                 && species != SPECIES_EGG
@@ -11079,10 +11082,10 @@ static void Cmd_pickup(void)
 
                 if ((lvlDivBy10 + 1 ) * 5 > rand)
                 {
-                    SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, ITEM_HONEY);
+                    heldItem = ITEM_HONEY;
+                    SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &heldItem);
                 }
             }
-            #endif
         }
     }
 

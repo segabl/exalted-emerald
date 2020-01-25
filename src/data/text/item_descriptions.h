@@ -2999,9 +2999,9 @@ static const u8 sAdrenalineOrbDesc[] = _(
     "but only one time.");
 
 static const u8 sHoneyDesc[] = _(
-    "A sweet honey that\n"
-    "attracts wild Pokémon\n"
-    "in grass or on trees.");
+    "A sweet honey\n"
+    "that attracts\n"
+    "wild POKéMON.");
 
 static const u8 sHealthWingDesc[] = _(
     "An item that raises\n"

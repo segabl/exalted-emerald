@@ -8051,7 +8051,7 @@ const struct Item gItems[] =
         .description = sHoneyDesc,
         .pocket = POCKET_ITEMS,
         .type = 4,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // TODO: Implement field use
         .secondaryId = 0,
     },
 
