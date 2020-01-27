@@ -1147,10 +1147,10 @@
 #define FLAG_ITEM_SHOAL_CAVE_INNER_ROOM_RARE_CANDY                  0x43A
 #define FLAG_ITEM_SHOAL_CAVE_STAIRS_ROOM_ICE_HEAL                   0x43B
 #define FLAG_ITEM_VICTORY_ROAD_1F_MAX_ELIXIR                        0x43C
-#define FLAG_ITEM_VICTORY_ROAD_1F_PP_UP                             0x43D
+#define FLAG_ITEM_VICTORY_ROAD_1F_TM_35                             0x43D
 #define FLAG_ITEM_VICTORY_ROAD_B1F_TM_29                            0x43E
-#define FLAG_ITEM_VICTORY_ROAD_B1F_FULL_RESTORE                     0x43F
-#define FLAG_ITEM_VICTORY_ROAD_B2F_FULL_HEAL                        0x440
+#define FLAG_ITEM_VICTORY_ROAD_B1F_PP_UP                            0x43F
+#define FLAG_ITEM_VICTORY_ROAD_B2F_FULL_RESTORE                     0x440
 #define FLAG_ITEM_MT_PYRE_6F_TM_30                                  0x441
 #define FLAG_ITEM_SEAFLOOR_CAVERN_ROOM_9_TM_26                      0x442
 #define FLAG_ITEM_FIERY_PATH_TM06                                   0x443

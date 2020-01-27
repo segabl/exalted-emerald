@@ -258,8 +258,8 @@
       "movement_range_y": 1,
       "trainer_type": "0",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "VictoryRoad_B1F_EventScript_ItemFullRestore",
-      "flag": "FLAG_ITEM_VICTORY_ROAD_B1F_FULL_RESTORE"
+      "script": "VictoryRoad_B1F_EventScript_ItemPPUp",
+      "flag": "FLAG_ITEM_VICTORY_ROAD_B1F_PP_UP"
     },
     {
       "graphics_id": "EVENT_OBJ_GFX_MAN_3",

@@ -89,8 +89,8 @@
       "movement_range_y": 1,
       "trainer_type": "0",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "VictoryRoad_1F_EventScript_ItemPPUp",
-      "flag": "FLAG_ITEM_VICTORY_ROAD_1F_PP_UP"
+      "script": "VictoryRoad_1F_EventScript_ItemTM35",
+      "flag": "FLAG_ITEM_VICTORY_ROAD_1F_TM_35"
     },
     {
       "graphics_id": "EVENT_OBJ_GFX_WALLY",

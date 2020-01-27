@@ -650,20 +650,20 @@ VictoryRoad_1F_EventScript_ItemMaxElixir:: @ 8291483
 	finditem_std ITEM_MAX_ELIXIR
 	end
 
-VictoryRoad_1F_EventScript_ItemPPUp:: @ 8291490
-	finditem_std ITEM_PP_UP
+VictoryRoad_1F_EventScript_ItemTM35:: @ 8291490
+	finditem_std ITEM_TM35
 	end
 
 VictoryRoad_B1F_EventScript_ItemTM29:: @ 829149D
 	finditem_std ITEM_TM29
 	end
 
-VictoryRoad_B1F_EventScript_ItemFullRestore:: @ 82914AA
-	finditem_std ITEM_FULL_RESTORE
+VictoryRoad_B1F_EventScript_ItemPPUp:: @ 82914AA
+	finditem_std ITEM_PP_UP
 	end
 
-VictoryRoad_B2F_EventScript_ItemFullHeal:: @ 82914B7
-	finditem_std ITEM_FULL_HEAL
+VictoryRoad_B2F_EventScript_ItemFullRestore:: @ 82914B7
+	finditem_std ITEM_FULL_RESTORE
 	end
 
 VictoryRoad_B2F_EventScript_ItemTM81::
