@@ -61,6 +61,52 @@ MauvilleCity_Mart_EventScript_Man:: @ 8211125
 	msgbox MauvilleCity_Mart_Text_DecisionsDetermineBattle, MSGBOX_NPC
 	end
 
+MauvilleCity_Mart_EventScript_ToughGuy::
+	lock
+	faceplayer
+	checkitem ITEM_TM58, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq MauvilleCity_Mart_EventScript_ToughGuyExplainSkyDrop
+	msgbox MauvilleCity_Mart_Text_LikeRollercoasters, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq MauvilleCity_Mart_EventScript_ToughGuyNoLike
+	msgbox MauvilleCity_Mart_Text_ThenYoullLikeThis
+	giveitem_std ITEM_TM58
+	goto MauvilleCity_Mart_EventScript_ToughGuyExplainSkyDrop
+	end
+
+MauvilleCity_Mart_EventScript_ToughGuyNoLike::
+	msgbox MauvilleCity_Mart_Text_AreYouAfraid
+	release
+	end
+
+MauvilleCity_Mart_EventScript_ToughGuyExplainSkyDrop::
+	msgbox MauvilleCity_Mart_Text_SkyDropExplanation
+	release
+	end
+
+MauvilleCity_Mart_Text_LikeRollercoasters:
+	.string "I love roller coasters!\p"
+	.string "Especially fast ones with\n"
+	.string "loops and everything!\p"
+	.string "What about you?\n"
+	.string "Do you like roller coasters?$"
+
+MauvilleCity_Mart_Text_AreYouAfraid:
+	.string "Ha, what's the matter?\p"
+	.string "Are you afraid of heights?$"
+
+MauvilleCity_Mart_Text_ThenYoullLikeThis::
+	.string "Then you will love this!$"
+
+MauvilleCity_Mart_Text_SkyDropExplanation::
+	.string "TM58 contains SKY DROP!\p"
+	.string "It takes the opposing POKéMON\n"
+	.string "high up in the air in the first turn\l"
+	.string "and then drops it down in the second.\p"
+	.string "It sounds super scary…\p"
+	.string "I'm not afraid or anything!$"
+
 MauvilleCity_Mart_Text_ItemsToTemporarilyElevateStats: @ 821112E
 	.string "There are items that temporarily\n"
 	.string "elevate the stats of POKéMON.\p"
@@ -74,4 +120,3 @@ MauvilleCity_Mart_Text_DecisionsDetermineBattle: @ 82111D8
 	.string "instead…\p"
 	.string "The TRAINER's decisions determine how\n"
 	.string "battles turn out, I think.$"
-
