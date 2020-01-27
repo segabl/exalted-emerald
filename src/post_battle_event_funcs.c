@@ -51,8 +51,8 @@ int GameClear(void)
         ribbonCounts[i].partyIndex = i;
         ribbonCounts[i].count = 0;
 
-        if (GetMonData(mon, MON_DATA_SANITY_HAS_SPECIES)
-         && !GetMonData(mon, MON_DATA_SANITY_IS_EGG)
+        if (GetMonData(mon, MON_DATA_SPECIES)
+         && !GetMonData(mon, MON_DATA_IS_EGG)
          && !GetMonData(mon, MON_DATA_CHAMPION_RIBBON))
         {
             u8 val[1] = {TRUE};
@@ -66,7 +66,7 @@ int GameClear(void)
     {
         IncrementGameStat(GAME_STAT_RECEIVED_RIBBONS);
         FlagSet(FLAG_SYS_RIBBON_GET);
-        
+
         for (i = 1; i < 6; i++)
         {
             if (ribbonCounts[i].count > ribbonCounts[0].count)

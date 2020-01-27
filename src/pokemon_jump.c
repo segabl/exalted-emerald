@@ -2215,9 +2215,9 @@ void IsPokemonJumpSpeciesInParty(void)
 
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        if (GetMonData(&gPlayerParty[i], MON_DATA_SANITY_HAS_SPECIES))
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES))
         {
-            u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2);
+            u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_EGG);
             if (IsSpeciesAllowedInPokemonJump(species))
             {
                 gSpecialVar_Result = TRUE;

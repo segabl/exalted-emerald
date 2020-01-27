@@ -236,8 +236,8 @@ static bool8 FindResistingOrImmuneMon(u8 battlerIn1, u8 battlerIn2, s32 firstId,
         s32 dmg;
         if (invalidMons & gBitTable[i])
             continue;
-        
-        if (absorbingTypeAbility && absorbingTypeAbility == gBaseStats[GetMonData(&party[i], MON_DATA_SPECIES2)].abilities[GetMonData(&party[i], MON_DATA_ABILITY_NUM)])
+
+        if (absorbingTypeAbility && absorbingTypeAbility == gBaseStats[GetMonData(&party[i], MON_DATA_SPECIES_EGG)].abilities[GetMonData(&party[i], MON_DATA_ABILITY_NUM)])
         {
             dmg = 0;
         }
@@ -525,8 +525,8 @@ static bool8 ShouldSwitch(void)
     for (i = firstId; i < lastId; i++)
     {
         if (GetMonData(&party[i], MON_DATA_HP) == 0
-        || GetMonData(&party[i], MON_DATA_SPECIES2) == SPECIES_NONE
-        || GetMonData(&party[i], MON_DATA_SPECIES2) == SPECIES_EGG
+        || GetMonData(&party[i], MON_DATA_SPECIES_EGG) == SPECIES_NONE
+        || GetMonData(&party[i], MON_DATA_SPECIES_EGG) == SPECIES_EGG
         || i == gBattlerPartyIndexes[battlerIn1]
         || i == gBattlerPartyIndexes[battlerIn2]
         || i == *(gBattleStruct->monToSwitchIntoId + battlerIn1)
@@ -797,7 +797,7 @@ u8 GetMostSuitableMonToSwitchInto(void)
     // Try choosing a mon that resists the opponent first
     if (bestMonId == PARTY_SIZE)
         bestMonId = GetBestMonDefensive(party, firstId, lastId, invalidMons, opposingBattler, 50);
-    
+
     // If there's no good defensive option, take the one that deals the most damage
     if (bestMonId == PARTY_SIZE)
         bestMonId = GetBestMonOffensive(party, firstId, lastId, invalidMons, opposingBattler);
@@ -839,8 +839,8 @@ static bool8 ShouldUseItem(void)
     for (i = 0; i < PARTY_SIZE; i++)
     {
         if (GetMonData(&party[i], MON_DATA_HP) != 0
-            && GetMonData(&party[i], MON_DATA_SPECIES2) != SPECIES_NONE
-            && GetMonData(&party[i], MON_DATA_SPECIES2) != SPECIES_EGG)
+            && GetMonData(&party[i], MON_DATA_SPECIES_EGG) != SPECIES_NONE
+            && GetMonData(&party[i], MON_DATA_SPECIES_EGG) != SPECIES_EGG)
         {
             validMons++;
         }

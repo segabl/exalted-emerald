@@ -569,7 +569,7 @@ u8 ScriptGiveMon(u16 species, u8 level, u16 item, u32 personality, u32 ivs, u8 a
     struct Pokemon mon;
 
     // Gifted mons always get the nature from a synchronize mon leading the party
-    if (!GetMonData(&gPlayerParty[0], MON_DATA_SANITY_IS_EGG) && GetMonAbility(&gPlayerParty[0]) == ABILITY_SYNCHRONIZE)
+    if (!GetMonData(&gPlayerParty[0], MON_DATA_IS_EGG) && GetMonAbility(&gPlayerParty[0]) == ABILITY_SYNCHRONIZE)
     {
         u8 nature = GetNatureFromPersonality(GetMonData(&gPlayerParty[0], MON_DATA_PERSONALITY));
         CreateMonWithNature(&mon, species, level, 32, nature);
@@ -636,7 +636,7 @@ static bool8 CheckPartyMonHasHeldItem(u16 item)
 
     for(i = 0; i < PARTY_SIZE; i++)
     {
-        u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2);
+        u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_EGG);
         if (species != SPECIES_NONE && species != SPECIES_EGG && GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM) == item)
             return TRUE;
     }
@@ -658,7 +658,7 @@ void CreateScriptedWildMon(u16 species, u8 level, u16 item)
 
     ZeroEnemyPartyMons();
     // Scripted wild mons always get the nature from a synchronize mon leading the party
-    if (!GetMonData(&gPlayerParty[0], MON_DATA_SANITY_IS_EGG) && GetMonAbility(&gPlayerParty[0]) == ABILITY_SYNCHRONIZE)
+    if (!GetMonData(&gPlayerParty[0], MON_DATA_IS_EGG) && GetMonAbility(&gPlayerParty[0]) == ABILITY_SYNCHRONIZE)
     {
         u8 nature = GetNatureFromPersonality(GetMonData(&gPlayerParty[0], MON_DATA_PERSONALITY));
         CreateMonWithNature(&gEnemyParty[0], species, level, 32, nature);

@@ -20,7 +20,7 @@
 
 static bool32 IsMonValidSpecies(struct Pokemon *pokemon)
 {
-    u16 species = GetMonData(pokemon, MON_DATA_SPECIES2);
+    u16 species = GetMonData(pokemon, MON_DATA_SPECIES_EGG);
     if (species == SPECIES_NONE || species == SPECIES_EGG)
     {
         return FALSE;
@@ -125,7 +125,7 @@ s32 DoPoisonFieldEffect(void)
     u32 numFainted = 0;
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && GetAilmentFromStatus(GetMonData(pokemon, MON_DATA_STATUS)) == AILMENT_PSN)
+        if (GetMonData(pokemon, MON_DATA_SPECIES) && GetAilmentFromStatus(GetMonData(pokemon, MON_DATA_STATUS)) == AILMENT_PSN)
         {
             hp = GetMonData(pokemon, MON_DATA_HP);
             if (hp == 0 || --hp == 0)

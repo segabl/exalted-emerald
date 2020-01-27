@@ -91,7 +91,7 @@ static const struct BgTemplate gUnknown_08623590[] =
     }
 };
 
-static const LoopedTask gUnknown_08623598[] = 
+static const LoopedTask gUnknown_08623598[] =
 {
     NULL,
     sub_81CF578,
@@ -102,7 +102,7 @@ static const LoopedTask gUnknown_08623598[] =
     sub_81CF798
 };
 
-static const struct WindowTemplate gUnknown_086235B4 = 
+static const struct WindowTemplate gUnknown_086235B4 =
 {
     .bg = 1,
     .tilemapLeft = 1,
@@ -253,9 +253,9 @@ static u32 sub_81CF134(s32 state)
     for (i = 0; i < PARTY_SIZE; i++)
     {
         struct Pokemon * pokemon = &gPlayerParty[i];
-        if (!GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES))
+        if (!GetMonData(pokemon, MON_DATA_SPECIES))
             return LT_INC_AND_CONTINUE;
-        if (!GetMonData(pokemon, MON_DATA_SANITY_IS_EGG))
+        if (!GetMonData(pokemon, MON_DATA_IS_EGG))
         {
             item.monId = i;
             item.data = GetMonData(pokemon, ptr->unk14);

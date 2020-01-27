@@ -824,7 +824,7 @@ static void InheritIVsAbilityPokeball(struct Pokemon *mon, struct DayCare *dayca
     chance = abilityNum == 2 ? 60 : 80; // 60% chance to pass down hidden ability, 80% else
     if (Random() % 100 < chance)
         SetMonData(mon, MON_DATA_ABILITY_NUM, &abilityNum);
-    
+
     if (ball == ITEM_MASTER_BALL)
         ball = ITEM_POKE_BALL;
     SetMonData(mon, MON_DATA_POKEBALL, &ball);
@@ -913,7 +913,7 @@ static bool8 TryProduceOrHatchEgg(struct DayCare *daycare)
 
     for (i = 0; i < DAYCARE_MON_COUNT; i++)
     {
-        if (GetBoxMonData(&daycare->mons[i].mon, MON_DATA_SANITY_HAS_SPECIES))
+        if (GetBoxMonData(&daycare->mons[i].mon, MON_DATA_SPECIES))
             daycare->mons[i].steps++, validEggs++;
     }
 
@@ -937,7 +937,7 @@ static bool8 TryProduceOrHatchEgg(struct DayCare *daycare)
         {
             if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG))
                 continue;
-            if (GetMonData(&gPlayerParty[i], MON_DATA_SANITY_IS_BAD_EGG))
+            if (GetMonData(&gPlayerParty[i], MON_DATA_IS_BAD_EGG))
                 continue;
 
             steps = GetMonData(&gPlayerParty[i], MON_DATA_FRIENDSHIP);

@@ -434,7 +434,7 @@ void BattleAI_PopulateKnownMoves(struct Pokemon* party, u8 partyIndex)
     int i, j, k;
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        u16 species = GetMonData(&party[i], MON_DATA_SPECIES2);
+        u16 species = GetMonData(&party[i], MON_DATA_SPECIES_EGG);
         u8 typeMove1Slot = 0xFF;
         u8 typeMove2Slot = 0xFF;
         if (species == SPECIES_NONE || species == SPECIES_EGG)
@@ -875,7 +875,7 @@ static void SetBattlerData(u8 battlerId)
 
         // Simulate Illusion
         if ((illusionMon = GetIllusionMonPtr(battlerId)) != NULL)
-            gBattleMons[battlerId].species = GetMonData(illusionMon, MON_DATA_SPECIES2);
+            gBattleMons[battlerId].species = GetMonData(illusionMon, MON_DATA_SPECIES_EGG);
     }
 }
 
@@ -1653,8 +1653,8 @@ static s32 CountUsablePartyMons(u8 battlerId)
     {
         if (i != battlerOnField1 && i != battlerOnField2
          && GetMonData(&party[i], MON_DATA_HP) != 0
-         && GetMonData(&party[i], MON_DATA_SPECIES2) != SPECIES_NONE
-         && GetMonData(&party[i], MON_DATA_SPECIES2) != SPECIES_EGG)
+         && GetMonData(&party[i], MON_DATA_SPECIES_EGG) != SPECIES_NONE
+         && GetMonData(&party[i], MON_DATA_SPECIES_EGG) != SPECIES_EGG)
         {
             ret++;
         }

@@ -868,7 +868,7 @@ u8 GetEggStepsToSubtract(void)
     u8 count, i;
     for (count = CalculatePlayerPartyCount(), i = 0; i < count; i++)
     {
-        if (!GetMonData(&gPlayerParty[i], MON_DATA_SANITY_IS_EGG))
+        if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG))
         {
             u8 ability = GetMonAbility(&gPlayerParty[i]);
             if (ability == ABILITY_MAGMA_ARMOR || ability == ABILITY_FLAME_BODY)

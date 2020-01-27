@@ -3555,7 +3555,7 @@ static u32 GetEnemyMonCount(bool32 onlyAlive)
 
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        u32 species = GetMonData(&gEnemyParty[i], MON_DATA_SPECIES2, NULL);
+        u32 species = GetMonData(&gEnemyParty[i], MON_DATA_SPECIES_EGG, NULL);
         if (species != SPECIES_NONE
             && species != SPECIES_EGG
             && (!onlyAlive || GetMonData(&gEnemyParty[i], MON_DATA_HP, NULL)))

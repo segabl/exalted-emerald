@@ -1624,7 +1624,7 @@ static void InitPikeChallenge(void)
 
 static bool8 CanEncounterWildMon(u8 enemyMonLevel)
 {
-    if (!GetMonData(&gPlayerParty[0], MON_DATA_SANITY_IS_EGG))
+    if (!GetMonData(&gPlayerParty[0], MON_DATA_IS_EGG))
     {
         u8 monAbility = GetMonAbility(&gPlayerParty[0]);
         if (monAbility == ABILITY_KEEN_EYE || monAbility == ABILITY_INTIMIDATE)

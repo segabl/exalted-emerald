@@ -4529,7 +4529,7 @@ static u8 sub_80CAFAC(void)
 static void CreateMovingMonIcon(void)
 {
     u32 personality = GetMonData(&sPSSData->movingMon, MON_DATA_PERSONALITY);
-    u16 species = GetMonData(&sPSSData->movingMon, MON_DATA_SPECIES2);
+    u16 species = GetMonData(&sPSSData->movingMon, MON_DATA_SPECIES_EGG);
     u8 priority = sub_80CAFAC();
 
     sPSSData->movingMonSprite = CreateMonIconSprite(species, personality, 0, 0, priority, 7);
@@ -4549,7 +4549,7 @@ static void sub_80CB028(u8 boxId)
     {
         for (j = 0; j < IN_BOX_ROWS; j++)
         {
-            species = GetBoxMonDataAt(boxId, boxPosition, MON_DATA_SPECIES2);
+            species = GetBoxMonDataAt(boxId, boxPosition, MON_DATA_SPECIES_EGG);
             if (species != SPECIES_NONE)
             {
                 personality = GetBoxMonDataAt(boxId, boxPosition, MON_DATA_PERSONALITY);
@@ -4576,7 +4576,7 @@ static void sub_80CB028(u8 boxId)
 
 static void sub_80CB140(u8 boxPosition)
 {
-    u16 species = GetCurrentBoxMonData(boxPosition, MON_DATA_SPECIES2);
+    u16 species = GetCurrentBoxMonData(boxPosition, MON_DATA_SPECIES_EGG);
 
     if (species != SPECIES_NONE)
     {
@@ -4782,7 +4782,7 @@ static void SetBoxSpeciesAndPersonalities(u8 boxId)
     {
         for (j = 0; j < IN_BOX_ROWS; j++)
         {
-            sPSSData->boxSpecies[boxPosition] = GetBoxMonDataAt(boxId, boxPosition, MON_DATA_SPECIES2);
+            sPSSData->boxSpecies[boxPosition] = GetBoxMonDataAt(boxId, boxPosition, MON_DATA_SPECIES_EGG);
             if (sPSSData->boxSpecies[boxPosition] != SPECIES_NONE)
                 sPSSData->boxPersonalities[boxPosition] = GetBoxMonDataAt(boxId, boxPosition, MON_DATA_PERSONALITY);
             boxPosition++;
@@ -4812,14 +4812,14 @@ static void SetBoxMonIconObjMode(u8 boxPosition, u8 objMode)
 static void CreatePartyMonsSprites(bool8 arg0)
 {
     u16 i, count;
-    u16 species = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES2);
+    u16 species = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES_EGG);
     u32 personality = GetMonData(&gPlayerParty[0], MON_DATA_PERSONALITY);
 
     sPSSData->partySprites[0] = CreateMonIconSprite(species, personality, 104, 64, 1, 12);
     count = 1;
     for (i = 1; i < PARTY_SIZE; i++)
     {
-        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2);
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_EGG);
         if (species != SPECIES_NONE)
         {
             personality = GetMonData(&gPlayerParty[i], MON_DATA_PERSONALITY);
@@ -6522,7 +6522,7 @@ static bool32 AtLeastThreeUsableMons(void)
     count = (sIsMonBeingMoved != FALSE);
     for (j = 0; j < PARTY_SIZE; j++)
     {
-        if (GetMonData(&gPlayerParty[j], MON_DATA_SANITY_HAS_SPECIES))
+        if (GetMonData(&gPlayerParty[j], MON_DATA_SPECIES))
             count++;
     }
 
@@ -6786,10 +6786,10 @@ static void SetCursorMonData(void *pokemon, u8 mode)
     {
         struct Pokemon *mon = (struct Pokemon *)pokemon;
 
-        sPSSData->cursorMonSpecies = GetMonData(mon, MON_DATA_SPECIES2);
+        sPSSData->cursorMonSpecies = GetMonData(mon, MON_DATA_SPECIES_EGG);
         if (sPSSData->cursorMonSpecies != SPECIES_NONE)
         {
-            sanityIsBagEgg = GetMonData(mon, MON_DATA_SANITY_IS_BAD_EGG);
+            sanityIsBagEgg = GetMonData(mon, MON_DATA_IS_BAD_EGG);
             if (sanityIsBagEgg)
                 sPSSData->cursorMonIsEgg = TRUE;
             else
@@ -6809,11 +6809,11 @@ static void SetCursorMonData(void *pokemon, u8 mode)
     {
         struct BoxPokemon *boxMon = (struct BoxPokemon *)pokemon;
 
-        sPSSData->cursorMonSpecies = GetBoxMonData(pokemon, MON_DATA_SPECIES2);
+        sPSSData->cursorMonSpecies = GetBoxMonData(pokemon, MON_DATA_SPECIES_EGG);
         if (sPSSData->cursorMonSpecies != SPECIES_NONE)
         {
             u32 otId = GetBoxMonData(boxMon, MON_DATA_OT_ID);
-            sanityIsBagEgg = GetBoxMonData(boxMon, MON_DATA_SANITY_IS_BAD_EGG);
+            sanityIsBagEgg = GetBoxMonData(boxMon, MON_DATA_IS_BAD_EGG);
             if (sanityIsBagEgg)
                 sPSSData->cursorMonIsEgg = TRUE;
             else
@@ -9168,7 +9168,7 @@ static void sub_80D0778(u8 arg0, u8 arg1, u8 arg2)
 static void sub_80D07B0(u8 arg0, u8 arg1)
 {
     u8 position = arg0 + (6 * arg1);
-    u16 species = GetCurrentBoxMonData(position, MON_DATA_SPECIES2);
+    u16 species = GetCurrentBoxMonData(position, MON_DATA_SPECIES_EGG);
     u32 personality = GetCurrentBoxMonData(position, MON_DATA_PERSONALITY);
 
     if (species != SPECIES_NONE)
@@ -9193,7 +9193,7 @@ static void sub_80D07B0(u8 arg0, u8 arg1)
 static void sub_80D0834(u8 arg0, u8 arg1)
 {
     u8 position = arg0 + (6 * arg1);
-    u16 species = GetCurrentBoxMonData(position, MON_DATA_SPECIES2);
+    u16 species = GetCurrentBoxMonData(position, MON_DATA_SPECIES_EGG);
 
     if (species != SPECIES_NONE)
     {
@@ -9285,7 +9285,7 @@ static void sub_80D0A1C(void)
         u8 boxPosition = (IN_BOX_ROWS * i) + sMoveMonsPtr->minRow;
         for (j = sMoveMonsPtr->minRow; j < rowCount; j++)
         {
-            if (GetBoxMonData(&sMoveMonsPtr->boxMons[monArrayId], MON_DATA_SANITY_HAS_SPECIES))
+            if (GetBoxMonData(&sMoveMonsPtr->boxMons[monArrayId], MON_DATA_SPECIES))
                 sub_80CB140(boxPosition);
             monArrayId++;
             boxPosition++;
@@ -9306,7 +9306,7 @@ static void sub_80D0AAC(void)
         u8 boxPosition = (IN_BOX_ROWS * i) + sMoveMonsPtr->minRow;
         for (j = sMoveMonsPtr->minRow; j < rowCount; j++)
         {
-            if (GetBoxMonData(&sMoveMonsPtr->boxMons[monArrayId], MON_DATA_SANITY_HAS_SPECIES))
+            if (GetBoxMonData(&sMoveMonsPtr->boxMons[monArrayId], MON_DATA_SPECIES))
                 SetBoxMonAt(boxId, boxPosition, &sMoveMonsPtr->boxMons[monArrayId]);
             boxPosition++;
             monArrayId++;
@@ -9341,8 +9341,8 @@ static bool8 sub_80D0BC0(void)
         u8 boxPosition = (IN_BOX_ROWS * i) + sMoveMonsPtr->minRow;
         for (j = sMoveMonsPtr->minRow; j < rowCount; j++)
         {
-            if (GetBoxMonData(&sMoveMonsPtr->boxMons[monArrayId], MON_DATA_SANITY_HAS_SPECIES)
-                && GetCurrentBoxMonData(boxPosition, MON_DATA_SANITY_HAS_SPECIES))
+            if (GetBoxMonData(&sMoveMonsPtr->boxMons[monArrayId], MON_DATA_SPECIES)
+                && GetCurrentBoxMonData(boxPosition, MON_DATA_SPECIES))
                 return FALSE;
 
             monArrayId++;
@@ -9506,12 +9506,12 @@ static void sub_80D0D8C(u8 cursorArea, u8 cursorPos)
     switch (cursorArea)
     {
     case CURSOR_AREA_IN_BOX:
-        if (!GetCurrentBoxMonData(cursorPos, MON_DATA_SANITY_HAS_SPECIES))
+        if (!GetCurrentBoxMonData(cursorPos, MON_DATA_SPECIES))
             return;
         heldItem = GetCurrentBoxMonData(cursorPos, MON_DATA_HELD_ITEM);
         break;
     case CURSOR_AREA_IN_PARTY:
-        if (cursorPos >= PARTY_SIZE || !GetMonData(&gPlayerParty[cursorPos], MON_DATA_SANITY_HAS_SPECIES))
+        if (cursorPos >= PARTY_SIZE || !GetMonData(&gPlayerParty[cursorPos], MON_DATA_SPECIES))
             return;
         heldItem = GetMonData(&gPlayerParty[cursorPos], MON_DATA_HELD_ITEM);
         break;
@@ -10168,7 +10168,7 @@ u32 GetBoxMonLevelAt(u8 boxId, u8 boxPosition)
     u32 lvl;
 
     // BUG: Missed 'else' statement.
-    if (boxId < TOTAL_BOXES_COUNT && boxPosition < IN_BOX_COUNT && GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_SANITY_HAS_SPECIES))
+    if (boxId < TOTAL_BOXES_COUNT && boxPosition < IN_BOX_COUNT && GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_SPECIES))
         lvl = GetLevelFromBoxMonExp(&gPokemonStoragePtr->boxes[boxId][boxPosition]);
     // else
         lvl = 0;
@@ -10294,7 +10294,7 @@ bool8 CheckFreePokemonStorageSpace(void)
     {
         for (j = 0; j < IN_BOX_COUNT; j++)
         {
-            if (!GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_SANITY_HAS_SPECIES))
+            if (!GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_SPECIES))
                 return TRUE;
         }
     }
@@ -10306,9 +10306,9 @@ bool32 CheckBoxMonSanityAt(u32 boxId, u32 boxPosition)
 {
     if (boxId < TOTAL_BOXES_COUNT
         && boxPosition < IN_BOX_COUNT
-        && GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_SANITY_HAS_SPECIES)
-        && !GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_SANITY_IS_EGG)
-        && !GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_SANITY_IS_BAD_EGG))
+        && GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_SPECIES)
+        && !GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_IS_EGG)
+        && !GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_IS_BAD_EGG))
         return TRUE;
     else
         return FALSE;
@@ -10323,8 +10323,8 @@ u32 CountStorageNonEggMons(void)
     {
         for (j = 0; j < IN_BOX_COUNT; j++)
         {
-            if (GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_SANITY_HAS_SPECIES)
-                && !GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_SANITY_IS_EGG))
+            if (GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_SPECIES)
+                && !GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_IS_EGG))
                 count++;
         }
     }
@@ -10341,8 +10341,8 @@ u32 CountAllStorageMons(void)
     {
         for (j = 0; j < IN_BOX_COUNT; j++)
         {
-            if (GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_SANITY_HAS_SPECIES)
-                || GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_SANITY_IS_EGG))
+            if (GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_SPECIES)
+                || GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_IS_EGG))
                 count++;
         }
     }
@@ -10359,8 +10359,8 @@ bool32 AnyStorageMonWithMove(u16 moveId)
     {
         for (j = 0; j < IN_BOX_COUNT; j++)
         {
-            if (GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_SANITY_HAS_SPECIES)
-                && !GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_SANITY_IS_EGG)
+            if (GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_SPECIES)
+                && !GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_IS_EGG)
                 && GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_KNOWN_MOVES, (u8*)moves))
                 return TRUE;
         }

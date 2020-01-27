@@ -3523,7 +3523,7 @@ static void CursorCb_Store(u8 taskId)
 // Register mon for the Trading Board in Union Room
 static void CursorCb_Register(u8 taskId)
 {
-    u16 species2 = GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_SPECIES2);
+    u16 species2 = GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_SPECIES_EGG);
     u16 species = GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_SPECIES);
 
     switch (CanRegisterMonForTradingBoard(*(struct UnkLinkRfuStruct_02022B14Substruct *)sub_800F7DC(), species2, species))
@@ -3549,7 +3549,7 @@ static void CursorCb_Register(u8 taskId)
 
 static void CursorCb_Trade1(u8 taskId)
 {
-    u16 species2 = GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_SPECIES2);
+    u16 species2 = GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_SPECIES_EGG);
     u16 species = GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_SPECIES);
     u32 stringId = GetUnionRoomTradeMessageId(*(struct UnkLinkRfuStruct_02022B14Substruct *)sub_800F7DC(), gUnknown_02022C38, species2, gUnionRoomOfferedSpecies, gUnionRoomRequestedMonType, species);
 
@@ -3862,7 +3862,7 @@ static void CreatePartyMonIconSprite(struct Pokemon *mon, struct PartyMenuBox *m
     if (IsMultiBattle() == TRUE && gMain.inBattle)
         handleDeoxys = (sMultiBattlePartnersPartyMask[slot] ^ handleDeoxys) ? TRUE : FALSE;
 
-    species2 = GetMonData(mon, MON_DATA_SPECIES2);
+    species2 = GetMonData(mon, MON_DATA_SPECIES_EGG);
     CreatePartyMonIconSpriteParameterized(species2, GetMonData(mon, MON_DATA_PERSONALITY), menuBox, 1, handleDeoxys);
     UpdatePartyMonHPBar(menuBox->monSpriteId, mon);
 }

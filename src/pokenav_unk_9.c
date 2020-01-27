@@ -244,9 +244,9 @@ static u32 sub_81CFB8C(s32 state)
     for (i = 0; i < PARTY_SIZE; i++)
     {
         struct Pokemon * pokemon = &gPlayerParty[i];
-        if (!GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES))
+        if (!GetMonData(pokemon, MON_DATA_SPECIES))
             return LT_INC_AND_CONTINUE;
-        if (!GetMonData(pokemon, MON_DATA_SANITY_IS_EGG) && !GetMonData(pokemon, MON_DATA_SANITY_IS_BAD_EGG))
+        if (!GetMonData(pokemon, MON_DATA_IS_EGG) && !GetMonData(pokemon, MON_DATA_IS_BAD_EGG))
         {
             u32 ribbonCount = GetMonData(pokemon, MON_DATA_RIBBON_COUNT);
             if (ribbonCount != 0)
@@ -336,9 +336,9 @@ static bool32 sub_81CFD58(void)
     for (i = 0; i < PARTY_SIZE; i++)
     {
         struct Pokemon * mon = &gPlayerParty[i];
-        if (!GetMonData(mon, MON_DATA_SANITY_HAS_SPECIES))
+        if (!GetMonData(mon, MON_DATA_SPECIES))
             continue;
-        if (GetMonData(mon, MON_DATA_SANITY_IS_EGG))
+        if (GetMonData(mon, MON_DATA_IS_EGG))
             continue;
         if (GetMonData(mon, MON_DATA_RIBBONS))
             return TRUE;

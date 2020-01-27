@@ -602,7 +602,7 @@ static void sub_8036A5C(void)
 
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2);
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_EGG);
         hp = GetMonData(&gPlayerParty[i], MON_DATA_HP);
         status = GetMonData(&gPlayerParty[i], MON_DATA_STATUS);
 
@@ -1850,7 +1850,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
         {
             for (i = 0; i < PARTY_SIZE; i++)
             {
-                u32 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2);
+                u32 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_EGG);
                 if (species != SPECIES_EGG && species != SPECIES_NONE)
                 {
                     u8 lvl = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
@@ -2070,7 +2070,7 @@ static void sub_8038B94(u8 taskId)
     r7 = 0;
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        u16 species = GetMonData(&sp4[i], MON_DATA_SPECIES2);
+        u16 species = GetMonData(&sp4[i], MON_DATA_SPECIES_EGG);
         u16 hp = GetMonData(&sp4[i], MON_DATA_HP);
         u32 status = GetMonData(&sp4[i], MON_DATA_STATUS);
 
@@ -2094,7 +2094,7 @@ static void sub_8038B94(u8 taskId)
     r7 = 0;
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        u16 species = GetMonData(&sp8[i], MON_DATA_SPECIES2);
+        u16 species = GetMonData(&sp8[i], MON_DATA_SPECIES_EGG);
         u16 hp = GetMonData(&sp8[i], MON_DATA_HP);
         u32 status = GetMonData(&sp8[i], MON_DATA_STATUS);
 
@@ -3342,8 +3342,8 @@ static void DoBattleIntro(void)
 
             for (i = 0; i < PARTY_SIZE; i++)
             {
-                if (GetMonData(&gEnemyParty[i], MON_DATA_SPECIES2) == SPECIES_NONE
-                 || GetMonData(&gEnemyParty[i], MON_DATA_SPECIES2) == SPECIES_EGG)
+                if (GetMonData(&gEnemyParty[i], MON_DATA_SPECIES_EGG) == SPECIES_NONE
+                 || GetMonData(&gEnemyParty[i], MON_DATA_SPECIES_EGG) == SPECIES_EGG)
                 {
                     hpStatus[i].hp = 0xFFFF;
                     hpStatus[i].status = 0;
@@ -3361,8 +3361,8 @@ static void DoBattleIntro(void)
 
             for (i = 0; i < PARTY_SIZE; i++)
             {
-                if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2) == SPECIES_NONE
-                 || GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2) == SPECIES_EGG)
+                if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_EGG) == SPECIES_NONE
+                 || GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_EGG) == SPECIES_EGG)
                 {
                     hpStatus[i].hp = 0xFFFF;
                     hpStatus[i].status = 0;

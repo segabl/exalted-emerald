@@ -1290,7 +1290,7 @@ void IsTypeInParty(void)
     for (i = 0; i < PARTY_SIZE; i++)
     {
         pokemon = &gPlayerParty[i];
-        if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
+        if (GetMonData(pokemon, MON_DATA_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
         {
             species = GetMonData(pokemon, MON_DATA_SPECIES);
             if (gBaseStats[species].type1 == gSpecialVar_0x8000 || gBaseStats[species].type2 == gSpecialVar_0x8000)
@@ -1473,7 +1473,7 @@ bool8 IsStarterInParty(void)
     u8 partyCount = CalculatePlayerPartyCount();
     for (i = 0; i < partyCount; i++)
     {
-        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2, NULL) == starter)
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_EGG, NULL) == starter)
         {
             return TRUE;
         }
@@ -1572,7 +1572,7 @@ u8 GetLeadMonIndex(void)
     u8 partyCount = CalculatePlayerPartyCount();
     for (i = 0; i < partyCount; i++)
     {
-        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2, NULL) != SPECIES_EGG && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2, NULL) != 0)
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_EGG, NULL) != SPECIES_EGG && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_EGG, NULL) != 0)
         {
             return i;
         }
@@ -1582,7 +1582,7 @@ u8 GetLeadMonIndex(void)
 
 u16 ScriptGetPartyMonSpecies(void)
 {
-    return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES2, NULL);
+    return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES_EGG, NULL);
 }
 
 // Removed for Emerald
@@ -1675,7 +1675,7 @@ bool8 IsBadEggInParty(void)
 
     for (i = 0; i < partyCount; i++)
     {
-        if (GetMonData(&gPlayerParty[i], MON_DATA_SANITY_IS_BAD_EGG) == TRUE)
+        if (GetMonData(&gPlayerParty[i], MON_DATA_IS_BAD_EGG) == TRUE)
             return TRUE;
     }
 

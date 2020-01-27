@@ -1286,7 +1286,7 @@ void UpdateAmbientCry(s16 *state, u16 *delayCounter)
         monsCount = CalculatePlayerPartyCount();
         for (i = 0; i < monsCount; i++)
         {
-            if (!GetMonData(&gPlayerParty[i], MON_DATA_SANITY_IS_EGG)
+            if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG)
                 && GetMonAbility(&gPlayerParty[0]) == ABILITY_SWARM)
             {
                 divBy = 2;
@@ -1573,7 +1573,7 @@ void CB2_WhiteOut(void)
             SetMainCallback1(CB1_Overworld);
             SetMainCallback2(CB2_Overworld);
         }
-        
+
     }
 }
 
@@ -2253,10 +2253,10 @@ static void CB1_UpdateLinkState(void)
 
         // Note: Because guestId is between 0 and 4, while the smallest key code is
         // LINK_KEY_CODE_EMPTY, this is functionally equivalent to `sPlayerKeyInterceptCallback(0)`.
-        // It is expecting the callback to be KeyInterCB_SelfIdle, and that will 
+        // It is expecting the callback to be KeyInterCB_SelfIdle, and that will
         // completely ignore any input parameters.
         //
-        // UpdateHeldKeyCode performs a sanity check on its input; if 
+        // UpdateHeldKeyCode performs a sanity check on its input; if
         // sPlayerKeyInterceptCallback echoes back the argument, which is selfId, then
         // it'll use LINK_KEY_CODE_EMPTY instead.
         //
@@ -3062,7 +3062,7 @@ static void SetPlayerFacingDirection(u8 linkPlayerId, u8 facing)
             #define TEMP gLinkPlayerMovementModes[linkPlayerEventObj->movementMode](linkPlayerEventObj, eventObj, facing)
 
             gMovementStatusHandler[TEMP](linkPlayerEventObj, eventObj);
-            
+
             // Clean up the hack.
             #undef TEMP
         }

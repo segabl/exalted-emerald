@@ -527,7 +527,7 @@ void sub_81CDB98(s16 arg0, u8 arg1)
 
     boxId = unkPtr->unk4[arg0].boxId;
     monId = unkPtr->unk4[arg0].monId;
-    species = GetBoxOrPartyMonData(boxId, monId, MON_DATA_SPECIES2, NULL);
+    species = GetBoxOrPartyMonData(boxId, monId, MON_DATA_SPECIES_EGG, NULL);
     tid = GetBoxOrPartyMonData(boxId, monId, MON_DATA_OT_ID, NULL);
     personality = GetBoxOrPartyMonData(boxId, monId, MON_DATA_PERSONALITY, NULL);
     LoadSpecialPokePic(&gMonFrontPicTable[species], structPtr->monPicGfx[arg1], species, personality, TRUE);

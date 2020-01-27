@@ -3343,7 +3343,6 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
         {
             boxMon->isBadEgg = 1;
             boxMon->isEgg = 1;
-            substruct3->isEgg = 1;
         }
     }
 
@@ -3396,13 +3395,10 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
     case MON_DATA_LANGUAGE:
         retVal = boxMon->language;
         break;
-    case MON_DATA_SANITY_IS_BAD_EGG:
+    case MON_DATA_IS_BAD_EGG:
         retVal = boxMon->isBadEgg;
         break;
-    case MON_DATA_SANITY_HAS_SPECIES:
-        retVal = boxMon->hasSpecies;
-        break;
-    case MON_DATA_SANITY_IS_EGG:
+    case MON_DATA_IS_EGG:
         retVal = boxMon->isEgg;
         break;
     case MON_DATA_OT_NAME:
@@ -3423,9 +3419,6 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
         break;
     case MON_DATA_CHECKSUM:
         retVal = boxMon->checksum;
-        break;
-    case MON_DATA_ENCRYPT_SEPARATOR:
-        retVal = boxMon->unknown;
         break;
     case MON_DATA_SPECIES:
         retVal = boxMon->isBadEgg ? SPECIES_EGG : substruct0->species;
@@ -3526,9 +3519,6 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
     case MON_DATA_SPDEF_IV:
         retVal = substruct3->spDefenseIV;
         break;
-    case MON_DATA_IS_EGG:
-        retVal = substruct3->isEgg;
-        break;
     case MON_DATA_ABILITY_NUM:
         retVal = substruct3->abilityNum;
         break;
@@ -3583,16 +3573,16 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
     case MON_DATA_GIFT_RIBBON_7:
         retVal = substruct3->giftRibbon7;
         break;
-    case MON_DATA_SPECIES2:
+    case MON_DATA_SPECIES_EGG:
         retVal = substruct0->species;
-        if (substruct0->species && (substruct3->isEgg || boxMon->isBadEgg))
+        if (substruct0->species && (boxMon->isEgg || boxMon->isBadEgg))
             retVal = SPECIES_EGG;
         break;
     case MON_DATA_IVS:
         retVal = substruct3->hpIV | (substruct3->attackIV << 5) | (substruct3->defenseIV << 10) | (substruct3->speedIV << 15) | (substruct3->spAttackIV << 20) | (substruct3->spDefenseIV << 25);
         break;
     case MON_DATA_KNOWN_MOVES:
-        if (substruct0->species && !substruct3->isEgg)
+        if (substruct0->species && !boxMon->isEgg)
         {
             u16 *moves = (u16 *)data;
             s32 i = 0;
@@ -3611,7 +3601,7 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
         break;
     case MON_DATA_RIBBON_COUNT:
         retVal = 0;
-        if (substruct0->species && !substruct3->isEgg)
+        if (substruct0->species && !boxMon->isEgg)
         {
             retVal += substruct3->coolRibbon;
             retVal += substruct3->beautyRibbon;
@@ -3634,7 +3624,7 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
         break;
     case MON_DATA_RIBBONS:
         retVal = 0;
-        if (substruct0->species && !substruct3->isEgg)
+        if (substruct0->species && !boxMon->isEgg)
         {
             retVal = substruct3->championRibbon
                 | (substruct3->coolRibbon << 1)
@@ -3705,7 +3695,7 @@ void SetMonData(struct Pokemon *mon, s32 field, const void *dataArg)
     case MON_DATA_MAIL:
         SET8(mon->mail);
         break;
-    case MON_DATA_SPECIES2:
+    case MON_DATA_SPECIES_EGG:
         break;
     default:
         SetBoxMonData(&mon->box, field, data);
@@ -3735,7 +3725,6 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         {
             boxMon->isBadEgg = 1;
             boxMon->isEgg = 1;
-            substruct3->isEgg = 1;
             EncryptBoxMon(boxMon);
             return;
         }
@@ -3759,13 +3748,10 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
     case MON_DATA_LANGUAGE:
         SET8(boxMon->language);
         break;
-    case MON_DATA_SANITY_IS_BAD_EGG:
+    case MON_DATA_IS_BAD_EGG:
         SET8(boxMon->isBadEgg);
         break;
-    case MON_DATA_SANITY_HAS_SPECIES:
-        SET8(boxMon->hasSpecies);
-        break;
-    case MON_DATA_SANITY_IS_EGG:
+    case MON_DATA_IS_EGG:
         SET8(boxMon->isEgg);
         break;
     case MON_DATA_OT_NAME:
@@ -3781,18 +3767,9 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
     case MON_DATA_CHECKSUM:
         SET16(boxMon->checksum);
         break;
-    case MON_DATA_ENCRYPT_SEPARATOR:
-        SET16(boxMon->unknown);
-        break;
     case MON_DATA_SPECIES:
-    {
         SET16(substruct0->species);
-        if (substruct0->species)
-            boxMon->hasSpecies = 1;
-        else
-            boxMon->hasSpecies = 0;
         break;
-    }
     case MON_DATA_HELD_ITEM:
         SET16(substruct0->heldItem);
         break;
@@ -3894,13 +3871,6 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         break;
     case MON_DATA_SPDEF_IV:
         SET8(substruct3->spDefenseIV);
-        break;
-    case MON_DATA_IS_EGG:
-        SET8(substruct3->isEgg);
-        if (substruct3->isEgg)
-            boxMon->isEgg = 1;
-        else
-            boxMon->isEgg = 0;
         break;
     case MON_DATA_ABILITY_NUM:
         SET8(substruct3->abilityNum);
@@ -4076,9 +4046,9 @@ u8 GetMonsStateToDoubles(void)
 
     for (i = 0; i < gPlayerPartyCount; i++)
     {
-        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2, NULL) != SPECIES_EGG
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_EGG, NULL) != SPECIES_EGG
          && GetMonData(&gPlayerParty[i], MON_DATA_HP, NULL) != 0
-         && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2, NULL) != SPECIES_NONE)
+         && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_EGG, NULL) != SPECIES_NONE)
             aliveCount++;
     }
 
@@ -4092,7 +4062,7 @@ u8 GetMonsStateToDoubles_2(void)
 
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        u32 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2, NULL);
+        u32 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_EGG, NULL);
         if (species != SPECIES_EGG && species != SPECIES_NONE
          && GetMonData(&gPlayerParty[i], MON_DATA_HP, NULL) != 0)
             aliveCount++;
@@ -5445,7 +5415,7 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
     if (sub_806F104())
         return;
 
-    species = GetMonData(mon, MON_DATA_SPECIES2, 0);
+    species = GetMonData(mon, MON_DATA_SPECIES_EGG, 0);
     heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, 0);
 
     if (heldItem == ITEM_ENIGMA_BERRY)
@@ -5764,7 +5734,7 @@ bool8 TryIncrementMonLevel(struct Pokemon *mon)
 
 u32 CanMonLearnTMHM(struct Pokemon *mon, u8 tm)
 {
-    u16 species = GetMonData(mon, MON_DATA_SPECIES2, 0);
+    u16 species = GetMonData(mon, MON_DATA_SPECIES_EGG, 0);
     return CanSpeciesLearnTMHM(species, tm);
 }
 
@@ -5955,7 +5925,7 @@ static void sub_806E6CC(u8 taskId)
 
 const u32 *GetMonFrontSpritePal(struct Pokemon *mon)
 {
-    u16 species = GetMonData(mon, MON_DATA_SPECIES2, 0);
+    u16 species = GetMonData(mon, MON_DATA_SPECIES_EGG, 0);
     u32 otId = GetMonData(mon, MON_DATA_OT_ID, 0);
     u32 personality = GetMonData(mon, MON_DATA_PERSONALITY, 0);
     return GetMonSpritePalFromSpeciesAndPersonality(species, otId, personality);
@@ -5977,7 +5947,7 @@ const u32 *GetMonSpritePalFromSpeciesAndPersonality(u16 species, u32 otId, u32 p
 
 const struct CompressedSpritePalette *GetMonSpritePalStruct(struct Pokemon *mon)
 {
-    u16 species = GetMonData(mon, MON_DATA_SPECIES2, 0);
+    u16 species = GetMonData(mon, MON_DATA_SPECIES_EGG, 0);
     u32 otId = GetMonData(mon, MON_DATA_OT_ID, 0);
     u32 personality = GetMonData(mon, MON_DATA_PERSONALITY, 0);
     return GetMonSpritePalStructFromOtIdPersonality(species, otId, personality);
@@ -6106,7 +6076,7 @@ void SetWildMonHeldItem(void)
         return;
 
     count = (WILD_DOUBLE_BATTLE) ? 2 : 1;
-    if (!GetMonData(&gPlayerParty[0], MON_DATA_SANITY_IS_EGG, 0)
+    if (!GetMonData(&gPlayerParty[0], MON_DATA_IS_EGG, 0)
         && GetMonAbility(&gPlayerParty[0]) == ABILITY_COMPOUND_EYES)
     {
         var1 = 20;
@@ -6604,7 +6574,7 @@ void RemoveFaintedMonsFromParty()
     for (i = 0; i < PARTY_SIZE; i++)
     {
         mon = &gPlayerParty[i];
-        if (GetMonData(mon, MON_DATA_SANITY_HAS_SPECIES, 0) && !GetMonData(mon, MON_DATA_IS_EGG, 0) && GetMonData(mon, MON_DATA_HP, 0) <= 0)
+        if (GetMonData(mon, MON_DATA_SPECIES, 0) && !GetMonData(mon, MON_DATA_IS_EGG, 0) && GetMonData(mon, MON_DATA_HP, 0) <= 0)
           ZeroMonData(mon);
     }
     CompactPartySlots();

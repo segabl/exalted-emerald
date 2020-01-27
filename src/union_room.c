@@ -2311,8 +2311,8 @@ void sub_80156E0(u8 taskId)
         data->state = 3;
         break;
     case 3:
-        if ((GetPartyMenuType() == PARTY_MENU_TYPE_UNION_ROOM_REGISTER 
-           || GetPartyMenuType() == PARTY_MENU_TYPE_UNION_ROOM_TRADE) 
+        if ((GetPartyMenuType() == PARTY_MENU_TYPE_UNION_ROOM_REGISTER
+           || GetPartyMenuType() == PARTY_MENU_TYPE_UNION_ROOM_TRADE)
            && sUnionRoomTrade.field_0 != 0)
         {
             id = GetCursorSelectionMonId();
@@ -3996,7 +3996,7 @@ s32 sub_8017D04(u32 type, u32 species)
     {
         for (i = 0; i < gPlayerPartyCount; i++)
         {
-            species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2);
+            species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_EGG);
             if (species == SPECIES_EGG)
             {
                 return 0;
@@ -4008,7 +4008,7 @@ s32 sub_8017D04(u32 type, u32 species)
     {
         for (i = 0; i < gPlayerPartyCount; i++)
         {
-            species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2);
+            species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_EGG);
             if (gBaseStats[species].type1 == type || gBaseStats[species].type2 == type)
             {
                 return 0;
@@ -4145,7 +4145,7 @@ bool32 HasAtLeastTwoMonsOfLevel30OrLower(void)
     for (i = 0; i < gPlayerPartyCount; i++)
     {
         if (GetMonData(&gPlayerParty[i], MON_DATA_LEVEL) <= 30
-            && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2) != SPECIES_EGG)
+            && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_EGG) != SPECIES_EGG)
         {
             count++;
         }
@@ -4176,7 +4176,7 @@ void Script_ResetUnionRoomTrade(void)
 
 static bool32 RegisterTradeMonAndGetIsEgg(u32 monId, struct UnionRoomTrade *trade)
 {
-    trade->playerSpecies = GetMonData(&gPlayerParty[monId], MON_DATA_SPECIES2);
+    trade->playerSpecies = GetMonData(&gPlayerParty[monId], MON_DATA_SPECIES_EGG);
     trade->playerLevel = GetMonData(&gPlayerParty[monId], MON_DATA_LEVEL);
     trade->playerPersonality = GetMonData(&gPlayerParty[monId], MON_DATA_PERSONALITY);
     if (trade->playerSpecies == SPECIES_EGG)
@@ -4187,7 +4187,7 @@ static bool32 RegisterTradeMonAndGetIsEgg(u32 monId, struct UnionRoomTrade *trad
 
 static void RegisterTradeMon(u32 monId, struct UnionRoomTrade *trade)
 {
-    trade->species = GetMonData(&gPlayerParty[monId], MON_DATA_SPECIES2);
+    trade->species = GetMonData(&gPlayerParty[monId], MON_DATA_SPECIES_EGG);
     trade->level = GetMonData(&gPlayerParty[monId], MON_DATA_LEVEL);
     trade->personality = GetMonData(&gPlayerParty[monId], MON_DATA_PERSONALITY);
 }
@@ -4221,7 +4221,7 @@ static u32 GetPartyPositionOfRegisteredMon(struct UnionRoomTrade *trade, u8 mult
         {
             continue;
         }
-        cur_species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2);
+        cur_species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_EGG);
         if (cur_species != species)
         {
             continue;

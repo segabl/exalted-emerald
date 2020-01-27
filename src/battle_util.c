@@ -2482,8 +2482,8 @@ bool8 HasNoMonsToSwitch(u8 battler, u8 partyIdBattlerOn1, u8 partyIdBattlerOn2)
         for (i = 0; i < PARTY_SIZE; i++)
         {
             if (GetMonData(&party[i], MON_DATA_HP) != 0
-             && GetMonData(&party[i], MON_DATA_SPECIES2) != SPECIES_NONE
-             && GetMonData(&party[i], MON_DATA_SPECIES2) != SPECIES_EGG
+             && GetMonData(&party[i], MON_DATA_SPECIES_EGG) != SPECIES_NONE
+             && GetMonData(&party[i], MON_DATA_SPECIES_EGG) != SPECIES_EGG
              && i != partyIdBattlerOn1 && i != partyIdBattlerOn2
              && i != *(gBattleStruct->monToSwitchIntoId + id2) && i != id1[gBattleStruct->monToSwitchIntoId])
                 break;
@@ -2501,8 +2501,8 @@ bool8 HasNoMonsToSwitch(u8 battler, u8 partyIdBattlerOn1, u8 partyIdBattlerOn2)
         for (i = id1 * 3; i < id1 * 3 + 3; i++)
         {
             if (GetMonData(&party[i], MON_DATA_HP) != 0
-             && GetMonData(&party[i], MON_DATA_SPECIES2) != SPECIES_NONE
-             && GetMonData(&party[i], MON_DATA_SPECIES2) != SPECIES_EGG)
+             && GetMonData(&party[i], MON_DATA_SPECIES_EGG) != SPECIES_NONE
+             && GetMonData(&party[i], MON_DATA_SPECIES_EGG) != SPECIES_EGG)
                 break;
         }
         return (i == id1 * 3 + 3);
@@ -2549,8 +2549,8 @@ bool8 HasNoMonsToSwitch(u8 battler, u8 partyIdBattlerOn1, u8 partyIdBattlerOn2)
         for (i = id1 * 3; i < id1 * 3 + 3; i++)
         {
             if (GetMonData(&party[i], MON_DATA_HP) != 0
-             && GetMonData(&party[i], MON_DATA_SPECIES2) != SPECIES_NONE
-             && GetMonData(&party[i], MON_DATA_SPECIES2) != SPECIES_EGG)
+             && GetMonData(&party[i], MON_DATA_SPECIES_EGG) != SPECIES_NONE
+             && GetMonData(&party[i], MON_DATA_SPECIES_EGG) != SPECIES_EGG)
                 break;
         }
         return (i == id1 * 3 + 3);
@@ -2567,8 +2567,8 @@ bool8 HasNoMonsToSwitch(u8 battler, u8 partyIdBattlerOn1, u8 partyIdBattlerOn2)
         for (i = id1; i < id1 + 3; i++)
         {
             if (GetMonData(&party[i], MON_DATA_HP) != 0
-             && GetMonData(&party[i], MON_DATA_SPECIES2) != SPECIES_NONE
-             && GetMonData(&party[i], MON_DATA_SPECIES2) != SPECIES_EGG)
+             && GetMonData(&party[i], MON_DATA_SPECIES_EGG) != SPECIES_NONE
+             && GetMonData(&party[i], MON_DATA_SPECIES_EGG) != SPECIES_EGG)
                 break;
         }
         return (i == id1 + 3);
@@ -2596,8 +2596,8 @@ bool8 HasNoMonsToSwitch(u8 battler, u8 partyIdBattlerOn1, u8 partyIdBattlerOn2)
         for (i = 0; i < PARTY_SIZE; i++)
         {
             if (GetMonData(&party[i], MON_DATA_HP) != 0
-             && GetMonData(&party[i], MON_DATA_SPECIES2) != SPECIES_NONE
-             && GetMonData(&party[i], MON_DATA_SPECIES2) != SPECIES_EGG
+             && GetMonData(&party[i], MON_DATA_SPECIES_EGG) != SPECIES_NONE
+             && GetMonData(&party[i], MON_DATA_SPECIES_EGG) != SPECIES_EGG
              && i != partyIdBattlerOn1 && i != partyIdBattlerOn2
              && i != *(gBattleStruct->monToSwitchIntoId + id2) && i != id1[gBattleStruct->monToSwitchIntoId])
                 break;
@@ -6386,7 +6386,7 @@ bool32 SetIllusionMon(struct Pokemon *mon, u32 battlerId)
     for (i = PARTY_SIZE - 1; i >= 0; i--)
     {
         id = GetPartyIdFromBattlePartyId(i);
-        if (GetMonData(&party[id], MON_DATA_SANITY_HAS_SPECIES)
+        if (GetMonData(&party[id], MON_DATA_SPECIES)
             && GetMonData(&party[id], MON_DATA_HP)
             && &party[id] != mon
             && &party[id] != partnerMon)

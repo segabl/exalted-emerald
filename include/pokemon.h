@@ -37,42 +37,41 @@ struct PokemonSubstruct2
 
 struct PokemonSubstruct3
 {
- /* 0x00 */ u8 pokerus;
- /* 0x01 */ u8 metLocation;
+    u8 pokerus;
+    u8 metLocation;
 
- /* 0x02 */ u16 metLevel:7;
- /* 0x02 */ u16 metGame:4;
- /* 0x03 */ u16 unused:3;
- /* 0x03 */ u16 isEgg:1;
- /* 0x03 */ u16 otGender:1;
+    u16 metLevel:7;
+    u16 metGame:4;
+    u16:4;
+    u16 otGender:1;
 
- /* 0x04 */ u32 hpIV:5;
- /* 0x04 */ u32 attackIV:5;
- /* 0x05 */ u32 defenseIV:5;
- /* 0x05 */ u32 speedIV:5;
- /* 0x05 */ u32 spAttackIV:5;
- /* 0x06 */ u32 spDefenseIV:5;
- /* 0x07 */ u32 abilityNum:2;
+    u32 hpIV:5;
+    u32 attackIV:5;
+    u32 defenseIV:5;
+    u32 speedIV:5;
+    u32 spAttackIV:5;
+    u32 spDefenseIV:5;
+    u32 abilityNum:2;
 
- /* 0x08 */ u32 coolRibbon:3;
- /* 0x08 */ u32 beautyRibbon:3;
- /* 0x08 */ u32 cuteRibbon:3;
- /* 0x09 */ u32 smartRibbon:3;
- /* 0x09 */ u32 toughRibbon:3;
- /* 0x09 */ u32 championRibbon:1;
- /* 0x0A */ u32 winningRibbon:1;
- /* 0x0A */ u32 victoryRibbon:1;
- /* 0x0A */ u32 artistRibbon:1;
- /* 0x0A */ u32 effortRibbon:1;
- /* 0x0A */ u32 giftRibbon1:1;
- /* 0x0A */ u32 giftRibbon2:1;
- /* 0x0A */ u32 giftRibbon3:1;
- /* 0x0A */ u32 giftRibbon4:1;
- /* 0x0B */ u32 giftRibbon5:1;
- /* 0x0B */ u32 giftRibbon6:1;
- /* 0x0B */ u32 giftRibbon7:1;
- /* 0x0B */ u32 pokeball:5;
-};
+    u32 coolRibbon:3;
+    u32 beautyRibbon:3;
+    u32 cuteRibbon:3;
+    u32 smartRibbon:3;
+    u32 toughRibbon:3;
+    u32 championRibbon:1;
+    u32 winningRibbon:1;
+    u32 victoryRibbon:1;
+    u32 artistRibbon:1;
+    u32 effortRibbon:1;
+    u32 giftRibbon1:1;
+    u32 giftRibbon2:1;
+    u32 giftRibbon3:1;
+    u32 giftRibbon4:1;
+    u32 giftRibbon5:1;
+    u32 giftRibbon6:1;
+    u32 giftRibbon7:1;
+    u32 pokeball:5;
+}; // sizeof = 12
 
 union PokemonSubstruct
 {
@@ -89,21 +88,20 @@ struct BoxPokemon
     u32 otId;
     u8 nickname[POKEMON_NAME_LENGTH];
     u8 language;
-    u8 isBadEgg:1;
-    u8 hasSpecies:1;
+    u8:6;
     u8 isEgg:1;
-    u8 unused:5;
+    u8 isBadEgg:1;
     u8 otName[PLAYER_NAME_LENGTH];
     u8 markings;
     u16 checksum;
-    u16 unknown;
+    u16 unused; // TODO: Remove when done with testing
 
     union
     {
         u32 raw[12];
         union PokemonSubstruct substructs[4];
     } secure;
-};
+}; // sizeof = 80
 
 struct Pokemon
 {

@@ -378,8 +378,8 @@ static bool32 AnyMonHasRibbon(void)
 
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        if (GetMonData(&gPlayerParty[i],  MON_DATA_SANITY_HAS_SPECIES)
-            && !GetMonData(&gPlayerParty[i], MON_DATA_SANITY_IS_EGG)
+        if (GetMonData(&gPlayerParty[i],  MON_DATA_SPECIES)
+            && !GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG)
             && GetMonData(&gPlayerParty[i], MON_DATA_RIBBON_COUNT) != 0)
         {
             return TRUE;

@@ -1053,7 +1053,7 @@ void sub_81D3094(void *tilesDst, void *palDst, u16 boxId, u16 monId, u16 arg5, u
 
     if (arg5 != arg6)
     {
-        u16 species = GetBoxOrPartyMonData(boxId, monId, MON_DATA_SPECIES2, NULL);
+        u16 species = GetBoxOrPartyMonData(boxId, monId, MON_DATA_SPECIES_EGG, NULL);
         u32 trainerId = GetBoxOrPartyMonData(boxId, monId, MON_DATA_OT_ID, NULL);
         u32 personality = GetBoxOrPartyMonData(boxId, monId, MON_DATA_PERSONALITY, NULL);
 
