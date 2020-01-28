@@ -220,7 +220,7 @@ gSpecials:: @ 81DBA64
 	def_special ExitSafariMode
 	def_special GetPokeblockFeederInFront
 	def_special OpenPokeblockCaseOnFeeder
-	def_special IsMirageIslandPresent
+	def_special IsMirageLocationPresent
 	def_special UpdateShoalTideFlag
 	def_special InitBirchState
 	def_special ScriptGetPokedexInfo

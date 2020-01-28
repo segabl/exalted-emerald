@@ -5,8 +5,8 @@ Route130_MapScripts:: @ 81F735F
 Route130_OnTransition: @ 81F7365
 	compare VAR_SOOTOPOLIS_CITY_STATE, 4
 	call_if_ge Route130_EventScript_CheckSetAbnormalWeather
-	specialvar VAR_RESULT, IsMirageIslandPresent
-	compare VAR_RESULT, TRUE
+	specialvar VAR_RESULT, IsMirageLocationPresent
+	compare VAR_RESULT, MIRAGE_LOCATION_ROUTE_130
 	goto_if_eq Route130_EventScript_SetMirageIslandLayout
 	setflag FLAG_TEMP_11
 	setflag FLAG_TEMP_12
@@ -28,11 +28,22 @@ Route130_OnTransition: @ 81F7365
 
 Route130_EventScript_SetMirageIslandLayout:: @ 81F73B1
 	setmaplayoutindex LAYOUT_ROUTE130_MIRAGE_ISLAND
+	checkitem ITEM_TM90, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route130_EventScript_HideTM90
 	end
 
 Route130_EventScript_CheckSetAbnormalWeather:: @ 81F73B5
 	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
 	return
+
+Route130_EventScript_ItemTM90::
+	finditem_std ITEM_TM90
+	end
+
+Route130_EventScript_HideTM90::
+	setflag FLAG_TEMP_12
+	end
 
 Route130_EventScript_Rodney:: @ 81F73BF
 	trainerbattle_single TRAINER_RODNEY, Route130_Text_RodneyIntro, Route130_Text_RodneyDefeat
@@ -48,4 +59,3 @@ Route130_EventScript_Santiago:: @ 81F73ED
 	trainerbattle_single TRAINER_SANTIAGO, Route130_Text_SantiagoIntro, Route130_Text_SantiagoDefeat
 	msgbox Route130_Text_SantiagoPostBattle, MSGBOX_AUTOCLOSE
 	end
-

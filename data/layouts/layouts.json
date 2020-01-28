@@ -411,6 +411,16 @@
             "width": 80
         },
         {
+            "blockdata_filepath": "data/layouts/Route125_MirageIsland/map.bin",
+            "border_filepath": "data/layouts/Route125_MirageIsland/border.bin",
+            "height": 40,
+            "id": "LAYOUT_ROUTE125_MIRAGE_ISLAND",
+            "name": "Route125_MirageIsland_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_Mossdeep",
+            "width": 80
+        },
+        {
             "blockdata_filepath": "data/layouts/Route126/map.bin",
             "border_filepath": "data/layouts/Route126/border.bin",
             "height": 80,

@@ -12,6 +12,40 @@ Route125_OnTransition: @ 81F6758
 	call_if_eq AbnormalWeather_StartKyogreWeather
 	compare VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_125_EAST
 	call_if_eq AbnormalWeather_StartKyogreWeather
+	specialvar VAR_RESULT, IsMirageLocationPresent
+	compare VAR_RESULT, MIRAGE_LOCATION_ROUTE_125
+	goto_if_eq Route125_EventScript_SetMirageIslandLayout
+	setflag FLAG_TEMP_11
+	setflag FLAG_TEMP_12
+	setflag FLAG_TEMP_13
+	setflag FLAG_TEMP_14
+	setflag FLAG_TEMP_15
+	setflag FLAG_TEMP_16
+	setflag FLAG_TEMP_17
+	setflag FLAG_TEMP_18
+	setflag FLAG_TEMP_19
+	setflag FLAG_TEMP_1A
+	setflag FLAG_TEMP_1B
+	setflag FLAG_TEMP_1C
+	setflag FLAG_TEMP_1D
+	setflag FLAG_TEMP_1E
+	setflag FLAG_TEMP_1F
+	setmaplayoutindex LAYOUT_ROUTE125
+	end
+
+Route125_EventScript_SetMirageIslandLayout:: @ 81F73B1
+	setmaplayoutindex LAYOUT_ROUTE125_MIRAGE_ISLAND
+	checkitem ITEM_TM91, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route125_EventScript_HideTM91
+	end
+
+Route125_EventScript_ItemTM91::
+	finditem_std ITEM_TM91
+	end
+
+Route125_EventScript_HideTM91::
+	setflag FLAG_TEMP_12
 	end
 
 Route125_OnLoad: @ 81F6783
@@ -86,4 +120,3 @@ Route125_EventScript_Auron:: @ 81F68AF
 	trainerbattle_single TRAINER_AURON, Route125_Text_AuronIntro, Route125_Text_AuronDefeat
 	msgbox Route125_Text_AuronPostBattle, MSGBOX_AUTOCLOSE
 	end
-

@@ -1309,11 +1309,17 @@ void UpdateAmbientCry(s16 *state, u16 *delayCounter)
     }
 }
 
+static const s8 sMirageLocationMapping[][2] = {
+    [MIRAGE_LOCATION_NONE] = {MAP_GROUP(NONE), MAP_NUM(NONE)},
+    [MIRAGE_LOCATION_ROUTE_125] = {MAP_GROUP(ROUTE125), MAP_NUM(ROUTE125)},
+    [MIRAGE_LOCATION_ROUTE_130] = {MAP_GROUP(ROUTE130), MAP_NUM(ROUTE130)},
+};
+
 static void ChooseAmbientCrySpecies(void)
 {
-    if ((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE130)
-     && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE130))
-     && !IsMirageIslandPresent())
+    u8 location = IsMirageLocationPresent();
+    if (gSaveBlock1Ptr->location.mapGroup == sMirageLocationMapping[location][0]
+    && gSaveBlock1Ptr->location.mapNum == sMirageLocationMapping[location][1])
     {
         // Only play water pokemon cries on this route
         // when Mirage Island is not present

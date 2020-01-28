@@ -4,8 +4,8 @@ PacifidlogTown_House5_MapScripts:: @ 8204110
 PacifidlogTown_House5_EventScript_MirageIslandWatcher:: @ 8204111
 	lock
 	faceplayer
-	specialvar VAR_RESULT, IsMirageIslandPresent
-	compare VAR_RESULT, TRUE
+	specialvar VAR_RESULT, IsMirageLocationPresent
+	compare VAR_RESULT, MIRAGE_LOCATION_ROUTE_130
 	goto_if_eq PacifidlogTown_House5_EventScript_MirageIslandPresent
 	msgbox PacifidlogTown_House5_Text_CantSeeMirageIslandToday, MSGBOX_DEFAULT
 	release

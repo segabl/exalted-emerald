@@ -37,6 +37,7 @@
 #include "constants/maps.h"
 #include "constants/mauville_old_man.h"
 #include "constants/metatile_labels.h"
+#include "constants/mirage_locations.h"
 #include "constants/moves.h"
 #include "constants/party_menu.h"
 #include "constants/pokemon.h"

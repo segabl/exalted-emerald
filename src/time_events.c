@@ -33,16 +33,14 @@ void UpdateMirageRnd(u16 days)
     SetMirageRnd(rnd);
 }
 
-bool8 IsMirageIslandPresent(void)
+u8 IsMirageLocationPresent(void)
 {
-    u8 rnd = GetMirageRnd() >> 24;
-    int i;
-
-    for (i = 0; i < PARTY_SIZE; i++)
-        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) && (GetMonData(&gPlayerParty[i], MON_DATA_PERSONALITY) & 0xFF) == rnd)
-            return TRUE;
-
-    return FALSE;
+    if (FlagGet(FLAG_VISITED_PACIFIDLOG_TOWN))
+    {
+        u8 rnd = GetMirageRnd() % NUM_MIRAGE_LOCATIONS;
+        return rnd + 1;
+    }
+    return MIRAGE_LOCATION_NONE;
 }
 
 void UpdateShoalTideFlag(void)
