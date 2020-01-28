@@ -89,6 +89,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route130_EventScript_ItemTM90",
       "flag": "FLAG_TEMP_12"
+    },
+    {
+      "elevation": 3,
+      "flag": "FLAG_TEMP_13",
+      "graphics_id": "EVENT_OBJ_GFX_BERRY_TREE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
+      "script": "BerryTreeScript",
+      "trainer_sight_or_berry_tree_id": "90",
+      "trainer_type": "0",
+      "x": 53,
+      "y": 9
     }
   ],
   "warp_events": [],

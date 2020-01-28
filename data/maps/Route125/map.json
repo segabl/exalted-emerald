@@ -161,9 +161,22 @@
       "flag": "FLAG_ITEM_ROUTE_125_BIG_PEARL"
     },
     {
+      "graphics_id": "EVENT_OBJ_GFX_BERRY_TREE",
+      "x": 62,
+      "y": 20,
+      "elevation": 4,
+      "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "0",
+      "trainer_sight_or_berry_tree_id": "91",
+      "script": "BerryTreeScript",
+      "flag": "FLAG_TEMP_11"
+    },
+    {
       "graphics_id": "EVENT_OBJ_GFX_ITEM_BALL",
-      "x": 47,
-      "y": 25,
+      "x": 63,
+      "y": 33,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -172,6 +185,32 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route125_EventScript_ItemTM91",
       "flag": "FLAG_TEMP_12"
+    },
+    {
+      "graphics_id": "EVENT_OBJ_GFX_BERRY_TREE",
+      "x": 63,
+      "y": 20,
+      "elevation": 4,
+      "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "0",
+      "trainer_sight_or_berry_tree_id": "92",
+      "script": "BerryTreeScript",
+      "flag": "FLAG_TEMP_13"
+    },
+    {
+      "graphics_id": "EVENT_OBJ_GFX_BREAKABLE_ROCK",
+      "x": 63,
+      "y": 31,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "0",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_RockSmash",
+      "flag": "FLAG_TEMP_14"
     }
   ],
   "warp_events": [
