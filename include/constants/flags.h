@@ -128,13 +128,9 @@
 #define FLAG_ADVENTURE_STARTED               0x74 // RECEIVED Pokédex.
 #define FLAG_DEFEATED_MAGMA_SPACE_CENTER     0x75 // Set when Team Magma is defeated at Mossdeep's Space Center.
 #define FLAG_MET_HIDDEN_POWER_GIVER          0x76
-
 #define FLAG_CANCEL_BATTLE_ROOM_CHALLENGE    0x77
-
 #define FLAG_LANDMARK_MIRAGE_TOWER           0x78
-
-#define FLAG_UNUSED_0x079                    0x79
-
+#define FLAG_HIDE_ZINNIA_SKY_TOWER_SUMMIT    0x79
 #define FLAG_RECEIVED_HM03                   0x7A
 
 #define FLAG_UNUSED_0x07B                    0x7B

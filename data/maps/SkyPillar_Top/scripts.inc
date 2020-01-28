@@ -33,6 +33,7 @@ SkyPillar_Top_EventScript_TryShowRayquaza:: @ 8239705
 
 SkyPillar_Top_EventScript_ShowRayquaza:: @ 823970F
 	clearflag FLAG_HIDE_RAYQUAZA_SKY_TOWER_SUMMIT
+	clearflag FLAG_HIDE_ZINNIA_SKY_TOWER_SUMMIT
 	return
 
 SkyPillar_Top_OnWarp: @ 8239713
@@ -269,4 +270,3 @@ SkyPillar_Top_Movement_CameraPanDown: @ 823985C
 
 SkyPillar_Top_Text_RayquazaFlewOff: @ 8239860
 	.string "The awakened RAYQUAZA flew off…$"
-
