@@ -1,8 +1,8 @@
 # Pokémon Emerald
 
-This is a decompilation of Pokémon Emerald with various patches applied to update game mechanics.  
-For the original, unmodified decompile, check out <https://github.com/pret/pokeemerald>  
-For DizzyEgg's modifications, check out <https://github.com/DizzyEggg/pokeemerald>  
+This is a decompilation of Pokémon Emerald with various patches applied to update game mechanics.
+For the original, unmodified decompile, check out <https://github.com/pret/pokeemerald>
+For DizzyEgg's modifications, check out <https://github.com/DizzyEggg/pokeemerald>
 
 ## Major changes
 
@@ -17,6 +17,8 @@ For DizzyEgg's modifications, check out <https://github.com/DizzyEggg/pokeemeral
 - Adds hidden abilities (Pokémon with HA can be found in the safari zone or rarely in wild double battles)
 - Updates EXP mechanics (All Pokémon part of the battle receive full EXP)
 - Makes all regular Pokémon obtainable (legendaries and starters to be done)
+- Improves AI code to allow AI to predict moves and switch Pokémon if appropriate
+- Increases rematchable trainers' party sizes and levels over time
 
 ## Minor and QoL changes
 
@@ -37,11 +39,13 @@ For DizzyEgg's modifications, check out <https://github.com/DizzyEggg/pokeemeral
 - Allows the move relearner to teach moves from higher levels
 - Lets you remove HMs at any time and make TMs reusable
 - Makes move tutors reusable
-- Increases the chance for mirage island to appear (from n/65535 to n/255 with n being the number of Pokémon in your party)
+- Changes the mirage island mechanic and adds multiple mirage locations where one of them is always active
 - Increases view distance when not using flash and removes the overlay completely when using flash
 - Updates berry yield and grow time to OrAs values
 - Allows you to also get the other bike once you beat the E4
 - Increases all bag item slot limits to 999 (like for berries)
+- Adds a Pokéball collector to Sootopolis that gifts Johto Pokéballs
+- Adds a land connection between the two halves of Sootopolis
 
 ## Cosmetic changes
 
