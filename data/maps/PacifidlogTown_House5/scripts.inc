@@ -37,7 +37,8 @@ PacifidlogTown_House5_EventScript_PsychicExplainPsyshock::
 	end
 
 PacifidlogTown_House5_Text_CantSeeMirageIslandToday: @ 8204140
-	.string "I can't see MIRAGE ISLAND today…$"
+	.string "I can't see MIRAGE ISLAND today…\p"
+	.string "Maybe it appeared somewhere else?$"
 
 PacifidlogTown_House5_Text_CanSeeMirageIslandToday: @ 8204161
 	.string "Oh! Oh my!\n"
@@ -46,10 +47,11 @@ PacifidlogTown_House5_Text_CanSeeMirageIslandToday: @ 8204161
 PacifidlogTown_House5_Text_MirageIslandAppearDependingOnWeather: @ 820418B
 	.string "MIRAGE ISLAND…\p"
 	.string "It must become visible and invisible\n"
-	.string "depending on the weather conditions\l"
-	.string "that make mirages appear.\p"
-	.string "Or is it really appearing and\n"
-	.string "disappearing?$"
+	.string "depending on the weather conditions.\p"
+	.string "I heard there are other locations\n"
+	.string "that appear and disappear\l"
+	.string "in a similar way…\p"
+	.string "I wonder where they might be…$"
 
 PacifidlogTown_House5_Text_PsychicPokemonAreShocking:
 	.string "PSYCHIC type POKéMON can be quite\n"
