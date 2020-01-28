@@ -4449,6 +4449,16 @@
             "primary_tileset": "gTileset_Building",
             "secondary_tileset": "gTileset_MysteryEventsHouse",
             "width": 11
+        },
+        {
+            "blockdata_filepath": "data/layouts/Route114_MirageCave/map.bin",
+            "border_filepath": "data/layouts/Route114_MirageCave/border.bin",
+            "height": 23,
+            "id": "LAYOUT_ROUTE114_MIRAGE_CAVE",
+            "name": "Route114_MirageCave_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_MeteorFalls",
+            "width": 20
         }
     ],
     "layouts_table_label": "gMapLayouts"

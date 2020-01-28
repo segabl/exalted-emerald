@@ -102,6 +102,10 @@ Route114_EventScript_ItemEnergyPowder:: @ 8290E1D
 	finditem_std ITEM_ENERGY_POWDER
 	end
 
+Route114_MirageCave_EventScript_ItemTM95::
+	finditem_std ITEM_TM95
+	end
+
 Route115_EventScript_ItemSuperPotion:: @ 8290E2A
 	finditem_std ITEM_SUPER_POTION
 	end

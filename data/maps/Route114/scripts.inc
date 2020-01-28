@@ -18,11 +18,19 @@ Route114_OnLoad: @ 81F2561
 	call_if_eq AbnormalWeather_EventScript_PlaceTilesRoute114North
 	compare VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_114_SOUTH
 	call_if_eq AbnormalWeather_EventScript_PlaceTilesRoute114South
+	specialvar VAR_RESULT, IsMirageLocationPresent
+	compare VAR_RESULT, MIRAGE_LOCATION_ROUTE_114
+	call_if_eq Route114_EventScript_ShowMirageCaveEntrance
 	end
 
 Route114_OnFrame: @ 81F2578
 	map_script_2 VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_EndEventAndCleanup_1
 	.2byte 0
+
+Route114_EventScript_ShowMirageCaveEntrance::
+	setmetatile 7, 11, METATILE_Fallarbor_RedCaveEntrance_Top, 1
+	setmetatile 7, 12, METATILE_Fallarbor_RedCaveEntrance_Bottom, 0
+	return
 
 Route114_EventScript_Man:: @ 81F2582
 	lock
@@ -207,4 +215,3 @@ Route114_Text_FossilManiacsHouseSign: @ 81F28DB
 
 Route114_Text_LanettesHouse: @ 81F2910
 	.string "LANETTE'S HOUSE$"
-

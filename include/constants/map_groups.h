@@ -280,6 +280,7 @@
 #define MAP_ROUTE114_FOSSIL_MANIACS_HOUSE  (0 | (20 << 8))
 #define MAP_ROUTE114_FOSSIL_MANIACS_TUNNEL (1 | (20 << 8))
 #define MAP_ROUTE114_LANETTES_HOUSE        (2 | (20 << 8))
+#define MAP_ROUTE114_MIRAGE_CAVE           (3 | (20 << 8))
 
 // Map Group 21
 #define MAP_ROUTE116_TUNNELERS_REST_HOUSE (0 | (21 << 8))

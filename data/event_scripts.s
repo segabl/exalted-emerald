@@ -1121,3 +1121,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/MauvilleCity_House3_1F/scripts.inc"
 	.include "data/maps/MauvilleCity_House3_2F/scripts.inc"
 	.include "data/maps/MauvilleCity_House4/scripts.inc"
+
+	.include "data/maps/Route114_MirageCave/scripts.inc"
