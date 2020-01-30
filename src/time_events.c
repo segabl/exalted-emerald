@@ -4,10 +4,22 @@
 #include "field_weather.h"
 #include "pokemon.h"
 #include "random.h"
+#include "region_map.h"
 #include "overworld.h"
 #include "rtc.h"
 #include "script.h"
+#include "string_util.h"
 #include "task.h"
+#include "constants/maps.h"
+#include "constants/mirage_locations.h"
+
+static const u16 sMirageLocationMappings[][3] = {
+    [MIRAGE_LOCATION_NONE] = {MAP_GROUP(NONE), MAP_NUM(NONE), FALSE}, // map group, map number, only water mon cries if mirage is not present
+    [MIRAGE_LOCATION_ROUTE_106] = {MAP_GROUP(ROUTE106), MAP_NUM(ROUTE106), TRUE},
+    [MIRAGE_LOCATION_ROUTE_114] = {MAP_GROUP(ROUTE114), MAP_NUM(ROUTE114), FALSE},
+    [MIRAGE_LOCATION_ROUTE_125] = {MAP_GROUP(ROUTE125), MAP_NUM(ROUTE125), TRUE},
+    [MIRAGE_LOCATION_ROUTE_130] = {MAP_GROUP(ROUTE130), MAP_NUM(ROUTE130), TRUE},
+};
 
 static u32 GetMirageRnd(void)
 {
@@ -33,14 +45,41 @@ void UpdateMirageRnd(u16 days)
     SetMirageRnd(rnd);
 }
 
-u8 IsMirageLocationPresent(void)
+u8 GetCurrentMirageLocation(void)
 {
     if (FlagGet(FLAG_VISITED_PACIFIDLOG_TOWN))
     {
-        u8 rnd = GetMirageRnd() % NUM_MIRAGE_LOCATIONS;
-        return rnd + 1;
+        return (GetMirageRnd() % NUM_MIRAGE_LOCATIONS) + 1;
     }
     return MIRAGE_LOCATION_NONE;
+}
+
+void BufferCurrentMirageLocationName(void)
+{
+    u8 location = GetCurrentMirageLocation();
+    if (location != MIRAGE_LOCATION_NONE)
+    {
+        u8 mapSecId = Overworld_GetMapHeaderByGroupAndId(sMirageLocationMappings[location][0], sMirageLocationMappings[location][1])->regionMapSectionId;
+        StringCopy(gStringVar1, gRegionMapEntries[mapSecId].name);
+    }
+}
+
+bool8 MirageLocationOnlyDoWaterMonCries()
+{
+    u8 i;
+    u8 location = GetCurrentMirageLocation();
+    for (i = 1; i <= NUM_MIRAGE_LOCATIONS; i++)
+    {
+        if (gSaveBlock1Ptr->location.mapGroup == sMirageLocationMappings[i][0]
+        && gSaveBlock1Ptr->location.mapNum == sMirageLocationMappings[i][1])
+        {
+            if (location == i)
+                return FALSE;
+            else
+                return sMirageLocationMappings[i][2];
+        }
+    }
+    return FALSE;
 }
 
 void UpdateShoalTideFlag(void)

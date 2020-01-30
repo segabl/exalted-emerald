@@ -12,7 +12,7 @@ Route125_OnTransition: @ 81F6758
 	call_if_eq AbnormalWeather_StartKyogreWeather
 	compare VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_125_EAST
 	call_if_eq AbnormalWeather_StartKyogreWeather
-	specialvar VAR_RESULT, IsMirageLocationPresent
+	specialvar VAR_RESULT, GetCurrentMirageLocation
 	compare VAR_RESULT, MIRAGE_LOCATION_ROUTE_125
 	goto_if_eq Route125_EventScript_SetMirageIslandLayout
 	setflag FLAG_TEMP_11

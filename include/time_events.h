@@ -1,10 +1,9 @@
 #ifndef GUARD_TIME_EVENTS_H
 #define GUARD_TIME_EVENTS_H
 
-#include "constants/mirage_locations.h"
-
 void UpdateMirageRnd(u16);
-u8 IsMirageLocationPresent(void);
+u8 GetCurrentMirageLocation(void);
+bool8 MirageLocationOnlyDoWaterMonCries();
 void UpdateBirchState(u16);
 
 #endif // GUARD_TIME_EVENTS_H

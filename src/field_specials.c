@@ -931,11 +931,6 @@ void StorePlayerCoordsInVars(void)
     gSpecialVar_0x8005 = gSaveBlock1Ptr->pos.y;
 }
 
-u8 GetPlayerTrainerIdOnesDigit(void)
-{
-    return (u16)((gSaveBlock2Ptr->playerTrainerId[1] << 8) | gSaveBlock2Ptr->playerTrainerId[0]) % 10;
-}
-
 void GetPlayerBigGuyGirlString(void)
 {
     if (gSaveBlock2Ptr->playerGender == MALE)

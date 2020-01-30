@@ -158,7 +158,6 @@ gSpecials:: @ 81DBA64
 	def_special MauvilleGymDeactivatePuzzle
 	def_special PetalburgGymSlideOpenRoomDoors
 	def_special PetalburgGymUnlockRoomDoors
-	def_special GetPlayerTrainerIdOnesDigit
 	def_special GetPlayerBigGuyGirlString
 	def_special GetRivalSonDaughterString
 	def_special SetHiddenItemFlag
@@ -220,7 +219,8 @@ gSpecials:: @ 81DBA64
 	def_special ExitSafariMode
 	def_special GetPokeblockFeederInFront
 	def_special OpenPokeblockCaseOnFeeder
-	def_special IsMirageLocationPresent
+	def_special GetCurrentMirageLocation
+	def_special BufferCurrentMirageLocationName
 	def_special UpdateShoalTideFlag
 	def_special InitBirchState
 	def_special ScriptGetPokedexInfo

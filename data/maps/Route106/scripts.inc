@@ -3,7 +3,7 @@ Route106_MapScripts:: @ 81EE489
 	.byte 0
 
 Route106_OnTransition:
-	specialvar VAR_RESULT, IsMirageLocationPresent
+	specialvar VAR_RESULT, GetCurrentMirageLocation
 	compare VAR_RESULT, MIRAGE_LOCATION_ROUTE_106
 	goto_if_eq Route106_EventScript_SetMirageIslandLayout
 	setflag FLAG_TEMP_11

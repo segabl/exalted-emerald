@@ -18,7 +18,7 @@ Route114_OnLoad: @ 81F2561
 	call_if_eq AbnormalWeather_EventScript_PlaceTilesRoute114North
 	compare VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_114_SOUTH
 	call_if_eq AbnormalWeather_EventScript_PlaceTilesRoute114South
-	specialvar VAR_RESULT, IsMirageLocationPresent
+	specialvar VAR_RESULT, GetCurrentMirageLocation
 	compare VAR_RESULT, MIRAGE_LOCATION_ROUTE_114
 	call_if_eq Route114_EventScript_ShowMirageCaveEntrance
 	end
