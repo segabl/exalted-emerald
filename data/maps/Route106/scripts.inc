@@ -1,5 +1,43 @@
 Route106_MapScripts:: @ 81EE489
+	map_script MAP_SCRIPT_ON_TRANSITION, Route106_OnTransition
 	.byte 0
+
+Route106_OnTransition:
+	specialvar VAR_RESULT, IsMirageLocationPresent
+	compare VAR_RESULT, MIRAGE_LOCATION_ROUTE_106
+	goto_if_eq Route106_EventScript_SetMirageIslandLayout
+	setflag FLAG_TEMP_11
+	setflag FLAG_TEMP_12
+	setflag FLAG_TEMP_13
+	setflag FLAG_TEMP_14
+	setflag FLAG_TEMP_15
+	setflag FLAG_TEMP_16
+	setflag FLAG_TEMP_17
+	setflag FLAG_TEMP_18
+	setflag FLAG_TEMP_19
+	setflag FLAG_TEMP_1A
+	setflag FLAG_TEMP_1B
+	setflag FLAG_TEMP_1C
+	setflag FLAG_TEMP_1D
+	setflag FLAG_TEMP_1E
+	setflag FLAG_TEMP_1F
+	setmaplayoutindex LAYOUT_ROUTE106
+	end
+
+Route106_EventScript_SetMirageIslandLayout::
+	setmaplayoutindex LAYOUT_ROUTE106_MIRAGE_ISLAND
+	checkitem ITEM_TM66, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route106_EventScript_HideTM66
+	end
+
+Route106_EventScript_ItemTM66::
+	finditem_std ITEM_TM66
+	end
+
+Route106_EventScript_HideTM66::
+	setflag FLAG_TEMP_13
+	end
 
 Route106_EventScript_TrainerTipsSign:: @ 81EE48A
 	msgbox Route106_Text_TrainerTips, MSGBOX_SIGN
@@ -46,4 +84,3 @@ Route106_Text_TrainerTips: @ 81EE53A
 	.string "TRAINER TIPS\p"
 	.string "Advice on catching POKéMON with a ROD:\n"
 	.string "Press the A Button if you get a bite.$"
-

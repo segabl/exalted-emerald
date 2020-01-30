@@ -33,7 +33,7 @@ Route125_OnTransition: @ 81F6758
 	setmaplayoutindex LAYOUT_ROUTE125
 	end
 
-Route125_EventScript_SetMirageIslandLayout:: @ 81F73B1
+Route125_EventScript_SetMirageIslandLayout::
 	setmaplayoutindex LAYOUT_ROUTE125_MIRAGE_ISLAND
 	checkitem ITEM_TM91, 1
 	compare VAR_RESULT, TRUE

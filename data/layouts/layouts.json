@@ -221,6 +221,16 @@
             "width": 80
         },
         {
+            "blockdata_filepath": "data/layouts/Route106_MirageIsland/map.bin",
+            "border_filepath": "data/layouts/Route106_MirageIsland/border.bin",
+            "height": 20,
+            "id": "LAYOUT_ROUTE106_MIRAGE_ISLAND",
+            "name": "Route106_MirageIsland_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_Dewford",
+            "width": 80
+        },
+        {
             "blockdata_filepath": "data/layouts/Route107/map.bin",
             "border_filepath": "data/layouts/Route107/border.bin",
             "height": 20,
