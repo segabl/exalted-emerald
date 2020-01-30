@@ -200,7 +200,7 @@ static const struct ListMenuTemplate sRegistryListMenuTemplate =
     .cursorShadowPal = 3,
     .lettersSpacing = 0,
     .itemVerticalPadding = 0,
-    .scrollMultiple = LIST_NO_MULTIPLE_SCROLL,
+    .scrollMultiple = LIST_MULTIPLE_SCROLL_L_R,
     .fontId = 1,
     .cursorKind = 0,
 };
@@ -557,7 +557,7 @@ void InitSecretBaseDecorationSprites(void)
     {
         if (decorations[i] == DECOR_NONE)
             continue;
-        
+
         permission = gDecorations[decorations[i]].permission;
         category = gDecorations[decorations[i]].category;
         if (permission == DECORPERM_SPRITE)

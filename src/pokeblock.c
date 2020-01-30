@@ -422,7 +422,7 @@ static const struct ListMenuTemplate sPokeblockListMenuTemplate =
     .cursorShadowPal = 3,
     .lettersSpacing = 0,
     .itemVerticalPadding = 0,
-    .scrollMultiple = LIST_MULTIPLE_SCROLL_DPAD,
+    .scrollMultiple = LIST_MULTIPLE_SCROLL_L_R,
     .fontId = 1,
     .cursorKind = 1
 };

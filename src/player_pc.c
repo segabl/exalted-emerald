@@ -235,7 +235,7 @@ static const struct ListMenuTemplate gUnknown_085DFF44 =
     .cursorShadowPal = 3,
     .lettersSpacing = FALSE,
     .itemVerticalPadding = 0,
-    .scrollMultiple = FALSE,
+    .scrollMultiple = LIST_MULTIPLE_SCROLL_L_R,
     .fontId = 7
 };
 
