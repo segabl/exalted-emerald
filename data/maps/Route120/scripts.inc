@@ -105,47 +105,9 @@ Route120_EventScript_BerryBeauty:: @ 81F5527
 	call_if_eq Route120_EventScript_BerryLove
 	compare VAR_RESULT, NO
 	call_if_eq Route120_EventScript_BerryNotLove
-	specialvar VAR_RESULT, GetPlayerTrainerIdOnesDigit
-	switch VAR_RESULT
-	case 0, Route120_EventScript_GiveFigyBerry
-	case 5, Route120_EventScript_GiveFigyBerry
-	case 1, Route120_EventScript_GiveWikiBerry
-	case 6, Route120_EventScript_GiveWikiBerry
-	case 2, Route120_EventScript_GiveMagoBerry
-	case 7, Route120_EventScript_GiveMagoBerry
-	case 3, Route120_EventScript_GiveAguavBerry
-	case 8, Route120_EventScript_GiveAguavBerry
-	case 4, Route120_EventScript_GiveIapapaBerry
-	case 9, Route120_EventScript_GiveIapapaBerry
-	end
-
-Route120_EventScript_GiveFigyBerry:: @ 81F55CA
-	setvar VAR_0x8004, ITEM_FIGY_BERRY
-	goto Route120_EventScript_GiveBerry
-	end
-
-Route120_EventScript_GiveWikiBerry:: @ 81F55D5
-	setvar VAR_0x8004, ITEM_WIKI_BERRY
-	goto Route120_EventScript_GiveBerry
-	end
-
-Route120_EventScript_GiveMagoBerry:: @ 81F55E0
-	setvar VAR_0x8004, ITEM_MAGO_BERRY
-	goto Route120_EventScript_GiveBerry
-	end
-
-Route120_EventScript_GiveAguavBerry:: @ 81F55EB
-	setvar VAR_0x8004, ITEM_AGUAV_BERRY
-	goto Route120_EventScript_GiveBerry
-	end
-
-Route120_EventScript_GiveIapapaBerry:: @ 81F55F6
-	setvar VAR_0x8004, ITEM_IAPAPA_BERRY
-	goto Route120_EventScript_GiveBerry
-	end
-
-Route120_EventScript_GiveBerry:: @ 81F5601
-	giveitem_std VAR_0x8004
+	random NUM_ROUTE_120_BEAUTY_BERRIES
+	addvar VAR_RESULT, FIRST_ROUTE_120_BEAUTY_BERRY
+	giveitem_std VAR_RESULT
 	compare VAR_RESULT, 0
 	goto_if_eq Common_EventScript_ShowBagIsFull
 	setflag FLAG_DAILY_ROUTE_120_RECEIVED_BERRY

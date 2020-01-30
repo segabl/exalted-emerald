@@ -13,16 +13,14 @@ Route123_BerryMastersHouse_EventScript_BerryMaster:: @ 826F845
 	goto_if_set FLAG_DAILY_BERRY_MASTER_RECEIVED_BERRY, Route123_BerryMastersHouse_EventScript_ReceivedBerryToday
 	msgbox Route123_BerryMastersHouse_Text_YoureDeservingOfBerry, MSGBOX_DEFAULT
 	random NUM_BERRY_MASTER_BERRIES
-	addvar VAR_RESULT, NUM_BERRY_MASTER_BERRIES_SKIPPED
-	addvar VAR_RESULT, FIRST_BERRY_INDEX
+	addvar VAR_RESULT, FIRST_BERRY_MASTER_BERRY
 	giveitem_std VAR_RESULT
 	compare VAR_RESULT, FALSE
 	goto_if_eq Common_EventScript_ShowBagIsFull
 	setflag FLAG_DAILY_BERRY_MASTER_RECEIVED_BERRY
 	msgbox Route123_BerryMastersHouse_Text_WhyBeStingyTakeAnother, MSGBOX_DEFAULT
 	random NUM_BERRY_MASTER_BERRIES
-	addvar VAR_RESULT, NUM_BERRY_MASTER_BERRIES_SKIPPED
-	addvar VAR_RESULT, FIRST_BERRY_INDEX
+	addvar VAR_RESULT, FIRST_BERRY_MASTER_BERRY
 	giveitem_std VAR_RESULT
 	compare VAR_RESULT, FALSE
 	goto_if_eq Common_EventScript_ShowBagIsFull
@@ -75,7 +73,7 @@ Route123_BerryMastersHouse_EventScript_GavePhrase:: @ 826F909
 Route123_BerryMastersHouse_EventScript_GiveNormalBerry:: @ 826F94C
 	msgbox Route123_BerryMastersHouse_Text_GoodSayingTakeThis, MSGBOX_DEFAULT
 	random NUM_BERRY_MASTER_WIFE_BERRIES
-	addvar VAR_RESULT, FIRST_BERRY_INDEX
+	addvar VAR_RESULT, FIRST_BERRY_MASTER_WIFE_BERRY
 	giveitem_std VAR_RESULT
 	compare VAR_RESULT, FALSE
 	goto_if_eq Common_EventScript_ShowBagIsFull
@@ -143,4 +141,3 @@ Route123_BerryMastersHouse_EventScript_GaveBerry:: @ 826FA79
 	msgbox Route123_BerryMastersHouse_Text_JoyNeverGoesOutOfMyLife, MSGBOX_DEFAULT
 	release
 	end
-
