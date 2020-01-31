@@ -949,7 +949,7 @@ const struct ContestPokemon gContestOpponents[] =
             MOVE_BITE,
             MOVE_SAND_ATTACK,
             MOVE_DIG,
-            MOVE_FAINT_ATTACK
+            MOVE_FEINT_ATTACK
         },
         .cool = 75,
         .beauty = 25,
@@ -1164,7 +1164,7 @@ const struct ContestPokemon gContestOpponents[] =
         .personality = 0,
         .otId = 0xFFFF
     },
-    [CONTEST_OPPONENT_ARIANA] = {    
+    [CONTEST_OPPONENT_ARIANA] = {
         .species = SPECIES_KECLEON,
         .nickname = _("KECON"),
         .trainerName = _("ARIANA"),
@@ -2038,7 +2038,7 @@ const struct ContestPokemon gContestOpponents[] =
         .species = SPECIES_CUBONE,
         .nickname = _("CUBIN"),
         .trainerName = _("COLTIN"),
-        .trainerGfxId = EVENT_OBJ_GFX_MAN_4, 
+        .trainerGfxId = EVENT_OBJ_GFX_MAN_4,
         .aiChecks = 0x82000FFF,
         .whichRank = CONTEST_RANK_HYPER,
         .aiPool_Cool = FALSE,
@@ -2224,7 +2224,7 @@ const struct ContestPokemon gContestOpponents[] =
         {
             MOVE_ROAR,
             MOVE_FLAMETHROWER,
-            MOVE_FAINT_ATTACK,
+            MOVE_FEINT_ATTACK,
             MOVE_SUNNY_DAY
         },
         .cool = 100,
@@ -2340,7 +2340,7 @@ const struct ContestPokemon gContestOpponents[] =
         {
             MOVE_ATTRACT,
             MOVE_ASSIST,
-            MOVE_FAINT_ATTACK,
+            MOVE_FEINT_ATTACK,
             MOVE_TAIL_WHIP
         },
         .cool = 40,
@@ -2484,7 +2484,7 @@ const struct ContestPokemon gContestOpponents[] =
         .moves =
         {
             MOVE_MEAN_LOOK,
-            MOVE_FAINT_ATTACK,
+            MOVE_FEINT_ATTACK,
             MOVE_KNOCK_OFF,
             MOVE_CONFUSE_RAY
         },

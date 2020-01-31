@@ -986,7 +986,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Braxton[] = {
     .species = SPECIES_TRAPINCH,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = {MOVE_ROCK_SLIDE, MOVE_BULLDOZE, MOVE_FAINT_ATTACK, MOVE_SAND_TOMB}
+    .moves = {MOVE_ROCK_SLIDE, MOVE_BULLDOZE, MOVE_FEINT_ATTACK, MOVE_SAND_TOMB}
     },
     {
     .lvl = 28,
@@ -1007,7 +1007,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Braxton[] = {
     .species = SPECIES_SHIFTRY,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = {MOVE_GIGA_DRAIN, MOVE_FAINT_ATTACK, MOVE_DOUBLE_TEAM, MOVE_SWAGGER}
+    .moves = {MOVE_GIGA_DRAIN, MOVE_FEINT_ATTACK, MOVE_DOUBLE_TEAM, MOVE_SWAGGER}
     }
 };
 
@@ -1273,7 +1273,7 @@ static const struct TrainerMonItemCustomMoves sParty_Mary[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_FAINT_ATTACK, MOVE_SHOCK_WAVE, MOVE_DISARMING_VOICE, MOVE_NONE}
+    .moves = {MOVE_FEINT_ATTACK, MOVE_SHOCK_WAVE, MOVE_DISARMING_VOICE, MOVE_NONE}
     }
 };
 
@@ -1887,7 +1887,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Jessica1[] = {
     .species = SPECIES_KECLEON,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = {MOVE_SHADOW_BALL, MOVE_ANCIENT_POWER, MOVE_SLASH, MOVE_FAINT_ATTACK}
+    .moves = {MOVE_SHADOW_BALL, MOVE_ANCIENT_POWER, MOVE_SLASH, MOVE_FEINT_ATTACK}
     },
     {
     .lvl = 29,
@@ -1904,7 +1904,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Jessica2[] = {
     .species = SPECIES_KECLEON,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = {MOVE_SHADOW_BALL, MOVE_ANCIENT_POWER, MOVE_SLASH, MOVE_FAINT_ATTACK}
+    .moves = {MOVE_SHADOW_BALL, MOVE_ANCIENT_POWER, MOVE_SLASH, MOVE_FEINT_ATTACK}
     },
     {
     .lvl = 35,
@@ -1921,7 +1921,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Jessica3[] = {
     .species = SPECIES_KECLEON,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = {MOVE_SHADOW_BALL, MOVE_ANCIENT_POWER, MOVE_SLASH, MOVE_FAINT_ATTACK}
+    .moves = {MOVE_SHADOW_BALL, MOVE_ANCIENT_POWER, MOVE_SLASH, MOVE_FEINT_ATTACK}
     },
     {
     .lvl = 38,
@@ -1938,7 +1938,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Jessica4[] = {
     .species = SPECIES_KECLEON,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = {MOVE_SHADOW_BALL, MOVE_ANCIENT_POWER, MOVE_SLASH, MOVE_FAINT_ATTACK}
+    .moves = {MOVE_SHADOW_BALL, MOVE_ANCIENT_POWER, MOVE_SLASH, MOVE_FEINT_ATTACK}
     },
     {
     .lvl = 41,
@@ -1962,7 +1962,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Jessica5[] = {
     .species = SPECIES_KECLEON,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = {MOVE_SHADOW_BALL, MOVE_ANCIENT_POWER, MOVE_SLASH, MOVE_FAINT_ATTACK}
+    .moves = {MOVE_SHADOW_BALL, MOVE_ANCIENT_POWER, MOVE_SLASH, MOVE_FEINT_ATTACK}
     },
     {
     .lvl = 45,
@@ -4092,7 +4092,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_SLASH, MOVE_RETALIATE, MOVE_ENCORE, MOVE_FAINT_ATTACK}
+    .moves = {MOVE_SLASH, MOVE_RETALIATE, MOVE_ENCORE, MOVE_FEINT_ATTACK}
     },
     {
     .lvl = 29,
@@ -4108,7 +4108,7 @@ static const struct TrainerMonItemCustomMoves sParty_Norman1[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_COUNTER, MOVE_YAWN, MOVE_RETALIATE, MOVE_FAINT_ATTACK}
+    .moves = {MOVE_COUNTER, MOVE_YAWN, MOVE_RETALIATE, MOVE_FEINT_ATTACK}
     }
 };
 
@@ -4447,7 +4447,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_KateAndJoy[] = {
     .species = SPECIES_SLAKING,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = {MOVE_FOCUS_PUNCH, MOVE_YAWN, MOVE_SLACK_OFF, MOVE_FAINT_ATTACK}
+    .moves = {MOVE_FOCUS_PUNCH, MOVE_YAWN, MOVE_SLACK_OFF, MOVE_FEINT_ATTACK}
     }
 };
 
@@ -4574,7 +4574,7 @@ static const struct TrainerMonItemCustomMoves sParty_Colton[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_ORAN_BERRY,
-    .moves = {MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK, MOVE_HEAL_BELL}
+    .moves = {MOVE_ASSIST, MOVE_CHARM, MOVE_FEINT_ATTACK, MOVE_HEAL_BELL}
     },
     {
     .lvl = 36,
@@ -4582,7 +4582,7 @@ static const struct TrainerMonItemCustomMoves sParty_Colton[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_ORAN_BERRY,
-    .moves = {MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK, MOVE_HEAL_BELL}
+    .moves = {MOVE_ASSIST, MOVE_CHARM, MOVE_FEINT_ATTACK, MOVE_HEAL_BELL}
     },
     {
     .lvl = 40,
@@ -4590,7 +4590,7 @@ static const struct TrainerMonItemCustomMoves sParty_Colton[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_ORAN_BERRY,
-    .moves = {MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK, MOVE_HEAL_BELL}
+    .moves = {MOVE_ASSIST, MOVE_CHARM, MOVE_FEINT_ATTACK, MOVE_HEAL_BELL}
     },
     {
     .lvl = 12,
@@ -4598,7 +4598,7 @@ static const struct TrainerMonItemCustomMoves sParty_Colton[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_ORAN_BERRY,
-    .moves = {MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK, MOVE_HEAL_BELL}
+    .moves = {MOVE_ASSIST, MOVE_CHARM, MOVE_FEINT_ATTACK, MOVE_HEAL_BELL}
     },
     {
     .lvl = 30,
@@ -4606,7 +4606,7 @@ static const struct TrainerMonItemCustomMoves sParty_Colton[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_ORAN_BERRY,
-    .moves = {MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK, MOVE_HEAL_BELL}
+    .moves = {MOVE_ASSIST, MOVE_CHARM, MOVE_FEINT_ATTACK, MOVE_HEAL_BELL}
     },
     {
     .lvl = 42,
@@ -4614,7 +4614,7 @@ static const struct TrainerMonItemCustomMoves sParty_Colton[] = {
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
     .heldItem = ITEM_ORAN_BERRY,
-    .moves = {MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK, MOVE_HEAL_BELL}
+    .moves = {MOVE_ASSIST, MOVE_CHARM, MOVE_FEINT_ATTACK, MOVE_HEAL_BELL}
     }
 };
 
@@ -10317,7 +10317,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_Gerald[] = {
     .species = SPECIES_KECLEON,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = ABILITY_NUM_DEFAULT,
-    .moves = {MOVE_FLAMETHROWER, MOVE_FURY_SWIPES, MOVE_FAINT_ATTACK, MOVE_BIND}
+    .moves = {MOVE_FLAMETHROWER, MOVE_FURY_SWIPES, MOVE_FEINT_ATTACK, MOVE_BIND}
     }
 };
 
@@ -10457,7 +10457,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_WallyVR1[] = {
     .species = SPECIES_DELCATTY,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 1,
-    .moves = {MOVE_SING, MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK}
+    .moves = {MOVE_SING, MOVE_ASSIST, MOVE_CHARM, MOVE_FEINT_ATTACK}
     },
     {
     .lvl = 44,
@@ -10495,7 +10495,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_WallyVR2[] = {
     .species = SPECIES_DELCATTY,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 1,
-    .moves = {MOVE_SING, MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK}
+    .moves = {MOVE_SING, MOVE_ASSIST, MOVE_CHARM, MOVE_FEINT_ATTACK}
     },
     {
     .lvl = 47,
@@ -10533,7 +10533,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_WallyVR3[] = {
     .species = SPECIES_DELCATTY,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 1,
-    .moves = {MOVE_SING, MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK}
+    .moves = {MOVE_SING, MOVE_ASSIST, MOVE_CHARM, MOVE_FEINT_ATTACK}
     },
     {
     .lvl = 50,
@@ -10571,7 +10571,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_WallyVR4[] = {
     .species = SPECIES_DELCATTY,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 1,
-    .moves = {MOVE_SING, MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK}
+    .moves = {MOVE_SING, MOVE_ASSIST, MOVE_CHARM, MOVE_FEINT_ATTACK}
     },
     {
     .lvl = 53,
@@ -10609,7 +10609,7 @@ static const struct TrainerMonNoItemCustomMoves sParty_WallyVR5[] = {
     .species = SPECIES_DELCATTY,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 1,
-    .moves = {MOVE_SING, MOVE_ASSIST, MOVE_CHARM, MOVE_FAINT_ATTACK}
+    .moves = {MOVE_SING, MOVE_ASSIST, MOVE_CHARM, MOVE_FEINT_ATTACK}
     },
     {
     .lvl = 56,

@@ -2591,7 +2591,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .split = SPLIT_STATUS,
     },
 
-    [MOVE_FAINT_ATTACK] =
+    [MOVE_FEINT_ATTACK] =
     {
         .effect = EFFECT_HIT,
         .power = 60,
