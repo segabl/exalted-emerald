@@ -302,6 +302,8 @@
 #define EVO_LEVEL_NINJASK    0x000d // Pokémon reaches the specified level (special value for Ninjask)
 #define EVO_LEVEL_SHEDINJA   0x000e // Pokémon reaches the specified level (special value for Shedinja)
 #define EVO_BEAUTY           0x000f // Pokémon levels up with beauty ≥ specified value
+#define EVO_MOVE             0x0010 // Pokémon levels up while knowing a specific move
+#define EVO_LOCATION         0x0011 // Pokémon levels up in a certain location
 
 #define EVOS_PER_MON 5
 

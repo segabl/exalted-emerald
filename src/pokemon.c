@@ -5023,7 +5023,7 @@ u8 GetNatureFromPersonality(u32 personality)
 
 u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem)
 {
-    int i;
+    int i, j;
     u16 targetSpecies = 0;
     u16 species = GetMonData(mon, MON_DATA_SPECIES, 0);
     u16 heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, 0);
@@ -5099,6 +5099,21 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem)
                 break;
             case EVO_BEAUTY:
                 if (gEvolutionTable[species][i].param <= beauty)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_MOVE:
+                for (j = 0; j < MAX_MON_MOVES; j++)
+                {
+                    if (GetMonData(mon, MON_DATA_MOVE1 + j, 0) == gEvolutionTable[species][i].param)
+                    {
+                        targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                        break;
+                    }
+                }
+                break;
+            case EVO_LOCATION:
+                if ((gEvolutionTable[species][i].param >> 8) == (u16)gSaveBlock1Ptr->location.mapGroup
+                && (gEvolutionTable[species][i].param & 0xFF) == (u16)gSaveBlock1Ptr->location.mapNum)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             }

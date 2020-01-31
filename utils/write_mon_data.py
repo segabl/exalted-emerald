@@ -6,7 +6,6 @@ import re
 replacements = {
   "smelling-salts" : "SMELLING_SALT",
   "high-jump-kick" : "HI_JUMP_KICK",
-  "deoxys-normal" : "DEOXYS"
 }
 
 def try_get_data(file, url):
@@ -26,29 +25,31 @@ def try_get_data(file, url):
 def make_name(append, mname):
   return append + (mname.upper().replace("-", "_") if not mname in replacements else replacements[mname])
 
-mons = []
+mons = {}
 with open("../include/constants/species.h", "r") as monfile:
-  line_regex = re.compile(r"#define SPECIES_([^\s]+)")
+  line_regex = re.compile(r"#define (SPECIES_([^\s]+))")
   for line in monfile:
     line_match = line_regex.match(line)
     if line_match:
-      if line_match[1] != "NONE" and line_match[1] != "EGG" and not line_match[1].startswith("UNOWN_") and not line_match[1].startswith("OLD_UNOWN_"):
-        mons.append(line_match[1].lower().replace("_", "-").replace("deoxys", "deoxys-normal"))
+      match = line_match[2]
+      if match != "NONE" and match != "EGG" and not match.startswith("UNOWN_") and not match.startswith("OLD_UNOWN_"):
+        match = match.lower().replace("_", "-")
+        mons[line_match[1]] = match
 
-
-update_mons = False
 mon = None
 mons_egg_moves = {}
 mons_tm_moves = {}
 mons_level_moves = {}
 max_egg = 0
 max_level = 0
-for mon in mons:
+for mon_key in mons:
+  mon = mons[mon_key]
   file = os.path.join("data/mons", mon + ".json")
 
-  if not os.path.exists(file) or update_mons:
+  if not os.path.exists(file):
     print(f"Fetching data for {mon}")
-    response = requests.get(f"https://pokeapi.co/api/v2/pokemon/{mon}")
+    f = mon.replace("deoxys", "deoxys-normal")
+    response = requests.get(f"https://pokeapi.co/api/v2/pokemon/{f}")
     if response.status_code == 200:
       data = response.json()
       with open(file, "w", encoding="utf-8") as datafile:
@@ -97,10 +98,10 @@ for mon in mons:
         level_moves_str += "\n    LEVEL_UP_END\n};"
         mons_level_moves[mon_data["order"]] = level_moves_str
 
-      tm_moves_str = f"    [{make_name('SPECIES_', mon_name)}] = {{ 0, 0, 0, 0 }},"
+      tm_moves_str = f"    [{mon_key}] = {{ 0, 0, 0, 0 }},"
       if (len(tm_moves) > 0):
         tm_moves.sort()
-        tm_moves_str = f"    [{make_name('SPECIES_', mon_name)}] =\n    {{"
+        tm_moves_str = f"    [{mon_key}] =\n    {{"
         for i in range(4):
           tm_moves_str += "\n        " + " | ".join(map(lambda x: f"TMHM({x}, {i})", tm_moves)) + ","
         tm_moves_str += "\n    },"
