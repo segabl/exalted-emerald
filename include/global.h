@@ -6,6 +6,7 @@
 #include "config.h" // we need to define config before gba headers as print stuff needs the functions nulled before defines.
 #include "gba/gba.h"
 #include "constants/global.h"
+#include "constants/region_map_sections.h"
 
 // Prevent cross-jump optimization.
 #define BLOCK_CROSS_JUMP asm("");
@@ -459,6 +460,8 @@ struct RankingHall2P
 
 #define GAME_DIFFICULTY (NUZLOCKE ? NUZLOCKE_DIFFICULTY : gSaveBlock2Ptr->optionsDifficulty)
 
+#define MAPSEC_FLAGS_NO ((MAPSEC_NONE / 8) + ((MAPSEC_NONE % 8) ? 1 : 0))
+
 struct SaveBlock2
 {
     u8 playerName[PLAYER_NAME_LENGTH + 1];
@@ -477,7 +480,7 @@ struct SaveBlock2
     u16 optionsBattleSceneOff:1; // whether battle animations are disabled
     u16 regionMapZoom:1; // whether the map is zoomed in
     struct Pokedex pokedex;
-    u8 filler_90[0x8];
+    u8 filler_90[0x8]; // TODO: Remove when done with testing
     struct Time localTimeOffset;
     struct Time lastBerryTreeUpdate;
     struct PlayersApprentice playerApprentice;
@@ -489,7 +492,7 @@ struct SaveBlock2
     struct RankingHall2P hallRecords2P[2][3]; // From record mixing.
     u16 contestLinkResults[5][4]; // 4 positions for 5 categories.
     struct BattleFrontier frontier;
-    u8 nuzlockeEncounterLocations[MAPSEC_BIT_FIELD_SIZE];
+    u8 nuzlockeEncounterLocations[MAPSEC_FLAGS_NO];
 }; // sizeof = 3868U
 
 extern struct SaveBlock2 *gSaveBlock2Ptr;
@@ -567,7 +570,7 @@ struct Roamer
     /*0x11*/ u8 smart;
     /*0x12*/ u8 tough;
     /*0x13*/ bool8 active;
-    /*0x14*/ u8 filler[0x8];
+    /*0x14*/ u8 filler[0x8]; // TODO: Remove when done with testing
 };
 
 struct RamScriptData
@@ -672,7 +675,6 @@ struct RecordMixing_UnknownStructSub
 {
     u32 unk0;
     u8 data[0x34];
-    //u8 data[0x38];
 };
 
 struct RecordMixing_UnknownStruct
@@ -904,6 +906,8 @@ struct MysteryEventStruct
     /*0x344 0x3570*/ u32 unk_344[2][5];
 }; // 0x36C 0x3598
 
+#define TMHM_FLAGS_NO ((BAG_TMHM_COUNT / 8) + ((BAG_TMHM_COUNT % 8) ? 1 : 0))
+
 struct SaveBlock1
 {
     struct Coords16 pos;
@@ -929,7 +933,7 @@ struct SaveBlock1
     struct ItemSlot bagPocket_PokeBalls[BAG_POKEBALLS_COUNT];
     struct ItemSlot bagPocket_Berries[BAG_BERRIES_COUNT];
     struct Pokeblock pokeblocks[POKEBLOCKS_COUNT];
-    u8 ownedTMsHMs[TM_HM_BIT_FIELD_SIZE];
+    u8 ownedTMsHMs[TMHM_FLAGS_NO];
     u8 seen1[DEX_FLAGS_NO];
     u16 berryBlenderRecords[3];
     u16 trainerRematchStepCounter;
@@ -951,7 +955,7 @@ struct SaveBlock1
     u8 decorPoster[10];
     u8 decorDoll[40];
     u8 decorCushion[10];
-    u8 padding_27CA[2];
+    u8 padding_27CA[2]; // TODO: Remove when done with testing
     TVShow tvShows[TV_SHOWS_COUNT];
     PokeNews pokeNews[POKE_NEWS_COUNT];
     u16 outbreakPokemonSpecies;
@@ -987,7 +991,7 @@ struct SaveBlock1
     LilycoveLady lilycoveLady;
     struct TrainerNameRecord trainerNameRecords[20];
     u8 unk3C88[10][21];
-    u8 filler3D5A[0xA];
+    u8 filler3D5A[0xA]; // TODO: Remove when done with testing
     struct SaveTrainerHill trainerHill;
     struct WaldaPhrase waldaPhrase;
 }; // sizeof = 15320U

@@ -53,9 +53,6 @@
 #define APPRENTICE_MAX_QUESTIONS 9
 #define MAX_REMATCH_ENTRIES 100 // only REMATCH_TABLE_ENTRIES (78) are used
 
-#define MAPSEC_BIT_FIELD_SIZE 27
-#define TM_HM_BIT_FIELD_SIZE 14
-
 #define PYRAMID_BAG_ITEMS_COUNT 10
 #define HALL_FACILITIES_COUNT 9 // 7 facilities for single mode + tower double mode + tower multi mode.
 
