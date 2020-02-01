@@ -453,12 +453,7 @@ struct RankingHall2P
     u8 language;
 };
 
-#define NUZLOCKE                        FlagGet(FLAG_NUZLOCKE_MODE)
-#define NUZLOCKE_DIFFICULTY             (VarGet(VAR_NUZLOCKE_SETTINGS) & 3)
-#define NUZLOCKE_SPECIES_CLAUSE         (VarGet(VAR_NUZLOCKE_SETTINGS) & (1 << 2))
-#define NUZLOCKE_SHINY_CLAUSE           (VarGet(VAR_NUZLOCKE_SETTINGS) & (1 << 3))
-
-#define GAME_DIFFICULTY (NUZLOCKE ? NUZLOCKE_DIFFICULTY : gSaveBlock2Ptr->optionsDifficulty)
+#define GAME_DIFFICULTY (FlagGet(FLAG_NUZLOCKE_MODE) ? gSaveBlock2Ptr->nuzlockeDifficulty : gSaveBlock2Ptr->optionsDifficulty)
 
 #define MAPSEC_FLAGS_NO ((MAPSEC_NONE / 8) + ((MAPSEC_NONE % 8) ? 1 : 0))
 
@@ -492,8 +487,11 @@ struct SaveBlock2
     struct RankingHall2P hallRecords2P[2][3]; // From record mixing.
     u16 contestLinkResults[5][4]; // 4 positions for 5 categories.
     struct BattleFrontier frontier;
+    u8 nuzlockeDifficulty:2;
+    u8 nuzlockeSpeciesClause:1;
+    u8 nuzlockeShinyClause:1; // +4
     u8 nuzlockeEncounterLocations[MAPSEC_FLAGS_NO];
-}; // sizeof = 3868U
+}; // size = 3868
 
 extern struct SaveBlock2 *gSaveBlock2Ptr;
 
@@ -994,7 +992,7 @@ struct SaveBlock1
     u8 filler3D5A[0xA]; // TODO: Remove when done with testing
     struct SaveTrainerHill trainerHill;
     struct WaldaPhrase waldaPhrase;
-}; // sizeof = 15320U
+}; // sizeof = 15320
 
 extern struct SaveBlock1* gSaveBlock1Ptr;
 

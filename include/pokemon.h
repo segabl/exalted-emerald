@@ -11,13 +11,13 @@ struct PokemonSubstruct0
     u32 experience;
     u8 ppBonuses;
     u8 friendship;
-};
+}; // size = 10
 
 struct PokemonSubstruct1
 {
     u16 moves[MAX_MON_MOVES];
     u8 pp[MAX_MON_MOVES];
-};
+}; // size = 12
 
 struct PokemonSubstruct2
 {
@@ -33,7 +33,7 @@ struct PokemonSubstruct2
     u8 smart;
     u8 tough;
     u8 sheen;
-};
+}; // size = 12
 
 struct PokemonSubstruct3
 {
@@ -71,7 +71,7 @@ struct PokemonSubstruct3
     u32 giftRibbon6:1;
     u32 giftRibbon7:1;
     u32 pokeball:5;
-}; // sizeof = 12
+}; // size = 12
 
 union PokemonSubstruct
 {
@@ -87,21 +87,20 @@ struct BoxPokemon
     u32 personality;
     u32 otId;
     u8 nickname[POKEMON_NAME_LENGTH];
-    u8 language;
-    u8:6;
+    u8 language:4;
+    u8 markings:2;
     u8 isEgg:1;
     u8 isBadEgg:1;
     u8 otName[PLAYER_NAME_LENGTH];
-    u8 markings;
     u16 checksum;
-    u16 unused; // TODO: Remove when done with testing
+    u16 unknown;
 
     union
     {
         u32 raw[12];
         union PokemonSubstruct substructs[4];
     } secure;
-}; // sizeof = 80
+}; // size = 78
 
 struct Pokemon
 {

@@ -47,6 +47,42 @@ InsideOfTruck_EventScript_SetIntroFlagsFemale:: @ 823BF46
 	setdynamicwarp MAP_LITTLEROOT_TOWN, 255, 12, 10
 	end
 
+InsideOfTruck_EventScript_Debug::
+	setflag FLAG_ADVENTURE_STARTED
+	setflag FLAG_BADGE01_GET
+	setflag FLAG_BADGE02_GET
+	setflag FLAG_BADGE03_GET
+	setflag FLAG_BADGE04_GET
+	setflag FLAG_BADGE05_GET
+	setflag FLAG_BADGE06_GET
+	setflag FLAG_BADGE07_GET
+	setflag FLAG_BADGE08_GET
+	setflag FLAG_VISITED_LITTLEROOT_TOWN
+	setflag FLAG_VISITED_OLDALE_TOWN
+	setflag FLAG_VISITED_DEWFORD_TOWN
+	setflag FLAG_VISITED_LAVARIDGE_TOWN
+	setflag FLAG_VISITED_FALLARBOR_TOWN
+	setflag FLAG_VISITED_VERDANTURF_TOWN
+	setflag FLAG_VISITED_PACIFIDLOG_TOWN
+	setflag FLAG_VISITED_PETALBURG_CITY
+	setflag FLAG_VISITED_SLATEPORT_CITY
+	setflag FLAG_VISITED_MAUVILLE_CITY
+	setflag FLAG_VISITED_RUSTBORO_CITY
+	setflag FLAG_VISITED_FORTREE_CITY
+	setflag FLAG_VISITED_LILYCOVE_CITY
+	setflag FLAG_VISITED_MOSSDEEP_CITY
+	setflag FLAG_VISITED_SOOTOPOLIS_CITY
+	setflag FLAG_VISITED_EVER_GRANDE_CITY
+	giveitem ITEM_HM01, 1
+	giveitem ITEM_HM02, 1
+	giveitem ITEM_HM03, 1
+	giveitem ITEM_HM04, 1
+	giveitem ITEM_HM05, 1
+	giveitem ITEM_HM06, 1
+	giveitem ITEM_HM07, 1
+	givemon SPECIES_MEW, 100
+return
+
 InsideOfTruck_EventScript_AskNuzlocke::
 	goto_if_set FLAG_NUZLOCKE_MODE, InsideOfTruck_EventScript_NuzlockeEnabled
 	msgbox InsideOfTruck_Text_WantToEnableNuzlockeMode, MSGBOX_YESNO

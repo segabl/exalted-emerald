@@ -5019,14 +5019,14 @@ static void ReturnFromBattleToOverworld(void)
             SetRoamerInactive();
     }
 
-    if (NUZLOCKE)
+    if (FlagGet(FLAG_NUZLOCKE_MODE))
     {
         if (FlagGet(FLAG_NUZLOCKE_STANDARD_ENCOUNTER) && FlagGet(FLAG_ADVENTURE_STARTED))
         {
             // mark the current mapsection as forbidden to catch any mons if in nuzlocke mode
             u16 id = GetCurrentRegionMapSectionId();
             bool8 markLocation = id < MAPSEC_NONE;
-            if (NUZLOCKE_SPECIES_CLAUSE && gBattleOutcome != B_OUTCOME_CAUGHT)
+            if (gSaveBlock2Ptr->nuzlockeSpeciesClause && gBattleOutcome != B_OUTCOME_CAUGHT)
             {
                 // if species clause is active, abort marking if the player already has the encountered mon(s)
                 u16 species1 = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);

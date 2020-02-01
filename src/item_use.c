@@ -948,11 +948,11 @@ void ItemUseOutOfBattle_EvolutionStone(u8 taskId)
 
 void ItemUseInBattle_PokeBall(u8 taskId)
 {
-    if (NUZLOCKE && FlagGet(FLAG_NUZLOCKE_STANDARD_ENCOUNTER))
+    if (FlagGet(FLAG_NUZLOCKE_MODE) && FlagGet(FLAG_NUZLOCKE_STANDARD_ENCOUNTER))
     {
         // If player already encountered a mon in the current map section in nuzlocke mode, they cant catch it
         u16 id;
-        if (NUZLOCKE_SHINY_CLAUSE
+        if (gSaveBlock2Ptr->nuzlockeShinyClause
         && ((IsMonShiny(&gEnemyParty[0]) && GetMonData(&gEnemyParty[0], MON_DATA_HP) > 0)
         || (IsMonShiny(&gEnemyParty[1]) && GetMonData(&gEnemyParty[1], MON_DATA_HP) > 0)))
             id = MAPSEC_NONE;

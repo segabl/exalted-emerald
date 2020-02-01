@@ -497,7 +497,7 @@ static void BattleScene_DrawChoices(u8 selection)
 
 static u8 Difficulty_ProcessInput(u8 selection)
 {
-    if (sInGame && NUZLOCKE)
+    if (sInGame && FlagGet(FLAG_NUZLOCKE_MODE))
         return selection;
 
     if (gMain.newKeys & DPAD_RIGHT)
@@ -525,7 +525,7 @@ static void Difficulty_DrawChoices(u8 selection)
 {
     u8 styles[3];
     s32 widthSlow, widthMid, widthFast, xMid;
-    u8 locked = sInGame && NUZLOCKE;
+    u8 locked = sInGame && FlagGet(FLAG_NUZLOCKE_MODE);
 
     styles[0] = locked ? 2 : 0;
     styles[1] = locked ? 2 : 0;

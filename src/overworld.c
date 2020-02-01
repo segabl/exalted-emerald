@@ -1560,7 +1560,7 @@ void CB2_WhiteOut(void)
         val = 0;
         do_load_map_stuff_loop(&val);
         SetFieldVBlankCallback();
-        if (NUZLOCKE)
+        if (FlagGet(FLAG_NUZLOCKE_MODE))
         {
             // If the player is in nuzlocke mode and whites out, game is over!
             ClearSaveData();

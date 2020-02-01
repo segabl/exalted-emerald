@@ -3996,12 +3996,10 @@ bool8 InPokemonCenter(void)
 
 void EnableNuzlockeMode(void)
 {
-    u16 settings = 0;
     FlagSet(FLAG_NUZLOCKE_MODE);
-    settings |= gSaveBlock2Ptr->optionsDifficulty;
-    settings |= gSpecialVar_0x8004 << 2; // Species clause
-    settings |= gSpecialVar_0x8005 << 3; // Shiny clause
-    VarSet(VAR_NUZLOCKE_SETTINGS, settings);
+    gSaveBlock2Ptr->nuzlockeDifficulty = gSaveBlock2Ptr->optionsDifficulty;
+    gSaveBlock2Ptr->nuzlockeSpeciesClause = gSpecialVar_0x8004;
+    gSaveBlock2Ptr->nuzlockeShinyClause = gSpecialVar_0x8005;
 }
 
 /*  Summary of the Lilycove Trainer Fan Club, because it's a little messy
