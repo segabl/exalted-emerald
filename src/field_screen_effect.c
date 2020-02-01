@@ -52,7 +52,7 @@ static void Task_DoDoorWarp(u8 taskId);
 static void Task_EnableScriptAfterMusicFade(u8 taskId);
 
 // const
-static const u16 sFlashLevelPixelRadii[] = { 200, 200, 88, 80, 72, 64, 56, 48, 0 };
+static const u16 sFlashLevelPixelRadii[] = { 208, 200, 88, 80, 72, 64, 56, 48, 0 };
 const s32 gMaxFlashLevel = ARRAY_COUNT(sFlashLevelPixelRadii) - 1;
 
 const struct ScanlineEffectParams sFlashEffectParams =
