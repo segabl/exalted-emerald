@@ -530,6 +530,32 @@ static bool8 AreLegendariesInSootopolisPreventingEncounters(void)
     return FlagGet(FLAG_LEGENDARIES_IN_SOOTOPOLIS);
 }
 
+static bool8 TryGenerateWildMonBattle(bool8 isDouble, const struct WildPokemonInfo *monsInfo, u8 area, u8 checkRepel)
+{
+    if (TryGenerateWildMon(monsInfo, area, checkRepel | WILD_CHECK_KEEN_EYE) == TRUE)
+    {
+        if (isDouble && !GetSafariZoneFlag() && GetMonsStateToDoubles() == PLAYER_HAS_TWO_USABLE_MONS)
+        {
+            u32 haNum = 2;
+            struct Pokemon mon1 = gEnemyParty[0];
+            TryGenerateWildMon(monsInfo, area, WILD_CHECK_KEEN_EYE);
+            gEnemyParty[1] = mon1;
+            // Wild double battles have a chance for hidden abilities
+            if ((Random() % WILD_DOUBLE_HA_CHANCE) == 0 && gBaseStats[GetMonData(gEnemyParty, MON_DATA_SPECIES)].abilities[haNum])
+                SetMonData(gEnemyParty, MON_DATA_ABILITY_NUM, &haNum);
+            if ((Random() % WILD_DOUBLE_HA_CHANCE) == 0 && gBaseStats[GetMonData(gEnemyParty + 1, MON_DATA_SPECIES)].abilities[haNum])
+                SetMonData(gEnemyParty + 1, MON_DATA_ABILITY_NUM, &haNum);
+            BattleSetup_StartDoubleWildBattle();
+        }
+        else
+        {
+            BattleSetup_StartWildBattle();
+        }
+        return TRUE;
+    }
+    return FALSE;
+}
+
 bool8 StandardWildEncounter(u16 currMetaTileBehavior, u16 previousMetaTileBehavior)
 {
     u16 headerId;
@@ -598,31 +624,8 @@ bool8 StandardWildEncounter(u16 currMetaTileBehavior, u16 previousMetaTileBehavi
                     BattleSetup_StartWildBattle();
                     return TRUE;
                 }
-
                 // try a regular wild land encounter
-                if (TryGenerateWildMon(gWildMonHeaders[headerId].landMonsInfo, WILD_AREA_LAND, WILD_CHECK_REPEL | WILD_CHECK_KEEN_EYE) == TRUE)
-                {
-                    if ((Random() % WILD_DOUBLE_CHANCE) == 0 && !GetSafariZoneFlag() && GetMonsStateToDoubles() == PLAYER_HAS_TWO_USABLE_MONS)
-                    {
-                        u32 haNum = 2;
-                        struct Pokemon mon1 = gEnemyParty[0];
-                        TryGenerateWildMon(gWildMonHeaders[headerId].landMonsInfo, WILD_AREA_LAND, WILD_CHECK_KEEN_EYE);
-                        gEnemyParty[1] = mon1;
-                        // Wild double battles have a chance for hidden abilities
-                        if ((Random() % WILD_DOUBLE_HA_CHANCE) == 0 && gBaseStats[GetMonData(gEnemyParty, MON_DATA_SPECIES)].abilities[haNum])
-                            SetMonData(gEnemyParty, MON_DATA_ABILITY_NUM, &haNum);
-                        if ((Random() % WILD_DOUBLE_HA_CHANCE) == 0 && gBaseStats[GetMonData(gEnemyParty + 1, MON_DATA_SPECIES)].abilities[haNum])
-                            SetMonData(gEnemyParty + 1, MON_DATA_ABILITY_NUM, &haNum);
-                        BattleSetup_StartDoubleWildBattle();
-                    }
-                    else
-                    {
-                        BattleSetup_StartWildBattle();
-                    }
-                    return TRUE;
-                }
-
-                return FALSE;
+                return TryGenerateWildMonBattle((Random() % WILD_DOUBLE_CHANCE) == 0, gWildMonHeaders[headerId].landMonsInfo, WILD_AREA_LAND, WILD_CHECK_REPEL);
             }
         }
         else if (MetatileBehavior_IsWaterWildEncounter(currMetaTileBehavior) == TRUE
@@ -646,15 +649,10 @@ bool8 StandardWildEncounter(u16 currMetaTileBehavior, u16 previousMetaTileBehavi
                 BattleSetup_StartRoamerBattle();
                 return TRUE;
             }
-            else // try a regular surfing encounter
+            else
             {
-                if (TryGenerateWildMon(gWildMonHeaders[headerId].waterMonsInfo, WILD_AREA_WATER, WILD_CHECK_REPEL | WILD_CHECK_KEEN_EYE) == TRUE)
-                {
-                    BattleSetup_StartWildBattle();
-                    return TRUE;
-                }
-
-                return FALSE;
+                // try a regular surfing encounter
+                return TryGenerateWildMonBattle((Random() % WILD_DOUBLE_CHANCE) == 0, gWildMonHeaders[headerId].waterMonsInfo, WILD_AREA_WATER, WILD_CHECK_REPEL);
             }
         }
     }
@@ -738,24 +736,11 @@ bool8 SweetScentWildEncounter(void)
             {
                 SetUpMassOutbreakEncounter(0);
                 BattleSetup_StartWildBattle();
-            }
-            else if (TryGenerateWildMon(gWildMonHeaders[headerId].landMonsInfo, WILD_AREA_LAND, WILD_CHECK_KEEN_EYE) == TRUE)
-            {
-                // Sweet Scent battles are always doubles
-                if (!GetSafariZoneFlag() && GetMonsStateToDoubles() == PLAYER_HAS_TWO_USABLE_MONS)
-                {
-                    struct Pokemon mon1 = gEnemyParty[0];
-                    TryGenerateWildMon(gWildMonHeaders[headerId].landMonsInfo, WILD_AREA_LAND, WILD_CHECK_KEEN_EYE);
-                    gEnemyParty[1] = mon1;
-                    BattleSetup_StartDoubleWildBattle();
-                }
-                else
-                {
-                    BattleSetup_StartWildBattle();
-                }
+                return TRUE;
             }
 
-            return TRUE;
+            // Sweet Scent battles are always doubles
+            return TryGenerateWildMonBattle(TRUE, gWildMonHeaders[headerId].landMonsInfo, WILD_AREA_LAND, 0);
         }
         else if (MetatileBehavior_IsWaterWildEncounter(MapGridGetMetatileBehaviorAt(x, y)) == TRUE)
         {
@@ -770,23 +755,8 @@ bool8 SweetScentWildEncounter(void)
                 return TRUE;
             }
 
-            if (TryGenerateWildMon(gWildMonHeaders[headerId].waterMonsInfo, WILD_AREA_WATER, WILD_CHECK_KEEN_EYE) == TRUE)
-            {
-                // Sweet Scent battles are always doubles
-                if (!GetSafariZoneFlag() && GetMonsStateToDoubles() == PLAYER_HAS_TWO_USABLE_MONS)
-                {
-                    struct Pokemon mon1 = gEnemyParty[0];
-                    TryGenerateWildMon(gWildMonHeaders[headerId].waterMonsInfo, WILD_AREA_WATER, WILD_CHECK_KEEN_EYE);
-                    gEnemyParty[1] = mon1;
-                    BattleSetup_StartDoubleWildBattle();
-                }
-                else
-                {
-                    BattleSetup_StartWildBattle();
-                }
-            }
-
-            return TRUE;
+            // Sweet Scent battles are always doubles
+            return TryGenerateWildMonBattle(TRUE, gWildMonHeaders[headerId].waterMonsInfo, WILD_AREA_WATER, 0);
         }
     }
 
