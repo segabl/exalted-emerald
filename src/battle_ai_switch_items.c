@@ -252,7 +252,7 @@ static bool8 FindResistingOrImmuneMon(u8 battlerIn1, u8 battlerIn2, s32 firstId,
             bestMon = i;
             break;
         }
-        else if (dmg * 2 < gBattleMons[gActiveBattler].hp && dmg < bestDamage)
+        else if (dmg * 3 < gBattleMons[gActiveBattler].hp && dmg < bestDamage)
         {
             bestMon = i;
             bestDamage = dmg;

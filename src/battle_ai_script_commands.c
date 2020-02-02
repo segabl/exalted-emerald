@@ -472,9 +472,7 @@ void BattleAI_PopulateKnownMoves(struct Pokemon* party, u8 partyIndex)
             }
             else
             {
-                if (k == typeMove1Slot)
-                    k = ++k % MAX_MON_MOVES;
-                if (k == typeMove2Slot)
+                while (k == typeMove1Slot || k == typeMove2Slot)
                     k = ++k % MAX_MON_MOVES;
                 BATTLE_HISTORY->usedMoves[partyIndex][i].moves[k++] = move;
             }
@@ -487,6 +485,8 @@ void BattleAI_UpdateKnownMoves(u8 battlerId, u16 battlerMove)
 {
     u8 i;
     u8 freeSlot = 0xFF;
+    u8 type = gBattleMoves[battlerMove].type;
+    u8 power = gBattleMoves[battlerMove].power;
     u8 sameType = FALSE;
     u16 freeSlotMove;
     // If all moves are confirmed already, return
@@ -506,15 +506,24 @@ void BattleAI_UpdateKnownMoves(u8 battlerId, u16 battlerMove)
         }
         if (confirmed)
             continue;
-        if (freeSlot == 0xFF || gBattleMoves[move].power < gBattleMoves[freeSlotMove].power // Prefer replacing the weakest unconfirmed move
-        || (!sameType && gBattleMoves[move].type == gBattleMoves[battlerMove].type)) // prefer replacing a move of the same type
+
+        if (freeSlot == 0xFF)
         {
-            if (!sameType || gBattleMoves[move].type == gBattleMoves[battlerMove].type)
-            {
-                freeSlot = i;
-                freeSlotMove = move;
-                sameType = gBattleMoves[move].type == gBattleMoves[battlerMove].type;
-            }
+            freeSlot = i;
+            freeSlotMove = move;
+        }
+        else if (power > 0 && gBattleMoves[move].type == type && gBattleMoves[freeSlotMove].power > 0)
+        {
+            // prefer replacing a non status move of the same type
+            freeSlot = i;
+            freeSlotMove = move;
+            sameType = TRUE;
+        }
+        else if (gBattleMoves[move].power < gBattleMoves[freeSlotMove].power && (!sameType || gBattleMoves[move].type == type))
+        {
+            // prefer replacing the weakest move
+            freeSlot = i;
+            freeSlotMove = move;
         }
     }
     if (freeSlot != 0xFF)
