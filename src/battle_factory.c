@@ -846,13 +846,13 @@ u32 GetAiScriptsInBattleFactory(void)
         int challengeNum = gSaveBlock2Ptr->frontier.factoryWinStreaks[battleMode][lvlMode] / 7;
 
         if (gTrainerBattleOpponent_A == TRAINER_FRONTIER_BRAIN)
-            return AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY;
+            return AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE;
         else if (challengeNum < 2)
             return 0;
         else if (challengeNum < 4)
             return AI_SCRIPT_CHECK_BAD_MOVE;
         else
-            return AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY;
+            return AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY | AI_SCRIPT_HP_AWARE;
     }
 }
 
