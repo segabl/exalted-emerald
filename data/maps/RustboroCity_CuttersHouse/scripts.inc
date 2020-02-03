@@ -36,15 +36,21 @@ RustboroCity_CuttersHouse_Text_YouCanPutThisHMToGoodUse: @ 8215C13
 RustboroCity_CuttersHouse_Text_ExplainCut: @ 8215D33
 	.string "That HIDDEN MACHINE, or HM for\n"
 	.string "short, is CUT.\p"
-	.string "An HM move is one that can be used\n"
-	.string "by POKéMON outside of battle.\p"
-	.string "Any POKéMON that's learned CUT can\n"
-	.string "chop down thin trees if the TRAINER\l"
-	.string "has earned the STONE BADGE.$"
+	.string "It lets you cut down small trees\n"
+	.string "once you've earned the STONE BADGE.\p"
+	.string "An HM move is one that can be used by\n"
+	.string "POKéMON outside of battle, even if\l"
+	.string "they don't know the move for battling!\p"
+	.string "The only requirement is that the\n"
+	.string "POKéMON is compatible with the move.\p"
+	.string "Isn't that wonderful?\p"
+	.string "There have been some big advancements\n"
+	.string "in the manufacturing of HM moves!\p"
+	.string "Back in my days we had to actually\n"
+	.string "teach these HM moves to POKéMON…$"
 
 RustboroCity_CuttersHouse_Text_DadHelpedClearLandOfTrees: @ 8215E39
 	.string "When they were expanding the city of\n"
 	.string "RUSTBORO, my dad helped out.\p"
 	.string "He made his POKéMON use CUT to clear\n"
 	.string "the land of trees.$"
-

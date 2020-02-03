@@ -49,6 +49,7 @@
 #include "tv.h"
 #include "window.h"
 #include "constants/event_objects.h"
+#include "constants/items.h"
 
 typedef u16 (*SpecialFunc)(void);
 typedef void (*NativeFunc)(void);
@@ -1736,6 +1737,23 @@ bool8 ScrCmd_checkpartymon(struct ScriptContext *ctx)
     {
         u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
         if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == speciesId)
+        {
+            gSpecialVar_Result = i;
+            break;
+        }
+    }
+    return FALSE;
+}
+
+bool8 ScrCmd_checkpartytmhm(struct ScriptContext *ctx)
+{
+    u8 i;
+    u16 machineId = ScriptReadHalfword(ctx);
+
+    gSpecialVar_Result = PARTY_SIZE;
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        if (CanMonLearnTMHM(&gPlayerParty[i], machineId - FIRST_TM_INDEX))
         {
             gSpecialVar_Result = i;
             break;

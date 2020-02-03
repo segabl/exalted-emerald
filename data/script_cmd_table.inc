@@ -206,7 +206,7 @@ gScriptCmdTable:: @ 81DB67C
 	.4byte ScrCmd_nop1
 	.4byte ScrCmd_nop1
 	.4byte ScrCmd_checkpartymon
-	.4byte ScrCmd_nop1
+	.4byte ScrCmd_checkpartytmhm
 	.4byte ScrCmd_gotoram
 	.4byte ScrCmd_nop1
 	.4byte ScrCmd_warpD1

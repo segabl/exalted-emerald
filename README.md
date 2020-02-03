@@ -19,6 +19,7 @@ For DizzyEgg's modifications, check out <https://github.com/DizzyEggg/pokeemeral
 - Makes all regular Pokémon obtainable (legendaries and starters to be done)
 - Improves AI code to allow AI to predict moves and switch Pokémon if appropriate
 - Increases rematchable trainers' party sizes and levels over time
+- Changes HM mechanics: Pokémon don't have to learn the HM to use it, they just have to be compatible
 
 ## Minor and QoL changes
 

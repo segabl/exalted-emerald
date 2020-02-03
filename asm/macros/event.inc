@@ -1435,9 +1435,10 @@
 	.2byte \species
 	.endm
 
-	@ OBSOLETE
-	.macro unused2
+	@ Checks if the player has a pokemon that can learn a specific tm/hm and returns the index if so. If not, VAR_RESULT is set to PARTY_SIZE.
+	.macro checkpartytmhm move:req
 	.byte 0xce
+	.2byte \move
 	.endm
 
 	@ Depending on factors I haven't managed to understand yet, this command may cause script execution to jump to the offset specified by the pointer at 0x020375C0.
