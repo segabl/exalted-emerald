@@ -69,7 +69,6 @@ MossdeepCity_Mart_Text_MaxRepelLastsLongest: @ 82224A0
 MossdeepCity_Mart_Text_NetAndDiveBallsRare: @ 82224FA
 	.string "The NET and DIVE BALL production\n"
 	.string "was recently moved to RUSTBORO CITY…\p"
-	.string "Now that the DEVON CORPORATION produces\n"
-	.string "them, they are easier to get but harder\l"
+	.string "Now that the DEVON CORPORATION took\n"
+	.string "over production they are harder\l"
 	.string "to come by here in MOSSDEEP CITY…$"
-

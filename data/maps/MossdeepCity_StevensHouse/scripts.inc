@@ -44,9 +44,9 @@ MossdeepCity_StevensHouse_EventScript_StevenGivesDive:: @ 82227CA
 	msgbox MossdeepCity_StevensHouse_Text_ExplainDive, MSGBOX_DEFAULT
 	closemessage
 	playse SE_PIN
-	applymovement 5, Common_Movement_ExclamationMark
+	applymovement 1, Common_Movement_ExclamationMark
 	waitmovement 0
-	applymovement 5, Common_Movement_Delay48
+	applymovement 1, Common_Movement_Delay48
 	waitmovement 0
 	msgbox MossdeepCity_StevensHouse_Text_OneMoreThing, MSGBOX_DEFAULT
 	giveitem_std ITEM_OLD_AMBER
@@ -239,4 +239,3 @@ MossdeepCity_StevensHouse_Text_LetterFromSteven: @ 8222C4E
 MossdeepCity_StevensHouse_Text_CollectionOfRareRocks: @ 8222D97
 	.string "It's a collection of rare rocks and\n"
 	.string "stones assembled by STEVEN.$"
-
