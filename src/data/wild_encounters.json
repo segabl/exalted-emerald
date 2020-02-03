@@ -1569,7 +1569,7 @@
                             {
                                 "max_level": 16,
                                 "min_level": 16,
-                                "species": "SPECIES_MACHOP"
+                                "species": "SPECIES_SLUGMA"
                             },
                             {
                                 "max_level": 16,
@@ -6010,7 +6010,7 @@
                             {
                                 "max_level": 14,
                                 "min_level": 14,
-                                "species": "SPECIES_TYROGUE"
+                                "species": "SPECIES_MACHOP"
                             },
                             {
                                 "max_level": 14,
@@ -6020,12 +6020,12 @@
                             {
                                 "max_level": 16,
                                 "min_level": 14,
-                                "species": "SPECIES_MACHOP"
+                                "species": "SPECIES_NIDORAN_F"
                             },
                             {
                                 "max_level": 16,
-                                "min_level": 16,
-                                "species": "SPECIES_MACHOP"
+                                "min_level": 14,
+                                "species": "SPECIES_NIDORAN_M"
                             },
                             {
                                 "max_level": 16,
@@ -6094,7 +6094,7 @@
                             {
                                 "max_level": 16,
                                 "min_level": 16,
-                                "species": "SPECIES_SLUGMA"
+                                "species": "SPECIES_HOUNDOUR"
                             },
                             {
                                 "max_level": 15,
@@ -6704,7 +6704,7 @@
                             {
                                 "max_level": 14,
                                 "min_level": 14,
-                                "species": "SPECIES_YANMA"
+                                "species": "SPECIES_HOPPIP"
                             },
                             {
                                 "max_level": 13,

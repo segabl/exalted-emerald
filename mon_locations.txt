@@ -96,6 +96,9 @@ Clefairy
   Meteor Falls Stevens Cave
   Safari Zone Southwest
 
+Cleffa
+  Route 125
+
 Corphish
   Petalburg City (Fishing)
   Route 102 (Fishing)
@@ -311,6 +314,7 @@ Hoothoot
   Safari Zone South
 
 Hoppip
+  Route 117
   Safari Zone Northwest
 
 Horsea
@@ -322,6 +326,9 @@ Houndour
   Altering Cave 4
   Route 113
   Safari Zone Northeast
+
+Igglybuff
+  Route 106
 
 Illumise
   Route 117
@@ -1020,7 +1027,7 @@ Tropius
 Tyrogue
   Granite Cave 1F
   Granite Cave Stevens Room
-  Route 112
+  Route 114 Mirage Cave
 
 Unown
   Desert Underpass
@@ -1152,7 +1159,6 @@ Wynaut
   Route 130
 
 Yanma
-  Route 117
   Route 120 (Surf)
   Safari Zone Southwest
 
