@@ -466,7 +466,6 @@ void PlayCryInternal(u16 species, s8 pan, s8 volume, u8 priority, u8 mode)
     // It creates 4 sets of 128 mini cry tables.
     // If you wish to expand pokemon, you need to
     // append new cases to the switch.
-    species = SpeciesToCryId(species);
     index = species & 0x7F;
     table = species / 128;
 

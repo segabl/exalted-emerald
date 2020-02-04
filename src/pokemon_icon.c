@@ -277,31 +277,6 @@ const u8 *const gMonIconTable[] =
     [SPECIES_LUGIA] = gMonIcon_Lugia,
     [SPECIES_HO_OH] = gMonIcon_HoOh,
     [SPECIES_CELEBI] = gMonIcon_Celebi,
-    [SPECIES_OLD_UNOWN_B] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_C] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_D] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_E] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_F] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_G] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_H] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_I] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_J] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_K] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_L] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_M] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_N] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_O] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_P] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_Q] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_R] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_S] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_T] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_U] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_V] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_W] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_X] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_Y] = gMonIcon_QuestionMark,
-    [SPECIES_OLD_UNOWN_Z] = gMonIcon_QuestionMark,
     [SPECIES_TREECKO] = gMonIcon_Treecko,
     [SPECIES_GROVYLE] = gMonIcon_Grovyle,
     [SPECIES_SCEPTILE] = gMonIcon_Sceptile,
@@ -721,31 +696,6 @@ const u8 gMonIconPaletteIndices[] =
     [SPECIES_LUGIA] = 0,
     [SPECIES_HO_OH] = 1,
     [SPECIES_CELEBI] = 1,
-    [SPECIES_OLD_UNOWN_B] = 0,
-    [SPECIES_OLD_UNOWN_C] = 0,
-    [SPECIES_OLD_UNOWN_D] = 0,
-    [SPECIES_OLD_UNOWN_E] = 0,
-    [SPECIES_OLD_UNOWN_F] = 0,
-    [SPECIES_OLD_UNOWN_G] = 0,
-    [SPECIES_OLD_UNOWN_H] = 0,
-    [SPECIES_OLD_UNOWN_I] = 0,
-    [SPECIES_OLD_UNOWN_J] = 0,
-    [SPECIES_OLD_UNOWN_K] = 0,
-    [SPECIES_OLD_UNOWN_L] = 0,
-    [SPECIES_OLD_UNOWN_M] = 0,
-    [SPECIES_OLD_UNOWN_N] = 0,
-    [SPECIES_OLD_UNOWN_O] = 0,
-    [SPECIES_OLD_UNOWN_P] = 0,
-    [SPECIES_OLD_UNOWN_Q] = 0,
-    [SPECIES_OLD_UNOWN_R] = 0,
-    [SPECIES_OLD_UNOWN_S] = 0,
-    [SPECIES_OLD_UNOWN_T] = 0,
-    [SPECIES_OLD_UNOWN_U] = 0,
-    [SPECIES_OLD_UNOWN_V] = 0,
-    [SPECIES_OLD_UNOWN_W] = 0,
-    [SPECIES_OLD_UNOWN_X] = 0,
-    [SPECIES_OLD_UNOWN_Y] = 0,
-    [SPECIES_OLD_UNOWN_Z] = 0,
     [SPECIES_TREECKO] = 1,
     [SPECIES_GROVYLE] = 0,
     [SPECIES_SCEPTILE] = 1,
@@ -1004,21 +954,21 @@ const union AffineAnimCmd *const sMonIconAffineAnims[] =
 
 const u16 sSpriteImageSizes[3][4] =
 {
-    [ST_OAM_SQUARE] = 
+    [ST_OAM_SQUARE] =
     {
         [SPRITE_SIZE(8x8)]   =  0x20,
         [SPRITE_SIZE(16x16)] =  0x80,
         [SPRITE_SIZE(32x32)] = 0x200,
         [SPRITE_SIZE(64x64)] = 0x800,
     },
-    [ST_OAM_H_RECTANGLE] = 
+    [ST_OAM_H_RECTANGLE] =
     {
         [SPRITE_SIZE(16x8)]  =  0x40,
         [SPRITE_SIZE(32x8)]  =  0x80,
         [SPRITE_SIZE(32x16)] = 0x100,
         [SPRITE_SIZE(64x32)] = 0x400,
     },
-    [ST_OAM_V_RECTANGLE] = 
+    [ST_OAM_V_RECTANGLE] =
     {
         [SPRITE_SIZE(8x16)]  =  0x40,
         [SPRITE_SIZE(8x32)]  =  0x80,
@@ -1118,7 +1068,7 @@ u16 sub_80D2E84(u16 species)
     else
     {
         if (species > (SPECIES_UNOWN_B - 1))
-            species = SPECIES_OLD_UNOWN_J; // That's an oddly specific species.
+            species = SPECIES_UNOWN;
         return GetIconSpecies(species, 0);
     }
 }
