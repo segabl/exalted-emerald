@@ -240,7 +240,7 @@ void LoadSerializedItems(void)
     int i, j;
     for (i = 0; i < BAG_POKEBALLS_COUNT; i++)
     {
-        u16 pokeBallValue = i | gSaveBlock1Ptr->ownedPokeBalls[i];
+        u16 pokeBallValue = gSaveBlock1Ptr->ownedPokeBalls[i];
         if (!pokeBallValue)
             break;
         gBagPocketPokeBalls[i].itemId = FIRST_BALL_INDEX + (pokeBallValue & 0x3F); // 0x3F = (1 << 6) - 1 (6 bits for ball id)
