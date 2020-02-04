@@ -68,6 +68,21 @@ RustboroCity_Mart_EventScript_BugCatcher:: @ 8214F86
 	msgbox RustboroCity_Mart_Text_GettingEscapeRopeJustInCase, MSGBOX_NPC
 	end
 
+RustboroCity_Mart_EventScript_FalseSwipeMan::
+	lock
+	faceplayer
+	checkitem ITEM_TM54, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq RustboroCity_Mart_EventScript_ReceivedFalseSwipe
+	msgbox RustboroCity_Mart_Text_LoweringHpIsEssential, MSGBOX_DEFAULT
+	giveitem_std ITEM_TM54
+	release
+	end
+
+RustboroCity_Mart_EventScript_ReceivedFalseSwipe::
+	msgbox RustboroCity_Mart_Text_ExplainFalseSwipe, MSGBOX_NPC
+	end
+
 RustboroCity_Mart_Text_SorryOutOfStock:
 	.string "Sorry, our special POKé BALLS\n"
 	.string "haven't been delivered yet…\p"
@@ -91,3 +106,14 @@ RustboroCity_Mart_Text_GettingEscapeRopeJustInCase: @ 821505C
 	.string "I just need to use it to get back to\n"
 	.string "the entrance.$"
 
+RustboroCity_Mart_Text_LoweringHpIsEssential:
+	.string "Lowering a wild POKéMON's HP increases\n"
+	.string "your chance of catching it a lot!\p"
+	.string "You can't catch a fainted POKéMON\n"
+	.string "though, so this TM helps a lot!$"
+
+RustboroCity_Mart_Text_ExplainFalseSwipe:
+	.string "TM54 contains FALSE SWIPE.\p"
+	.string "It leaves the target with at\n"
+	.string "least one HP.\p"
+	.string "It's perfect for catching POKéMON!$"
