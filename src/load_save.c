@@ -189,7 +189,7 @@ void LoadEventObjects(void)
         gEventObjects[i] = gSaveBlock1Ptr->eventObjects[i];
 }
 
-void SavePlayerTmsHms(void)
+void SaveSerializedItems(void)
 {
     int i;
     memset(gSaveBlock1Ptr->ownedTMsHMs, 0, sizeof(gSaveBlock1Ptr->ownedTMsHMs));
@@ -199,21 +199,42 @@ void SavePlayerTmsHms(void)
             break;
         else
         {
-            u16 tmNum = gBagPocketTMHM[i].itemId - ITEM_TM01;
+            u16 tmNum = gBagPocketTMHM[i].itemId - FIRST_TM_INDEX;
             gSaveBlock1Ptr->ownedTMsHMs[tmNum / 8] |= 1 << (tmNum % 8);
+        }
+    }
+    memset(gSaveBlock1Ptr->ownedBerries, 0, sizeof(gSaveBlock1Ptr->ownedBerries));
+    for (i = 0; i < BAG_BERRIES_COUNT; i++)
+    {
+        if (gBagPocketBerries[i].itemId == ITEM_NONE)
+            break;
+        else
+        {
+            u16 berryNum = gBagPocketBerries[i].itemId - FIRST_BERRY_INDEX;
+            gSaveBlock1Ptr->ownedBerries[berryNum] = gBagPocketBerries[i].quantity;
         }
     }
 }
 
-void LoadPlayerTmsHms(void)
+void LoadSerializedItems(void)
 {
     int i, j;
     for (i = 0, j = 0; i < BAG_TMHM_COUNT; i++)
     {
         if ((gSaveBlock1Ptr->ownedTMsHMs[i / 8] >> (i % 8)) & 1)
         {
-            gBagPocketTMHM[j].itemId = ITEM_TM01 + i;
+            gBagPocketTMHM[j].itemId = FIRST_TM_INDEX + i;
             gBagPocketTMHM[j].quantity = 1;
+            j++;
+        }
+    }
+    for (i = 0, j = 0; i < BAG_BERRIES_COUNT; i++)
+    {
+        u16 quantity = gSaveBlock1Ptr->ownedBerries[i];
+        if (quantity > 0)
+        {
+            gBagPocketBerries[j].itemId = FIRST_BERRY_INDEX + i;
+            gBagPocketBerries[j].quantity = quantity;
             j++;
         }
     }
@@ -223,14 +244,14 @@ void SaveSerializedGame(void)
 {
     SavePlayerParty();
     SaveEventObjects();
-    SavePlayerTmsHms();
+    SaveSerializedItems();
 }
 
 void LoadSerializedGame(void)
 {
     LoadPlayerParty();
     LoadEventObjects();
-    LoadPlayerTmsHms();
+    LoadSerializedItems();
 }
 
 void LoadPlayerBag(void)
@@ -256,7 +277,7 @@ void LoadPlayerBag(void)
 
     // load player berries.
     for (i = 0; i < BAG_BERRIES_COUNT; i++)
-        gLoadedSaveData.berries[i] = gSaveBlock1Ptr->bagPocket_Berries[i];
+        gLoadedSaveData.berries[i] = gBagPocketBerries[i];
 
     // load mail.
     for (i = 0; i < MAIL_COUNT; i++)
@@ -286,7 +307,7 @@ void SavePlayerBag(void)
 
     // save player berries.
     for (i = 0; i < BAG_BERRIES_COUNT; i++)
-        gSaveBlock1Ptr->bagPocket_Berries[i] = gLoadedSaveData.berries[i];
+        gBagPocketBerries[i] = gLoadedSaveData.berries[i];
 
     // save mail.
     for (i = 0; i < MAIL_COUNT; i++)

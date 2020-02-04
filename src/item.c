@@ -27,6 +27,7 @@ static bool8 CheckPyramidBagHasSpace(u16 itemId, u16 count);
 // EWRAM variables
 EWRAM_DATA struct BagPocket gBagPockets[POCKETS_COUNT] = {0};
 EWRAM_DATA struct ItemSlot gBagPocketTMHM[BAG_TMHM_COUNT] = {0};
+EWRAM_DATA struct ItemSlot gBagPocketBerries[BAG_BERRIES_COUNT] = {0};
 
 // rodata
 #include "data/text/item_descriptions.h"
@@ -47,7 +48,7 @@ void SetBagItemsPointers(void)
     gBagPockets[TMHM_POCKET].itemSlots = gBagPocketTMHM;
     gBagPockets[TMHM_POCKET].capacity = BAG_TMHM_COUNT;
 
-    gBagPockets[BERRIES_POCKET].itemSlots = gSaveBlock1Ptr->bagPocket_Berries;
+    gBagPockets[BERRIES_POCKET].itemSlots = gBagPocketBerries;
     gBagPockets[BERRIES_POCKET].capacity = BAG_BERRIES_COUNT;
 }
 

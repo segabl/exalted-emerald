@@ -929,7 +929,8 @@ struct SaveBlock1
     struct ItemSlot bagPocket_Items[BAG_ITEMS_COUNT];
     struct ItemSlot bagPocket_KeyItems[BAG_KEYITEMS_COUNT];
     struct ItemSlot bagPocket_PokeBalls[BAG_POKEBALLS_COUNT];
-    struct ItemSlot bagPocket_Berries[BAG_BERRIES_COUNT];
+    u16 ownedBerries[BAG_BERRIES_COUNT]; // 122
+    u8 oldBerryPadding[62]; // Remove when done with testing
     struct Pokeblock pokeblocks[POKEBLOCKS_COUNT];
     u8 ownedTMsHMs[TMHM_FLAGS_NO];
     u8 seen1[DEX_FLAGS_NO];
@@ -953,7 +954,7 @@ struct SaveBlock1
     u8 decorPoster[10];
     u8 decorDoll[40];
     u8 decorCushion[10];
-    u8 padding_27CA[2]; // TODO: Remove when done with testing
+    u8 padding_27CA[2];
     TVShow tvShows[TV_SHOWS_COUNT];
     PokeNews pokeNews[POKE_NEWS_COUNT];
     u16 outbreakPokemonSpecies;
@@ -989,7 +990,7 @@ struct SaveBlock1
     LilycoveLady lilycoveLady;
     struct TrainerNameRecord trainerNameRecords[20];
     u8 unk3C88[10][21];
-    u8 filler3D5A[0xA]; // TODO: Remove when done with testing
+    u8 filler3D5A[0xA];
     struct SaveTrainerHill trainerHill;
     struct WaldaPhrase waldaPhrase;
 }; // sizeof = 15320
