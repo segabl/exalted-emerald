@@ -2,6 +2,9 @@
 EventScript_CutTree:: @ 82906BB
 	lockall
 	goto_if_unset FLAG_BADGE01_GET, EventScript_CheckTreeCantCut
+	checkitem ITEM_HM01, 1
+	compare VAR_RESULT, FALSE
+	goto_if_eq EventScript_CheckTreeCantCut
 	checkpartytmhm ITEM_HM01
 	compare VAR_RESULT, PARTY_SIZE
 	goto_if_eq EventScript_CheckTreeCantCut
@@ -61,6 +64,9 @@ Text_CantCut: @ 829077D
 EventScript_RockSmash:: @ 82907A6
 	lockall
 	goto_if_unset FLAG_BADGE03_GET, EventScript_CantSmashRock
+	checkitem ITEM_HM06, 1
+	compare VAR_RESULT, FALSE
+	goto_if_eq EventScript_CantSmashRock
 	checkpartytmhm ITEM_HM06
 	compare VAR_RESULT, PARTY_SIZE
 	goto_if_eq EventScript_CantSmashRock
@@ -127,6 +133,9 @@ Text_CantSmash: @ 829087F
 EventScript_StrengthBoulder:: @ 82908BA
 	lockall
 	goto_if_unset FLAG_BADGE04_GET, EventScript_CantStrength
+	checkitem ITEM_HM04, 1
+	compare VAR_RESULT, FALSE
+	goto_if_eq EventScript_CantStrength
 	goto_if_set FLAG_SYS_USE_STRENGTH, EventScript_CheckActivatedBoulder
 	checkpartytmhm ITEM_HM04
 	compare VAR_RESULT, PARTY_SIZE
@@ -189,6 +198,9 @@ Text_StrengthActivated: @ 8290A16
 
 EventScript_UseWaterfall:: @ 8290A49
 	lockall
+	checkitem ITEM_HM05, 1
+	compare VAR_RESULT, FALSE
+	goto_if_eq EventScript_CantWaterfall
 	checkpartytmhm ITEM_HM05
 	compare VAR_RESULT, PARTY_SIZE
 	goto_if_eq EventScript_CantWaterfall
@@ -224,6 +236,9 @@ Text_MonUsedWaterfall: @ 8290AFC
 
 EventScript_UseDive:: @ 8290B0F
 	lockall
+	checkitem ITEM_HM07, 1
+	compare VAR_RESULT, FALSE
+	goto_if_eq EventScript_CantDive
 	checkpartytmhm ITEM_HM07
 	compare VAR_RESULT, PARTY_SIZE
 	goto_if_eq EventScript_CantDive
@@ -249,6 +264,9 @@ EventScript_EndDive:: @ 8290B58
 
 EventScript_UseDiveUnderwater:: @ 8290B5A
 	lockall
+	checkitem ITEM_HM07, 1
+	compare VAR_RESULT, FALSE
+	goto_if_eq EventScript_CantSurface
 	checkpartytmhm ITEM_HM07
 	compare VAR_RESULT, PARTY_SIZE
 	goto_if_eq EventScript_CantSurface

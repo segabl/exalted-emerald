@@ -2555,9 +2555,9 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
     }
 
     // Add HM field moves regardless of mon knowing it, it only has to be able to learn it
-    if (CanMonLearnTMHM(&mons[slotId], ITEM_HM01 - FIRST_TM_INDEX) && FlagGet(FLAG_BADGE01_GET) && k++ < MAX_MON_MOVES)
+    if (FlagGet(FLAG_BADGE01_GET) && CheckBagHasItem(ITEM_HM01, 1) && CanMonLearnTMHM(&mons[slotId], ITEM_HM01 - FIRST_TM_INDEX) && k++ < MAX_MON_MOVES)
         AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_FIELD_MOVES + FIELD_MOVE_CUT);
-    if (CanMonLearnTMHM(&mons[slotId], ITEM_HM02 - FIRST_TM_INDEX) && FlagGet(FLAG_BADGE06_GET) && k++ < MAX_MON_MOVES)
+    if (FlagGet(FLAG_BADGE06_GET) && CheckBagHasItem(ITEM_HM02, 1) && CanMonLearnTMHM(&mons[slotId], ITEM_HM02 - FIRST_TM_INDEX) && k++ < MAX_MON_MOVES)
         AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_FIELD_MOVES + FIELD_MOVE_FLY);
 
     if (!InBattlePike())

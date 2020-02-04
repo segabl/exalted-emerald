@@ -1,4 +1,7 @@
 EventScript_UseSurf:: @ 8271EA0
+	checkitem ITEM_HM03, 1
+	compare VAR_RESULT, FALSE
+	goto_if_eq EventScript_EndUseSurf
 	checkpartytmhm ITEM_HM03
 	compare VAR_RESULT, PARTY_SIZE
 	goto_if_eq EventScript_EndUseSurf

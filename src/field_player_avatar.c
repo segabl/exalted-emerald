@@ -8,6 +8,7 @@
 #include "field_effect_helpers.h"
 #include "field_player_avatar.h"
 #include "fieldmap.h"
+#include "item.h"
 #include "menu.h"
 #include "metatile_behavior.h"
 #include "overworld.h"
@@ -1285,7 +1286,7 @@ bool8 PartyHasMonWithSurf(void)
 {
     u8 i;
 
-    if (!TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
+    if (!TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING) && CheckBagHasItem(ITEM_HM03, 1))
     {
         for (i = 0; i < PARTY_SIZE; i++)
         {
