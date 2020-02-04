@@ -927,15 +927,11 @@ struct SaveBlock1
     u16 registeredItem; // registered for use with SELECT button
     struct ItemSlot pcItems[PC_ITEMS_COUNT];
     struct ItemSlot bagPocket_Items[BAG_ITEMS_COUNT];
-    u8 ownedKeyItems[BAG_KEYITEMS_COUNT]; // 30
-    u8 oldKeyItemsPadding[90]; // Remove when done with testing
-    u16 ownedPokeBalls[BAG_POKEBALLS_COUNT]; // 52
-    u8 oldPokeBallPadding[12]; // Remove when done with testing;
-    u16 ownedBerries[BAG_BERRIES_COUNT]; // 122
-    u8 oldBerryPadding[62]; // Remove when done with testing
-    struct Pokeblock pokeblocks[POKEBLOCKS_COUNT];
+    u16 ownedPokeBalls[BAG_POKEBALLS_COUNT];
     u8 ownedTMsHMs[TMHM_FLAGS_NO];
-    u8 seen1[DEX_FLAGS_NO]; // Remove when done with testing
+    u16 ownedBerries[BAG_BERRIES_COUNT];
+    u8 ownedKeyItems[BAG_KEYITEMS_COUNT];
+    struct Pokeblock pokeblocks[POKEBLOCKS_COUNT];
     u16 berryBlenderRecords[3];
     u16 trainerRematchStepCounter;
     u8 trainerRematches[MAX_REMATCH_ENTRIES];
@@ -988,14 +984,13 @@ struct SaveBlock1
     u32 trainerHillTimes[4];
     struct RamScript ramScript;
     struct RecordMixingGift recordMixingGift;
-    u8 seen2[DEX_FLAGS_NO]; // Remove when done with testing
     LilycoveLady lilycoveLady;
     struct TrainerNameRecord trainerNameRecords[20];
     u8 unk3C88[10][21];
     u8 filler3D5A[0xA];
     struct SaveTrainerHill trainerHill;
     struct WaldaPhrase waldaPhrase;
-}; // sizeof = 15320
+}; // size = 14992
 
 extern struct SaveBlock1* gSaveBlock1Ptr;
 

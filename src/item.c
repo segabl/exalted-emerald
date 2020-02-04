@@ -26,10 +26,10 @@ static bool8 CheckPyramidBagHasSpace(u16 itemId, u16 count);
 
 // EWRAM variables
 EWRAM_DATA struct BagPocket gBagPockets[POCKETS_COUNT] = {0};
+EWRAM_DATA struct ItemSlot gBagPocketPokeBalls[BAG_KEYITEMS_COUNT] = {0};
 EWRAM_DATA struct ItemSlot gBagPocketTMHM[BAG_TMHM_COUNT] = {0};
 EWRAM_DATA struct ItemSlot gBagPocketBerries[BAG_BERRIES_COUNT] = {0};
 EWRAM_DATA struct ItemSlot gBagPocketKeyItems[BAG_KEYITEMS_COUNT] = {0};
-EWRAM_DATA struct ItemSlot gBagPocketPokeBalls[BAG_KEYITEMS_COUNT] = {0};
 
 // rodata
 #include "data/text/item_descriptions.h"
