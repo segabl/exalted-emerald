@@ -933,7 +933,7 @@ struct SaveBlock1
     u8 oldBerryPadding[62]; // Remove when done with testing
     struct Pokeblock pokeblocks[POKEBLOCKS_COUNT];
     u8 ownedTMsHMs[TMHM_FLAGS_NO];
-    u8 seen1[DEX_FLAGS_NO];
+    u8 seen1[DEX_FLAGS_NO]; // Remove when done with testing
     u16 berryBlenderRecords[3];
     u16 trainerRematchStepCounter;
     u8 trainerRematches[MAX_REMATCH_ENTRIES];
@@ -986,7 +986,7 @@ struct SaveBlock1
     u32 trainerHillTimes[4];
     struct RamScript ramScript;
     struct RecordMixingGift recordMixingGift;
-    u8 seen2[DEX_FLAGS_NO];
+    u8 seen2[DEX_FLAGS_NO]; // Remove when done with testing
     LilycoveLady lilycoveLady;
     struct TrainerNameRecord trainerNameRecords[20];
     u8 unk3C88[10][21];

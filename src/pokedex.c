@@ -1269,8 +1269,6 @@ void ResetPokedex(void)
     {
         gSaveBlock2Ptr->pokedex.owned[i] = 0;
         gSaveBlock2Ptr->pokedex.seen[i] = 0;
-        gSaveBlock1Ptr->seen1[i] = 0;
-        gSaveBlock1Ptr->seen2[i] = 0;
     }
 }
 
@@ -4293,60 +4291,22 @@ u16 GetPokedexHeightWeight(u16 dexNum, u8 data)
 
 s8 GetSetPokedexFlag(u16 nationalDexNo, u8 caseID)
 {
-    u8 index;
-    u8 bit;
-    u8 mask;
-    s8 retVal;
-
-    nationalDexNo--;
-    index = nationalDexNo / 8;
-    bit = nationalDexNo % 8;
-    mask = 1 << bit;
-    retVal = 0;
+    u8 index = --nationalDexNo / 8;
+    u8 bit = nationalDexNo % 8;
+    u8 mask = 1 << bit;
     switch (caseID)
     {
     case FLAG_GET_SEEN:
-        if (gSaveBlock2Ptr->pokedex.seen[index] & mask)
-        {
-            if ((gSaveBlock2Ptr->pokedex.seen[index] & mask) == (gSaveBlock1Ptr->seen1[index] & mask)
-             && (gSaveBlock2Ptr->pokedex.seen[index] & mask) == (gSaveBlock1Ptr->seen2[index] & mask))
-                retVal = 1;
-            else
-            {
-                gSaveBlock2Ptr->pokedex.seen[index] &= ~mask;
-                gSaveBlock1Ptr->seen1[index] &= ~mask;
-                gSaveBlock1Ptr->seen2[index] &= ~mask;
-                retVal = 0;
-            }
-        }
-        break;
+        return (gSaveBlock2Ptr->pokedex.seen[index] & mask) ? 1 : 0;
     case FLAG_GET_CAUGHT:
-        if (gSaveBlock2Ptr->pokedex.owned[index] & mask)
-        {
-            if ((gSaveBlock2Ptr->pokedex.owned[index] & mask) == (gSaveBlock2Ptr->pokedex.seen[index] & mask)
-             && (gSaveBlock2Ptr->pokedex.owned[index] & mask) == (gSaveBlock1Ptr->seen1[index] & mask)
-             && (gSaveBlock2Ptr->pokedex.owned[index] & mask) == (gSaveBlock1Ptr->seen2[index] & mask))
-                retVal = 1;
-            else
-            {
-                gSaveBlock2Ptr->pokedex.owned[index] &= ~mask;
-                gSaveBlock2Ptr->pokedex.seen[index] &= ~mask;
-                gSaveBlock1Ptr->seen1[index] &= ~mask;
-                gSaveBlock1Ptr->seen2[index] &= ~mask;
-                retVal = 0;
-            }
-        }
-        break;
+        return (gSaveBlock2Ptr->pokedex.owned[index] & mask) ? 1 : 0;
     case FLAG_SET_SEEN:
         gSaveBlock2Ptr->pokedex.seen[index] |= mask;
-        gSaveBlock1Ptr->seen1[index] |= mask;
-        gSaveBlock1Ptr->seen2[index] |= mask;
-        break;
+        return 0;
     case FLAG_SET_CAUGHT:
         gSaveBlock2Ptr->pokedex.owned[index] |= mask;
-        break;
+        return 0;
     }
-    return retVal;
 }
 
 u16 GetNationalPokedexCount(u8 caseID)
