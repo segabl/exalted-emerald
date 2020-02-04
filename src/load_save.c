@@ -221,6 +221,18 @@ void SaveSerializedItems(void)
             break;
         gSaveBlock1Ptr->ownedKeyItems[i] = gBagPocketKeyItems[i].itemId - FIRST_KEY_ITEM_INDEX;
     }
+    memset(gSaveBlock1Ptr->ownedPokeBalls, 0, sizeof(gSaveBlock1Ptr->ownedPokeBalls));
+    for (i = 0; i < BAG_POKEBALLS_COUNT; i++)
+    {
+        if (gBagPocketPokeBalls[i].itemId == ITEM_NONE)
+            break;
+        else
+        {
+            u16 ballId = gBagPocketPokeBalls[i].itemId - FIRST_BALL_INDEX;
+            u16 quantity = gBagPocketPokeBalls[i].quantity;
+            gSaveBlock1Ptr->ownedPokeBalls[i] = ballId | (quantity << 6); // quantity can be 999 at max, only needs 10 bit
+        }
+    }
 }
 
 void LoadSerializedItems(void)
@@ -253,6 +265,14 @@ void LoadSerializedItems(void)
         gBagPocketKeyItems[i].itemId = FIRST_KEY_ITEM_INDEX + keyItemNum;
         gBagPocketKeyItems[i].quantity = 1;
     }
+    for (i = 0; i < BAG_POKEBALLS_COUNT; i++)
+    {
+        u16 pokeBallValue = i | gSaveBlock1Ptr->ownedPokeBalls[i];
+        if (!pokeBallValue)
+            break;
+        gBagPocketPokeBalls[i].itemId = FIRST_BALL_INDEX + (pokeBallValue & 0x3F); // 0x3F = (1 << 6) - 1 (6 bits for ball id)
+        gBagPocketPokeBalls[i].quantity = pokeBallValue >> 6;
+    }
 }
 
 void SaveSerializedGame(void)
@@ -284,7 +304,7 @@ void LoadPlayerBag(void)
 
     // load player pokeballs.
     for (i = 0; i < BAG_POKEBALLS_COUNT; i++)
-        gLoadedSaveData.pokeBalls[i] = gSaveBlock1Ptr->bagPocket_PokeBalls[i];
+        gLoadedSaveData.pokeBalls[i] = gBagPocketPokeBalls[i];
 
     // load player TMs and HMs.
     for (i = 0; i < BAG_TMHM_COUNT; i++)
@@ -314,7 +334,7 @@ void SavePlayerBag(void)
 
     // save player pokeballs.
     for (i = 0; i < BAG_POKEBALLS_COUNT; i++)
-        gSaveBlock1Ptr->bagPocket_PokeBalls[i] = gLoadedSaveData.pokeBalls[i];
+        gBagPocketPokeBalls[i] = gLoadedSaveData.pokeBalls[i];
 
     // save player TMs and HMs.
     for (i = 0; i < BAG_TMHM_COUNT; i++)

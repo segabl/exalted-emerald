@@ -30,8 +30,8 @@
 #define ITEM_SPORT_BALL 23
 #define ITEM_PARK_BALL 24
 #define ITEM_DREAM_BALL 25
-#define ITEM_BEAST_BALL 26
-#define ITEM_PREMIER_BALL 27
+#define ITEM_PREMIER_BALL 26
+#define ITEM_BEAST_BALL 27
 #define LAST_BALL_INDEX 27
 
 // Medicine

@@ -29,6 +29,7 @@ EWRAM_DATA struct BagPocket gBagPockets[POCKETS_COUNT] = {0};
 EWRAM_DATA struct ItemSlot gBagPocketTMHM[BAG_TMHM_COUNT] = {0};
 EWRAM_DATA struct ItemSlot gBagPocketBerries[BAG_BERRIES_COUNT] = {0};
 EWRAM_DATA struct ItemSlot gBagPocketKeyItems[BAG_KEYITEMS_COUNT] = {0};
+EWRAM_DATA struct ItemSlot gBagPocketPokeBalls[BAG_KEYITEMS_COUNT] = {0};
 
 // rodata
 #include "data/text/item_descriptions.h"
@@ -43,7 +44,7 @@ void SetBagItemsPointers(void)
     gBagPockets[KEYITEMS_POCKET].itemSlots = gBagPocketKeyItems;
     gBagPockets[KEYITEMS_POCKET].capacity = BAG_KEYITEMS_COUNT;
 
-    gBagPockets[BALLS_POCKET].itemSlots = gSaveBlock1Ptr->bagPocket_PokeBalls;
+    gBagPockets[BALLS_POCKET].itemSlots = gBagPocketPokeBalls;
     gBagPockets[BALLS_POCKET].capacity = BAG_POKEBALLS_COUNT;
 
     gBagPockets[TMHM_POCKET].itemSlots = gBagPocketTMHM;
@@ -238,18 +239,12 @@ bool8 AddBagItem(u16 itemId, u16 count)
                 {
                     // successfully added to already existing item's count
                     newItems[i].quantity = ownedCount + count;
-
-                    // goto SUCCESS_ADD_ITEM;
-                    // is equivalent but won't match
-
-                    memcpy(itemPocket->itemSlots, newItems, itemPocket->capacity * sizeof(struct ItemSlot));
-                    Free(newItems);
-                    return TRUE;
+                    goto SUCCESS_ADD_ITEM;
                 }
                 else
                 {
                     // try creating another instance of the item if possible
-                    if (pocket == TMHM_POCKET || pocket == BERRIES_POCKET)
+                    if (pocket != ITEMS_POCKET)
                     {
                         Free(newItems);
                         return FALSE;
@@ -280,7 +275,7 @@ bool8 AddBagItem(u16 itemId, u16 count)
                     if (count > ITEM_SLOT_CAPACITY)
                     {
                         // try creating a new slot with max capacity if duplicates are possible
-                        if (pocket == TMHM_POCKET || pocket == BERRIES_POCKET)
+                        if (pocket != ITEMS_POCKET)
                         {
                             Free(newItems);
                             return FALSE;

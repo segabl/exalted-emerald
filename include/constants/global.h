@@ -43,7 +43,7 @@
 #define PC_ITEMS_COUNT 50
 #define BAG_ITEMS_COUNT 30
 #define BAG_KEYITEMS_COUNT 30
-#define BAG_POKEBALLS_COUNT 16
+#define BAG_POKEBALLS_COUNT 26
 #define BAG_TMHM_COUNT 107
 #define BAG_BERRIES_COUNT 61 // last 6 berries aren't fully implemented
 #define EVENT_OBJECT_TEMPLATES_COUNT 64

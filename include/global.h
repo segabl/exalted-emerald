@@ -929,7 +929,8 @@ struct SaveBlock1
     struct ItemSlot bagPocket_Items[BAG_ITEMS_COUNT];
     u8 ownedKeyItems[BAG_KEYITEMS_COUNT]; // 30
     u8 oldKeyItemsPadding[90]; // Remove when done with testing
-    struct ItemSlot bagPocket_PokeBalls[BAG_POKEBALLS_COUNT];
+    u16 ownedPokeBalls[BAG_POKEBALLS_COUNT]; // 52
+    u8 oldPokeBallPadding[12]; // Remove when done with testing;
     u16 ownedBerries[BAG_BERRIES_COUNT]; // 122
     u8 oldBerryPadding[62]; // Remove when done with testing
     struct Pokeblock pokeblocks[POKEBLOCKS_COUNT];
