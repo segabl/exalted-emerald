@@ -24,20 +24,13 @@
       "movement_range_y": 1,
       "trainer_type": "0",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0x0",
+      "script": "BattleFrontier_Lounge9_EventScript_SwaggerGirl",
       "flag": "0"
     }
   ],
   "warp_events": [
     {
-      "x": 1,
-      "y": 9,
-      "elevation": 0,
-      "dest_map": "MAP_BATTLE_FRONTIER_OUTSIDE_EAST",
-      "dest_warp_id": 11
-    },
-    {
-      "x": 2,
+      "x": 4,
       "y": 9,
       "elevation": 0,
       "dest_map": "MAP_BATTLE_FRONTIER_OUTSIDE_EAST",
