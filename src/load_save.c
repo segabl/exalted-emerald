@@ -214,6 +214,13 @@ void SaveSerializedItems(void)
             gSaveBlock1Ptr->ownedBerries[berryNum] = gBagPocketBerries[i].quantity;
         }
     }
+    memset(gSaveBlock1Ptr->ownedKeyItems, 0xFF, sizeof(gSaveBlock1Ptr->ownedKeyItems));
+    for (i = 0; i < BAG_KEYITEMS_COUNT; i++)
+    {
+        if (gBagPocketKeyItems[i].itemId == ITEM_NONE)
+            break;
+        gSaveBlock1Ptr->ownedKeyItems[i] = gBagPocketKeyItems[i].itemId - FIRST_KEY_ITEM_INDEX;
+    }
 }
 
 void LoadSerializedItems(void)
@@ -237,6 +244,14 @@ void LoadSerializedItems(void)
             gBagPocketBerries[j].quantity = quantity;
             j++;
         }
+    }
+    for (i = 0; i < BAG_KEYITEMS_COUNT; i++)
+    {
+        u8 keyItemNum = gSaveBlock1Ptr->ownedKeyItems[i];
+        if (keyItemNum == 0xFF)
+            break;
+        gBagPocketKeyItems[i].itemId = FIRST_KEY_ITEM_INDEX + keyItemNum;
+        gBagPocketKeyItems[i].quantity = 1;
     }
 }
 
@@ -265,7 +280,7 @@ void LoadPlayerBag(void)
 
     // load player key items.
     for (i = 0; i < BAG_KEYITEMS_COUNT; i++)
-        gLoadedSaveData.keyItems[i] = gSaveBlock1Ptr->bagPocket_KeyItems[i];
+        gLoadedSaveData.keyItems[i] = gBagPocketKeyItems[i];
 
     // load player pokeballs.
     for (i = 0; i < BAG_POKEBALLS_COUNT; i++)
@@ -295,7 +310,7 @@ void SavePlayerBag(void)
 
     // save player key items.
     for (i = 0; i < BAG_KEYITEMS_COUNT; i++)
-        gSaveBlock1Ptr->bagPocket_KeyItems[i] = gLoadedSaveData.keyItems[i];
+        gBagPocketKeyItems[i] = gLoadedSaveData.keyItems[i];
 
     // save player pokeballs.
     for (i = 0; i < BAG_POKEBALLS_COUNT; i++)

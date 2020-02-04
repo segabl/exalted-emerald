@@ -927,7 +927,8 @@ struct SaveBlock1
     u16 registeredItem; // registered for use with SELECT button
     struct ItemSlot pcItems[PC_ITEMS_COUNT];
     struct ItemSlot bagPocket_Items[BAG_ITEMS_COUNT];
-    struct ItemSlot bagPocket_KeyItems[BAG_KEYITEMS_COUNT];
+    u8 ownedKeyItems[BAG_KEYITEMS_COUNT]; // 30
+    u8 oldKeyItemsPadding[90]; // Remove when done with testing
     struct ItemSlot bagPocket_PokeBalls[BAG_POKEBALLS_COUNT];
     u16 ownedBerries[BAG_BERRIES_COUNT]; // 122
     u8 oldBerryPadding[62]; // Remove when done with testing

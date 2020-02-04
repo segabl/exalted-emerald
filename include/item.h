@@ -32,6 +32,7 @@ struct BagPocket
 extern struct BagPocket gBagPockets[];
 extern struct ItemSlot gBagPocketTMHM[];
 extern struct ItemSlot gBagPocketBerries[];
+extern struct ItemSlot gBagPocketKeyItems[];
 
 void SetBagItemsPointers(void);
 void CopyItemName(u16 itemId, u8 *dst);
