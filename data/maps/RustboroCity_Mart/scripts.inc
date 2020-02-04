@@ -107,10 +107,10 @@ RustboroCity_Mart_Text_GettingEscapeRopeJustInCase: @ 821505C
 	.string "the entrance.$"
 
 RustboroCity_Mart_Text_LoweringHpIsEssential:
-	.string "Lowering a wild POKéMON's HP increases\n"
-	.string "your chance of catching it a lot!\p"
+	.string "Lowering the HP of a wild POKéMON\n"
+	.string "increases your chance of catching it.\p"
 	.string "You can't catch a fainted POKéMON\n"
-	.string "though, so this TM helps a lot!$"
+	.string "though, so this TM comes in handy!$"
 
 RustboroCity_Mart_Text_ExplainFalseSwipe:
 	.string "TM54 contains FALSE SWIPE.\p"
