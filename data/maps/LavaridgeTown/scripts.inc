@@ -314,6 +314,41 @@ LavaridgeTown_EventScript_BlackbeltExplainSwordsDance::
 	release
 	end
 
+LavaridgeTown_EventScript_Kid::
+	goto_if_unset FLAG_BADGE04_GET, LavaridgeTown_EventScript_KidFlanneryIsStrong
+	lock
+	faceplayer
+	checkitem ITEM_TM96, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq LavaridgeTown_EventScript_ReceivedNaturePower
+	msgbox LavaridgeTown_Text_YouBeatFlannery, MSGBOX_DEFAULT
+	giveitem_std ITEM_TM96
+	release
+	end
+
+LavaridgeTown_EventScript_KidFlanneryIsStrong::
+	msgbox LavaridgeTown_Text_FlanneryIsStrong, MSGBOX_NPC
+	end
+
+LavaridgeTown_EventScript_ReceivedNaturePower::
+	msgbox LavaridgeTown_Text_ExplainNaturePower, MSGBOX_NPC
+	end
+
+LavaridgeTown_Text_FlanneryIsStrong:
+	.string "FLANNERY is so strong!\p"
+	.string "And she's only been GYM LEADER\n"
+	.string "for a very short time!$"
+
+LavaridgeTown_Text_ExplainNaturePower:
+	.string "TM96 contains NATURE POWER.\p"
+	.string "It changes to a different MOVE\n"
+	.string "depending on where you use it!$"
+
+LavaridgeTown_Text_YouBeatFlannery:
+	.string "Wow, you beat FLANNERY?\p"
+	.string "You must be even stronger than her!\p"
+	.string "Here, you can have this TM!$"
+
 LavaridgeTown_Text_GotWhatItTakes:
 	.string "Hey kid!\p"
 	.string "You think you got what it takes\n"
@@ -462,4 +497,3 @@ LavaridgeTown_Text_GymSign: @ 81EB178
 LavaridgeTown_Text_HerbShopSign: @ 81EB1CB
 	.string "POKéMON HERB SHOP\n"
 	.string "“Bitter taste--better cure!”$"
-

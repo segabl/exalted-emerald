@@ -220,8 +220,21 @@
             "script": "LavaridgeTown_EventScript_Blackbelt",
             "trainer_sight_or_berry_tree_id": "0",
             "trainer_type": "0",
-            "x": 14,
+            "x": 12,
             "y": 6
+        },
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_LITTLE_BOY",
+            "movement_range_x": 1,
+            "movement_range_y": 1,
+            "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+            "script": "LavaridgeTown_EventScript_Kid",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 3,
+            "y": 16
         }
     ],
     "region_map_section": "MAPSEC_LAVARIDGE_TOWN",
