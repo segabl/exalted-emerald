@@ -9,6 +9,8 @@
 #define WILD_DOUBLE_CHANCE      20 // 1 in X chance for a wild double ancounter
 #define WILD_DOUBLE_HA_CHANCE   10 // 1 in X chance for a mon to have its hidden ability in a double encounter
 
+#define NUM_ALTERING_CAVE_SETS 9
+
 struct WildPokemon
 {
     u8 minLevel;

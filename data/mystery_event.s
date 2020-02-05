@@ -21,5 +21,4 @@
 	.include "data/scripts/mevent_battle_card.inc"
 	.include "data/scripts/mevent_aurora_ticket.inc"
 	.include "data/scripts/mevent_mystic_ticket.inc"
-	.include "data/scripts/mevent_altering_cave.inc"
 	.include "data/scripts/mevent_old_sea_map.inc"

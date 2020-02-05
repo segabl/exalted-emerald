@@ -9,7 +9,6 @@ Absol
   Route 120
 
 Aipom
-  Altering Cave 6
   Safari Zone Northeast
 
 Altaria
@@ -56,6 +55,9 @@ Barboach
 Bellsprout
   Safari Zone Northwest
 
+Bulbasaur
+  Altering Cave 1
+
 Cacnea
   Route 111
 
@@ -71,6 +73,12 @@ Caterpie
 
 Chansey
   Safari Zone Northeast
+
+Charmander
+  Altering Cave 2
+
+Chikorita
+  Altering Cave 4
 
 Chimecho
   Mt Pyre Summit
@@ -110,6 +118,9 @@ Corsola
 
 Cubone
   Safari Zone North
+
+Cyndaquil
+  Altering Cave 5
 
 Delibird
   Shoal Cave Low Tide Ice Room
@@ -323,7 +334,6 @@ Horsea
   Route 134 (Fishing)
 
 Houndour
-  Altering Cave 4
   Route 113
   Safari Zone Northeast
 
@@ -487,7 +497,6 @@ Mantine
   Safari Zone Southwest (Surf)
 
 Mareep
-  Altering Cave 2
   Route 110
   Route 118
   Safari Zone Southeast
@@ -547,6 +556,9 @@ Misdreavus
 
 Mr_Mime
   Route 123
+
+Mudkip
+  Altering Cave 9
 
 Murkrow
   Mt Pyre Exterior
@@ -643,7 +655,6 @@ Pikachu
   Safari Zone Southwest
 
 Pineco
-  Altering Cave 3
   Safari Zone Northeast
 
 Pinsir
@@ -782,7 +793,6 @@ Shroomish
   Petalburg Woods
 
 Shuckle
-  Altering Cave 7
   Route 115 (Rock Smash)
   Safari Zone Northeast (Rock Smash)
 
@@ -822,7 +832,6 @@ Slugma
   Route 113
 
 Smeargle
-  Altering Cave 9
   Artisan Cave 1F
   Artisan Cave B1F
 
@@ -870,8 +879,10 @@ Spinda
 Spoink
   Jagged Pass
 
+Squirtle
+  Altering Cave 3
+
 Stantler
-  Altering Cave 8
   Safari Zone Southeast
 
 Staryu
@@ -917,7 +928,6 @@ Tauros
   Safari Zone North
 
 Teddiursa
-  Altering Cave 5
   Safari Zone Northeast
 
 Tentacool
@@ -1003,6 +1013,9 @@ Tentacruel
   Abandoned Ship Rooms B1F (Surf)
   Abandoned Ship Rooms B1F (Fishing)
 
+Torchic
+  Altering Cave 8
+
 Torkoal
   Fiery Path
   Magma Hideout 1F
@@ -1014,12 +1027,18 @@ Torkoal
   Magma Hideout 3F 3R
   Magma Hideout 4F
 
+Totodile
+  Altering Cave 6
+
 Trapinch
   Mirage Tower 1F
   Mirage Tower 2F
   Mirage Tower 3F
   Mirage Tower 4F
   Route 111
+
+Treecko
+  Altering Cave 7
 
 Tropius
   Route 119
@@ -1174,7 +1193,6 @@ Zigzagoon
   Safari Zone South
 
 Zubat
-  Altering Cave 1
   Cave Of Origin 1F
   Cave Of Origin Entrance
   Cave Of Origin Unused Ruby Sapphire Map 1

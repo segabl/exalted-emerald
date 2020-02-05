@@ -16,7 +16,7 @@ For DizzyEgg's modifications, check out <https://github.com/DizzyEggg/pokeemeral
 - Adds a chance for wild double battles (using sweet scent causes wild encounters to always be double battles)
 - Adds hidden abilities (Pokémon with HA can be found in the safari zone or rarely in wild double battles)
 - Updates EXP mechanics (All Pokémon part of the battle receive full EXP)
-- Makes all regular Pokémon obtainable (legendaries and starters to be done)
+- Makes all regular Pokémon obtainable (legendaries to be done)
 - Improves AI code to allow AI to predict moves and switch Pokémon if appropriate
 - Increases rematchable trainers' party sizes and levels over time
 - Changes HM mechanics: Pokémon don't have to learn the HM to use it, they just have to be compatible

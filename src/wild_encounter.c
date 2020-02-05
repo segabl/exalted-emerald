@@ -288,10 +288,7 @@ static u16 GetCurrentMapWildMonHeaderId(void)
             if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ALTERING_CAVE) &&
                 gSaveBlock1Ptr->location.mapNum == MAP_NUM(ALTERING_CAVE))
             {
-                u16 alteringCaveId = VarGet(VAR_ALTERING_CAVE_WILD_SET);
-                if (alteringCaveId > 8)
-                    alteringCaveId = 0;
-
+                u16 alteringCaveId = VarGet(VAR_ALTERING_CAVE_RND) % NUM_ALTERING_CAVE_SETS;
                 i += alteringCaveId;
             }
 

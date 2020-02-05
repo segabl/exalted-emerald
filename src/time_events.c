@@ -147,3 +147,14 @@ void UpdateBirchState(u16 days)
     *state += days;
     *state %= 7;
 }
+
+void UpdateAlteringCaveRnd(u16 days)
+{
+    s32 rnd = VarGet(VAR_ALTERING_CAVE_RND);
+    while (days)
+    {
+        rnd = 1103515245 * rnd + 12345;
+        days--;
+    }
+    VarSet(VAR_ALTERING_CAVE_RND, rnd);
+}
