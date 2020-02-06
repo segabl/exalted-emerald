@@ -13,12 +13,12 @@
 #include "constants/maps.h"
 #include "constants/mirage_locations.h"
 
-static const u16 sMirageLocationMappings[][3] = {
-    [MIRAGE_LOCATION_NONE] = {MAP_GROUP(NONE), MAP_NUM(NONE), FALSE}, // map group, map number, only water mon cries if mirage is not present
-    [MIRAGE_LOCATION_ROUTE_106] = {MAP_GROUP(ROUTE106), MAP_NUM(ROUTE106), TRUE},
-    [MIRAGE_LOCATION_ROUTE_114] = {MAP_GROUP(ROUTE114), MAP_NUM(ROUTE114), FALSE},
-    [MIRAGE_LOCATION_ROUTE_125] = {MAP_GROUP(ROUTE125), MAP_NUM(ROUTE125), TRUE},
-    [MIRAGE_LOCATION_ROUTE_130] = {MAP_GROUP(ROUTE130), MAP_NUM(ROUTE130), TRUE},
+static const u16 sMirageLocationMappings[][4] = {
+    {MIRAGE_LOCATION_ROUTE_106,     MAP_GROUP(ROUTE106),      MAP_NUM(ROUTE106), TRUE},
+    {MIRAGE_LOCATION_ROUTE_114,     MAP_GROUP(ROUTE114),      MAP_NUM(ROUTE114), FALSE},
+    {MIRAGE_LOCATION_LILYCOVE_CITY, MAP_GROUP(LILYCOVE_CITY), MAP_NUM(LILYCOVE_CITY), FALSE},
+    {MIRAGE_LOCATION_ROUTE_125,     MAP_GROUP(ROUTE125),      MAP_NUM(ROUTE125), TRUE},
+    {MIRAGE_LOCATION_ROUTE_130,     MAP_GROUP(ROUTE130),      MAP_NUM(ROUTE130), TRUE},
 };
 
 static u32 GetMirageRnd(void)
@@ -56,11 +56,16 @@ u8 GetCurrentMirageLocation(void)
 
 void BufferCurrentMirageLocationName(void)
 {
+    u8 i;
     u8 location = GetCurrentMirageLocation();
-    if (location != MIRAGE_LOCATION_NONE)
+    for (i = 0; i < ARRAY_COUNT(sMirageLocationMappings); i++)
     {
-        u8 mapSecId = Overworld_GetMapHeaderByGroupAndId(sMirageLocationMappings[location][0], sMirageLocationMappings[location][1])->regionMapSectionId;
-        StringCopy(gStringVar1, gRegionMapEntries[mapSecId].name);
+        if (sMirageLocationMappings[i][0] == location)
+        {
+            u8 mapSecId = Overworld_GetMapHeaderByGroupAndId(sMirageLocationMappings[i][1], sMirageLocationMappings[i][2])->regionMapSectionId;
+            StringCopy(gStringVar1, gRegionMapEntries[mapSecId].name);
+            return;
+        }
     }
 }
 
@@ -68,15 +73,15 @@ bool8 MirageLocationOnlyDoWaterMonCries()
 {
     u8 i;
     u8 location = GetCurrentMirageLocation();
-    for (i = 1; i <= NUM_MIRAGE_LOCATIONS; i++)
+    for (i = 0; i < ARRAY_COUNT(sMirageLocationMappings); i++)
     {
-        if (gSaveBlock1Ptr->location.mapGroup == sMirageLocationMappings[i][0]
-        && gSaveBlock1Ptr->location.mapNum == sMirageLocationMappings[i][1])
+        if (gSaveBlock1Ptr->location.mapGroup == sMirageLocationMappings[i][1]
+        && gSaveBlock1Ptr->location.mapNum == sMirageLocationMappings[i][2])
         {
-            if (location == i)
+            if (location == sMirageLocationMappings[i][0])
                 return FALSE;
             else
-                return sMirageLocationMappings[i][2];
+                return sMirageLocationMappings[i][3];
         }
     }
     return FALSE;

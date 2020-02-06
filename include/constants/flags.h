@@ -1234,8 +1234,8 @@
 #define FLAG_ITEM_FORTREE_CITY_TM86                                 0x495
 #define FLAG_ITEM_MAGMA_HIDEOUT_3F_2R_TM97                          0x496
 #define FLAG_ITEM_ROUTE_114_MIRAGE_CAVE_TM95                        0x497
+#define FLAG_ITEM_LILICOVE_CITY_MIRAGE_MOUNTAIN_TM84                0x498
 
-#define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
 #define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
 #define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag
 #define FLAG_UNUSED_0x49B                                           0x49B // Unused Flag

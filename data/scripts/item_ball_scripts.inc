@@ -334,6 +334,10 @@ LilycoveCity_EventScript_ItemMaxRepel:: @ 82910E8
 	finditem_std ITEM_MAX_REPEL
 	end
 
+LilycoveCity_MirageMountain_EventScript_ItemTM84::
+	finditem_std ITEM_TM84
+	end
+
 MossdeepCity_EventScript_ItemNetBall:: @ 82910F5
 	finditem_std ITEM_NET_BALL
 	end

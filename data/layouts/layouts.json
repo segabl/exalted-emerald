@@ -4469,6 +4469,16 @@
             "primary_tileset": "gTileset_General",
             "secondary_tileset": "gTileset_MeteorFalls",
             "width": 20
+        },
+        {
+            "blockdata_filepath": "data/layouts/LilycoveCity_MirageMountain/map.bin",
+            "border_filepath": "data/layouts/LilycoveCity_MirageMountain/border.bin",
+            "height": 30,
+            "id": "LAYOUT_LILYCOVE_CITY_MIRAGE_MOUNTAIN",
+            "name": "LilycoveCity_MirageMountain_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_Lilycove",
+            "width": 44
         }
     ],
     "layouts_table_label": "gMapLayouts"

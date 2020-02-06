@@ -833,6 +833,9 @@ void LoadMapFromCameraTransition(u8 mapGroup, u8 mapNum)
     ResetFieldTasksArgs();
     RunOnResumeMapScript();
 
+    if (!SHOW_MAP_NAME_ENABLED)
+        return;
+
     if (gMapHeader.regionMapSectionId != MAPSEC_BATTLE_FRONTIER || gMapHeader.regionMapSectionId != sLastMapSectionId)
         ShowMapNamePopup();
 }

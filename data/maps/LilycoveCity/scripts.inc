@@ -13,6 +13,9 @@ LilycoveCity_OnTransition: @ 81E2B47
 
 LilycoveCity_OnLoad: @ 81E2B61
 	call_if_unset FLAG_TEAM_AQUA_ESCAPED_IN_SUBMARINE, LilycoveCity_EventScript_SetWailmerMetatiles
+	specialvar VAR_RESULT, GetCurrentMirageLocation
+	compare VAR_RESULT, MIRAGE_LOCATION_LILYCOVE_CITY
+	call_if_eq LilycoveCity_EventScript_OpenMirageMountainPath
 	end
 
 LilycoveCity_EventScript_SetWailmerMetatiles:: @ 81E2B6B
@@ -28,6 +31,10 @@ LilycoveCity_EventScript_SetWailmerMetatiles:: @ 81E2B6B
 	setmetatile 78, 16, METATILE_Lilycove_Wailmer1_Alt, 1
 	setmetatile 77, 17, METATILE_Lilycove_Wailmer2, 1
 	setmetatile 78, 17, METATILE_Lilycove_Wailmer3, 1
+	return
+
+LilycoveCity_EventScript_OpenMirageMountainPath::
+	setmetatile 59, 7, 0x19E, 0
 	return
 
 LilycoveCity_EventScript_BerryGentleman:: @ 81E2BD8
@@ -766,4 +773,3 @@ LilycoveCity_Text_HoneymoonVowToSeeRarePokemon: @ 81E49F4
 	.string "So we were delighted to see a rare\n"
 	.string "POKéMON as soon as we arrived.\p"
 	.string "I mean, we are totally happy!$"
-
