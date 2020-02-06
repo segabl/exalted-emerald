@@ -7,6 +7,7 @@
 // to define NDEBUG before release, however this has been changed as
 // Ruby's actual debug build does not use the AGBPrint features.
 #define NDEBUG
+#define NONMATCHING
 
 // To enable print debugging, comment out "#define NDEBUG". This allows
 // the various AGBPrint functions to be used. (See include/gba/isagbprint.h).
@@ -17,13 +18,5 @@
 
 // NOTE: Don't try to enable assert right now as many pointers
 // still exist in defines and WILL likely result in a broken ROM.
-
-#define ENGLISH
-
-#ifdef ENGLISH
-#define UNITS_IMPERIAL
-#else
-#define UNITS_METRIC
-#endif
 
 #endif // GUARD_CONFIG_H

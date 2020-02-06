@@ -47,8 +47,6 @@ static const u8 sGiftRibbonsMonDataIds[] =
 extern const u8 gText_DecimalPoint[];
 extern const u8 gText_Marco[];
 
-#define CM_PER_INCH 2.54
-
 static u32 GetMonSizeHash(struct Pokemon *pkmn)
 {
     u16 personality = GetMonData(pkmn, MON_DATA_PERSONALITY);
@@ -95,11 +93,6 @@ static u32 GetMonSize(u16 species, u16 b)
 
 static void FormatMonSizeRecord(u8 *string, u32 size)
 {
-#ifdef UNITS_IMPERIAL
-    //Convert size from centimeters to inches
-    size = (double)(size * 10) / (CM_PER_INCH * 10);
-#endif
-
     string = ConvertIntToDecimalStringN(string, size / 10, STR_CONV_MODE_LEFT_ALIGN, 8);
     string = StringAppend(string, gText_DecimalPoint);
     ConvertIntToDecimalStringN(string, size % 10, STR_CONV_MODE_LEFT_ALIGN, 1);
