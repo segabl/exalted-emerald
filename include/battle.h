@@ -507,7 +507,6 @@ struct BattleStruct
     u8 field_181;
     u8 field_182;
     u8 field_183;
-    struct BattleEnigmaBerry battleEnigmaBerry;
     u8 wishPerishSongState;
     u8 wishPerishSongBattlerId;
     bool8 overworldWeatherDone;
@@ -788,7 +787,6 @@ extern struct WishFutureKnock gWishFutureKnock;
 extern u16 gIntroSlideFlags;
 extern u8 gSentPokesToOpponent[2];
 extern u16 gExpShareExp;
-extern struct BattleEnigmaBerry gEnigmaBerries[MAX_BATTLERS_COUNT];
 extern struct BattleScripting gBattleScripting;
 extern struct BattleStruct *gBattleStruct;
 extern u8 *gLinkBattleSendBuffer;

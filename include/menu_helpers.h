@@ -28,7 +28,6 @@ void CreateYesNoMenuWithCallbacks(u8 taskId, const struct WindowTemplate *templa
 bool8 AdjustQuantityAccordingToDPadInput(s16 *arg0, u16 arg1);
 u8 GetLRKeysPressed(void);
 u8 GetLRKeysPressedAndHeld(void);
-bool8 sub_8122148(u16 itemId);
 bool8 itemid_80BF6D8_mail_related(u16 itemId);
 bool8 sub_81221AC(void);
 bool8 sub_81221EC(void);

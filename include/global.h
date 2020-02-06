@@ -979,7 +979,6 @@ struct SaveBlock1
     struct LinkBattleRecords linkBattleRecords;
     u8 giftRibbons[52];
     struct Roamer roamer;
-    struct EnigmaBerry enigmaBerry;
     struct MEventBuffers unk_322C;
     u32 trainerHillTimes[4];
     struct RamScript ramScript;
@@ -990,7 +989,7 @@ struct SaveBlock1
     u8 filler3D5A[0xA];
     struct SaveTrainerHill trainerHill;
     struct WaldaPhrase waldaPhrase;
-}; // size = 14992
+}; // size = 14984
 
 extern struct SaveBlock1* gSaveBlock1Ptr;
 

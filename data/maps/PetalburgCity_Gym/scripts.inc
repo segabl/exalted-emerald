@@ -363,9 +363,6 @@ PetalburgCity_Gym_EventScript_NormanFaceDoorEast:: @ 8204D7F
 	return
 
 PetalburgCity_Gym_EventScript_NormanPostBattle:: @ 8204D80
-	call PetalburgCity_Gym_EventScript_ShouldGiveEnigmaBerry
-	compare VAR_RESULT, TRUE
-	goto_if_eq PetalburgCity_Gym_EventScript_GiveEnigmaBerry
 	goto_if_set FLAG_SYS_GAME_CLEAR, PetalburgCity_Gym_EventScript_NoAmountOfTrainingIsEnough
 	msgbox PetalburgCity_Gym_Text_DadGoingToKeepTraining, MSGBOX_DEFAULT
 	release
@@ -374,34 +371,6 @@ PetalburgCity_Gym_EventScript_NormanPostBattle:: @ 8204D80
 PetalburgCity_Gym_EventScript_NormanRematch:: @ 8204DB3
 	trainerbattle_rematch_double TRAINER_NORMAN_1, PetalburgCity_Gym_Text_NormanPreRematch, PetalburgCity_Gym_Text_NormanRematchDefeat, PetalburgCity_Gym_Text_NormanRematchNeedTwoMons
 	msgbox PetalburgCity_Gym_Text_NormanPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-PetalburgCity_Gym_EventScript_ShouldGiveEnigmaBerry:: @ 8204DCE
-	specialvar VAR_RESULT, IsEnigmaBerryValid
-	compare VAR_RESULT, FALSE
-	goto_if_eq PetalburgCity_Gym_EventScript_DontGiveEnigmaBerry
-	checkitem ITEM_ENIGMA_BERRY, 1
-	compare VAR_RESULT, TRUE
-	goto_if_eq PetalburgCity_Gym_EventScript_DontGiveEnigmaBerry
-	checkpcitem ITEM_ENIGMA_BERRY, 1
-	compare VAR_RESULT, TRUE
-	goto_if_eq PetalburgCity_Gym_EventScript_DontGiveEnigmaBerry
-	compare VAR_ENIGMA_BERRY_AVAILABLE, 0
-	goto_if_eq PetalburgCity_Gym_EventScript_DontGiveEnigmaBerry
-	msgbox PetalburgCity_Gym_Text_GiveEnigmaBerry, MSGBOX_DEFAULT
-	setvar VAR_RESULT, TRUE
-	return
-
-PetalburgCity_Gym_EventScript_DontGiveEnigmaBerry:: @ 8204E17
-	setvar VAR_RESULT, FALSE
-	return
-
-PetalburgCity_Gym_EventScript_GiveEnigmaBerry:: @ 8204E1D
-	giveitem_std ITEM_ENIGMA_BERRY
-	compare VAR_RESULT, 0
-	goto_if_eq Common_EventScript_ShowBagIsFull
-	setvar VAR_ENIGMA_BERRY_AVAILABLE, 0
-	release
 	end
 
 PetalburgCity_Gym_EventScript_NormanBattle:: @ 8204E3B
@@ -1684,4 +1653,3 @@ PetalburgCity_Gym_Text_NormanRematchNeedTwoMons: @ 820764A
 	.string "capable of battle?\p"
 	.string "Sorry, but you'll have to come back\n"
 	.string "with at least two POKéMON.$"
-

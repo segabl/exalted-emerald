@@ -103,6 +103,7 @@
 #define HOLD_EFFECT_GRACIDEA       97
 #define HOLD_EFFECT_RESIST_BERRY   98
 #define HOLD_EFFECT_EV_BOOST       99
+#define HOLD_EFFECT_RESTORE_HP_HIT 100
 
 // Gen5 hold effects
 #define HOLD_EFFECT_FLOAT_STONE    115

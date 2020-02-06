@@ -61,7 +61,6 @@ gSpecials:: @ 81DBA64
 	def_special EventObjectInteractionRemoveBerryTree
 	def_special EventObjectInteractionWaterBerryTree
 	def_special PlayerHasBerries
-	def_special IsEnigmaBerryValid
 	def_special GetTrainerBattleMode
 	def_special ShowTrainerIntroSpeech
 	def_special ShowTrainerCantBattleSpeech
@@ -347,7 +346,6 @@ gSpecials:: @ 81DBA64
 	def_special MonOTNameNotPlayer
 	def_special BufferLottoTicketNumber
 	def_special sub_81653CC
-	def_special DoesPartyHaveEnigmaBerry
 	def_special ScriptRandom
 	def_special SetChampionSaveWarp
 	def_special TryPutTreasureInvestigatorsOnAir

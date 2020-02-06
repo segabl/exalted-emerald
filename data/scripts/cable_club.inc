@@ -502,19 +502,11 @@ CableClub_EventScript_CheckPartyTradeRequirements:: @ 8277199
 	specialvar VAR_RESULT, CalculatePlayerPartyCount
 	compare VAR_RESULT, 2
 	goto_if_lt CableClub_EventScript_NeedTwoMonsToTrade
-	specialvar VAR_RESULT, DoesPartyHaveEnigmaBerry
-	compare VAR_RESULT, TRUE
-	goto_if_eq CableClub_EventScript_CantTradeEnigmaBerry
 	setvar VAR_RESULT, 1
 	return
 
 CableClub_EventScript_NeedTwoMonsToTrade:: @ 82771BF
 	msgbox CableClub_Text_NeedTwoMonsToTrade, MSGBOX_DEFAULT
-	setvar VAR_RESULT, 0
-	return
-
-CableClub_EventScript_CantTradeEnigmaBerry:: @ 82771CD
-	msgbox CableClub_Text_CantTradeEnigmaBerry, MSGBOX_DEFAULT
 	setvar VAR_RESULT, 0
 	return
 
@@ -980,19 +972,11 @@ CableClub_EventScript_CheckPartyUnionRoomRequirements:: @ 8277626
 	specialvar VAR_RESULT, CountPartyNonEggMons
 	compare VAR_RESULT, 2
 	goto_if_lt CableClub_EventScript_NeedTwoMonsForUnionRoom
-	specialvar VAR_RESULT, DoesPartyHaveEnigmaBerry
-	compare VAR_RESULT, TRUE
-	goto_if_eq CableClub_EventScript_NoEnigmaBerryInUnionRoom
 	setvar VAR_RESULT, 1
 	return
 
 CableClub_EventScript_NeedTwoMonsForUnionRoom:: @ 827764C
 	msgbox CableClub_Text_NeedTwoMonsForUnionRoom, MSGBOX_DEFAULT
-	goto EventScript_CableClub_SetVarResult0
-	end
-
-CableClub_EventScript_NoEnigmaBerryInUnionRoom:: @ 827765A
-	msgbox CableClub_Text_NoEnigmaBerryInUnionRoom, MSGBOX_DEFAULT
 	goto EventScript_CableClub_SetVarResult0
 	end
 

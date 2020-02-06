@@ -1062,4 +1062,3 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab: @ 81E8DA2
 	.string "but I never expected this.\p"
 	.string "Oh, yes. I have something for you!\n"
 	.string "Let's go to my LAB.$"
-

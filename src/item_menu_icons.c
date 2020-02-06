@@ -599,12 +599,6 @@ static void sub_80D5018(void *mem0, void *mem1)
 static void LoadBerryGfx(u8 berryId)
 {
     struct CompressedSpritePalette pal;
-
-    if (berryId == ITEM_TO_BERRY(ITEM_ENIGMA_BERRY) - 1 && IsEnigmaBerryValid())
-    {
-        // unknown empty if statement
-    }
-
     pal.data = gBerryPicTable[berryId].pal;
     pal.tag = TAG_BERRY_PIC_PAL;
     LoadCompressedSpritePalette(&pal);

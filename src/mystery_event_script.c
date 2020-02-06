@@ -217,44 +217,6 @@ bool8 MEScrCmd_runscript(struct ScriptContext *ctx)
     return FALSE;
 }
 
-bool8 MEScrCmd_setenigmaberry(struct ScriptContext *ctx)
-{
-    u8 *str;
-    const u8 *message;
-    bool32 haveBerry = IsEnigmaBerryValid();
-    u8 *berry = (u8 *)(ScriptReadWord(ctx) - ctx->data[1] + ctx->data[0]);
-    StringCopyN(gStringVar1, gSaveBlock1Ptr->enigmaBerry.berry.name, BERRY_NAME_LENGTH + 1);
-    SetEnigmaBerry(berry);
-    StringCopyN(gStringVar2, gSaveBlock1Ptr->enigmaBerry.berry.name, BERRY_NAME_LENGTH + 1);
-
-    if (!haveBerry)
-    {
-        str = gStringVar4;
-        message = gText_MysteryGiftBerry;
-    }
-    else if (StringCompare(gStringVar1, gStringVar2))
-    {
-        str = gStringVar4;
-        message = gText_MysteryGiftBerryTransform;
-    }
-    else
-    {
-        str = gStringVar4;
-        message = gText_MysteryGiftBerryObtained;
-    }
-
-    StringExpandPlaceholders(str, message);
-
-    ctx->data[2] = 2;
-
-    if (IsEnigmaBerryValid() == TRUE)
-        VarSet(VAR_ENIGMA_BERRY_AVAILABLE, 1);
-    else
-        ctx->data[2] = 1;
-
-    return FALSE;
-}
-
 bool8 MEScrCmd_giveribbon(struct ScriptContext *ctx)
 {
     u8 index = ScriptReadByte(ctx);

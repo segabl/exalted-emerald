@@ -861,10 +861,7 @@ static bool8 ShouldUseItem(void)
         if (gItemEffectTable[item - FIRST_MEDICINE_INDEX] == NULL)
             continue;
 
-        if (item == ITEM_ENIGMA_BERRY)
-            itemEffects = gSaveBlock1Ptr->enigmaBerry.itemEffect;
-        else
-            itemEffects = gItemEffectTable[item - FIRST_MEDICINE_INDEX];
+        itemEffects = gItemEffectTable[item - FIRST_MEDICINE_INDEX];
 
         *(gBattleStruct->AI_itemType + gActiveBattler / 2) = GetAI_ItemType(item, itemEffects);
 

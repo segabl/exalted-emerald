@@ -4203,6 +4203,21 @@ u8 ItemBattleEffects(u8 caseID, u8 battlerId, bool8 moveTurn)
                     }
                 }
                 break;
+            case HOLD_EFFECT_RESTORE_HP_HIT:
+                if (!moveTurn && gLastLandedMoves[battlerId] != 0xFFFF && gBattleMoves[gLastLandedMoves[battlerId]].power > 0)
+                {
+                    u16 typeEffectiveness = CalcTypeEffectivenessMultiplier(gLastLandedMoves[battlerId], gLastHitByType[battlerId], gBattlerAttacker, battlerId, FALSE);
+                    if (typeEffectiveness >= UQ_4_12(2.0))
+                    {
+                        gBattleMoveDamage = gBattleMons[battlerId].maxHP / 4;
+                        if (gBattleMons[battlerId].hp + gBattleMons[battlerId].maxHP / 4 > gBattleMons[battlerId].maxHP)
+                            gBattleMoveDamage = gBattleMons[battlerId].maxHP - gBattleMons[battlerId].hp;
+                        gBattleMoveDamage *= -1;
+                        BattleScriptExecute(BattleScript_ItemHealHP_RemoveItem);
+                        effect = 4;
+                    }
+                }
+                break;
             case HOLD_EFFECT_CURE_PAR:
                 if (gBattleMons[battlerId].status1 & STATUS1_PARALYSIS)
                 {
@@ -4876,18 +4891,13 @@ u32 GetBattlerHoldEffect(u8 battlerId, bool32 checkNegating)
 
     if (USE_BATTLE_DEBUG && gBattleStruct->debugHoldEffects[battlerId] != 0 && gBattleMons[battlerId].item)
         return gBattleStruct->debugHoldEffects[battlerId];
-    else if (gBattleMons[battlerId].item == ITEM_ENIGMA_BERRY)
-        return gEnigmaBerries[battlerId].holdEffect;
     else
         return ItemId_GetHoldEffect(gBattleMons[battlerId].item);
 }
 
 u32 GetBattlerHoldEffectParam(u8 battlerId)
 {
-    if (gBattleMons[battlerId].item == ITEM_ENIGMA_BERRY)
-        return gEnigmaBerries[battlerId].holdEffectParam;
-    else
-        return ItemId_GetHoldEffectParam(gBattleMons[battlerId].item);
+    return ItemId_GetHoldEffectParam(gBattleMons[battlerId].item);
 }
 
 bool32 IsMoveMakingContact(u16 move, u8 battlerAtk)
@@ -6258,8 +6268,6 @@ bool32 CanMegaEvolve(u8 battlerId)
     itemId = GetMonData(mon, MON_DATA_HELD_ITEM);
     if (USE_BATTLE_DEBUG && gBattleStruct->debugHoldEffects[battlerId])
         holdEffect = gBattleStruct->debugHoldEffects[battlerId];
-    else if (itemId == ITEM_ENIGMA_BERRY)
-        holdEffect = gEnigmaBerries[battlerId].holdEffect;
     else
         holdEffect = ItemId_GetHoldEffect(itemId);
 
@@ -6330,8 +6338,6 @@ bool32 CanBattlerGetOrLoseItem(u8 battlerId, u16 itemId)
     u16 species = gBattleMons[battlerId].species;
 
     if (IS_ITEM_MAIL(itemId))
-        return FALSE;
-    else if (itemId == ITEM_ENIGMA_BERRY)
         return FALSE;
     else if (species == SPECIES_KYOGRE && itemId == ITEM_BLUE_ORB)
         return FALSE;

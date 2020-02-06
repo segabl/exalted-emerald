@@ -1,8 +1,3 @@
-PetalburgCity_Gym_Text_GiveEnigmaBerry: @ 82A6D3D
-	.string "DAD: Hi, {PLAYER}!\p"
-	.string "I just received a very rare BERRY.\n"
-	.string "I'd like you to have it.$"
-
 Route104_Text_PlantBerriesInSoilTakeThis: @ 82A6D86
 	.string "If you see BERRIES growing in loamy\n"
 	.string "soil, feel free to take them.\p"

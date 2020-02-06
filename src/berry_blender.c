@@ -1413,21 +1413,9 @@ static void Blender_SetOpponentsBerryData(u16 playerBerryItemId, u8 playersNum, 
     u16 var;
     u16 i;
 
-    if (playerBerryItemId == ITEM_ENIGMA_BERRY)
-    {
-        for (i = 0; i < FLAVOR_COUNT; i++)
-        {
-            if (playerBerry->flavors[opponentSetId] > playerBerry->flavors[i])
-                opponentSetId = i;
-        }
-        opponentSetId += 5;
-    }
-    else
-    {
-        opponentSetId = playerBerryItemId - FIRST_BERRY_INDEX;
-        if (opponentSetId >= 5)
-            opponentSetId = (opponentSetId % 5) + 5;
-    }
+    opponentSetId = playerBerryItemId - FIRST_BERRY_INDEX;
+    if (opponentSetId >= 5)
+        opponentSetId = (opponentSetId % 5) + 5;
     for (i = 0; i < playersNum - 1; i++)
     {
         opponentBerryId = sOpponentBerrySets[opponentSetId][i];
@@ -2114,8 +2102,7 @@ static u32 Blender_GetPokeblockColor(struct BlenderBerry* berries, s16* a1, u8 p
     {
         for (r6 = 0; r6 < playersNo; r6++)
         {
-            if (berries[i].itemId == berries[r6].itemId && i != r6
-                && (berries[i].itemId != ITEM_ENIGMA_BERRY || sub_8081964(berries, i, r6)))
+            if (berries[i].itemId == berries[r6].itemId && i != r6)
                     return 12;
         }
     }

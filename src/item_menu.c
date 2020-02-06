@@ -1396,7 +1396,7 @@ void sub_81AC644(u8 unused)
             gBagMenu->unk828 = 4;
             break;
         case 8:
-            if (!ItemId_GetImportance(gSpecialVar_ItemId) && gSpecialVar_ItemId != ITEM_ENIGMA_BERRY)
+            if (!ItemId_GetImportance(gSpecialVar_ItemId))
             {
                 gBagMenu->unk820 = gUnknown_0861404B;
                 gBagMenu->unk828 = 2;
@@ -1408,7 +1408,7 @@ void sub_81AC644(u8 unused)
             }
             break;
         case 6:
-            if (!ItemId_GetImportance(gSpecialVar_ItemId) && gSpecialVar_ItemId != ITEM_ENIGMA_BERRY)
+            if (!ItemId_GetImportance(gSpecialVar_ItemId))
             {
                 gBagMenu->unk820 = gUnknown_0861404D;
                 gBagMenu->unk828 = 2;
@@ -1420,7 +1420,7 @@ void sub_81AC644(u8 unused)
             }
             break;
         case 7:
-            if (!ItemId_GetImportance(gSpecialVar_ItemId) && gSpecialVar_ItemId != ITEM_ENIGMA_BERRY)
+            if (!ItemId_GetImportance(gSpecialVar_ItemId))
             {
                 gBagMenu->unk820 = gUnknown_0861404F;
                 gBagMenu->unk828 = 2;
@@ -1438,7 +1438,7 @@ void sub_81AC644(u8 unused)
         default:
             if (sub_81221AC() == TRUE || InUnionRoom() == TRUE)
             {
-                if (gBagPositionStruct.pocket == KEYITEMS_POCKET || !sub_8122148(gSpecialVar_ItemId))
+                if (gBagPositionStruct.pocket == KEYITEMS_POCKET)
                 {
                     gBagMenu->unk820 = &gUnknown_08614046;
                     gBagMenu->unk828 = 1;
@@ -1844,12 +1844,6 @@ void item_menu_type_2(u8 taskId)
     if (!itemid_80BF6D8_mail_related(gSpecialVar_ItemId))
     {
         DisplayItemMessage(taskId, 1, gText_CantWriteMail, sub_81AD350);
-    }
-    else if (!sub_8122148(gSpecialVar_ItemId))
-    {
-        CopyItemName(gSpecialVar_ItemId, gStringVar1);
-        StringExpandPlaceholders(gStringVar4, gText_Var1CantBeHeldHere);
-        DisplayItemMessage(taskId, 1, gStringVar4, sub_81AD350);
     }
     else if (gBagPositionStruct.pocket != KEYITEMS_POCKET && !ItemId_GetImportance(gSpecialVar_ItemId))
     {

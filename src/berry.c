@@ -15,7 +15,6 @@
 #include "constants/event_object_movement_constants.h"
 #include "constants/items.h"
 
-static u32 GetEnigmaBerryChecksum(struct EnigmaBerry *enigmaBerry);
 static bool32 BerryTreeGrow(struct BerryTree *tree);
 static u16 BerryTypeToItemId(u16 berry);
 static u8 BerryTreeGetNumStagesWatered(struct BerryTree *tree);
@@ -911,19 +910,19 @@ const struct Berry gBerries[] =
     [ITEM_ENIGMA_BERRY - FIRST_BERRY_INDEX] =
     {
         .name = _("ENIGMA"),
-        .firmness = BERRY_FIRMNESS_UNKNOWN,
-        .size = 0,
-        .maxYield = 13,
+        .firmness = BERRY_FIRMNESS_HARD,
+        .size = 155,
+        .maxYield = 5,
         .minYield = 1,
         .description1 = sBerryDescriptionPart1_Enigma,
         .description2 = sBerryDescriptionPart2_Enigma,
         .stageDuration = 12,
         .spicy = 40,
-        .dry = 40,
-        .sweet = 40,
-        .bitter = 40,
-        .sour = 40,
-        .smoothness = 40,
+        .dry = 10,
+        .sweet = 0,
+        .bitter = 0,
+        .sour = 0,
+        .smoothness = 60,
     },
 
     [ITEM_OCCA_BERRY - FIRST_BERRY_INDEX] =
@@ -1299,56 +1298,11 @@ const struct UnkStruct_0858AB24 gUnknown_0858AB24[] = {
 
 const struct BerryTree gBlankBerryTree = {};
 
-// unused
-void ClearEnigmaBerries(void)
-{
-    CpuFill16(0, &gSaveBlock1Ptr->enigmaBerry, sizeof(gSaveBlock1Ptr->enigmaBerry));
-}
-
-void SetEnigmaBerry(u8 *src)
-{
-    u32 i;
-    u8 *dest = (u8*)&gSaveBlock1Ptr->enigmaBerry;
-
-    for (i = 0; i < sizeof(gSaveBlock1Ptr->enigmaBerry); i++)
-        dest[i] = src[i];
-}
-
-static u32 GetEnigmaBerryChecksum(struct EnigmaBerry *enigmaBerry)
-{
-    u32 i;
-    u32 checksum;
-    u8 *dest;
-
-    dest = (u8*)enigmaBerry;
-    checksum = 0;
-    for (i = 0; i < sizeof(gSaveBlock1Ptr->enigmaBerry) - sizeof(gSaveBlock1Ptr->enigmaBerry.checksum); i++)
-        checksum += dest[i];
-
-    return checksum;
-}
-
-bool32 IsEnigmaBerryValid(void)
-{
-    if (!gSaveBlock1Ptr->enigmaBerry.berry.stageDuration)
-        return FALSE;
-    if (!gSaveBlock1Ptr->enigmaBerry.berry.maxYield)
-        return FALSE;
-    if (GetEnigmaBerryChecksum(&gSaveBlock1Ptr->enigmaBerry) != gSaveBlock1Ptr->enigmaBerry.checksum)
-        return FALSE;
-    return TRUE;
-}
-
 const struct Berry *GetBerryInfo(u8 berry)
 {
-    if (berry == ITEM_TO_BERRY(ITEM_ENIGMA_BERRY) && IsEnigmaBerryValid())
-        return (struct Berry*)(&gSaveBlock1Ptr->enigmaBerry.berry);
-    else
-    {
-        if (berry == BERRY_NONE || berry > ITEM_TO_BERRY(LAST_BERRY_INDEX))
-            berry = ITEM_TO_BERRY(FIRST_BERRY_INDEX);
-        return &gBerries[berry - 1];
-    }
+    if (berry == BERRY_NONE || berry > ITEM_TO_BERRY(LAST_BERRY_INDEX))
+        berry = ITEM_TO_BERRY(FIRST_BERRY_INDEX);
+    return &gBerries[berry - 1];
 }
 
 struct BerryTree *GetBerryTreeInfo(u8 id)

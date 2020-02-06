@@ -2429,9 +2429,6 @@ void sub_80686FC(struct Pokemon *mon, struct BattleTowerPokemon *dest)
     dest->species = GetMonData(mon, MON_DATA_SPECIES, NULL);
     heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, NULL);
 
-    if (heldItem == ITEM_ENIGMA_BERRY)
-        heldItem = 0;
-
     dest->heldItem = heldItem;
 
     for (i = 0; i < MAX_MON_MOVES; i++)
@@ -4163,17 +4160,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
     u16 evCount;
 
     heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, NULL);
-    if (heldItem == ITEM_ENIGMA_BERRY)
-    {
-        if (gMain.inBattle)
-            holdEffect = gEnigmaBerries[gBattlerInMenuId].holdEffect;
-        else
-            holdEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
-    }
-    else
-    {
-        holdEffect = ItemId_GetHoldEffect(heldItem);
-    }
+    holdEffect = ItemId_GetHoldEffect(heldItem);
 
     gPotentialItemEffectBattler = gBattlerInMenuId;
     if (gMain.inBattle)
@@ -4198,20 +4185,10 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
 
     if (!ITEM_HAS_EFFECT(item))
         return TRUE;
-    if (gItemEffectTable[item - FIRST_MEDICINE_INDEX] == NULL && item != ITEM_ENIGMA_BERRY)
+    if (gItemEffectTable[item - FIRST_MEDICINE_INDEX] == NULL)
         return TRUE;
 
-    if (item == ITEM_ENIGMA_BERRY)
-    {
-        if (gMain.inBattle)
-            itemEffect = gEnigmaBerries[gActiveBattler].itemEffect;
-        else
-            itemEffect = gSaveBlock1Ptr->enigmaBerry.itemEffect;
-    }
-    else
-    {
-        itemEffect = gItemEffectTable[item - FIRST_MEDICINE_INDEX];
-    }
+    itemEffect = gItemEffectTable[item - FIRST_MEDICINE_INDEX];
 
     for (cmdIndex = 0; cmdIndex < 6; cmdIndex++)
     {
@@ -4734,17 +4711,7 @@ u8 GetItemEffectParamOffset(u16 itemId, u8 effectByte, u8 effectBit)
 
     offset = 6;
 
-    temp = gItemEffectTable[itemId - FIRST_MEDICINE_INDEX];
-
-    if (!temp && itemId != ITEM_ENIGMA_BERRY)
-        return 0;
-
-    if (itemId == ITEM_ENIGMA_BERRY)
-    {
-        temp = gEnigmaBerries[gActiveBattler].itemEffect;
-    }
-
-    itemEffect = temp;
+    itemEffect = gItemEffectTable[itemId - FIRST_MEDICINE_INDEX];
 
     for (i = 0; i < 6; i++)
     {
@@ -4849,17 +4816,7 @@ u8 *UseStatIncreaseItem(u16 itemId)
     int i;
     const u8 *itemEffect;
 
-    if (itemId == ITEM_ENIGMA_BERRY)
-    {
-        if (gMain.inBattle)
-            itemEffect = gEnigmaBerries[gBattlerInMenuId].itemEffect;
-        else
-            itemEffect = gSaveBlock1Ptr->enigmaBerry.itemEffect;
-    }
-    else
-    {
-        itemEffect = gItemEffectTable[itemId - FIRST_MEDICINE_INDEX];
-    }
+    itemEffect = gItemEffectTable[itemId - FIRST_MEDICINE_INDEX];
 
     gPotentialItemEffectBattler = gBattlerInMenuId;
 
@@ -4914,10 +4871,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem)
     u16 upperPersonality = personality >> 16;
     u8 holdEffect;
 
-    if (heldItem == ITEM_ENIGMA_BERRY)
-        holdEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
-    else
-        holdEffect = ItemId_GetHoldEffect(heldItem);
+    holdEffect = ItemId_GetHoldEffect(heldItem);
 
     if (holdEffect == HOLD_EFFECT_PREVENT_EVOLVE && type != 3)
         return SPECIES_NONE;
@@ -5302,17 +5256,7 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
     species = GetMonData(mon, MON_DATA_SPECIES_EGG, 0);
     heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, 0);
 
-    if (heldItem == ITEM_ENIGMA_BERRY)
-    {
-        if (gMain.inBattle)
-            holdEffect = gEnigmaBerries[0].holdEffect;
-        else
-            holdEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
-    }
-    else
-    {
-        holdEffect = ItemId_GetHoldEffect(heldItem);
-    }
+    holdEffect = ItemId_GetHoldEffect(heldItem);
 
     if (species && species != SPECIES_EGG)
     {
@@ -5403,17 +5347,7 @@ void MonGainEVs(struct Pokemon *mon, u16 defeatedSpecies)
 
         heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, 0);
 
-        if (heldItem == ITEM_ENIGMA_BERRY)
-        {
-            if (gMain.inBattle)
-                holdEffect = gEnigmaBerries[0].holdEffect;
-            else
-                holdEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
-        }
-        else
-        {
-            holdEffect = ItemId_GetHoldEffect(heldItem);
-        }
+        holdEffect = ItemId_GetHoldEffect(heldItem);
 
         if (holdEffect == HOLD_EFFECT_MACHO_BRACE)
             evIncrease *= 2;
