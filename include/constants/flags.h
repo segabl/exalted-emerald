@@ -132,9 +132,7 @@
 #define FLAG_LANDMARK_MIRAGE_TOWER           0x78
 #define FLAG_HIDE_ZINNIA_SKY_TOWER_SUMMIT    0x79
 #define FLAG_RECEIVED_HM03                   0x7A
-
-#define FLAG_UNUSED_0x07B                    0x7B
-
+#define FLAG_BATTLED_TRAINER_HOPPIP          0x7B
 #define FLAG_REGISTER_RIVAL_POKENAV          0x7C
 #define FLAG_DEFEATED_RIVAL_ROUTE_104        0x7D
 #define FLAG_DEFEATED_WALLY_VICTORY_ROAD     0x7E
@@ -1571,7 +1569,7 @@
 
 // Daily Flags
 #define DAILY_FLAGS_START                           0x920
-#define FLAG_UNUSED_0x920                           (DAILY_FLAGS_START + 0x0)  // Unused Flag
+#define FLAG_DAILY_TRAINER_HOPPIP_BATTLE            (DAILY_FLAGS_START + 0x0)
 #define FLAG_DAILY_CONTEST_LOBBY_RECEIVED_BERRY     (DAILY_FLAGS_START + 0x1)
 #define FLAG_DAILY_SECRET_BASE                      (DAILY_FLAGS_START + 0x2)
 #define FLAG_UNUSED_0x923                           (DAILY_FLAGS_START + 0x3)  // Unused Flag

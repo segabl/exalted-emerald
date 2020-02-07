@@ -14,6 +14,19 @@
     "music": "MUS_GOTOWN",
     "name": "MauvilleCity_House3_1F",
     "object_events": [
+        {
+            "elevation": 3,
+            "flag": "0",
+            "graphics_id": "EVENT_OBJ_GFX_MAN_4",
+            "movement_range_x": 0,
+            "movement_range_y": 0,
+            "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+            "script": "MauvilleCity_House3_1F_EventScript_Hoppip",
+            "trainer_sight_or_berry_tree_id": "0",
+            "trainer_type": "0",
+            "x": 1,
+            "y": 4
+        }
     ],
     "region_map_section": "MAPSEC_MAUVILLE_CITY",
     "requires_flash": false,

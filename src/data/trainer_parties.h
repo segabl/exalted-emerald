@@ -14596,3 +14596,54 @@ static const struct TrainerMonNoItemDefaultMoves sParty_RivalLinkPlaceholder[] =
     .abilityNum = ABILITY_NUM_DEFAULT,
     }
 };
+
+static const struct TrainerMonItemCustomMoves sParty_Hoppip[] = {
+    {
+    .lvl = 50,
+    .species = SPECIES_MACHAMP,
+    .personality = NATURE_ADAMANT,
+    .abilityNum = 1,
+    .heldItem = ITEM_LUM_BERRY,
+    .moves = {MOVE_DYNAMIC_PUNCH, MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_DUAL_CHOP}
+    },
+    {
+    .lvl = 50,
+    .species = SPECIES_DUSCLOPS,
+    .personality = NATURE_RELAXED,
+    .abilityNum = 0,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .moves = {MOVE_TRICK_ROOM, MOVE_NIGHT_SHADE, MOVE_PAIN_SPLIT, MOVE_CURSE}
+    },
+    {
+    .lvl = 50,
+    .species = SPECIES_NINETALES,
+    .personality = NATURE_MODEST,
+    .abilityNum = 2,
+    .heldItem = ITEM_HEAT_ROCK,
+    .moves = {MOVE_FLAMETHROWER, MOVE_WILL_O_WISP, MOVE_HEX, MOVE_PROTECT}
+    },
+    {
+    .lvl = 50,
+    .species = SPECIES_JUMPLUFF,
+    .personality = NATURE_TIMID,
+    .abilityNum = 0,
+    .heldItem = ITEM_LUM_BERRY,
+    .moves = {MOVE_SLEEP_POWDER, MOVE_SYNTHESIS, MOVE_GIGA_DRAIN, MOVE_LEECH_SEED}
+    },
+    {
+    .lvl = 50,
+    .species = SPECIES_POLITOED,
+    .personality = NATURE_BOLD,
+    .abilityNum = 2,
+    .heldItem = ITEM_DAMP_ROCK,
+    .moves = {MOVE_SCALD, MOVE_ICE_BEAM, MOVE_TOXIC, MOVE_PROTECT}
+    },
+    {
+    .lvl = 50,
+    .species = SPECIES_RAICHU,
+    .personality = NATURE_TIMID,
+    .abilityNum = 2,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .moves = {MOVE_THUNDER, MOVE_CHARM, MOVE_NASTY_PLOT, MOVE_GRASS_KNOT}
+    }
+};
