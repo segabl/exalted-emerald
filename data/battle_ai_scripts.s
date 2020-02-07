@@ -1126,7 +1126,13 @@ AI_CheckViability:
 	if_effect EFFECT_ROLLOUT, AI_CV_Rollout
 	if_effect EFFECT_MULTI_HIT, AI_CV_MultiHit
 	if_effect EFFECT_FUTURE_SIGHT, AI_CV_FutureSight
+	if_effect EFFECT_TRICK_ROOM, AI_CV_TrickRoom
 	end
+
+AI_CV_TrickRoom:
+	if_field_status STATUS_FIELD_TRICK_ROOM, Score_Minus10
+	if_target_faster Score_Plus1
+	goto Score_Minus5
 
 AI_CV_FutureSight:
 	count_usable_party_mons AI_USER
