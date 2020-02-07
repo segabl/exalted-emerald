@@ -2462,7 +2462,7 @@ AI_CV_Curse_End:
 
 AI_CV_Protect:
 	get_protect_count AI_USER
-	if_more_than 1, AI_CV_Protect_ScoreDown2
+	if_more_than 1, AI_CV_Protect_ScoreDown5
 	if_status  AI_USER, STATUS1_PSN_ANY | STATUS1_BURN, AI_CV_ProtectUserStatused
 	if_status2 AI_USER, STATUS2_CURSED | STATUS2_INFATUATION, AI_CV_ProtectUserStatused
 	if_status3 AI_USER, STATUS3_PERISH_SONG | STATUS3_LEECHSEED | STATUS3_YAWN, AI_CV_ProtectUserStatused
@@ -2496,8 +2496,8 @@ AI_CV_Protect3:
 	get_last_used_bank_move AI_TARGET
 	get_move_effect_from_result
 	if_not_equal EFFECT_LOCK_ON, AI_CV_Protect_End
-AI_CV_Protect_ScoreDown2:
-	score -2
+AI_CV_Protect_ScoreDown5:
+	score -5
 AI_CV_Protect_End:
 	end
 
