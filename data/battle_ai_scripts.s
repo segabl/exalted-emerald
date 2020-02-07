@@ -69,7 +69,7 @@ AI_CBM_CheckIfNegatesType: @ 82DBF92
 	if_equal ABILITY_LEVITATE, CheckIfLevitateCancelsGroundMove
 	if_equal ABILITY_SOUNDPROOF, CheckIfSoundproofCancelsMove
 	goto AI_CheckBadMove_CheckEffect
-	
+
 CheckIfSoundproofCancelsMove:
 	if_move_flag FLAG_SOUND, Score_Minus10
 	goto AI_CheckBadMove_CheckEffect
@@ -257,42 +257,42 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_HEAL_BELL, AI_CBM_HealBell
 	if_effect EFFECT_FOLLOW_ME, AI_CBM_FollowMe
 	end
-	
+
 AI_CBM_FollowMe:
 	if_not_double_battle Score_Minus10
 	if_battler_absent AI_USER_PARTNER, Score_Minus10
 	end
-	
+
 AI_CBM_HealBell:
 	if_status AI_TARGET, STATUS1_ANY, Score_Plus2
 	if_status_in_party AI_TARGET, STATUS1_ANY, Score_Plus2
 	score -10
 	end
-	
+
 AI_CBM_Taunt:
 	if_target_taunted Score_Minus10
 	end
-	
+
 AI_CBM_Protect:
 	get_protect_count AI_USER
 	if_more_than 2, Score_Minus10
 	if_status AI_TARGET, STATUS1_SLEEP | STATUS1_FREEZE, Score_Minus8
 	end
-	
+
 AI_CBM_Powder:
 	if_type AI_TARGET, TYPE_FIRE, AI_Ret
 	if_has_move_with_type AI_TARGET, TYPE_FIRE, AI_Ret
 	score -5
 	end
-	
+
 AI_CBM_Belch:
 	if_cant_use_belch AI_USER, Score_Minus10
 	end
-	
+
 AI_CBM_LastResort:
 	if_cant_use_last_resort AI_USER, Score_Minus10
 	end
-	
+
 AI_CBM_ShellSmash:
 	if_ability AI_USER, ABILITY_CONTRARY, AI_CBM_ShellSmashContrary
 	if_stat_level_not_equal AI_USER, STAT_SPATK, 12, AI_Ret
@@ -303,31 +303,31 @@ AI_CBM_ShellSmashContrary:
 	if_stat_level_not_equal AI_USER, STAT_DEF, 12, AI_Ret
 	if_stat_level_equal AI_USER, STAT_SPDEF, 12, Score_Minus10
 	end
-	
+
 AI_CBM_NobleRoar:
 	if_stat_level_not_equal AI_TARGET, STAT_SPATK, 12, AI_Ret
 	if_stat_level_equal AI_TARGET, STAT_ATK, 12, Score_Minus10
 	end
-	
+
 AI_CBM_VenomDrench:
 	if_not_status AI_TARGET, STATUS1_PSN_ANY, Score_Minus10
 	if_stat_level_not_equal AI_TARGET, STAT_SPEED, 12, AI_Ret
 	if_stat_level_not_equal AI_TARGET, STAT_SPATK, 12, AI_Ret
 	if_stat_level_equal AI_TARGET, STAT_ATK, 12, Score_Minus10
 	end
-	
+
 AI_CBM_ToxicThread:
 	if_stat_level_not_equal AI_TARGET, STAT_SPEED, 12, AI_Ret
 	goto AI_CBM_Toxic
-	
+
 AI_CBM_Synchronoise:
 	if_share_type AI_USER, AI_TARGET AI_Ret
 	goto Score_Minus10
-	
+
 AI_CBM_Defog:
 	if_side_affecting AI_USER, SIDE_STATUS_SPIKES | SIDE_STATUS_STEALTH_ROCK | SIDE_STATUS_TOXIC_SPIKES | SIDE_STATUS_STICKY_WEB, AI_Ret
 	goto AI_CBM_EvasionDown
-	
+
 AI_CBM_PsychicShift:
 	if_not_status AI_USER, STATUS1_ANY, Score_Minus10
 	if_status AI_TARGET, STATUS1_ANY, Score_Minus10
@@ -336,7 +336,7 @@ AI_CBM_PsychicShift:
 	if_status AI_USER, STATUS1_BURN, AI_CBM_WillOWisp
 	if_status AI_USER, STATUS1_SLEEP, AI_CBM_Sleep
 	end
-	
+
 AI_CBM_Bestow:
 	if_target_is_ally AI_CBM_Bestow2
 	score -10
@@ -345,7 +345,7 @@ AI_CBM_Bestow:
 AI_CBM_Bestow2:
 	if_holds_no_item AI_USER, Score_Minus10
 	end
-	
+
 AI_CBM_Acupressure:
 	if_double_battle AI_Ret
 	if_stat_level_not_equal AI_USER, STAT_ATK, 12, AI_Ret
@@ -356,124 +356,124 @@ AI_CBM_Acupressure:
 	if_stat_level_not_equal AI_USER, STAT_ACC, 12, AI_Ret
 	if_stat_level_equal AI_USER, STAT_EVASION, 12, Score_Minus10
 	end
-	
+
 AI_CBM_AromaticMist:
 	if_target_is_ally AI_Ret
 	goto Score_Minus10
-	
+
 AI_CBM_AtkAccUp:
 	if_stat_level_not_equal AI_USER, STAT_ATK, 12, AI_Ret
 	if_stat_level_equal AI_USER, STAT_ACC, 12, Score_Minus10
 	end
-	
+
 AI_CBM_AtkSpAtkUp:
 	if_stat_level_not_equal AI_USER, STAT_ATK, 12, AI_Ret
 	if_stat_level_equal AI_USER, STAT_SPATK, 12, Score_Minus10
 	end
-	
+
 AI_CBM_Fling:
 	if_holds_no_item AI_USER, Score_Minus10
 	if_ability AI_USER, ABILITY_KLUTZ, Score_Minus10
 	if_status3 AI_USER, STATUS3_EMBARGO, Score_Minus10
 	if_field_status STATUS_FIELD_MAGIC_ROOM, Score_Minus10
 	end
-	
+
 AI_CBM_NaturalGift:
 	if_doesnt_hold_berry AI_USER, Score_Minus10
 	if_ability AI_USER, ABILITY_KLUTZ, Score_Minus10
 	if_status3 AI_USER, STATUS3_EMBARGO, Score_Minus10
 	if_field_status STATUS_FIELD_MAGIC_ROOM, Score_Minus10
 	end
-	
+
 AI_CBM_SimpleBeam:
 	if_ability AI_TARGET, ABILITY_SIMPLE, Score_Minus10
 	end
-	
+
 AI_CBM_Tailwind:
 	if_side_affecting AI_USER, SIDE_STATUS_TAILWIND, Score_Minus10
 	end
-	
+
 AI_CBM_QuiverDance:
 	if_stat_level_not_equal AI_USER, STAT_SPATK, 12, AI_Ret
 	if_stat_level_not_equal AI_USER, STAT_SPDEF, 12, AI_Ret
 	if_stat_level_equal AI_USER, STAT_SPEED, 12, Score_Minus10
 	end
-	
+
 AI_CBM_Coil:
 	if_stat_level_not_equal AI_USER, STAT_ATK, 12, AI_Ret
 	if_stat_level_not_equal AI_USER, STAT_DEF, 12, AI_Ret
 	if_stat_level_equal AI_USER, STAT_ACC, 12, Score_Minus10
 	end
-	
+
 AI_CBM_MistyTerrain:
 	if_field_status STATUS_FIELD_MISTY_TERRAIN, Score_Minus10
 	end
-	
+
 AI_CBM_GrassyTerrain:
 	if_field_status STATUS_FIELD_GRASSY_TERRAIN, Score_Minus10
 	end
-	
+
 AI_CBM_ElectricTerrain:
 	if_field_status STATUS_FIELD_ELECTRIC_TERRAIN, Score_Minus10
 	end
-	
+
 AI_CBM_PsychicTerrain:
 	if_field_status STATUS_FIELD_PSYCHIC_TERRAIN, Score_Minus10
 	end
-	
+
 AI_CBM_Quash:
 	if_not_double_battle Score_Minus10
 	end
-	
+
 AI_CBM_Telekinesis:
 	if_status3 AI_TARGET, STATUS3_TELEKINESIS, Score_Minus10
 	end
-	
+
 AI_CBM_MagnetRise:
 	if_status3 AI_USER, STATUS3_MAGNET_RISE, Score_Minus10
 	end
-	
+
 AI_CBM_MiracleEye:
 	if_status3 AI_TARGET, STATUS3_MIRACLE_EYED, Score_Minus10
 	if_status2 AI_TARGET, STATUS2_FORESIGHT, Score_Minus10
 	end
-	
+
 AI_CBM_WorrySeed:
 	get_ability AI_TARGET
 	if_equal ABILITY_INSOMNIA, Score_Minus10
 	if_equal ABILITY_VITAL_SPIRIT, Score_Minus10
 	end
-	
+
 AI_CBM_HealBlock:
 	if_status3 AI_TARGET, STATUS3_HEAL_BLOCK, Score_Minus10
 	end
-	
+
 AI_CBM_GastroAcid:
 	if_status3 AI_TARGET, STATUS3_GASTRO_ACID, Score_Minus10
 	end
-	
+
 AI_CBM_AquaRing:
 	if_status3 AI_USER, STATUS3_AQUA_RING, Score_Minus10
 	end
-	
+
 AI_CBM_LuckyChant:
 	if_side_affecting AI_USER, SIDE_STATUS_LUCKY_CHANT, Score_Minus10
 	end
-	
+
 AI_CBM_Embargo:
 	if_status3 AI_TARGET, STATUS3_EMBARGO, Score_Minus10
 	end
-	
+
 AI_CBM_Gravity:
 	if_field_status STATUS_FIELD_GRAVITY, Score_Minus10
 	end
-	
+
 AI_CBM_ToxicSpikes:
 	if_not_side_affecting AI_TARGET, SIDE_STATUS_TOXIC_SPIKES, AI_Ret
 	get_hazards_count AI_TARGET, EFFECT_TOXIC_SPIKES
 	if_equal 2, Score_Minus10
 	end
-	
+
 AI_CBM_StealthRock:
 	if_side_affecting AI_TARGET, SIDE_STATUS_STEALTH_ROCK, Score_Minus10
 	end
@@ -481,7 +481,7 @@ AI_CBM_StealthRock:
 AI_CBM_StickyWeb:
 	if_side_affecting AI_TARGET, SIDE_STATUS_STICKY_WEB, Score_Minus10
 	end
-	
+
 AI_CBM_Sleep: @ 82DC2D4
 	get_ability AI_TARGET
 	if_equal ABILITY_INSOMNIA, Score_Minus10
@@ -742,7 +742,7 @@ AI_CBM_Sandstorm: @ 82DC5ED
 	get_weather
 	if_equal AI_WEATHER_SANDSTORM, Score_Minus8
 	end
-	
+
 AI_IsOppositeGender:
 	get_ability AI_TARGET
 	if_equal ABILITY_OBLIVIOUS, Score_Minus10
@@ -759,7 +759,7 @@ AI_IsOppositeGenderMale: @ 82DC627
 	if_equal 0, AI_CBM_Attract_End
 	goto Score_Minus10
 	end
-	
+
 AI_CBM_Captivate:
 	call AI_IsOppositeGender
 	goto AI_CBM_SpAtkDown
@@ -768,7 +768,7 @@ AI_CBM_Attract: @ 82DC5F5
 	if_status2 AI_TARGET, STATUS2_INFATUATION, Score_Minus10
 	call AI_IsOppositeGender
 	end
-	
+
 AI_CBM_Attract_End: @ 82DC634
 	end
 
@@ -948,7 +948,7 @@ Score_Plus5:
 Score_Plus10:
 	score +10
 	end
-	
+
 @ omae wa mou shindeiru
 @ Basically a scenario where the players mon is faster, able to hit and able to OHKO
 @ In which, it would be best to use a priority move to deal any damage
@@ -961,7 +961,7 @@ AI_CheckIfAlreadyDeadPriorities:
 	if_random_less_than 126, AI_Ret
 	score +1
 	end
-	
+
 @ The purpose is to use a move effect that hits the hardest or similar
 AI_CV_DmgMove:
 	get_considered_move_power
@@ -969,7 +969,7 @@ AI_CV_DmgMove:
 	get_how_powerful_move_is
 	if_equal MOVE_POWER_WEAK, Score_Minus1
 	end
-	
+
 @ If move deals shit damage, and there are other mons to switch in, use support moves instead
 AI_WeakDmg:
 	get_considered_move_power
@@ -1125,6 +1125,23 @@ AI_CheckViability:
 	if_effect EFFECT_PERISH_SONG, AI_CV_PerishSong
 	if_effect EFFECT_ROLLOUT, AI_CV_Rollout
 	if_effect EFFECT_MULTI_HIT, AI_CV_MultiHit
+	if_effect EFFECT_FUTURE_SIGHT, AI_CV_FutureSight
+	end
+
+AI_CV_FutureSight:
+	count_usable_party_mons AI_USER
+	if_equal 0, Score_Minus10
+	is_first_turn_for AI_USER
+	if_equal 0, AI_CV_FutureSight2
+	goto AI_CV_FutureSight3
+
+AI_CV_FutureSight2:
+	score -3
+AI_CV_FutureSight3:
+	if_doesnt_have_move_with_effect AI_TARGET, EFFECT_PROTECT, AI_CV_FutureSight4
+	score +3
+AI_CV_FutureSight4:
+	if_random_less_than 128, Score_Minus3
 	end
 
 AI_CV_MultiHit:
@@ -1173,7 +1190,7 @@ AI_CV_PerishSong_MagnetPull:
 AI_CV_PerishSong_ShadowTag:
 	if_no_ability AI_TARGET, ABILITY_SHADOW_TAG, Score_Plus2
 	goto AI_CV_PerishSongCheckTrap
-	
+
 AI_CV_Hazards:
 	if_ability AI_TARGET, ABILITY_MAGIC_BOUNCE, AI_CV_StealthRockEnd
 	is_first_turn_for AI_USER
@@ -1184,28 +1201,28 @@ AI_CV_StealthRockEnd:
 AI_CV_StealthRock2:
 	score -2
 	goto AI_CV_StealthRockEnd
-	
+
 AI_CV_MistyTerrain:
 	call AI_CV_TerrainExpander
 	end
-	
+
 AI_CV_GrassyTerrain:
 	call AI_CV_TerrainExpander
 	end
-	
+
 AI_CV_ElectricTerrain:
 	call AI_CV_TerrainExpander
 	end
-	
+
 AI_CV_PsychicTerrain:
 	call AI_CV_TerrainExpander
 	end
-	
+
 AI_CV_TerrainExpander:
 	get_hold_effect AI_USER
 	if_equal HOLD_EFFECT_TERRAIN_EXTENDER, Score_Plus2
 	end
-	
+
 AI_CV_Powder:
 	if_type AI_TARGET, TYPE_FIRE, AI_CV_Powder2
 	if_has_move_with_type AI_TARGET, TYPE_FIRE, AI_CV_Powder2
@@ -1838,7 +1855,7 @@ AI_CV_Heal6:
 
 AI_CV_Heal_End:
 	end
-	
+
 EncouragePsnVenoshock:
 	if_doesnt_have_move_with_effect AI_USER, EFFECT_VENOSHOCK, EncouragePsnVenoshockEnd
 	score +1
@@ -1922,7 +1939,7 @@ AI_CV_SuperFang:
 
 AI_CV_SuperFang_End:
 	end
-	
+
 AI_CV_Trap:
 	if_status2 AI_TARGET, STATUS2_WRAPPED | STATUS2_ESCAPE_PREVENTION, AI_CV_TrapEnd
 	if_status3 AI_TARGET, STATUS3_PERISH_SONG, AI_CV_Trap5
@@ -2013,7 +2030,7 @@ AI_CV_SwaggerHasPsychUp_Minus5:
 
 AI_CV_SwaggerHasPsychUp_End:
 	end
-	
+
 EncourageLightClay:
 	get_hold_effect AI_USER
 	if_not_equal HOLD_EFFECT_LIGHT_CLAY, EncourageLightClayEnd
@@ -2022,7 +2039,7 @@ EncourageLightClay:
 	score +1
 EncourageLightClayEnd:
 	end
-	
+
 AI_CV_AuroraVeil:
 	call EncourageLightClay
 	end
@@ -2323,6 +2340,7 @@ AI_CV_Snore:
 	end
 
 AI_CV_LockOn:
+	if_status3 AI_USER, STATUS3_ALWAYS_HITS, Score_Minus5
 	if_random_less_than 128, AI_CV_LockOn_End
 	score +2
 
@@ -2379,7 +2397,7 @@ AI_CV_Flail_ScoreDown1:
 
 AI_CV_Flail_End:
 	end
-	
+
 AI_CV_HealBell:
 	if_move MOVE_HEAL_BELL AI_CV_HealBell2
 AI_CV_HealBellEnd:
@@ -2846,7 +2864,7 @@ AI_CV_Hail_AbilityPlus:
 	score +1,
 AI_CV_Hail_End:
 	end
-	
+
 AI_CV_Sandstorm:
 	if_hp_less_than AI_USER, 40, AI_CV_Sandstorm_ScoreDown1
 	get_weather
@@ -3387,7 +3405,7 @@ AI_Risky_EffectsToEncourage:
     .byte EFFECT_REVENGE
     .byte EFFECT_TEETER_DANCE
     .byte -1
-	
+
 .align 1
 sMovesTable_ProtectMoves:
     .2byte MOVE_PROTECT
@@ -3451,29 +3469,29 @@ AI_PreferBatonPass_EncourageIfHighStats:
 	end
 AI_PreferBatonPassEnd:
 	end
-	
+
 AI_ConsiderAllyChosenMove:
 	get_ally_chosen_move
 	if_equal 0, AI_ConsiderAllyChosenMoveRet
 	get_move_effect_from_result
-	if_equal EFFECT_HELPING_HAND, AI_PartnerChoseHelpingHand	
-	if_equal EFFECT_PERISH_SONG, AI_PartnerChosePerishSong	
+	if_equal EFFECT_HELPING_HAND, AI_PartnerChoseHelpingHand
+	if_equal EFFECT_PERISH_SONG, AI_PartnerChosePerishSong
 AI_ConsiderAllyChosenMoveRet:
 	end
-	
+
 AI_PartnerChoseHelpingHand:
 	@ Do not use a status move if you know your move's power will be boosted
 	get_considered_move_power
 	if_equal 0, Score_Minus5
 	end
-	
+
 AI_PartnerChosePerishSong:
 	if_status2 AI_TARGET, STATUS2_ESCAPE_PREVENTION | STATUS2_WRAPPED, AI_Ret
 	get_considered_move_effect
 	if_equal EFFECT_MEAN_LOOK, Score_Plus1
 	if_equal EFFECT_TRAP, Score_Plus1
 	end
-	
+
 AI_ConsiderAllyKnownMoves:
 	@ If ally already chose a move, there is nothing to do here.
 	get_ally_chosen_move
@@ -3481,16 +3499,16 @@ AI_ConsiderAllyKnownMoves:
 	if_move MOVE_HELPING_HAND, AI_HelpingHandInDoubles
 	if_move MOVE_PERISH_SONG, AI_PerishSongInDoubles
 	end
-	
+
 AI_HelpingHandInDoubles:
 	if_has_no_attacking_moves AI_USER_PARTNER, Score_Minus5
 	end
-	
+
 AI_PerishSongInDoubles:
 	if_has_move_with_effect AI_USER_PARTNER, EFFECT_MEAN_LOOK, Score_Plus1
 	if_has_move_with_effect AI_USER_PARTNER, EFFECT_TRAP, Score_Plus1
 	end
-	
+
 AI_DoubleBattle:
 	call AI_ConsiderAllyChosenMove
 	call AI_ConsiderAllyKnownMoves
