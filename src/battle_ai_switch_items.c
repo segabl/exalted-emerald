@@ -198,7 +198,7 @@ static bool8 ShouldSwitchIfWonderGuard(u8 battlerIn1, u8 battlerIn2, s32 firstId
 static bool8 FindResistingOrImmuneMon(u8 battlerIn1, u8 battlerIn2, s32 firstId, s32 lastId, struct Pokemon *party, u8 invalidMons)
 {
     struct BattlePokemon battleMons[MAX_BATTLERS_COUNT];
-    u8 absorbingTypeAbility;
+    u8 absorbingTypeAbility[] = { 0, 0, 0 };
     u16 predictedMove;
     s32 predictedDamage;
     s32 bestDamage;
@@ -218,15 +218,32 @@ static bool8 FindResistingOrImmuneMon(u8 battlerIn1, u8 battlerIn2, s32 firstId,
         return FALSE;
 
     if (gBattleMoves[predictedMove].type == TYPE_FIRE)
-        absorbingTypeAbility = ABILITY_FLASH_FIRE;
+    {
+        absorbingTypeAbility[0] = ABILITY_FLASH_FIRE;
+    }
     else if (gBattleMoves[predictedMove].type == TYPE_WATER)
-        absorbingTypeAbility = ABILITY_WATER_ABSORB;
+    {
+        absorbingTypeAbility[0] = ABILITY_WATER_ABSORB;
+        absorbingTypeAbility[1] = ABILITY_DRY_SKIN;
+        absorbingTypeAbility[2] = ABILITY_STORM_DRAIN;
+    }
     else if (gBattleMoves[predictedMove].type == TYPE_ELECTRIC)
-        absorbingTypeAbility = ABILITY_VOLT_ABSORB;
+    {
+        absorbingTypeAbility[0] = ABILITY_VOLT_ABSORB;
+        absorbingTypeAbility[1] = ABILITY_MOTOR_DRIVE;
+    }
     else if (gBattleMoves[predictedMove].type == TYPE_GROUND)
-        absorbingTypeAbility = ABILITY_LEVITATE;
+    {
+        absorbingTypeAbility[0] = ABILITY_LEVITATE;
+    }
+    else if (gBattleMoves[predictedMove].type == TYPE_GRASS)
+    {
+        absorbingTypeAbility[0] = ABILITY_SAP_SIPPER;
+    }
 
-    if (absorbingTypeAbility && gBattleMons[gActiveBattler].ability == absorbingTypeAbility)
+    if ((absorbingTypeAbility[0] && gBattleMons[gActiveBattler].ability == absorbingTypeAbility[0])
+    || (absorbingTypeAbility[1] && gBattleMons[gActiveBattler].ability == absorbingTypeAbility[1])
+    || (absorbingTypeAbility[2] && gBattleMons[gActiveBattler].ability == absorbingTypeAbility[2]))
         return FALSE;
 
     bestDamage = predictedDamage;
@@ -234,10 +251,14 @@ static bool8 FindResistingOrImmuneMon(u8 battlerIn1, u8 battlerIn2, s32 firstId,
     for (i = firstId; i < lastId; i++)
     {
         s32 dmg;
+        u8 ability;
         if (invalidMons & gBitTable[i])
             continue;
 
-        if (absorbingTypeAbility && absorbingTypeAbility == gBaseStats[GetMonData(&party[i], MON_DATA_SPECIES_EGG)].abilities[GetMonData(&party[i], MON_DATA_ABILITY_NUM)])
+        ability = gBaseStats[GetMonData(&party[i], MON_DATA_SPECIES_EGG)].abilities[GetMonData(&party[i], MON_DATA_ABILITY_NUM)];
+        if ((absorbingTypeAbility[0] && absorbingTypeAbility[0] == ability)
+        || (absorbingTypeAbility[1] && absorbingTypeAbility[1] == ability)
+        || (absorbingTypeAbility[2] && absorbingTypeAbility[2] == ability))
         {
             dmg = 0;
         }
@@ -246,13 +267,7 @@ static bool8 FindResistingOrImmuneMon(u8 battlerIn1, u8 battlerIn2, s32 firstId,
             PokemonToBattleMon(&party[i], &gBattleMons[gActiveBattler]);
             dmg = AI_CalcDamage(predictedMove, attacker, gActiveBattler);
         }
-        if (dmg <= 0)
-        {
-            bestDamage = 0;
-            bestMon = i;
-            break;
-        }
-        else if (dmg * 3 < gBattleMons[gActiveBattler].hp && dmg < bestDamage)
+        if (dmg * 3 < gBattleMons[gActiveBattler].hp && dmg < bestDamage)
         {
             bestMon = i;
             bestDamage = dmg;
