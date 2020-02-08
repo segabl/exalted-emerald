@@ -497,22 +497,8 @@ static bool8 ShouldSwitch(void)
         return FALSE;
     if (gStatuses3[gActiveBattler] & STATUS3_ROOTED)
         return FALSE;
-    if (IsAbilityOnOpposingSide(gActiveBattler, ABILITY_SHADOW_TAG))
+    if (IsAbilityPreventingEscape(gActiveBattler))
         return FALSE;
-    if (IsAbilityOnOpposingSide(gActiveBattler, ABILITY_ARENA_TRAP))
-    {
-        if (gBattleMons[gActiveBattler].type1 != TYPE_FLYING
-        && gBattleMons[gActiveBattler].type2 != TYPE_FLYING
-        && gBattleMons[gActiveBattler].ability != ABILITY_LEVITATE)
-            return FALSE;
-    }
-    if (IsAbilityOnField(ABILITY_MAGNET_PULL))
-    {
-        if (gBattleMons[gActiveBattler].type1 == TYPE_STEEL)
-            return FALSE;
-        if (gBattleMons[gActiveBattler].type2 == TYPE_STEEL)
-            return FALSE;
-    }
     if (gBattleTypeFlags & BATTLE_TYPE_ARENA)
         return FALSE;
 
