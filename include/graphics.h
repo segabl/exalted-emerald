@@ -4707,6 +4707,9 @@ extern const u32 gBattleArenaJudgementSymbolsGfx[];
 extern const u32 gBattleArenaJudgementSymbolsPalette[];
 extern const u32 gContest2Pal[];
 
+extern const u32 gSmokescreenImpactTiles[];
+extern const u32 gSmokescreenImpactPalette[];
+
 extern const u32 gBattleAnimSpriteGfx_Bone[];
 extern const u32 gBattleAnimSpriteGfx_Spark[];
 extern const u32 gBattleAnimSpriteGfx_Pencil[];
@@ -5421,6 +5424,8 @@ extern const u32 gUnknown_08D963A4[];
 extern const u32 gBattleAnimBgImage_Surf[];
 extern const u32 gBattleAnimBgPalette_Surf[];
 extern const u32 gBattleAnimBackgroundImageMuddyWater_Pal[];
+
+extern const u32 gEnemyMonShadow_Gfx[];
 
 extern const u32 gBattleAnimFogTilemap[];
 
