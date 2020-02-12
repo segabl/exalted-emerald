@@ -608,8 +608,6 @@ u8 ScriptGiveEgg(u16 species)
     u8 isEgg;
 
     CreateEgg(&mon, species, TRUE);
-    isEgg = TRUE;
-    SetMonData(&mon, MON_DATA_IS_EGG, &isEgg);
 
     return GiveMonToPlayer(&mon);
 }
