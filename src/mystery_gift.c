@@ -17,7 +17,6 @@
 #include "mystery_gift.h"
 #include "union_room.h"
 #include "title_screen.h"
-#include "ereader_screen.h"
 #include "international_string_util.h"
 #include "list_menu.h"
 #include "string_util.h"
@@ -448,16 +447,6 @@ void c2_mystery_gift(void)
         task_add_00_mystery_gift();
     }
     RunTasks();
-}
-
-void c2_ereader(void)
-{
-    if (HandleMysteryGiftOrEReaderSetup(1))
-    {
-        SetMainCallback2(c2_mystery_gift_e_reader_run);
-        gGiftIsFromEReader = TRUE;
-        task_add_00_ereader();
-    }
 }
 
 void MainCB_FreeAllBuffersAndReturnToInitTitleScreen(void)

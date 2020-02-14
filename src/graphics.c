@@ -1595,8 +1595,6 @@ const u8 gTradeGba_Gfx[] = INCBIN_U8("graphics/link/gba.4bpp");
 // 8DD8760
 asm(".space 0x20"); //blank palette??
 
-#include "data/graphics/berry_fix.h"
-
 // Trade
 const u16 gTradeMenu_Pal[] = INCBIN_U16("graphics/trade/menu.gbapal");
 const u16 gUnknown_08DDB444[] = INCBIN_U16("graphics/trade/unknown_DDB444.gbapal");

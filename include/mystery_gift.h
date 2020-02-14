@@ -10,7 +10,6 @@ void MG_DrawCheckerboardPattern(u32 bg);
 void MainCB_FreeAllBuffersAndReturnToInitTitleScreen(void);
 bool32 MG_PrintTextOnWindow1AndWaitButton(u8 *textState, const u8 *str);
 void AddTextPrinterToWindow1(const u8 *src);
-void c2_ereader(void);
 void c2_mystery_gift(void);
 
 #endif //GUARD_MYSTERY_GIFT_H
