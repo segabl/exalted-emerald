@@ -1,8 +1,8 @@
 # Pokémon Exalted Emerald
 
-This is a decompilation of Pokémon Emerald with various patches applied to update game mechanics.  
-For the original, unmodified decompile, check out <https://github.com/pret/pokeemerald>  
-For DizzyEgg's modifications, check out <https://github.com/DizzyEggg/pokeemerald>  
+This is a decompilation of Pokémon Emerald with various patches applied to update game mechanics.
+For the original, unmodified decompile, check out <https://github.com/pret/pokeemerald>
+For DizzyEgg's modifications, check out <https://github.com/DizzyEggg/pokeemerald>
 
 ## Major changes
 
@@ -53,3 +53,4 @@ For DizzyEgg's modifications, check out <https://github.com/DizzyEggg/pokeemeral
 - Expands Mauville City to make it more lively
 - Changes Mossdeep City music to use Dewford Town music (Rustboro music is overused)
 - Makes the name rater actually rate your nicknames
+- Makes NPCs use different Pokéballs depending on their trainer class

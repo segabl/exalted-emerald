@@ -403,6 +403,47 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {0xFF, 5},
 };
 
+#define BALL(item) (1 << (ITEM_##item - FIRST_BALL_INDEX))
+#define MAX_BALLS_PER_CLASS 3
+static const u32 sTrainerClassPokeballs[] =
+{
+    [TRAINER_CLASS_PKMN_TRAINER_1] = BALL(ULTRA_BALL) | BALL(GREAT_BALL) | BALL(POKE_BALL),
+    [TRAINER_CLASS_PKMN_TRAINER_2] = BALL(ULTRA_BALL) | BALL(GREAT_BALL) | BALL(POKE_BALL),
+    [TRAINER_CLASS_PKMN_TRAINER_3] = BALL(ULTRA_BALL) | BALL(GREAT_BALL) | BALL(POKE_BALL),
+    [TRAINER_CLASS_COOLTRAINER] = BALL(ULTRA_BALL) | BALL(GREAT_BALL),
+    [TRAINER_CLASS_COOLTRAINER_2] = BALL(ULTRA_BALL) | BALL(GREAT_BALL),
+    [TRAINER_CLASS_BIRD_KEEPER] = BALL(ULTRA_BALL) | BALL(GREAT_BALL) | BALL(POKE_BALL),
+    [TRAINER_CLASS_COLLECTOR] = BALL(PREMIER_BALL),
+    [TRAINER_CLASS_SWIMMER_M] = BALL(DIVE_BALL) | BALL(NET_BALL),
+    [TRAINER_CLASS_SWIMMER_F] = BALL(DIVE_BALL) | BALL(NET_BALL),
+    [TRAINER_CLASS_EXPERT] = BALL(ULTRA_BALL),
+    [TRAINER_CLASS_AQUA_ADMIN] = BALL(ULTRA_BALL) | BALL(GREAT_BALL) | BALL(POKE_BALL),
+    [TRAINER_CLASS_AQUA_LEADER] = BALL(ULTRA_BALL) | BALL(GREAT_BALL) | BALL(POKE_BALL),
+    [TRAINER_CLASS_MAGMA_ADMIN] = BALL(ULTRA_BALL) | BALL(GREAT_BALL) | BALL(POKE_BALL),
+    [TRAINER_CLASS_MAGMA_LEADER] = BALL(ULTRA_BALL) | BALL(GREAT_BALL) | BALL(POKE_BALL),
+    [TRAINER_CLASS_HEX_MANIAC] = BALL(MOON_BALL) | BALL(DUSK_BALL),
+    [TRAINER_CLASS_LADY] = BALL(LUXURY_BALL),
+    [TRAINER_CLASS_BEAUTY] = BALL(ULTRA_BALL) | BALL(GREAT_BALL) | BALL(POKE_BALL),
+    [TRAINER_CLASS_RICH_BOY] = BALL(LUXURY_BALL),
+    [TRAINER_CLASS_CAMPER] = BALL(GREAT_BALL) | BALL(POKE_BALL),
+    [TRAINER_CLASS_PICNICKER] = BALL(GREAT_BALL) | BALL(POKE_BALL),
+    [TRAINER_CLASS_BUG_MANIAC] = BALL(NET_BALL) | BALL(NEST_BALL),
+    [TRAINER_CLASS_PSYCHIC] = BALL(ULTRA_BALL) | BALL(GREAT_BALL) | BALL(POKE_BALL),
+    [TRAINER_CLASS_GENTLEMAN] = BALL(ULTRA_BALL) | BALL(GREAT_BALL) | BALL(POKE_BALL),
+    [TRAINER_CLASS_ELITE_FOUR] = BALL(ULTRA_BALL) | BALL(GREAT_BALL) | BALL(POKE_BALL),
+    [TRAINER_CLASS_LEADER] = BALL(ULTRA_BALL) | BALL(GREAT_BALL) | BALL(POKE_BALL),
+    [TRAINER_CLASS_POKEFAN] = BALL(LOVE_BALL) | BALL(HEAL_BALL) | BALL(POKE_BALL),
+    [TRAINER_CLASS_CHAMPION] = BALL(ULTRA_BALL) | BALL(GREAT_BALL) | BALL(POKE_BALL),
+    [TRAINER_CLASS_FISHERMAN] = BALL(NET_BALL) | BALL(LURE_BALL),
+    [TRAINER_CLASS_TRIATHLETE] = BALL(TIMER_BALL) | BALL(FAST_BALL),
+    [TRAINER_CLASS_DRAGON_TAMER] = BALL(ULTRA_BALL),
+    [TRAINER_CLASS_PARASOL_LADY] = BALL(PREMIER_BALL) | BALL(LUXURY_BALL),
+    [TRAINER_CLASS_SAILOR] = BALL(GREAT_BALL),
+    [TRAINER_CLASS_PKMN_RANGER] = BALL(ULTRA_BALL) | BALL(GREAT_BALL) | BALL(POKE_BALL),
+    [TRAINER_CLASS_SIS_AND_BRO] = BALL(DIVE_BALL) | BALL(NET_BALL),
+    [TRAINER_CLASS_RS_PROTAG] = BALL(ULTRA_BALL) | BALL(GREAT_BALL) | BALL(POKE_BALL),
+};
+
 #include "data/text/abilities.h"
 
 static void (* const sTurnActionsFuncsTable[])(void) =
@@ -1676,6 +1717,24 @@ static u32 CalculatePersonalityValue(u32 *nameHash, u16 species, u32 personality
     }
 }
 
+static u16 GetClassPokeball(u32 personalityValue, u8 trainerClass)
+{
+    u8 i;
+    u8 balls[MAX_BALLS_PER_CLASS];
+    u8 numBalls = 0;
+    u32 classPokeballs = sTrainerClassPokeballs[trainerClass];
+    if (!classPokeballs)
+        return ITEM_POKE_BALL;
+    for (i = 0; i < LAST_BALL_INDEX - FIRST_BALL_INDEX; i++)
+    {
+        if ((1 << i) & classPokeballs)
+            balls[numBalls++] = FIRST_BALL_INDEX + i;
+        if (numBalls >= MAX_BALLS_PER_CLASS)
+            break;
+    }
+    return balls[(personalityValue >> 8) % numBalls];
+}
+
 static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 firstTrainer)
 {
     u32 nameHash = 0;
@@ -1683,6 +1742,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
     u8 abilityNum;
     s32 i, j;
     u8 monsCount;
+    u16 pokeball;
 
     if (trainerNum == TRAINER_SECRET_BASE)
         return 0;
@@ -1753,11 +1813,11 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 level = CalculateScaledLevel(partyData[i].lvl, levelMin, partyCountMod, badgeMod);
                 CreateMon(&party[i], partyData[i].species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
-                abilityNum = partyData[i].abilityNum;
-                if (abilityNum < 3)
-                {
-                    SetMonData(&party[i], MON_DATA_ABILITY_NUM, &abilityNum);
-                }
+                abilityNum = partyData[i].abilityNum < 3 ? partyData[i].abilityNum : nameHash & 1;
+                SetMonData(&party[i], MON_DATA_ABILITY_NUM, &abilityNum);
+
+                pokeball = GetClassPokeball(personalityValue, gTrainers[trainerNum].trainerClass);
+                SetMonData(&party[i], MON_DATA_POKEBALL, &pokeball);
                 break;
             }
             case F_TRAINER_PARTY_CUSTOM_MOVESET:
@@ -1768,11 +1828,11 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 level = CalculateScaledLevel(partyData[i].lvl, levelMin, partyCountMod, badgeMod);
                 CreateMon(&party[i], partyData[i].species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
-                abilityNum = partyData[i].abilityNum;
-                if (abilityNum < 3)
-                {
-                    SetMonData(&party[i], MON_DATA_ABILITY_NUM, &abilityNum);
-                }
+                abilityNum = partyData[i].abilityNum < 3 ? partyData[i].abilityNum : nameHash & 1;
+                SetMonData(&party[i], MON_DATA_ABILITY_NUM, &abilityNum);
+
+                pokeball = GetClassPokeball(personalityValue, gTrainers[trainerNum].trainerClass);
+                SetMonData(&party[i], MON_DATA_POKEBALL, &pokeball);
 
                 for (j = 0; j < MAX_MON_MOVES; j++)
                 {
@@ -1789,11 +1849,11 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 level = CalculateScaledLevel(partyData[i].lvl, levelMin, partyCountMod, badgeMod);
                 CreateMon(&party[i], partyData[i].species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
-                abilityNum = partyData[i].abilityNum;
-                if (abilityNum < 3)
-                {
-                    SetMonData(&party[i], MON_DATA_ABILITY_NUM, &abilityNum);
-                }
+                abilityNum = partyData[i].abilityNum < 3 ? partyData[i].abilityNum : nameHash & 1;
+                SetMonData(&party[i], MON_DATA_ABILITY_NUM, &abilityNum);
+
+                pokeball = GetClassPokeball(personalityValue, gTrainers[trainerNum].trainerClass);
+                SetMonData(&party[i], MON_DATA_POKEBALL, &pokeball);
 
                 SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
                 break;
@@ -1806,11 +1866,11 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 level = CalculateScaledLevel(partyData[i].lvl, levelMin, partyCountMod, badgeMod);
                 CreateMon(&party[i], partyData[i].species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
-                abilityNum = partyData[i].abilityNum;
-                if (abilityNum < 3)
-                {
-                    SetMonData(&party[i], MON_DATA_ABILITY_NUM, &abilityNum);
-                }
+                abilityNum = partyData[i].abilityNum < 3 ? partyData[i].abilityNum : nameHash & 1;
+                SetMonData(&party[i], MON_DATA_ABILITY_NUM, &abilityNum);
+
+                pokeball = GetClassPokeball(personalityValue, gTrainers[trainerNum].trainerClass);
+                SetMonData(&party[i], MON_DATA_POKEBALL, &pokeball);
 
                 SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
 
