@@ -2383,6 +2383,7 @@ s32 GetGameProgressForLinkTrade(void)
 }
 
 int GetUnionRoomTradeMessageId(struct GFtgtGnameSub rfuPlayer, struct GFtgtGnameSub rfuPartner, u16 playerSpecies2, u16 partnerSpecies, u8 requestedType, u16 playerSpecies)
+{
     bool8 playerHasNationalDex = rfuPlayer.hasNationalDex;
     bool8 playerIsChampion = rfuPlayer.isChampion;
     bool8 partnerHasNationalDex = rfuPartner.hasNationalDex;
@@ -2445,11 +2446,6 @@ int GetUnionRoomTradeMessageId(struct GFtgtGnameSub rfuPlayer, struct GFtgtGname
     }
 
     return UR_TRADE_MSG_NONE;
-}
-
-int CanRegisterMonForTradingBoard(struct GFtgtGnameSub rfuPlayer, u16 species2, u16 species)
-{
-    return CAN_REGISTER_MON;
 }
 
 // Spin Trade wasnt fully implemented, but this checks if a mon would be valid to Spin Trade

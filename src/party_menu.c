@@ -3530,28 +3530,9 @@ static void CursorCb_Store(u8 taskId)
 // Register mon for the Trading Board in Union Room
 static void CursorCb_Register(u8 taskId)
 {
-    u16 species2 = GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_SPECIES_EGG);
-    u16 species = GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_SPECIES);
-
-    switch (CanRegisterMonForTradingBoard(*(struct GFtgtGnameSub *)sub_800F7DC(), species2, species))
-    {
-    case CANT_REGISTER_MON:
-        StringExpandPlaceholders(gStringVar4, gText_PkmnCantBeTradedNow);
-        break;
-    case CANT_REGISTER_EGG:
-        StringExpandPlaceholders(gStringVar4, gText_EggCantBeTradedNow);
-        break;
-    default:
-        PlaySE(SE_SELECT);
-        Task_ClosePartyMenu(taskId);
-        return;
-    }
-    PlaySE(SE_HAZURE);
-    PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
-    PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
-    StringAppend(gStringVar4, gText_PauseUntilPress);
-    DisplayPartyMenuMessage(gStringVar4, TRUE);
-    gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+    PlaySE(SE_SELECT);
+    Task_ClosePartyMenu(taskId);
+    return;
 }
 
 static void CursorCb_Trade1(u8 taskId)
