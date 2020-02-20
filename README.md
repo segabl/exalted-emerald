@@ -39,6 +39,7 @@ For DizzyEgg's modifications, check out <https://github.com/DizzyEggg/pokeemeral
 - Improves the IV rater to tell multiple maxed and also 0 stats
 - Allows the move relearner to teach moves from higher levels
 - Lets you remove HMs at any time and make TMs reusable
+- Allows some bug types to learn Fly
 - Makes move tutors reusable
 - Changes the mirage island mechanic and adds multiple mirage locations where one of them is always active
 - Increases view distance when not using flash and removes the overlay completely when using flash
