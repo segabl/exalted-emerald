@@ -2346,7 +2346,7 @@ AI_CV_Snore:
 	end
 
 AI_CV_LockOn:
-	if_status3 AI_USER, STATUS3_ALWAYS_HITS, Score_Minus5
+	if_status3 AI_USER, STATUS3_ALWAYS_HITS, Score_Minus10
 	if_random_less_than 128, AI_CV_LockOn_End
 	score +2
 
