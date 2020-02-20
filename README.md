@@ -28,13 +28,14 @@ For DizzyEgg's modifications, check out <https://github.com/DizzyEggg/pokeemeral
 - Simplifies fishing, the first time you press A in time, you reel in the Pokémon
 - Adds evolution stones to the Lilicove shop
 - Removes the extra overwrite question when saving the game
-- When buying more than 19 of any Pokéball, you're given Premier Balls based on the amount of balls you bought instead of only one
+- Gives you X Premier Balls for any Pokéball purchase where X is the amount of balls bought / 10
 - Enables the national dex from the beginning
 - Changes in-game trade Pokémon to more reasonable ones and fixes their abysmal IVs
 - Adds a scientist to the Devon Corporation building that can simulate Pokémon trades to evolve trade evolution Pokémon
 - Makes the Synchronize ability affect static encounters and gifted Pokémon
 - Updates the shiny chance to newer generations chance
 - Opens up the complete safari zone from the beginning and removes the step limit
+- Safari zone Pokémon have a minimum of 2 perfect IVs and a chance for their hidden ability
 - All legendary and gifted Pokémon have a minimum of 3 perfect IVs
 - Improves the IV rater to tell multiple maxed and also 0 stats
 - Allows the move relearner to teach moves from higher levels
