@@ -383,6 +383,16 @@ static void CreateWildMon(u16 species, u8 level)
     CreateMonWithNature(&gEnemyParty[0], species, level, 32, PickWildMonNature());
 }
 
+static u16 CheckCreateWildMon(u16 species, u8 level, u16 seed)
+{
+#ifdef RANDOMIZER
+    RANDOMIZER_SEED(seed);
+    species = RANDOMIZER_RAND();
+#endif
+    CreateWildMon(species, level);
+    return species;
+}
+
 enum
 {
     WILD_AREA_LAND,
@@ -426,7 +436,7 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, u8 ar
     if (gMapHeader.mapLayoutId != LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_ROOM_WILD_MONS && flags & WILD_CHECK_KEEN_EYE && !IsAbilityAllowingEncounter(level))
         return FALSE;
 
-    CreateWildMon(wildMonInfo->wildPokemon[wildMonIndex].species, level);
+    CheckCreateWildMon(wildMonInfo->wildPokemon[wildMonIndex].species, level, (u32) &wildMonInfo->wildPokemon[wildMonIndex]);
     return TRUE;
 }
 
@@ -435,8 +445,7 @@ static u16 GenerateFishingWildMon(const struct WildPokemonInfo *wildMonInfo, u8 
     u8 wildMonIndex = ChooseWildMonIndex_Fishing(rod);
     u8 level = ChooseWildMonLevel(&wildMonInfo->wildPokemon[wildMonIndex]);
 
-    CreateWildMon(wildMonInfo->wildPokemon[wildMonIndex].species, level);
-    return wildMonInfo->wildPokemon[wildMonIndex].species;
+    return CheckCreateWildMon(wildMonInfo->wildPokemon[wildMonIndex].species, level, (u32) &wildMonInfo->wildPokemon[wildMonIndex]);
 }
 
 static bool8 SetUpMassOutbreakEncounter(u8 flags)
@@ -446,7 +455,7 @@ static bool8 SetUpMassOutbreakEncounter(u8 flags)
     if (flags & WILD_CHECK_REPEL && !IsWildLevelAllowedByRepel(gSaveBlock1Ptr->outbreakPokemonLevel))
         return FALSE;
 
-    CreateWildMon(gSaveBlock1Ptr->outbreakPokemonSpecies, gSaveBlock1Ptr->outbreakPokemonLevel);
+    CheckCreateWildMon(gSaveBlock1Ptr->outbreakPokemonSpecies, gSaveBlock1Ptr->outbreakPokemonLevel, gSaveBlock1Ptr->outbreakPokemonSpecies);
     for (i = 0; i < 4; i++)
         SetMonMoveSlot(&gEnemyParty[0], gSaveBlock1Ptr->outbreakPokemonMoves[i], i);
 
