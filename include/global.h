@@ -567,7 +567,6 @@ struct Roamer
     /*0x11*/ u8 smart;
     /*0x12*/ u8 tough;
     /*0x13*/ bool8 active;
-    /*0x14*/ u8 filler[0x8]; // TODO: Remove when done with testing
 };
 
 struct RamScriptData
@@ -951,7 +950,6 @@ struct SaveBlock1
     u8 decorPoster[10];
     u8 decorDoll[40];
     u8 decorCushion[10];
-    u8 padding_27CA[2];
     TVShow tvShows[TV_SHOWS_COUNT];
     PokeNews pokeNews[POKE_NEWS_COUNT];
     u16 outbreakPokemonSpecies;
@@ -985,10 +983,9 @@ struct SaveBlock1
     LilycoveLady lilycoveLady;
     struct TrainerNameRecord trainerNameRecords[20];
     u8 unk3C88[10][21];
-    u8 filler3D5A[0xA];
     struct SaveTrainerHill trainerHill;
     struct WaldaPhrase waldaPhrase;
-}; // size = 14984
+}; // size = 14520
 
 extern struct SaveBlock1* gSaveBlock1Ptr;
 
