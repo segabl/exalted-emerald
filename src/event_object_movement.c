@@ -8197,7 +8197,7 @@ static void DoGroundEffects_OnSpawn(struct EventObject *eventObj, struct Sprite 
 {
     u32 flags;
 
-    if (eventObj->triggerGroundEffectsOnMove)
+    if (eventObj->triggerGroundEffectsOnMove && eventObj->localId != EVENT_OBJ_ID_CAMERA)
     {
         flags = 0;
         UpdateEventObjectZCoordAndPriority(eventObj, sprite);
@@ -8213,7 +8213,7 @@ static void DoGroundEffects_OnBeginStep(struct EventObject *eventObj, struct Spr
 {
     u32 flags;
 
-    if (eventObj->triggerGroundEffectsOnMove)
+    if (eventObj->triggerGroundEffectsOnMove && eventObj->localId != EVENT_OBJ_ID_CAMERA)
     {
         flags = 0;
         UpdateEventObjectZCoordAndPriority(eventObj, sprite);
@@ -8230,7 +8230,7 @@ static void DoGroundEffects_OnFinishStep(struct EventObject *eventObj, struct Sp
 {
     u32 flags;
 
-    if (eventObj->triggerGroundEffectsOnStop)
+    if (eventObj->triggerGroundEffectsOnStop && eventObj->localId != EVENT_OBJ_ID_CAMERA)
     {
         flags = 0;
         UpdateEventObjectZCoordAndPriority(eventObj, sprite);
