@@ -475,7 +475,6 @@ struct SaveBlock2
     u16 optionsBattleSceneOff:1; // whether battle animations are disabled
     u16 regionMapZoom:1; // whether the map is zoomed in
     struct Pokedex pokedex;
-    u8 filler_90[0x8]; // TODO: Remove when done with testing
     struct Time localTimeOffset;
     struct Time lastBerryTreeUpdate;
     struct PlayersApprentice playerApprentice;
@@ -491,7 +490,7 @@ struct SaveBlock2
     u8 nuzlockeSpeciesClause:1;
     u8 nuzlockeShinyClause:1; // +4
     u8 nuzlockeEncounterLocations[MAPSEC_FLAGS_NO];
-}; // size = 3868
+}; // size = 3860, max = 3968
 
 extern struct SaveBlock2 *gSaveBlock2Ptr;
 
