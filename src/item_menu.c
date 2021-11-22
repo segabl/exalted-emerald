@@ -225,9 +225,9 @@ const struct MenuAction sItemMenuActions[] = {
 
 const u8 gUnknown_0861402C[] = {0, 3, 1, 4};
 const u8 gUnknown_08614030[] = {0, 2, 14, 4};
-const u8 gUnknown_08614034[] = {3, 14, 1, 4};
-const u8 gUnknown_08614038[] = {0, 3, 14, 4};
-const u8 gUnknown_0861403C[] = {9, 14, 0, 3, 1, 4};
+const u8 gBallsPocketActions[] = {3, 14, 1, 4};
+const u8 gTmHmPocketActions[] = {0, 3, 14, 4};
+const u8 gBerryPocketActions[] = {0, 14, 3, 9, 1, 4};
 const u8 gUnknown_08614042[] = {5, 4};
 const u8 gUnknown_08614044[] = {3, 4};
 const u8 gUnknown_08614046 = 4;
@@ -1473,15 +1473,15 @@ void sub_81AC644(u8 unused)
                         }
                         break;
                     case BALLS_POCKET:
-                        gBagMenu->unk820 = gUnknown_08614034;
+                        gBagMenu->unk820 = gBallsPocketActions;
                         gBagMenu->unk828 = 4;
                         break;
                     case TMHM_POCKET:
-                        gBagMenu->unk820 = gUnknown_08614038;
+                        gBagMenu->unk820 = gTmHmPocketActions;
                         gBagMenu->unk828 = 4;
                         break;
                     case BERRIES_POCKET:
-                        gBagMenu->unk820 = gUnknown_0861403C;
+                        gBagMenu->unk820 = gBerryPocketActions;
                         gBagMenu->unk828 = 6;
                         break;
                 }
