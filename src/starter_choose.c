@@ -367,12 +367,7 @@ u16 GetStarterPokemon(u16 chosenStarterId)
 {
     if (chosenStarterId > STARTER_MON_COUNT)
         chosenStarterId = 0;
-#ifdef RANDOMIZER
-    RANDOMIZER_SEED(chosenStarterId);
-    return RANDOMIZER_RAND();
-#else
     return sStarterMon[chosenStarterId];
-#endif
 }
 
 static void VblankCB_StarterChoose(void)
@@ -504,6 +499,7 @@ static void Task_StarterChoose2(u8 taskId)
     if (gMain.newKeys & A_BUTTON)
     {
         u8 spriteId;
+        u16 species;
 
         sub_8134604();
 
@@ -512,7 +508,10 @@ static void Task_StarterChoose2(u8 taskId)
         gTasks[taskId].tCircleSpriteId = spriteId;
 
         // Create Pokemon sprite
-        spriteId = CreatePokemonFrontSprite(GetStarterPokemon(gTasks[taskId].tStarterSelection), sPokeballCoords[selection][0], sPokeballCoords[selection][1]);
+        species = GetStarterPokemon(gTasks[taskId].tStarterSelection);
+        if (FlagGet(FLAG_RANDOMIZER) && gSaveBlock2Ptr->randomizerGifted)
+            species = RANDOMIZER_RAND(species);
+        spriteId = CreatePokemonFrontSprite(species, sPokeballCoords[selection][0], sPokeballCoords[selection][1]);
         gSprites[spriteId].affineAnims = &gUnknown_085B1ED0;
         gSprites[spriteId].callback = StarterPokemonSpriteCallback;
 
@@ -543,7 +542,10 @@ static void Task_StarterChoose3(u8 taskId)
 
 static void Task_StarterChoose4(u8 taskId)
 {
-    PlayCry1(GetStarterPokemon(gTasks[taskId].tStarterSelection), 0);
+    u16 species = GetStarterPokemon(gTasks[taskId].tStarterSelection);
+    if (FlagGet(FLAG_RANDOMIZER) && gSaveBlock2Ptr->randomizerGifted)
+        species = RANDOMIZER_RAND(species);
+    PlayCry1(species, 0);
     FillWindowPixelBuffer(0, PIXEL_FILL(1));
     AddTextPrinterParameterized(0, 1, gText_ConfirmStarterChoice, 0, 1, 0, NULL);
     schedule_bg_copy_tilemap_to_vram(0);
@@ -592,6 +594,8 @@ static void CreateStarterPokemonLabel(u8 selection)
     u8 labelLeft, labelRight, labelTop, labelBottom;
 
     u16 species = GetStarterPokemon(selection);
+    if (FlagGet(FLAG_RANDOMIZER) && gSaveBlock2Ptr->randomizerGifted)
+        species = RANDOMIZER_RAND(species);
     CopyMonCategoryText(SpeciesToNationalPokedexNum(species), categoryText);
     speciesName = gSpeciesNames[species];
 

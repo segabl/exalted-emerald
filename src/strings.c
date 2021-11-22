@@ -1819,3 +1819,5 @@ const u8 gText_Quiz[] = _("QUIZ");
 const u8 gText_Answer[] = _("ANSWER");
 const u8 gText_Berry[] = _("BERRY");
 const u8 gText_Berries[] = _("BERRIES");
+const u8 gText_Nuzlocke[] = _("NUZLOCKE");
+const u8 gText_Randomizer[] = _("RANDOMIZER");

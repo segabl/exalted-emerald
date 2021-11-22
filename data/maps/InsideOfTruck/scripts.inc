@@ -83,26 +83,56 @@ InsideOfTruck_EventScript_Debug::
 	givemon SPECIES_MEW, 100
 return
 
-InsideOfTruck_EventScript_AskNuzlocke::
-	goto_if_set FLAG_NUZLOCKE_MODE, InsideOfTruck_EventScript_NuzlockeEnabled
+InsideOfTruck_EventScript_GameSettings::
+	call_if_unset FLAG_TEMP_1, InsideOfTruck_EventScript_ExplainGameSettings
+	closemessage
+	multichoice 0, 0, MULTI_SPECIAL_GAME_SETTINGS, 0
+	compare VAR_RESULT, 0
+	goto_if_eq InsideOfTruck_EventScript_CheckNuzlocke
+	compare VAR_RESULT, 1
+	goto_if_eq InsideOfTruck_EventScript_CheckRandomizer
+	playse SE_SAVE
+	msgbox InsideOfTruck_Text_ConfigurationComplete
+	releaseall
+	end
+
+InsideOfTruck_EventScript_ExplainGameSettings::
+	setflag FLAG_TEMP_1
+	msgbox InsideOfTruck_Text_GameSettings
+	return
+
+InsideOfTruck_EventScript_CheckNuzlocke::
+	goto_if_set FLAG_NUZLOCKE_MODE, InsideOfTruck_EventScript_CheckNuzlockeDisable
 	msgbox InsideOfTruck_Text_WantToEnableNuzlockeMode, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq InsideOfTruck_EventScript_ExplainNuzlocke
-	releaseall
+	goto InsideOfTruck_EventScript_GameSettings
 	end
+
+InsideOfTruck_EventScript_CheckNuzlockeDisable::
+	msgbox InsideOfTruck_Text_WantToDisableNuzlockeMode, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq InsideOfTruck_EventScript_DisableNuzlocke
+	goto InsideOfTruck_EventScript_GameSettings
+	end
+
+InsideOfTruck_EventScript_DisableNuzlocke::
+	clearflag FLAG_NUZLOCKE_MODE
+	msgbox InsideOfTruck_Text_NuzlockeDisabled
+	return
 
 InsideOfTruck_EventScript_ExplainNuzlocke::
 	msgbox InsideOfTruck_Text_ExplainNuzlocke, MSGBOX_YESNO
 	compare VAR_RESULT, NO
-	goto_if_eq InsideOfTruck_EventScript_AbortNuzlocke
+	goto_if_eq InsideOfTruck_EventScript_GameSettings
 	setvar VAR_0x8004, 0
 	setvar VAR_0x8005, 0
 	msgbox InsideOfTruck_Text_EnableAdditionalClauses, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	call_if_eq InsideOfTruck_EventScript_EnableAdditionalClauses
 	special EnableNuzlockeMode
-	playse SE_SAVE
-	goto InsideOfTruck_EventScript_NuzlockeEnabled
+	msgbox InsideOfTruck_Text_NuzlockeEnabled
+	goto InsideOfTruck_EventScript_GameSettings
 	end
 
 InsideOfTruck_EventScript_EnableAdditionalClauses::
@@ -110,16 +140,48 @@ InsideOfTruck_EventScript_EnableAdditionalClauses::
 	copyvar VAR_0x8004, VAR_RESULT
 	msgbox InsideOfTruck_Text_EnableShinyClause, MSGBOX_YESNO
 	copyvar VAR_0x8005, VAR_RESULT
-	msgbox InsideOfTruck_Text_ConfigurationComplete
 	return
 
-InsideOfTruck_EventScript_NuzlockeEnabled::
-	msgbox InsideOfTruck_Text_NuzlockeEnabled
-	releaseall
+InsideOfTruck_EventScript_CheckRandomizer::
+	goto_if_set FLAG_RANDOMIZER, InsideOfTruck_EventScript_CheckRandomizerDisable
+	msgbox InsideOfTruck_Text_WantToEnableRandomizer, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq InsideOfTruck_EventScript_EnableRandomizer
+	goto InsideOfTruck_EventScript_GameSettings
 	end
 
-InsideOfTruck_EventScript_AbortNuzlocke::
-	releaseall
+InsideOfTruck_EventScript_CheckRandomizerDisable::
+	msgbox InsideOfTruck_Text_WantToDisableRandomizer, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq InsideOfTruck_EventScript_DisableRandomizer
+	goto InsideOfTruck_EventScript_GameSettings
+	end
+
+InsideOfTruck_EventScript_EnableRandomizer::
+	setvar VAR_0x8004, 1
+	setvar VAR_0x8005, 1
+	setvar VAR_0x8006, 1
+	msgbox InsideOfTruck_Text_CustomizeRandomzer, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq InsideOfTruck_EventScript_RandomizerOptions
+	special EnableRandomizer
+	msgbox InsideOfTruck_Text_RandomizerEnabled
+	goto InsideOfTruck_EventScript_GameSettings
+	end
+
+InsideOfTruck_EventScript_RandomizerOptions::
+	msgbox InsideOfTruck_Text_EnableGiftedRandomizer, MSGBOX_YESNO
+	copyvar VAR_0x8004, VAR_RESULT
+	msgbox InsideOfTruck_Text_EnableWildRandomizer, MSGBOX_YESNO
+	copyvar VAR_0x8005, VAR_RESULT
+	msgbox InsideOfTruck_Text_EnableTrainerRandomizer, MSGBOX_YESNO
+	copyvar VAR_0x8006, VAR_RESULT
+	return
+
+InsideOfTruck_EventScript_DisableRandomizer::
+	clearflag FLAG_RANDOMIZER
+	msgbox InsideOfTruck_Text_RandomizerDisabled
+	goto InsideOfTruck_EventScript_GameSettings
 	end
 
 InsideOfTruck_EventScript_MovingBox:: @ 823BF6C
@@ -131,13 +193,21 @@ InsideOfTruck_Text_BoxPrintedWithMonLogo: @ 823BF75
 	.string "It's a POKéMON brand moving and\n"
 	.string "delivery service.$"
 
+InsideOfTruck_Text_GameSettings:
+	.string "Control special game settings.\p"
+	.string "Once you leave the truck,\n"
+	.string "these settings can't be changed!$"
+
 InsideOfTruck_Text_WantToEnableNuzlockeMode:
 	.string "Do you want to enable NUZLOCKE mode?$"
 
+InsideOfTruck_Text_WantToDisableNuzlockeMode:
+	.string "NUZLOCKE mode has been enabled.\n"
+	.string "Do you want to disable it?$"
+
 InsideOfTruck_Text_ExplainNuzlocke:
-	.string "You won't be able to change your\n"
-	.string "current difficulty setting once\l"
-	.string "NUZLOCKE mode has been enabled.\p"
+	.string "Your current difficulty\n"
+	.string "setting will be locked in.\p"
 	.string "Are you okay with that?$"
 
 InsideOfTruck_Text_EnableAdditionalClauses:
@@ -150,9 +220,40 @@ InsideOfTruck_Text_EnableSpeciesClause:
 InsideOfTruck_Text_EnableShinyClause:
 	.string "Enable the SHINY CLAUSE?$"
 
-InsideOfTruck_Text_ConfigurationComplete:
-	.string "Configuration complete!$"
-
 InsideOfTruck_Text_NuzlockeEnabled:
 	.string "NUZLOCKE mode has been enabled!\p"
 	.string "Good luck on your journey!$"
+
+InsideOfTruck_Text_NuzlockeDisabled:
+	.string "NUZLOCKE mode has been disabled!$"
+
+InsideOfTruck_Text_WantToEnableRandomizer:
+	.string "Do you want to enable the RANDOMIZER?$"
+
+InsideOfTruck_Text_CustomizeRandomzer:
+	.string "Do you want to customize\n"
+	.string "the RANDOMIZER settings?$"
+
+InsideOfTruck_Text_EnableGiftedRandomizer:
+	.string "Randomize STARTERS and\n"
+	.string "other GIFTED POKéMON?$"
+
+InsideOfTruck_Text_EnableWildRandomizer:
+	.string "Randomize WILD POKéMON?$"
+
+InsideOfTruck_Text_EnableTrainerRandomizer:
+	.string "Randomize TRAINER POKéMON?$"
+
+InsideOfTruck_Text_WantToDisableRandomizer:
+	.string "The RANDOMIZER has been enabled.\n"
+	.string "Do you want to disable it?$"
+
+InsideOfTruck_Text_RandomizerEnabled:
+	.string "The RANDOMIZER has been enabled!\p"
+	.string "May the RNG be on your side!$"
+
+InsideOfTruck_Text_RandomizerDisabled:
+	.string "The RANDOMIZER has been disabled!$"
+
+InsideOfTruck_Text_ConfigurationComplete:
+	.string "Configuration complete!$"

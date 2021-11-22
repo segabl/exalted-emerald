@@ -568,6 +568,9 @@ u8 ScriptGiveMon(u16 species, u8 level, u16 item, u32 personality, u32 ivs, u8 a
     u8 heldItem[2];
     struct Pokemon mon;
 
+    if (FlagGet(FLAG_RANDOMIZER) && gSaveBlock2Ptr->randomizerGifted)
+        species = RANDOMIZER_RAND(species);
+
     // Gifted mons always get the nature from a synchronize mon leading the party
     if (!GetMonData(&gPlayerParty[0], MON_DATA_IS_EGG) && GetMonAbility(&gPlayerParty[0]) == ABILITY_SYNCHRONIZE)
     {

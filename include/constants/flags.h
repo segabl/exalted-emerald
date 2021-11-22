@@ -174,8 +174,8 @@
 #define FLAG_CUTE_PAINTING_MADE              0xA2
 #define FLAG_SMART_PAINTING_MADE             0xA3
 #define FLAG_TOUGH_PAINTING_MADE             0xA4
+#define FLAG_RANDOMIZER                      0xA5
 
-#define FLAG_UNUSED_0x0A5                    0xA5
 #define FLAG_UNUSED_0x0A6                    0xA6
 #define FLAG_UNUSED_0x0A7                    0xA7
 #define FLAG_UNUSED_0x0A8                    0xA8

@@ -19,8 +19,4 @@
 // NOTE: Don't try to enable assert right now as many pointers
 // still exist in defines and WILL likely result in a broken ROM.
 
-//#define RANDOMIZER
-#define RANDOMIZER_SEED(a) SeedRng(a + 1337)
-#define RANDOMIZER_RAND() (1 + (Random() % (SPECIES_EGG - 1)))
-
 #endif // GUARD_CONFIG_H

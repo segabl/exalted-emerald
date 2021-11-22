@@ -116,6 +116,13 @@
     f;                       \
 })
 
+// Randomizer macro
+#define RANDOMIZER_RAND(seed)                       \
+({                                                  \
+    SeedRng2(seed + gSaveBlock2Ptr->randomizerSeed);\
+    1 + (Random2() % (SPECIES_EGG - 1));            \
+})
+
 struct Coords8
 {
     s8 x;
@@ -486,11 +493,15 @@ struct SaveBlock2
     struct RankingHall2P hallRecords2P[2][3]; // From record mixing.
     u16 contestLinkResults[5][4]; // 4 positions for 5 categories.
     struct BattleFrontier frontier;
+    u16 randomizerSeed;
     u8 nuzlockeDifficulty:2;
     u8 nuzlockeSpeciesClause:1;
-    u8 nuzlockeShinyClause:1; // +4
+    u8 nuzlockeShinyClause:1;
+    u8 randomizerGifted:1;
+    u8 randomizerWild:1;
+    u8 randomizerTrainer:1; // + 1
     u8 nuzlockeEncounterLocations[MAPSEC_FLAGS_NO];
-}; // size = 3860, max = 3968
+}; // size = 3864, max = 3968
 
 extern struct SaveBlock2 *gSaveBlock2Ptr;
 

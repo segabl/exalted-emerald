@@ -24,6 +24,7 @@
 #include "mevent.h"
 #include "match_call.h"
 #include "menu.h"
+#include "naming_screen.h"
 #include "overworld.h"
 #include "party_menu.h"
 #include "pokeblock.h"
@@ -4000,6 +4001,22 @@ void EnableNuzlockeMode(void)
     gSaveBlock2Ptr->nuzlockeDifficulty = gSaveBlock2Ptr->optionsDifficulty;
     gSaveBlock2Ptr->nuzlockeSpeciesClause = gSpecialVar_0x8004;
     gSaveBlock2Ptr->nuzlockeShinyClause = gSpecialVar_0x8005;
+}
+
+void EnableRandomizer(void)
+{
+    u8 i;
+    u16 seed = 0;
+
+    for (i = 0; gSaveBlock2Ptr->playerName[i] != EOS; i++) {
+        seed ^= gSaveBlock2Ptr->playerName[i] << 8 * (i % 2);
+    }
+
+    FlagSet(FLAG_RANDOMIZER);
+    gSaveBlock2Ptr->randomizerSeed = seed;
+    gSaveBlock2Ptr->randomizerGifted = gSpecialVar_0x8004;
+    gSaveBlock2Ptr->randomizerWild = gSpecialVar_0x8005;
+    gSaveBlock2Ptr->randomizerTrainer = gSpecialVar_0x8006;
 }
 
 /*  Summary of the Lilycove Trainer Fan Club, because it's a little messy

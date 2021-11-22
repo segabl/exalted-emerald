@@ -7,7 +7,7 @@
         {
             "elevation": 0,
             "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-            "script": "InsideOfTruck_EventScript_AskNuzlocke",
+            "script": "InsideOfTruck_EventScript_GameSettings",
             "type": "sign",
             "x": 1,
             "y": 0

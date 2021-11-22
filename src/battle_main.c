@@ -1743,6 +1743,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
     s32 i, j;
     u8 monsCount;
     u16 pokeball;
+    bool8 randomize = FlagGet(FLAG_RANDOMIZER) && gSaveBlock2Ptr->randomizerTrainer;
 
     if (trainerNum == TRAINER_SECRET_BASE)
         return 0;
@@ -1792,6 +1793,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
         for (i = 0; i < monsCount; i++)
         {
             u16 level;
+            u16 species;
 
             if (gTrainers[trainerNum].doubleBattle == TRUE)
                 personalityValue = 0x80;
@@ -1809,9 +1811,13 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             {
                 const struct TrainerMonNoItemDefaultMoves *partyData = gTrainers[trainerNum].party.NoItemDefaultMoves;
 
-                personalityValue = CalculatePersonalityValue(&nameHash, partyData[i].species, partyData[i].personality, personalityValue);
+                species = partyData[i].species;
+                if (randomize)
+                    species = RANDOMIZER_RAND((u32)&partyData[i]);
+
+                personalityValue = CalculatePersonalityValue(&nameHash, species, partyData[i].personality, personalityValue);
                 level = CalculateScaledLevel(partyData[i].lvl, levelMin, partyCountMod, badgeMod);
-                CreateMon(&party[i], partyData[i].species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                CreateMon(&party[i], species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
                 abilityNum = partyData[i].abilityNum < 3 ? partyData[i].abilityNum : nameHash & 1;
                 SetMonData(&party[i], MON_DATA_ABILITY_NUM, &abilityNum);
@@ -1824,9 +1830,14 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             {
                 const struct TrainerMonNoItemCustomMoves *partyData = gTrainers[trainerNum].party.NoItemCustomMoves;
 
-                personalityValue = CalculatePersonalityValue(&nameHash, partyData[i].species, partyData[i].personality, personalityValue);
+                // Check if we should randomize
+                species = partyData[i].species;
+                if (randomize)
+                    species = RANDOMIZER_RAND((u32)&partyData[i]);
+
+                personalityValue = CalculatePersonalityValue(&nameHash, species, partyData[i].personality, personalityValue);
                 level = CalculateScaledLevel(partyData[i].lvl, levelMin, partyCountMod, badgeMod);
-                CreateMon(&party[i], partyData[i].species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                CreateMon(&party[i], species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
                 abilityNum = partyData[i].abilityNum < 3 ? partyData[i].abilityNum : nameHash & 1;
                 SetMonData(&party[i], MON_DATA_ABILITY_NUM, &abilityNum);
@@ -1834,10 +1845,14 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 pokeball = GetClassPokeball(personalityValue, gTrainers[trainerNum].trainerClass);
                 SetMonData(&party[i], MON_DATA_POKEBALL, &pokeball);
 
-                for (j = 0; j < MAX_MON_MOVES; j++)
+                if (!randomize)
                 {
-                    SetMonData(&party[i], MON_DATA_MOVE1 + j, &partyData[i].moves[j]);
-                    SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[j]].pp);
+                    // Only set moves when not randomized (to not end up with invalid moves)
+                    for (j = 0; j < MAX_MON_MOVES; j++)
+                    {
+                        SetMonData(&party[i], MON_DATA_MOVE1 + j, &partyData[i].moves[j]);
+                        SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[j]].pp);
+                    }
                 }
                 break;
             }
@@ -1845,9 +1860,14 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             {
                 const struct TrainerMonItemDefaultMoves *partyData = gTrainers[trainerNum].party.ItemDefaultMoves;
 
-                personalityValue = CalculatePersonalityValue(&nameHash, partyData[i].species, partyData[i].personality, personalityValue);
+                // Check if we should randomize
+                species = partyData[i].species;
+                if (randomize)
+                    species = RANDOMIZER_RAND((u32)&partyData[i]);
+
+                personalityValue = CalculatePersonalityValue(&nameHash, species, partyData[i].personality, personalityValue);
                 level = CalculateScaledLevel(partyData[i].lvl, levelMin, partyCountMod, badgeMod);
-                CreateMon(&party[i], partyData[i].species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                CreateMon(&party[i], species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
                 abilityNum = partyData[i].abilityNum < 3 ? partyData[i].abilityNum : nameHash & 1;
                 SetMonData(&party[i], MON_DATA_ABILITY_NUM, &abilityNum);
@@ -1862,9 +1882,14 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             {
                 const struct TrainerMonItemCustomMoves *partyData = gTrainers[trainerNum].party.ItemCustomMoves;
 
-                personalityValue = CalculatePersonalityValue(&nameHash, partyData[i].species, partyData[i].personality, personalityValue);
+                // Check if we should randomize
+                species = partyData[i].species;
+                if (randomize)
+                    species = RANDOMIZER_RAND((u32)&partyData[i]);
+
+                personalityValue = CalculatePersonalityValue(&nameHash, species, partyData[i].personality, personalityValue);
                 level = CalculateScaledLevel(partyData[i].lvl, levelMin, partyCountMod, badgeMod);
-                CreateMon(&party[i], partyData[i].species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                CreateMon(&party[i], species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
                 abilityNum = partyData[i].abilityNum < 3 ? partyData[i].abilityNum : nameHash & 1;
                 SetMonData(&party[i], MON_DATA_ABILITY_NUM, &abilityNum);
@@ -1874,10 +1899,14 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
                 SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
 
-                for (j = 0; j < MAX_MON_MOVES; j++)
+                if (!randomize)
                 {
-                    SetMonData(&party[i], MON_DATA_MOVE1 + j, &partyData[i].moves[j]);
-                    SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[j]].pp);
+                    // Only set moves when not randomized (to not end up with invalid moves)
+                    for (j = 0; j < MAX_MON_MOVES; j++)
+                    {
+                        SetMonData(&party[i], MON_DATA_MOVE1 + j, &partyData[i].moves[j]);
+                        SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[j]].pp);
+                    }
                 }
                 break;
             }

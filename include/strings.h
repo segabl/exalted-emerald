@@ -2965,4 +2965,7 @@ extern const u8 gText_Smartness[];
 extern const u8 gText_Cuteness[];
 extern const u8 gText_Beauty3[];
 
+extern const u8 gText_Nuzlocke[];
+extern const u8 gText_Randomizer[];
+
 #endif // GUARD_STRINGS_H
