@@ -92,7 +92,6 @@ InsideOfTruck_EventScript_GameSettings::
 	compare VAR_RESULT, 1
 	goto_if_eq InsideOfTruck_EventScript_CheckRandomizer
 	playse SE_SAVE
-	msgbox InsideOfTruck_Text_ConfigurationComplete
 	releaseall
 	end
 
@@ -236,7 +235,7 @@ InsideOfTruck_Text_CustomizeRandomzer:
 
 InsideOfTruck_Text_EnableGiftedRandomizer:
 	.string "Randomize STARTERS and\n"
-	.string "other GIFTED POKéMON?$"
+	.string "other GIFT POKéMON?$"
 
 InsideOfTruck_Text_EnableWildRandomizer:
 	.string "Randomize WILD POKéMON?$"
@@ -254,6 +253,3 @@ InsideOfTruck_Text_RandomizerEnabled:
 
 InsideOfTruck_Text_RandomizerDisabled:
 	.string "The RANDOMIZER has been disabled!$"
-
-InsideOfTruck_Text_ConfigurationComplete:
-	.string "Configuration complete!$"
