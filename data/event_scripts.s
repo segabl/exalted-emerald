@@ -1124,3 +1124,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 
 	.include "data/maps/Route114_MirageCave/scripts.inc"
 	.include "data/maps/LilycoveCity_MirageMountain/scripts.inc"
+
+	.include "data/maps/Route123_MirageCave/scripts.inc"

@@ -1,10 +1,22 @@
 Route123_MapScripts:: @ 81F6147
 	map_script MAP_SCRIPT_ON_TRANSITION, Route123_OnTransition
+	map_script MAP_SCRIPT_ON_LOAD, Route123_OnLoad
 	.byte 0
 
 Route123_OnTransition: @ 81F614D
 	special SetRoute123Weather
 	end
+
+Route123_OnLoad:
+	specialvar VAR_RESULT, GetCurrentMirageLocation
+	compare VAR_RESULT, MIRAGE_LOCATION_ROUTE_123
+	call_if_eq Route123_EventScript_ShowMirageCaveEntrance
+	end
+
+Route123_EventScript_ShowMirageCaveEntrance::
+	setmetatile 98, 8, METATILE_General_CaveEntrance_Top, 1
+	setmetatile 98, 9, METATILE_General_CaveEntrance_Bottom, 0
+	return
 
 Route123_EventScript_DazzlingGleamGirl:: @ 81F6151
 	lock

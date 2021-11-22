@@ -338,6 +338,7 @@ Houndour
   Safari Zone Northeast
 
 Igglybuff
+  Lilycove City Mirage Mountain
   Route 106
 
 Illumise
@@ -427,6 +428,7 @@ Magikarp
   Dewford Town (Fishing)
   Ever Grande City (Fishing)
   Lilycove City (Fishing)
+  Lilycove City Mirage Mountain (Fishing)
   Meteor Falls 1F 1R (Fishing)
   Meteor Falls 1F 2R (Fishing)
   Meteor Falls B1F 1R (Fishing)
@@ -609,6 +611,7 @@ Pelipper
   Dewford Town (Surf)
   Ever Grande City (Surf)
   Lilycove City (Surf)
+  Lilycove City Mirage Mountain (Surf)
   Mossdeep City (Surf)
   Pacifidlog Town (Surf)
   Route 103 (Surf)
@@ -835,6 +838,9 @@ Smeargle
   Artisan Cave 1F
   Artisan Cave B1F
 
+Smoochum
+  Route 123 Mirage Cave
+
 Sneasel
   Shoal Cave Low Tide Ice Room
 
@@ -887,6 +893,7 @@ Stantler
 
 Staryu
   Lilycove City (Fishing)
+  Lilycove City Mirage Mountain (Fishing)
   Underwater 1 (Surf)
 
 Sunkern
@@ -941,6 +948,8 @@ Tentacool
   Ever Grande City (Fishing)
   Lilycove City (Surf)
   Lilycove City (Fishing)
+  Lilycove City Mirage Mountain (Surf)
+  Lilycove City Mirage Mountain (Fishing)
   Mossdeep City (Surf)
   Mossdeep City (Fishing)
   Pacifidlog Town (Surf)
@@ -1070,6 +1079,7 @@ Wailmer
   Dewford Town (Fishing)
   Ever Grande City (Fishing)
   Lilycove City (Fishing)
+  Lilycove City Mirage Mountain (Fishing)
   Mossdeep City (Fishing)
   Pacifidlog Town (Fishing)
   Route 103 (Fishing)
@@ -1123,6 +1133,7 @@ Wingull
   Dewford Town (Surf)
   Ever Grande City (Surf)
   Lilycove City (Surf)
+  Lilycove City Mirage Mountain (Surf)
   Mossdeep City (Surf)
   Mt Pyre Exterior
   Pacifidlog Town (Surf)

@@ -583,6 +583,7 @@
 
 // Map Group 31
 #define MAP_ROUTE123_BERRY_MASTERS_HOUSE (0 | (31 << 8))
+#define MAP_ROUTE123_MIRAGE_CAVE         (1 | (31 << 8))
 
 // Map Group 32
 #define MAP_ROUTE119_WEATHER_INSTITUTE_1F (0 | (32 << 8))

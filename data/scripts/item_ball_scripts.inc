@@ -246,6 +246,10 @@ Route123_EventScript_ItemRevivalHerb:: @ 8290FE4
 	finditem_std ITEM_REVIVAL_HERB
 	end
 
+Route123_MirageCave_EventScript_ItemTM74::
+	finditem_std ITEM_TM74
+	end
+
 Route124_EventScript_ItemRedShard:: @ 8290FF1
 	finditem_std ITEM_RED_SHARD
 	end

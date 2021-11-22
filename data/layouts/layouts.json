@@ -4479,6 +4479,16 @@
             "primary_tileset": "gTileset_General",
             "secondary_tileset": "gTileset_Lilycove",
             "width": 44
+        },
+        {
+            "blockdata_filepath": "data/layouts/Route123_MirageCave/map.bin",
+            "border_filepath": "data/layouts/Route123_MirageCave/border.bin",
+            "height": 20,
+            "id": "LAYOUT_ROUTE123_MIRAGE_CAVE",
+            "name": "Route123_MirageCave_Layout",
+            "primary_tileset": "gTileset_General",
+            "secondary_tileset": "gTileset_Cave",
+            "width": 25
         }
     ],
     "layouts_table_label": "gMapLayouts"

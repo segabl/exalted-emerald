@@ -48,6 +48,7 @@ InsideOfTruck_EventScript_SetIntroFlagsFemale:: @ 823BF46
 	end
 
 InsideOfTruck_EventScript_Debug::
+	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_ADVENTURE_STARTED
 	setflag FLAG_BADGE01_GET
 	setflag FLAG_BADGE02_GET
@@ -81,7 +82,7 @@ InsideOfTruck_EventScript_Debug::
 	giveitem ITEM_HM06, 1
 	giveitem ITEM_HM07, 1
 	givemon SPECIES_MEW, 100
-return
+	return
 
 InsideOfTruck_EventScript_GameSettings::
 	call_if_unset FLAG_TEMP_1, InsideOfTruck_EventScript_ExplainGameSettings
