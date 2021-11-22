@@ -57,3 +57,4 @@ For DizzyEgg's modifications, check out <https://github.com/DizzyEggg/pokeemeral
 - Changes Mossdeep City music to use Dewford Town music (Rustboro music is overused)
 - Makes the name rater actually rate your nicknames
 - Makes NPCs use different Pokéballs depending on their trainer class
+- Tweaks existing and adds new window borders
