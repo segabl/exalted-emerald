@@ -614,6 +614,7 @@ static void PlayerNotOnBikeTurningInPlace(u8 direction, u16 heldKeys)
 static void PlayerNotOnBikeMoving(u8 direction, u16 heldKeys)
 {
     u8 collision = CheckForPlayerAvatarCollision(direction);
+    bool8 running;
 
     if (collision)
     {
@@ -643,7 +644,8 @@ static void PlayerNotOnBikeMoving(u8 direction, u16 heldKeys)
         return;
     }
 
-    if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_UNDERWATER) && (heldKeys & B_BUTTON) && FlagGet(FLAG_SYS_B_DASH)
+    running = gSaveBlock2Ptr->optionsRunMode == OPTIONS_RUN_MODE_NORMAL ? heldKeys & B_BUTTON : !(heldKeys & B_BUTTON);
+    if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_UNDERWATER) && running && FlagGet(FLAG_SYS_B_DASH)
      && IsRunningDisallowed(gEventObjects[gPlayerAvatar.eventObjectId].currentMetatileBehavior) == 0)
     {
         PlayerRun(direction);

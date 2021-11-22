@@ -25,7 +25,7 @@ enum
     TD_TEXTSPEED,
     TD_BATTLESCENE,
     TD_DIFFICULTY,
-    TD_SOUND,
+    TD_RUNMODE,
     TD_BUTTONMODE,
     TD_FRAMETYPE,
 };
@@ -36,7 +36,7 @@ enum
     MENUITEM_TEXTSPEED,
     MENUITEM_BATTLESCENE,
     MENUITEM_DIFFICULTY,
-    MENUITEM_SOUND,
+    MENUITEM_RUNMODE,
     MENUITEM_BUTTONMODE,
     MENUITEM_FRAMETYPE,
     MENUITEM_CANCEL,
@@ -53,7 +53,7 @@ enum
 #define YPOS_TEXTSPEED    (MENUITEM_TEXTSPEED * 16)
 #define YPOS_BATTLESCENE  (MENUITEM_BATTLESCENE * 16)
 #define YPOS_DIFFICULTY   (MENUITEM_DIFFICULTY * 16)
-#define YPOS_SOUND        (MENUITEM_SOUND * 16)
+#define YPOS_RUNMODE      (MENUITEM_RUNMODE * 16)
 #define YPOS_BUTTONMODE   (MENUITEM_BUTTONMODE * 16)
 #define YPOS_FRAMETYPE    (MENUITEM_FRAMETYPE * 16)
 
@@ -69,8 +69,8 @@ static u8   BattleScene_ProcessInput(u8 selection);
 static void BattleScene_DrawChoices(u8 selection);
 static u8   Difficulty_ProcessInput(u8 selection);
 static void Difficulty_DrawChoices(u8 selection);
-static u8   Sound_ProcessInput(u8 selection);
-static void Sound_DrawChoices(u8 selection);
+static u8   RunMode_ProcessInput(u8 selection);
+static void RunMode_DrawChoices(u8 selection);
 static u8   FrameType_ProcessInput(u8 selection);
 static void FrameType_DrawChoices(u8 selection);
 static u8   ButtonMode_ProcessInput(u8 selection);
@@ -93,7 +93,7 @@ static const u8 *const sOptionMenuItemsNames[MENUITEM_COUNT] =
     [MENUITEM_TEXTSPEED]   = gText_TextSpeed,
     [MENUITEM_BATTLESCENE] = gText_BattleScene,
     [MENUITEM_DIFFICULTY]  = gText_Difficulty,
-    [MENUITEM_SOUND]       = gText_Sound,
+    [MENUITEM_RUNMODE]     = gText_RunMode,
     [MENUITEM_BUTTONMODE]  = gText_ButtonMode,
     [MENUITEM_FRAMETYPE]   = gText_Frame,
     [MENUITEM_CANCEL]      = gText_OptionMenuCancel,
@@ -250,14 +250,14 @@ void CB2_InitOptionMenu(void)
         gTasks[taskId].data[TD_TEXTSPEED] = gSaveBlock2Ptr->optionsTextSpeed;
         gTasks[taskId].data[TD_BATTLESCENE] = gSaveBlock2Ptr->optionsBattleSceneOff;
         gTasks[taskId].data[TD_DIFFICULTY] = sInGame ? GAME_DIFFICULTY : gSaveBlock2Ptr->optionsDifficulty;
-        gTasks[taskId].data[TD_SOUND] = gSaveBlock2Ptr->optionsSound;
+        gTasks[taskId].data[TD_RUNMODE] = gSaveBlock2Ptr->optionsRunMode;
         gTasks[taskId].data[TD_BUTTONMODE] = gSaveBlock2Ptr->optionsButtonMode;
         gTasks[taskId].data[TD_FRAMETYPE] = gSaveBlock2Ptr->optionsWindowFrameType;
 
         TextSpeed_DrawChoices(gTasks[taskId].data[TD_TEXTSPEED]);
         BattleScene_DrawChoices(gTasks[taskId].data[TD_BATTLESCENE]);
         Difficulty_DrawChoices(gTasks[taskId].data[TD_DIFFICULTY]);
-        Sound_DrawChoices(gTasks[taskId].data[TD_SOUND]);
+        RunMode_DrawChoices(gTasks[taskId].data[TD_RUNMODE]);
         ButtonMode_DrawChoices(gTasks[taskId].data[TD_BUTTONMODE]);
         FrameType_DrawChoices(gTasks[taskId].data[TD_FRAMETYPE]);
         HighlightOptionMenuItem(gTasks[taskId].data[TD_MENUSELECTION]);
@@ -334,12 +334,12 @@ static void Task_OptionMenuProcessInput(u8 taskId)
             if (previousOption != gTasks[taskId].data[TD_DIFFICULTY])
                 Difficulty_DrawChoices(gTasks[taskId].data[TD_DIFFICULTY]);
             break;
-        case MENUITEM_SOUND:
-            previousOption = gTasks[taskId].data[TD_SOUND];
-            gTasks[taskId].data[TD_SOUND] = Sound_ProcessInput(gTasks[taskId].data[TD_SOUND]);
+        case MENUITEM_RUNMODE:
+            previousOption = gTasks[taskId].data[TD_RUNMODE];
+            gTasks[taskId].data[TD_RUNMODE] = RunMode_ProcessInput(gTasks[taskId].data[TD_RUNMODE]);
 
-            if (previousOption != gTasks[taskId].data[TD_SOUND])
-                Sound_DrawChoices(gTasks[taskId].data[TD_SOUND]);
+            if (previousOption != gTasks[taskId].data[TD_RUNMODE])
+                RunMode_DrawChoices(gTasks[taskId].data[TD_RUNMODE]);
             break;
         case MENUITEM_BUTTONMODE:
             previousOption = gTasks[taskId].data[TD_BUTTONMODE];
@@ -372,7 +372,7 @@ static void Task_OptionMenuSave(u8 taskId)
     gSaveBlock2Ptr->optionsTextSpeed = gTasks[taskId].data[TD_TEXTSPEED];
     gSaveBlock2Ptr->optionsBattleSceneOff = gTasks[taskId].data[TD_BATTLESCENE];
     gSaveBlock2Ptr->optionsDifficulty = gTasks[taskId].data[TD_DIFFICULTY];
-    gSaveBlock2Ptr->optionsSound = gTasks[taskId].data[TD_SOUND];
+    gSaveBlock2Ptr->optionsRunMode = gTasks[taskId].data[TD_RUNMODE];
     gSaveBlock2Ptr->optionsButtonMode = gTasks[taskId].data[TD_BUTTONMODE];
     gSaveBlock2Ptr->optionsWindowFrameType = gTasks[taskId].data[TD_FRAMETYPE];
 
@@ -545,7 +545,7 @@ static void Difficulty_DrawChoices(u8 selection)
     DrawOptionMenuChoice(gText_DifficultyHard, GetStringRightAlignXOffset(1, gText_DifficultyHard, 198), YPOS_DIFFICULTY, styles[2]);
 }
 
-static u8 Sound_ProcessInput(u8 selection)
+static u8 RunMode_ProcessInput(u8 selection)
 {
     if (gMain.newKeys & (DPAD_LEFT | DPAD_RIGHT))
     {
@@ -557,7 +557,7 @@ static u8 Sound_ProcessInput(u8 selection)
     return selection;
 }
 
-static void Sound_DrawChoices(u8 selection)
+static void RunMode_DrawChoices(u8 selection)
 {
     u8 styles[2];
 
@@ -565,8 +565,8 @@ static void Sound_DrawChoices(u8 selection)
     styles[1] = 0;
     styles[selection] = 1;
 
-    DrawOptionMenuChoice(gText_SoundMono, 104, YPOS_SOUND, styles[0]);
-    DrawOptionMenuChoice(gText_SoundStereo, GetStringRightAlignXOffset(1, gText_SoundStereo, 198), YPOS_SOUND, styles[1]);
+    DrawOptionMenuChoice(gText_RunModeNormal, 104, YPOS_RUNMODE, styles[0]);
+    DrawOptionMenuChoice(gText_RunModeInverted, GetStringRightAlignXOffset(1, gText_RunModeInverted, 198), YPOS_RUNMODE, styles[1]);
 }
 
 static u8 FrameType_ProcessInput(u8 selection)

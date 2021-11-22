@@ -49,6 +49,7 @@ For DizzyEgg's modifications, check out <https://github.com/DizzyEggg/pokeemeral
 - Increases all bag item slot limits to 999 (like for berries)
 - Adds a Pokéball collector to Sootopolis that gifts Johto Pokéballs
 - Adds a land connection between the two halves of Sootopolis
+- Adds option to invert B button behavior (always run)
 
 ## Cosmetic changes
 
