@@ -501,7 +501,7 @@ struct SaveBlock2
     u8 randomizerWild:1;
     u8 randomizerTrainer:1; // + 1
     u8 nuzlockeEncounterLocations[MAPSEC_FLAGS_NO];
-}; // size = 3864, max = 3968
+}; // size = 3864, max = 4084
 
 extern struct SaveBlock2 *gSaveBlock2Ptr;
 
