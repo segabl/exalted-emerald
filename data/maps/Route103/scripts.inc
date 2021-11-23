@@ -9,12 +9,13 @@ Route103_OnTransition: @ 81EC399
 	end
 
 Route103_OnLoad: @ 81EC3A4
-	call_if_set FLAG_SYS_GAME_CLEAR, Route103_EventScript_OpenAlteringCave
+	call_if_set FLAG_SYS_GAME_CLEAR, Route103_EventScript_OpenAlteringCave_ShowRival
 	end
 
-Route103_EventScript_OpenAlteringCave:: @ 81EC3AE
+Route103_EventScript_OpenAlteringCave_ShowRival:: @ 81EC3AE
 	setmetatile 45, 5, METATILE_General_CaveEntrance_Top, 1
 	setmetatile 45, 6, METATILE_General_CaveEntrance_Bottom, 0
+	clearflag FLAG_HIDE_ROUTE_103_RIVAL
 	return
 
 Route103_EventScript_Rival:: @ 81EC3C1
@@ -27,6 +28,7 @@ Route103_EventScript_Rival:: @ 81EC3C1
 	end
 
 Route103_EventScript_RivalMay:: @ 81EC3DA
+	goto_if_set FLAG_SYS_GAME_CLEAR, Route103_EventScript_RivalMayPostGame
 	msgbox Route103_Text_MayRoute103Pokemon, MSGBOX_DEFAULT
 	closemessage
 	playbgm MUS_GIRL_SUP, 1
@@ -44,6 +46,7 @@ Route103_EventScript_RivalMay:: @ 81EC3DA
 	end
 
 Route103_EventScript_RivalBrendan:: @ 81EC434
+	goto_if_set FLAG_SYS_GAME_CLEAR, Route103_EventScript_RivalBrendanPostGame
 	msgbox Route103_Text_BrendanRoute103Pokemon, MSGBOX_DEFAULT
 	closemessage
 	playbgm MUS_BOY_SUP, 1
@@ -58,6 +61,104 @@ Route103_EventScript_RivalBrendan:: @ 81EC434
 	case 0, Route103_EventScript_StartBrendanBattleTreecko
 	case 1, Route103_EventScript_StartBrendanBattleTorchic
 	case 2, Route103_EventScript_StartBrendanBattleMudkip
+	end
+
+Route103_EventScript_RivalMayPostGame::
+	goto_if_set FLAG_DAILY_RIVAL_BATTLE, Route103_EventScript_RivalMayPostGameAfterBattle
+	faceplayer
+	goto_if_set FLAG_TEMP_1, Route103_EventScript_RivalMayPostGameReconsider
+	msgbox Route103_Text_MayRoute103PostGame, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Route103_EventScript_RivalMayPostGameBattle
+	setflag FLAG_TEMP_1
+	msgbox Route103_Text_MayRoute103PostGameNoBattle, MSGBOX_NPC
+	releaseall
+	end
+
+Route103_EventScript_RivalMayPostGameReconsider::
+	msgbox Route103_Text_MayRoute103PostGameReconsider, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Route103_EventScript_RivalMayPostGameBattle
+	msgbox Route103_Text_MayRoute103PostGameNoBattle, MSGBOX_NPC
+	releaseall
+	end
+
+Route103_EventScript_RivalMayPostGameBattle::
+	setflag FLAG_DAILY_RIVAL_BATTLE
+	msgbox Route103_Text_MayRoute103PostGameBattle, MSGBOX_NPC
+	switch VAR_STARTER_MON
+	case 0, Route103_EventScript_StartMayBattleTreeckoPostGame
+	case 1, Route103_EventScript_StartMayBattleTorchicPostGame
+	case 2, Route103_EventScript_StartMayBattleMudkipPostGame
+	end
+
+Route103_EventScript_StartMayBattleTreeckoPostGame::
+	trainerbattle_no_intro TRAINER_MAY_POSTGAME_TREECKO, Route103_Text_MayRoute103PostGameDefeated
+	goto Route103_EventScript_RivalMayPostGameAfterBattle
+	end
+
+Route103_EventScript_StartMayBattleTorchicPostGame::
+	trainerbattle_no_intro TRAINER_MAY_POSTGAME_TORCHIC, Route103_Text_MayRoute103PostGameDefeated
+	goto Route103_EventScript_RivalMayPostGameAfterBattle
+	end
+
+Route103_EventScript_StartMayBattleMudkipPostGame::
+	trainerbattle_no_intro TRAINER_MAY_POSTGAME_MUDKIP, Route103_Text_MayRoute103PostGameDefeated
+	goto Route103_EventScript_RivalMayPostGameAfterBattle
+	end
+
+Route103_EventScript_RivalMayPostGameAfterBattle::
+	msgbox Route103_Text_MayRoute103PostGameAfterBattle, MSGBOX_NPC
+	releaseall
+	end
+
+Route103_EventScript_RivalBrendanPostGame::
+	goto_if_set FLAG_DAILY_RIVAL_BATTLE, Route103_EventScript_RivalBrendanPostGameAfterBattle
+	faceplayer
+	goto_if_set FLAG_TEMP_1, Route103_EventScript_RivalBrendanPostGameReconsider
+	msgbox Route103_Text_BrendanRoute103PostGame, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Route103_EventScript_RivalBrendanPostGameBattle
+	setflag FLAG_TEMP_1
+	msgbox Route103_Text_BrendanRoute103PostGameNoBattle, MSGBOX_NPC
+	releaseall
+	end
+
+Route103_EventScript_RivalBrendanPostGameReconsider::
+	msgbox Route103_Text_BrendanRoute103PostGameReconsider, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Route103_EventScript_RivalBrendanPostGameBattle
+	msgbox Route103_Text_BrendanRoute103PostGameNoBattle, MSGBOX_NPC
+	releaseall
+	end
+
+Route103_EventScript_RivalBrendanPostGameBattle::
+	setflag FLAG_DAILY_RIVAL_BATTLE
+	msgbox Route103_Text_BrendanRoute103PostGameBattle, MSGBOX_NPC
+	switch VAR_STARTER_MON
+	case 0, Route103_EventScript_StartBrendanBattleTreeckoPostGame
+	case 1, Route103_EventScript_StartBrendanBattleTorchicPostGame
+	case 2, Route103_EventScript_StartBrendanBattleMudkipPostGame
+	end
+
+Route103_EventScript_StartBrendanBattleTreeckoPostGame::
+	trainerbattle_no_intro TRAINER_BRENDAN_POSTGAME_TREECKO, Route103_Text_BrendanRoute103PostGameDefeated
+	goto Route103_EventScript_RivalBrendanPostGameAfterBattle
+	end
+
+Route103_EventScript_StartBrendanBattleTorchicPostGame::
+	trainerbattle_no_intro TRAINER_BRENDAN_POSTGAME_TORCHIC, Route103_Text_BrendanRoute103PostGameDefeated
+	goto Route103_EventScript_RivalBrendanPostGameAfterBattle
+	end
+
+Route103_EventScript_StartBrendanBattleMudkipPostGame::
+	trainerbattle_no_intro TRAINER_BRENDAN_POSTGAME_MUDKIP, Route103_Text_BrendanRoute103PostGameDefeated
+	goto Route103_EventScript_RivalBrendanPostGameAfterBattle
+	end
+
+Route103_EventScript_RivalBrendanPostGameAfterBattle::
+	msgbox Route103_Text_BrendanRoute103PostGameAfterBattle, MSGBOX_NPC
+	releaseall
 	end
 
 Route103_EventScript_StartMayBattleTreecko:: @ 81EC48E
@@ -356,3 +457,62 @@ Route103_Text_RouteSign: @ 81ECC1A
 	.string "ROUTE 103\n"
 	.string "{DOWN_ARROW} OLDALE TOWN$"
 
+Route103_Text_BrendanRoute103PostGame:
+	.string "BRENDAN: Oh hey {PLAYER}!\p"
+	.string "Funny meeting you here again!\p"
+	.string "A lot of things have happened\n"
+	.string "since we first met…\p"
+	.string "Say…\p"
+	.string "Do you want to have a POKéMON battle\n"
+	.string "for old time's sake?$"
+
+Route103_Text_BrendanRoute103PostGameReconsider:
+	.string "BRENDAN: Changed your mind?\p"
+	.string "Do you want to have a POKéMON battle?$"
+
+Route103_Text_BrendanRoute103PostGameBattle:
+	.string "That's what I like to hear!\p"
+	.string "Give it your best!$"
+
+Route103_Text_BrendanRoute103PostGameNoBattle:
+	.string "No?\p"
+	.string "You didn't lose your spirit did you?$"
+
+Route103_Text_BrendanRoute103PostGameDefeated:
+	.string "I see you're still going strong!$"
+
+Route103_Text_BrendanRoute103PostGameAfterBattle:
+	.string "That was fun!\p"
+	.string "I forgot how strong you are!\p"
+	.string "Let's do this again sometime!$"
+
+Route103_Text_MayRoute103PostGame:
+	.string "MAY: Oh hey {PLAYER}!\p"
+	.string "This is the place where we met\n"
+	.string "for the first time, remember?\p"
+	.string "Eheheh…\p"
+	.string "It's silly but…\p"
+	.string "It makes me kind of nostalgic…\p"
+	.string "Uhm, I was wondering…\p"
+	.string "Could we have a POKéMON battle\n"
+	.string "for old time's sake?$"
+
+Route103_Text_MayRoute103PostGameReconsider:
+	.string "MAY: Ah…\p"
+	.string "Did you change your mind?\p"
+	.string "Do you want to have a POKéMON battle?$"
+
+Route103_Text_MayRoute103PostGameBattle:
+	.string "Thanks, I'll give it my best!$"
+
+Route103_Text_MayRoute103PostGameNoBattle:
+	.string "Oh…\p"
+	.string "That's fine…$"
+
+Route103_Text_MayRoute103PostGameDefeated:
+	.string "You're as strong as ever {PLAYER}!$"
+
+Route103_Text_MayRoute103PostGameAfterBattle:
+	.string "That was great!\p"
+	.string "You just keep getting stronger!\p"
+	.string "Let's do this again sometime!$"

@@ -50,6 +50,7 @@ For DizzyEgg's modifications, check out <https://github.com/DizzyEggg/pokeemeral
 - Adds a Pokéball collector to Sootopolis that gifts Johto Pokéballs
 - Adds a land connection between the two halves of Sootopolis
 - Adds option to invert B button behavior (always run)
+- Adds a post-game rival battle to Route 103
 
 ## Cosmetic changes
 

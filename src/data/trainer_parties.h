@@ -8268,6 +8268,51 @@ static const struct TrainerMonNoItemCustomMoves sParty_RivalLilycoveMudkip[] = {
     }
 };
 
+static const struct TrainerMonNoItemCustomMoves sParty_RivalPostgameMudkip[] = {
+    {
+    .lvl = 56,
+    .species = SPECIES_ESPEON,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 2,
+    .moves = {MOVE_PSYCHIC, MOVE_CALM_MIND, MOVE_SHADOW_BALL, MOVE_BATON_PASS}
+    },
+    {
+    .lvl = 56,
+    .species = SPECIES_AMPHAROS,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 0,
+    .moves = {MOVE_POWER_GEM, MOVE_CONFUSE_RAY, MOVE_THUNDERBOLT, MOVE_THUNDER_WAVE}
+    },
+    {
+    .lvl = 54,
+    .species = SPECIES_RAPIDASH,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 1,
+    .moves = {MOVE_SUNNY_DAY, MOVE_FLAME_CHARGE, MOVE_MORNING_SUN, MOVE_STOMP}
+    },
+    {
+    .lvl = 54,
+    .species = SPECIES_AZUMARILL,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 1,
+    .moves = {MOVE_PLAY_ROUGH, MOVE_AQUA_TAIL, MOVE_AQUA_RING, MOVE_ROLLOUT}
+    },
+    {
+    .lvl = 55,
+    .species = SPECIES_SWELLOW,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 0,
+    .moves = {MOVE_FACADE, MOVE_AGILITY, MOVE_AERIAL_ACE, MOVE_ROOST}
+    },
+    {
+    .lvl = 58,
+    .species = SPECIES_SCEPTILE,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 0,
+    .moves = {MOVE_TOXIC, MOVE_GIGA_DRAIN, MOVE_BRICK_BREAK, MOVE_PURSUIT}
+    }
+};
+
 static const struct TrainerMonNoItemDefaultMoves sParty_RivalRoute103Treecko[] = {
     {
     .lvl = 5,
@@ -8378,6 +8423,51 @@ static const struct TrainerMonNoItemCustomMoves sParty_RivalLilycoveTreecko[] = 
     }
 };
 
+static const struct TrainerMonNoItemCustomMoves sParty_RivalPostgameTreecko[] = {
+    {
+    .lvl = 56,
+    .species = SPECIES_ESPEON,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 2,
+    .moves = {MOVE_PSYCHIC, MOVE_CALM_MIND, MOVE_SHADOW_BALL, MOVE_BATON_PASS}
+    },
+    {
+    .lvl = 56,
+    .species = SPECIES_AMPHAROS,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 0,
+    .moves = {MOVE_POWER_GEM, MOVE_CONFUSE_RAY, MOVE_THUNDERBOLT, MOVE_THUNDER_WAVE}
+    },
+    {
+    .lvl = 54,
+    .species = SPECIES_VILEPLUME,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 0,
+    .moves = {MOVE_GIGA_DRAIN, MOVE_TOXIC, MOVE_INFESTATION, MOVE_VENOSHOCK}
+    },
+    {
+    .lvl = 54,
+    .species = SPECIES_AZUMARILL,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 1,
+    .moves = {MOVE_PLAY_ROUGH, MOVE_AQUA_TAIL, MOVE_AQUA_RING, MOVE_ROLLOUT}
+    },
+    {
+    .lvl = 55,
+    .species = SPECIES_SWELLOW,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 0,
+    .moves = {MOVE_FACADE, MOVE_AGILITY, MOVE_AERIAL_ACE, MOVE_ROOST}
+    },
+    {
+    .lvl = 58,
+    .species = SPECIES_BLAZIKEN,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 0,
+    .moves = {MOVE_BULK_UP, MOVE_FLAME_CHARGE, MOVE_DOUBLE_KICK, MOVE_FOCUS_ENERGY}
+    }
+};
+
 static const struct TrainerMonNoItemDefaultMoves sParty_RivalRoute103Torchic[] = {
     {
     .lvl = 5,
@@ -8481,6 +8571,51 @@ static const struct TrainerMonNoItemCustomMoves sParty_RivalLilycoveTorchic[] = 
     },
     {
     .lvl = 36,
+    .species = SPECIES_SWAMPERT,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 0,
+    .moves = {MOVE_BULLDOZE, MOVE_SURF, MOVE_ROCK_SLIDE, MOVE_PROTECT}
+    }
+};
+
+static const struct TrainerMonNoItemCustomMoves sParty_RivalPostgameTorchic[] = {
+    {
+    .lvl = 56,
+    .species = SPECIES_ESPEON,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 2,
+    .moves = {MOVE_PSYCHIC, MOVE_CALM_MIND, MOVE_SHADOW_BALL, MOVE_BATON_PASS}
+    },
+    {
+    .lvl = 56,
+    .species = SPECIES_AMPHAROS,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 0,
+    .moves = {MOVE_POWER_GEM, MOVE_CONFUSE_RAY, MOVE_THUNDERBOLT, MOVE_THUNDER_WAVE}
+    },
+    {
+    .lvl = 54,
+    .species = SPECIES_RAPIDASH,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 1,
+    .moves = {MOVE_SUNNY_DAY, MOVE_FLAME_CHARGE, MOVE_MORNING_SUN, MOVE_STOMP}
+    },
+    {
+    .lvl = 54,
+    .species = SPECIES_VILEPLUME,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 0,
+    .moves = {MOVE_GIGA_DRAIN, MOVE_TOXIC, MOVE_INFESTATION, MOVE_VENOSHOCK}
+    },
+    {
+    .lvl = 55,
+    .species = SPECIES_SWELLOW,
+    .personality = PERSONALITY_RANDOM,
+    .abilityNum = 0,
+    .moves = {MOVE_FACADE, MOVE_AGILITY, MOVE_AERIAL_ACE, MOVE_ROOST}
+    },
+    {
+    .lvl = 58,
     .species = SPECIES_SWAMPERT,
     .personality = PERSONALITY_RANDOM,
     .abilityNum = 0,
