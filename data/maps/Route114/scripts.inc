@@ -18,9 +18,10 @@ Route114_OnLoad: @ 81F2561
 	call_if_eq AbnormalWeather_EventScript_PlaceTilesRoute114North
 	compare VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_114_SOUTH
 	call_if_eq AbnormalWeather_EventScript_PlaceTilesRoute114South
+	goto_if_set FLAG_ENTERED_MIRAGE_LOCATION, Route114_EventScript_ShowMirageCaveEntrance
 	specialvar VAR_RESULT, GetCurrentMirageLocation
 	compare VAR_RESULT, MIRAGE_LOCATION_ROUTE_114
-	call_if_eq Route114_EventScript_ShowMirageCaveEntrance
+	goto_if_eq Route114_EventScript_ShowMirageCaveEntrance
 	end
 
 Route114_OnFrame: @ 81F2578
@@ -30,7 +31,8 @@ Route114_OnFrame: @ 81F2578
 Route114_EventScript_ShowMirageCaveEntrance::
 	setmetatile 7, 11, METATILE_Fallarbor_RedCaveEntrance_Top, 1
 	setmetatile 7, 12, METATILE_Fallarbor_RedCaveEntrance_Bottom, 0
-	return
+	clearflag FLAG_ENTERED_MIRAGE_LOCATION
+	end
 
 Route114_EventScript_Man:: @ 81F2582
 	lock

@@ -8,15 +8,17 @@ Route123_OnTransition: @ 81F614D
 	end
 
 Route123_OnLoad:
+	goto_if_set FLAG_ENTERED_MIRAGE_LOCATION, Route123_EventScript_ShowMirageCaveEntrance
 	specialvar VAR_RESULT, GetCurrentMirageLocation
 	compare VAR_RESULT, MIRAGE_LOCATION_ROUTE_123
-	call_if_eq Route123_EventScript_ShowMirageCaveEntrance
+	goto_if_eq Route123_EventScript_ShowMirageCaveEntrance
 	end
 
 Route123_EventScript_ShowMirageCaveEntrance::
 	setmetatile 98, 8, METATILE_General_CaveEntrance_Top, 1
 	setmetatile 98, 9, METATILE_General_CaveEntrance_Bottom, 0
-	return
+	clearflag FLAG_ENTERED_MIRAGE_LOCATION
+	end
 
 Route123_EventScript_DazzlingGleamGirl:: @ 81F6151
 	lock
@@ -188,19 +190,20 @@ Route123_EventScript_RematchFernando:: @ 81F6407
 	end
 
 Route123_Text_LoveFairyMonsHaveAny: @ 81F641E
-	.string "I love FAIRY-type POKéMON!\p"
+	.string "I love FAIRY-type POKéMON!\n"
+	.string "They are really adorable!\p"
 	.string "Do you have any FAIRY-type POKéMON?$"
 
 Route123_Text_YouLikeFairyMonsTooHaveThis: @ 81F645D
 	.string "Oh?\p"
-	.string "You like FAIRY-type POKéMON, too,\n"
+	.string "You like FAIRY-type POKéMON too,\n"
 	.string "don't you?\p"
-	.string "I'm so happy, you can have this!\n"
+	.string "Here, you can have this!\n"
 	.string "It's a token of our friendship.$"
 
 Route123_Text_StrollsWithMyFairyMon: @ 81F64CF
 	.string "I love strolls with my FAIRY POKéMON.\n"
-	.string "They are really adorable and cute.$"
+	.string "They make all my problems go away.$"
 
 Route123_Text_RouteSign: @ 81F6511
 	.string "{RIGHT_ARROW} ROUTE 123\n"
