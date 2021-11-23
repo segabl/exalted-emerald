@@ -1957,12 +1957,12 @@ AI_CV_Trap1:
 	if_status2 AI_TARGET, STATUS2_CURSED | STATUS2_INFATUATION, AI_CV_Trap2
 	goto AI_CV_TrapItem
 AI_CV_Trap5:
-	score +2
+	score +5
 	goto AI_CV_TrapItem
 AI_CV_Trap2:
-	score +1
+	score +2
 	if_random_less_than 128, AI_CV_TrapItem
-	score +1
+	score +2
 AI_CV_TrapItem:
 	get_considered_move_power
 	if_equal 0, AI_CV_TrapEnd
