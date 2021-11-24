@@ -2416,7 +2416,7 @@
             "height": 5,
             "id": "LAYOUT_INSIDE_OF_TRUCK",
             "name": "InsideOfTruck_Layout",
-            "primary_tileset": "gTileset_General",
+            "primary_tileset": "gTileset_Building",
             "secondary_tileset": "gTileset_InsideOfTruck",
             "width": 5
         },
