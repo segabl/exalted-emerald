@@ -1386,129 +1386,68 @@ AI_CV_MirrorMove_EncouragedMovesToMirror: @ 82DCB6C
     .2byte MOVE_SKILL_SWAP
     .2byte -1
 
-AI_CV_AttackUp: @ 82DCBBC
+AI_CV_AttackUp:
 	if_physical_moves_unusable AI_USER, AI_TARGET, Score_Minus8
 	if_stat_level_less_than AI_USER, STAT_ATK, 9, AI_CV_AttackUp2
 	if_random_less_than 100, AI_CV_AttackUp3
 	score -1
 	goto AI_CV_AttackUp3
 
-AI_CV_AttackUp2: @ 82DCBD1
+AI_CV_AttackUp2:
 	if_hp_not_equal AI_USER, 100, AI_CV_AttackUp3
 	if_random_less_than 128, AI_CV_AttackUp3
 	score +2
 
-AI_CV_AttackUp3: @ 82DCBE0
-	if_hp_more_than AI_USER, 70, AI_CV_AttackUp_End
-	if_hp_less_than AI_USER, 40, AI_CV_AttackUp_ScoreDown2
-	if_random_less_than 40, AI_CV_AttackUp_End
-
-AI_CV_AttackUp_ScoreDown2: @ 82DCBF4
-	score -2
-
-AI_CV_AttackUp_End: @ 82DCBF6
+AI_CV_AttackUp3:
+	if_hp_more_than AI_USER, 70, AI_Ret
+	if_hp_less_than AI_USER, 40, Score_Minus2
+	if_random_less_than 180, Score_Minus2
 	end
 
-AI_CV_DefenseUp: @ 82DCBF7
-	if_stat_level_less_than AI_USER, STAT_DEF, 9, AI_CV_DefenseUp2
-	if_random_less_than 100, AI_CV_DefenseUp3
-	score -1
-	goto AI_CV_DefenseUp3
-
-AI_CV_DefenseUp2: @ 82DCC0C
-	if_hp_not_equal AI_USER, 100, AI_CV_DefenseUp3
-	if_random_less_than 128, AI_CV_DefenseUp3
-	score +2
-
-AI_CV_DefenseUp3: @ 82DCC1B
-	if_hp_less_than AI_USER, 70, AI_CV_DefenseUp4
-	if_random_less_than 200, AI_CV_DefenseUp_End
-
-AI_CV_DefenseUp4: @ 82DCC28
-	if_hp_less_than AI_USER, 40, AI_CV_DefenseUp_ScoreDown2
-	get_last_used_bank_move AI_TARGET
-	get_move_power_from_result
-	if_equal 0, AI_CV_DefenseUp5
-	get_last_used_bank_move AI_TARGET
-	get_move_split_from_result
-	if_not_equal SPLIT_PHYSICAL, AI_CV_DefenseUp_ScoreDown2
-	if_random_less_than 60, AI_CV_DefenseUp_End
-
-AI_CV_DefenseUp5: @ 82DCC4A
-	if_random_less_than 60, AI_CV_DefenseUp_End
-
-AI_CV_DefenseUp_ScoreDown2: @ 82DCC50
-	score -2
-
-AI_CV_DefenseUp_End: @ 82DCC52
+AI_CV_DefenseUp:
+	if_hp_less_than AI_USER, 30, Score_Minus5
+	if_hp_less_than AI_USER, 70, Score_Minus3
+	if_has_no_physical_move AI_TARGET, Score_Minus2
+	if_stat_level_more_than AI_USER, STAT_DEF, 8, Score_Minus1
+	if_random_less_than 64, Score_Plus2
+	if_random_less_than 128, Score_Plus1
 	end
 
-AI_CV_SpeedUp: @ 82DCC5D
-	if_target_faster AI_CV_SpeedUp2
-	score -3
-	goto AI_CV_SpeedUp_End
-
-AI_CV_SpeedUp2: @ 82DCC6A
-	if_random_less_than 70, AI_CV_SpeedUp_End
-	score +3
-
-AI_CV_SpeedUp_End: @ 82DCC72
+AI_CV_SpeedUp:
+	if_hp_less_than AI_USER, 30, Score_Minus5
+	if_hp_less_than AI_USER, 70, Score_Minus3
+	if_stat_level_more_than AI_USER, STAT_SPEED, 8, Score_Minus1
+	if_user_faster AI_CV_SpeedUp3
+AI_CV_SpeedUp2:
+	if_random_less_than 128, Score_Plus2
+AI_CV_SpeedUp3:
+	if_random_less_than 128, Score_Plus1
 	end
 
-AI_CV_SpAtkUp: @ 82DCC73
+AI_CV_SpAtkUp:
 	if_stat_level_less_than AI_USER, STAT_SPATK, 9, AI_CV_SpAtkUp2
 	if_random_less_than 100, AI_CV_SpAtkUp3
 	score -1
 	goto AI_CV_SpAtkUp3
 
-AI_CV_SpAtkUp2: @ 82DCC88
+AI_CV_SpAtkUp2:
 	if_hp_not_equal AI_USER, 100, AI_CV_SpAtkUp3
 	if_random_less_than 128, AI_CV_SpAtkUp3
 	score +2
 
-AI_CV_SpAtkUp3: @ 82DCC97
-	if_hp_more_than AI_USER, 70, AI_CV_SpAtkUp_End
-	if_hp_less_than AI_USER, 40, AI_CV_SpAtkUp_ScoreDown2
-	if_random_less_than 70, AI_CV_SpAtkUp_End
-
-AI_CV_SpAtkUp_ScoreDown2: @ 82DCCAB
-	score -2
-
-AI_CV_SpAtkUp_End: @ 82DCCAD
+AI_CV_SpAtkUp3:
+	if_hp_more_than AI_USER, 70, AI_Ret
+	if_hp_less_than AI_USER, 40, Score_Minus2
+	if_random_greater_than 70, Score_Minus2
 	end
 
-AI_CV_SpDefUp: @ 82DCCAE
-	if_stat_level_less_than AI_USER, STAT_SPDEF, 9, AI_CV_SpDefUp2
-	if_random_less_than 100, AI_CV_SpDefUp3
-	score -1
-	goto AI_CV_SpDefUp3
-
-AI_CV_SpDefUp2: @ 82DCCC3
-	if_hp_not_equal AI_USER, 100, AI_CV_SpDefUp3
-	if_random_less_than 128, AI_CV_SpDefUp3
-	score +2
-
-AI_CV_SpDefUp3: @ 82DCCD2
-	if_hp_less_than AI_USER, 70, AI_CV_SpDefUp4
-	if_random_less_than 200, AI_CV_SpDefUp_End
-
-AI_CV_SpDefUp4: @ 82DCCDF
-	if_hp_less_than AI_USER, 40, AI_CV_SpDefUp_ScoreDown2
-	get_last_used_bank_move AI_TARGET
-	get_move_power_from_result
-	if_equal 0, AI_CV_SpDefUp5
-	get_last_used_bank_move AI_TARGET
-	get_move_split_from_result
-	if_not_equal SPLIT_SPECIAL, AI_CV_SpDefUp_ScoreDown2
-	if_random_less_than 60, AI_CV_SpDefUp_End
-
-AI_CV_SpDefUp5: @ 82DCD01
-	if_random_less_than 60, AI_CV_SpDefUp_End
-
-AI_CV_SpDefUp_ScoreDown2: @ 82DCD07
-	score -2
-
-AI_CV_SpDefUp_End: @ 82DCD09
+AI_CV_SpDefUp:
+	if_hp_less_than AI_USER, 30, Score_Minus5
+	if_hp_less_than AI_USER, 70, Score_Minus3
+	if_has_no_special_move AI_TARGET, Score_Minus2
+	if_stat_level_more_than AI_USER, STAT_SPDEF, 8, Score_Minus1
+	if_random_less_than 64, Score_Plus2
+	if_random_less_than 128, Score_Plus1
 	end
 
 AI_CV_AccuracyUp:
@@ -1517,10 +1456,7 @@ AI_CV_AccuracyUp:
 	score -2
 
 AI_CV_AccuracyUp2:
-	if_hp_more_than AI_USER, 70, AI_CV_AccuracyUp_End
-	score -2
-
-AI_CV_AccuracyUp_End:
+	if_hp_less_than AI_USER, 70, Score_Minus2
 	end
 
 AI_CV_EvasionUp:
@@ -1558,16 +1494,11 @@ AI_CV_EvasionUp7:
 	score +3
 
 AI_CV_EvasionUp8:
-	if_hp_more_than AI_USER, 70, AI_CV_EvasionUp_End
-	if_stat_level_equal AI_USER, STAT_EVASION, 6, AI_CV_EvasionUp_End
-	if_hp_less_than AI_USER, 40, AI_CV_EvasionUp_ScoreDown2
-	if_hp_less_than AI_TARGET, 40, AI_CV_EvasionUp_ScoreDown2
-	if_random_less_than 70, AI_CV_EvasionUp_End
-
-AI_CV_EvasionUp_ScoreDown2:
-	score -2
-
-AI_CV_EvasionUp_End:
+	if_hp_more_than AI_USER, 70, AI_Ret
+	if_stat_level_equal AI_USER, STAT_EVASION, 6, AI_Ret
+	if_hp_less_than AI_USER, 40, Score_Minus2
+	if_hp_less_than AI_TARGET, 40, Score_Minus2
+	if_random_greater_than 70, Score_Minus2
 	end
 
 AI_CV_AlwaysHit:
@@ -1575,39 +1506,33 @@ AI_CV_AlwaysHit:
 	if_stat_level_less_than AI_USER, STAT_ACC, 2, AI_CV_AlwaysHit_ScoreUp1
 	if_stat_level_more_than AI_TARGET, STAT_EVASION, 8, AI_CV_AlwaysHit2
 	if_stat_level_less_than AI_USER, STAT_ACC, 4, AI_CV_AlwaysHit2
-	goto AI_CV_AlwaysHit_End
+	end
 
 AI_CV_AlwaysHit_ScoreUp1:
 	score +1
 
 AI_CV_AlwaysHit2:
-	if_random_less_than 100, AI_CV_AlwaysHit_End
-	score +1
-
-AI_CV_AlwaysHit_End:
+	if_random_greater_than 100, Score_Plus1
 	end
 
-AI_CV_AttackDown: @ 82DCDF8
+AI_CV_AttackDown:
 	if_stat_level_equal AI_TARGET, STAT_ATK, 6, AI_CV_AttackDown3
 	score -1
 	if_hp_more_than AI_USER, 90, AI_CV_AttackDown2
 	score -1
 
-AI_CV_AttackDown2: @ 82DCE0B
+AI_CV_AttackDown2:
 	if_stat_level_more_than AI_TARGET, STAT_ATK, 3, AI_CV_AttackDown3
 	if_random_less_than 50, AI_CV_AttackDown3
 	score -2
 
-AI_CV_AttackDown3: @ 82DCE1B
+AI_CV_AttackDown3:
 	if_hp_more_than AI_TARGET, 70, AI_CV_AttackDown4
 	score -2
 
-AI_CV_AttackDown4: @ 82DCE24
-	if_has_physical_move AI_TARGET, AI_CV_AttackDown_End
-	if_random_less_than 50, AI_CV_AttackDown_End
-	score -2
-
-AI_CV_AttackDown_End: @ 82DCE42
+AI_CV_AttackDown4:
+	if_has_physical_move AI_TARGET, AI_Ret
+	if_random_greater_than 50, Score_Minus2
 	end
 
 AI_CV_DefenseDown:
@@ -1619,10 +1544,7 @@ AI_CV_DefenseDown2:
 	score -2
 
 AI_CV_DefenseDown3:
-	if_hp_more_than AI_TARGET, 70, AI_CV_DefenseDown_End
-	score -2
-
-AI_CV_DefenseDown_End:
+	if_hp_less_than AI_TARGET, 70, Score_Minus2
 	end
 
 AI_CV_SpeedDownFromChance: @ 82DCE6B
