@@ -4935,8 +4935,8 @@ static void ReturnFromBattleToOverworld(void)
                 // if species clause is active, abort marking if the player already has the encountered mon(s)
                 u16 species1 = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);
                 u16 species2 = GetMonData(&gEnemyParty[1], MON_DATA_SPECIES);
-                if (species1 && GetSetPokedexFlag(SpeciesToNationalPokedexNum(species1), FLAG_GET_CAUGHT)
-                && (!species2 || GetSetPokedexFlag(SpeciesToNationalPokedexNum(species2), FLAG_GET_CAUGHT)))
+                if ((species1 == SPECIES_NONE || GetSetPokedexFlag(SpeciesToNationalPokedexNum(species1), FLAG_GET_CAUGHT))
+                && (species2 == SPECIES_NONE || GetSetPokedexFlag(SpeciesToNationalPokedexNum(species2), FLAG_GET_CAUGHT)))
                     markLocation = FALSE;
             }
             if (markLocation)

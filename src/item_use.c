@@ -950,8 +950,8 @@ void ItemUseInBattle_PokeBall(u8 taskId)
         // If player already encountered a mon in the current map section in nuzlocke mode, they cant catch it
         u16 id;
         if (gSaveBlock2Ptr->nuzlockeShinyClause
-        && ((IsMonShiny(&gEnemyParty[0]) && GetMonData(&gEnemyParty[0], MON_DATA_HP) > 0)
-        || (IsMonShiny(&gEnemyParty[1]) && GetMonData(&gEnemyParty[1], MON_DATA_HP) > 0)))
+        && ((GetMonData(&gEnemyParty[0], MON_DATA_SPECIES) != SPECIES_NONE && IsMonShiny(&gEnemyParty[0]))
+        || (GetMonData(&gEnemyParty[1], MON_DATA_SPECIES) != SPECIES_NONE && IsMonShiny(&gEnemyParty[1]))))
             id = MAPSEC_NONE;
         else
             id = GetCurrentRegionMapSectionId();
