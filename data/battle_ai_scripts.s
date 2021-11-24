@@ -1128,6 +1128,15 @@ AI_CheckViability:
 	if_effect EFFECT_MULTI_HIT, AI_CV_MultiHit
 	if_effect EFFECT_FUTURE_SIGHT, AI_CV_FutureSight
 	if_effect EFFECT_TRICK_ROOM, AI_CV_TrickRoom
+	if_effect EFFECT_HIT_ESCAPE, AI_CV_HitEscape
+	end
+
+AI_CV_HitEscape:
+	if_target_faster AI_CV_HitEscape2
+	score -1
+AI_CV_HitEscape2:
+	if_random_less_than 64 Score_Minus2
+	if_random_less_than 128 Score_Minus1
 	end
 
 AI_CV_TrickRoom:
