@@ -30,7 +30,9 @@ const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_LinkReceptionist;
 const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_OldMan;
 const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_OldWoman;
 const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_Camper;
+const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_RangerM;
 const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_Picnicker;
+const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_RangerF;
 const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_Man3;
 const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_Woman5;
 const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_Youngster;
@@ -65,6 +67,7 @@ const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_BrendanAcroBike;
 const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_ProfBirch;
 const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_Man4;
 const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_Man5;
+const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_BirdKeeper;
 const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_ReporterM;
 const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_ReporterF;
 const struct EventObjectGraphicsInfo gEventObjectGraphicsInfo_Bard;
@@ -279,7 +282,9 @@ const struct EventObjectGraphicsInfo *const gEventObjectGraphicsInfoPointers[] =
     [EVENT_OBJ_GFX_OLD_MAN] =                  &gEventObjectGraphicsInfo_OldMan,
     [EVENT_OBJ_GFX_OLD_WOMAN] =                &gEventObjectGraphicsInfo_OldWoman,
     [EVENT_OBJ_GFX_CAMPER] =                   &gEventObjectGraphicsInfo_Camper,
+    [EVENT_OBJ_GFX_RANGER_M] =                 &gEventObjectGraphicsInfo_RangerM,
     [EVENT_OBJ_GFX_PICNICKER] =                &gEventObjectGraphicsInfo_Picnicker,
+    [EVENT_OBJ_GFX_RANGER_F] =                 &gEventObjectGraphicsInfo_RangerF,
     [EVENT_OBJ_GFX_MAN_3] =                    &gEventObjectGraphicsInfo_Man3,
     [EVENT_OBJ_GFX_WOMAN_5] =                  &gEventObjectGraphicsInfo_Woman5,
     [EVENT_OBJ_GFX_YOUNGSTER] =                &gEventObjectGraphicsInfo_Youngster,
@@ -314,6 +319,7 @@ const struct EventObjectGraphicsInfo *const gEventObjectGraphicsInfoPointers[] =
     [EVENT_OBJ_GFX_PROF_BIRCH] =               &gEventObjectGraphicsInfo_ProfBirch,
     [EVENT_OBJ_GFX_MAN_4] =                    &gEventObjectGraphicsInfo_Man4,
     [EVENT_OBJ_GFX_MAN_5] =                    &gEventObjectGraphicsInfo_Man5,
+    [EVENT_OBJ_GFX_BIRD_KEEPER] =              &gEventObjectGraphicsInfo_BirdKeeper,
     [EVENT_OBJ_GFX_REPORTER_M] =               &gEventObjectGraphicsInfo_ReporterM,
     [EVENT_OBJ_GFX_REPORTER_F] =               &gEventObjectGraphicsInfo_ReporterF,
     [EVENT_OBJ_GFX_BARD] =                     &gEventObjectGraphicsInfo_Bard,

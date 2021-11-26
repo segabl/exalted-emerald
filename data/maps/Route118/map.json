@@ -70,7 +70,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "EVENT_OBJ_GFX_MAN_5",
+      "graphics_id": "EVENT_OBJ_GFX_BIRD_KEEPER",
       "x": 64,
       "y": 10,
       "elevation": 3,
@@ -226,7 +226,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "EVENT_OBJ_GFX_MAN_5",
+      "graphics_id": "EVENT_OBJ_GFX_BIRD_KEEPER",
       "x": 56,
       "y": 7,
       "elevation": 3,

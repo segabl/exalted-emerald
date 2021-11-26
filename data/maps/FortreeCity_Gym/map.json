@@ -28,7 +28,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "EVENT_OBJ_GFX_MAN_5",
+      "graphics_id": "EVENT_OBJ_GFX_BIRD_KEEPER",
       "x": 4,
       "y": 14,
       "elevation": 3,
@@ -67,7 +67,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "EVENT_OBJ_GFX_MAN_5",
+      "graphics_id": "EVENT_OBJ_GFX_BIRD_KEEPER",
       "x": 9,
       "y": 8,
       "elevation": 3,
@@ -93,7 +93,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "EVENT_OBJ_GFX_MAN_5",
+      "graphics_id": "EVENT_OBJ_GFX_BIRD_KEEPER",
       "x": 4,
       "y": 23,
       "elevation": 3,
@@ -106,7 +106,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "EVENT_OBJ_GFX_MAN_5",
+      "graphics_id": "EVENT_OBJ_GFX_BIRD_KEEPER",
       "x": 1,
       "y": 10,
       "elevation": 3,
