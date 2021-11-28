@@ -509,7 +509,7 @@ static void Task_StarterChoose2(u8 taskId)
 
         // Create Pokemon sprite
         species = GetStarterPokemon(gTasks[taskId].tStarterSelection);
-        if (FlagGet(FLAG_RANDOMIZER) && gSaveBlock2Ptr->randomizerGifted)
+        if (RANDOMIZER_GIFTED)
             species = RANDOMIZER_RAND(species);
         spriteId = CreatePokemonFrontSprite(species, sPokeballCoords[selection][0], sPokeballCoords[selection][1]);
         gSprites[spriteId].affineAnims = &gUnknown_085B1ED0;
@@ -543,7 +543,7 @@ static void Task_StarterChoose3(u8 taskId)
 static void Task_StarterChoose4(u8 taskId)
 {
     u16 species = GetStarterPokemon(gTasks[taskId].tStarterSelection);
-    if (FlagGet(FLAG_RANDOMIZER) && gSaveBlock2Ptr->randomizerGifted)
+    if (RANDOMIZER_GIFTED)
         species = RANDOMIZER_RAND(species);
     PlayCry1(species, 0);
     FillWindowPixelBuffer(0, PIXEL_FILL(1));
@@ -594,7 +594,7 @@ static void CreateStarterPokemonLabel(u8 selection)
     u8 labelLeft, labelRight, labelTop, labelBottom;
 
     u16 species = GetStarterPokemon(selection);
-    if (FlagGet(FLAG_RANDOMIZER) && gSaveBlock2Ptr->randomizerGifted)
+    if (RANDOMIZER_GIFTED)
         species = RANDOMIZER_RAND(species);
     CopyMonCategoryText(SpeciesToNationalPokedexNum(species), categoryText);
     speciesName = gSpeciesNames[species];

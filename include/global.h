@@ -116,7 +116,10 @@
     f;                       \
 })
 
-// Randomizer macro
+// Randomizer macros
+#define RANDOMIZER_GIFTED (FlagGet(FLAG_RANDOMIZER) && gSaveBlock2Ptr->randomizerGifted)
+#define RANDOMIZER_WILD (FlagGet(FLAG_RANDOMIZER) && gSaveBlock2Ptr->randomizerWild)
+#define RANDOMIZER_TRAINER (FlagGet(FLAG_RANDOMIZER) && gSaveBlock2Ptr->randomizerTrainer)
 #define RANDOMIZER_RAND(seed)                       \
 ({                                                  \
     SeedRng2(seed + gSaveBlock2Ptr->randomizerSeed);\

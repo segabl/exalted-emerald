@@ -385,7 +385,7 @@ static void CreateWildMon(u16 species, u8 level)
 
 static u16 CheckCreateWildMon(u16 species, u8 level, u16 seed)
 {
-    if (FlagGet(FLAG_RANDOMIZER) && gSaveBlock2Ptr->randomizerWild)
+    if (RANDOMIZER_WILD)
         species = RANDOMIZER_RAND(seed);
     CreateWildMon(species, level);
     return species;

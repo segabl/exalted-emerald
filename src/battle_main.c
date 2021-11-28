@@ -1743,7 +1743,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
     s32 i, j;
     u8 monsCount;
     u16 pokeball;
-    bool8 randomize = FlagGet(FLAG_RANDOMIZER) && gSaveBlock2Ptr->randomizerTrainer;
+    bool8 randomize = RANDOMIZER_TRAINER;
 
     if (trainerNum == TRAINER_SECRET_BASE)
         return 0;
@@ -1811,9 +1811,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             {
                 const struct TrainerMonNoItemDefaultMoves *partyData = gTrainers[trainerNum].party.NoItemDefaultMoves;
 
-                species = partyData[i].species;
-                if (randomize)
-                    species = RANDOMIZER_RAND((u32)&partyData[i]);
+                species = randomize ? RANDOMIZER_RAND((u32)&partyData[i]) : partyData[i].species;
 
                 personalityValue = CalculatePersonalityValue(&nameHash, species, partyData[i].personality, personalityValue);
                 level = CalculateScaledLevel(partyData[i].lvl, levelMin, partyCountMod, badgeMod);
@@ -1830,10 +1828,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             {
                 const struct TrainerMonNoItemCustomMoves *partyData = gTrainers[trainerNum].party.NoItemCustomMoves;
 
-                // Check if we should randomize
-                species = partyData[i].species;
-                if (randomize)
-                    species = RANDOMIZER_RAND((u32)&partyData[i]);
+                species = randomize ? RANDOMIZER_RAND((u32)&partyData[i]) : partyData[i].species;
 
                 personalityValue = CalculatePersonalityValue(&nameHash, species, partyData[i].personality, personalityValue);
                 level = CalculateScaledLevel(partyData[i].lvl, levelMin, partyCountMod, badgeMod);
@@ -1860,10 +1855,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             {
                 const struct TrainerMonItemDefaultMoves *partyData = gTrainers[trainerNum].party.ItemDefaultMoves;
 
-                // Check if we should randomize
-                species = partyData[i].species;
-                if (randomize)
-                    species = RANDOMIZER_RAND((u32)&partyData[i]);
+                species = randomize ? RANDOMIZER_RAND((u32)&partyData[i]) : partyData[i].species;
 
                 personalityValue = CalculatePersonalityValue(&nameHash, species, partyData[i].personality, personalityValue);
                 level = CalculateScaledLevel(partyData[i].lvl, levelMin, partyCountMod, badgeMod);
@@ -1882,10 +1874,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             {
                 const struct TrainerMonItemCustomMoves *partyData = gTrainers[trainerNum].party.ItemCustomMoves;
 
-                // Check if we should randomize
-                species = partyData[i].species;
-                if (randomize)
-                    species = RANDOMIZER_RAND((u32)&partyData[i]);
+                species = randomize ? RANDOMIZER_RAND((u32)&partyData[i]) : partyData[i].species;
 
                 personalityValue = CalculatePersonalityValue(&nameHash, species, partyData[i].personality, personalityValue);
                 level = CalculateScaledLevel(partyData[i].lvl, levelMin, partyCountMod, badgeMod);
