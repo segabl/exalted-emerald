@@ -50,7 +50,7 @@ PacifidlogTown_House3_EventScript_TradeCompleted:: @ 8203CAB
 	end
 
 PacifidlogTown_House3_EventScript_Girl:: @ 8203CB5
-	msgbox PacifidlogTown_House3_Text_IsThatAPokedex, MSGBOX_NPC
+	msgbox PacifidlogTown_House3_Text_KnowAboutTeamRocket, MSGBOX_NPC
 	end
 
 PacifidlogTown_House3_Text_WillingToTradeIt: @ 8203CBE
@@ -84,9 +84,11 @@ PacifidlogTown_House3_Text_ReallyWantedToGetBagon: @ 8203E7F
 	.string "But I really wanted to get a BAGON\n"
 	.string "that another TRAINER caught…$"
 
-PacifidlogTown_House3_Text_IsThatAPokedex: @ 8203EF1
-	.string "Is that a POKéDEX?\p"
-	.string "Did you get to meet a lot of different\n"
-	.string "POKéMON?\p"
-	.string "I wish I was like you.$"
+PacifidlogTown_House3_Text_KnowAboutTeamRocket:
+	.string "Have you heard about TEAM ROCKET?\p"
+	.string "Apparently they managed to\n"
+	.string "blow up ROUTE 1 in KANTO with an\l"
+	.string "OBSCENELY LARGE BOMB!\p"
+	.string "I shudder at what criminal groups\n"
+	.string "are willing to do to reach their goals!$"
 

@@ -298,7 +298,7 @@ MauvilleCity_BikeShop_Text_OhChampion:
 
 MauvilleCity_BikeShop_Text_HaveFunWithBikes:
 	.string "RYDEL: I hope you're enjoying\n"
-	.string "both of your bikes!$"
+	.string "both of your BIKES!$"
 
 MauvilleCity_BikeShop_Text_OhYourBikeIsInPC: @ 820F2F3
 	.string "Oh? What happened to that BIKE\n"
