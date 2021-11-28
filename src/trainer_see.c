@@ -17,6 +17,7 @@
 #include "constants/event_objects.h"
 #include "constants/event_object_movement_constants.h"
 #include "constants/field_effects.h"
+#include "constants/trainer_types.h"
 
 // this file's functions
 static u8 CheckTrainer(u8 eventObjectId);
@@ -185,7 +186,7 @@ bool8 CheckForTrainersWantingBattle(void)
 
         if (!gEventObjects[i].active)
             continue;
-        if (gEventObjects[i].trainerType != 1 && gEventObjects[i].trainerType != 3)
+        if (gEventObjects[i].trainerType != TRAINER_TYPE_NORMAL && gEventObjects[i].trainerType != TRAINER_TYPE_BURIED)
             continue;
 
         retVal = CheckTrainer(i);
@@ -289,7 +290,7 @@ static u8 GetTrainerApproachDistance(struct EventObject *trainerObj)
     u8 approachDistance;
 
     PlayerGetDestCoords(&x, &y);
-    if (trainerObj->trainerType == 1)  // can only see in one direction
+    if (trainerObj->trainerType == TRAINER_TYPE_NORMAL)  // can only see in one direction
     {
         approachDistance = sDirectionalApproachDistanceFuncs[trainerObj->facingDirection - 1](trainerObj, trainerObj->trainerRange_berryTreeId, x, y);
         return CheckPathBetweenTrainerAndPlayer(trainerObj, approachDistance, trainerObj->facingDirection);

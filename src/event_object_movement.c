@@ -27,6 +27,7 @@
 #include "constants/field_effects.h"
 #include "constants/items.h"
 #include "constants/mauville_old_man.h"
+#include "constants/trainer_types.h"
 
 // this file was known as evobjmv.c in Game Freak's original source
 
@@ -1456,7 +1457,7 @@ u8 SpawnSpecialEventObjectParameterized(u16 graphicsId, u8 movementBehavior, u8 
     eventObjectTemplate.movementType = movementBehavior;
     eventObjectTemplate.movementRangeX = 0;
     eventObjectTemplate.movementRangeY = 0;
-    eventObjectTemplate.trainerType = 0;
+    eventObjectTemplate.trainerType = TRAINER_TYPE_NONE;
     eventObjectTemplate.trainerRange_berryTreeId = 0;
     return SpawnSpecialEventObject(&eventObjectTemplate);
 }
@@ -2607,7 +2608,7 @@ bool8 EventObjectIsTrainerAndCloseToPlayer(struct EventObject *eventObject)
     {
         return FALSE;
     }
-    if (eventObject->trainerType != 1 && eventObject->trainerType != 3)
+    if (eventObject->trainerType != TRAINER_TYPE_NORMAL && eventObject->trainerType != TRAINER_TYPE_BURIED)
     {
         return FALSE;
     }

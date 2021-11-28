@@ -32,6 +32,7 @@
 #include "constants/moves.h"
 #include "constants/songs.h"
 #include "constants/species.h"
+#include "constants/trainer_types.h"
 
 static EWRAM_DATA u8 gUnknown_0203734C = 0;
 EWRAM_DATA struct EventObject gEventObjects[EVENT_OBJECTS_COUNT] = {};
@@ -1380,7 +1381,7 @@ void InitPlayerAvatar(s16 x, s16 y, u8 direction, u8 gender)
     playerEventObjTemplate.movementType = MOVEMENT_TYPE_PLAYER;
     playerEventObjTemplate.movementRangeX = 0;
     playerEventObjTemplate.movementRangeY = 0;
-    playerEventObjTemplate.trainerType = 0;
+    playerEventObjTemplate.trainerType = TRAINER_TYPE_NONE;
     playerEventObjTemplate.trainerRange_berryTreeId = 0;
     playerEventObjTemplate.script = NULL;
     playerEventObjTemplate.flagId = 0;
