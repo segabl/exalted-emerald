@@ -364,24 +364,27 @@ static const struct TrainerMonNoItemDefaultMoves sParty_ShellySeafloorCavern[] =
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_Archie[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_Archie[] = {
     {
     .lvl = 41,
     .species = SPECIES_MIGHTYENA,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 0,
+    .moves = {MOVE_TAUNT, MOVE_CRUNCH, MOVE_PLAY_ROUGH, MOVE_SWAGGER},
     },
     {
     .lvl = 41,
     .species = SPECIES_CROBAT,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 0,
+    .moves = {MOVE_LEECH_LIFE, MOVE_CONFUSE_RAY, MOVE_WING_ATTACK, MOVE_POISON_FANG},
     },
     {
     .lvl = 43,
     .species = SPECIES_SHARPEDO,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 2,
+    .moves = {MOVE_CRUNCH, MOVE_AQUA_JET, MOVE_ICE_FANG, MOVE_PROTECT},
     }
 };
 
@@ -9650,45 +9653,51 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Jonathan[] = {
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_MaxieMagmaHideout[] = {//Maxie1
+static const struct TrainerMonNoItemCustomMoves sParty_MaxieMagmaHideout[] = {//Maxie1
     {
     .lvl = 37,
     .species = SPECIES_MIGHTYENA,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 0,
+    .moves = {MOVE_TAUNT, MOVE_CRUNCH, MOVE_PLAY_ROUGH, MOVE_SWAGGER},
     },
     {
     .lvl = 38,
     .species = SPECIES_CROBAT,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 0,
+    .moves = {MOVE_LEECH_LIFE, MOVE_CONFUSE_RAY, MOVE_WING_ATTACK, MOVE_POISON_FANG},
     },
     {
     .lvl = 39,
     .species = SPECIES_CAMERUPT,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 1,
+    .moves = {MOVE_EARTH_POWER, MOVE_LAVA_PLUME, MOVE_AMNESIA, MOVE_ROCK_SLIDE},
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_MaxieMtChimney[] = {//Maxie2
+static const struct TrainerMonNoItemCustomMoves sParty_MaxieMtChimney[] = {//Maxie2
     {
     .lvl = 24,
     .species = SPECIES_MIGHTYENA,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 0,
+    .moves = {MOVE_ROAR, MOVE_BITE, MOVE_SAND_ATTACK, MOVE_SWAGGER},
     },
     {
     .lvl = 24,
     .species = SPECIES_ZUBAT,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 0,
+    .moves = {MOVE_ABSORB, MOVE_CONFUSE_RAY, MOVE_WING_ATTACK, MOVE_SWIFT},
     },
     {
     .lvl = 25,
     .species = SPECIES_CAMERUPT,
     .personality = PERSONALITY_RANDOM,
-    .abilityNum = ABILITY_NUM_DEFAULT,
+    .abilityNum = 1,
+    .moves = {MOVE_MAGNITUDE, MOVE_FLAME_BURST, MOVE_AMNESIA, MOVE_ROCK_SLIDE},
     }
 };
 
