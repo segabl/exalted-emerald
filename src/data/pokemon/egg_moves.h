@@ -371,7 +371,7 @@ const u16 gEggMoves[] = {
         MOVE_WATER_SPORT),
 
     egg_moves(ABRA,
-        MOVE_ALLY_SWITCH,
+        //MOVE_ALLY_SWITCH,
         MOVE_BARRIER,
         MOVE_ENCORE,
         MOVE_FIRE_PUNCH,
@@ -446,7 +446,7 @@ const u16 gEggMoves[] = {
         MOVE_WIDE_GUARD),
 
     egg_moves(PONYTA,
-        MOVE_ALLY_SWITCH,
+        //MOVE_ALLY_SWITCH,
         MOVE_CAPTIVATE,
         MOVE_CHARM,
         MOVE_DOUBLE_EDGE,
@@ -597,7 +597,7 @@ const u16 gEggMoves[] = {
 
     egg_moves(KRABBY,
         MOVE_AGILITY,
-        MOVE_ALLY_SWITCH,
+        //MOVE_ALLY_SWITCH,
         MOVE_AMNESIA,
         MOVE_ANCIENT_POWER,
         MOVE_BIDE,
@@ -1087,7 +1087,7 @@ const u16 gEggMoves[] = {
         MOVE_STORED_POWER),
 
     egg_moves(NATU,
-        MOVE_ALLY_SWITCH,
+        //MOVE_ALLY_SWITCH,
         MOVE_DRILL_PECK,
         MOVE_FEINT_ATTACK,
         MOVE_FEATHER_DANCE,
@@ -1727,7 +1727,7 @@ const u16 gEggMoves[] = {
         MOVE_WIDE_GUARD),
 
     egg_moves(RALTS,
-        MOVE_ALLY_SWITCH,
+        //MOVE_ALLY_SWITCH,
         MOVE_CONFUSE_RAY,
         MOVE_DESTINY_BOND,
         MOVE_DISABLE,
