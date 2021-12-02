@@ -484,6 +484,16 @@ struct SaveBlock2
     u16 optionsDifficulty:2; // OPTIONS_DIFFICULTY_[EASY/NORMAL/HARD]
     u16 optionsBattleSceneOff:1; // whether battle animations are disabled
     u16 regionMapZoom:1; // whether the map is zoomed in
+    // u16:4 free
+    u16 randomizerSeed;
+    u8 nuzlockeDifficulty:2;
+    u8 nuzlockeSpeciesClause:1;
+    u8 nuzlockeShinyClause:1;
+    u8 randomizerGifted:1;
+    u8 randomizerWild:1;
+    u8 randomizerTrainer:1;
+    // u8:1 free
+    u8 nuzlockeEncounterLocations[MAPSEC_FLAGS_NO];
     struct Pokedex pokedex;
     struct Time localTimeOffset;
     struct Time lastBerryTreeUpdate;
@@ -496,14 +506,6 @@ struct SaveBlock2
     struct RankingHall2P hallRecords2P[2][3]; // From record mixing.
     u16 contestLinkResults[5][4]; // 4 positions for 5 categories.
     struct BattleFrontier frontier;
-    u16 randomizerSeed;
-    u8 nuzlockeDifficulty:2;
-    u8 nuzlockeSpeciesClause:1;
-    u8 nuzlockeShinyClause:1;
-    u8 randomizerGifted:1;
-    u8 randomizerWild:1;
-    u8 randomizerTrainer:1; // + 1
-    u8 nuzlockeEncounterLocations[MAPSEC_FLAGS_NO];
 }; // size = 3864, max = 4084
 
 extern struct SaveBlock2 *gSaveBlock2Ptr;
