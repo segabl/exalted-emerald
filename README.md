@@ -46,7 +46,8 @@ For DizzyEgg's modifications, check out <https://github.com/DizzyEggg/pokeemeral
 - Increases view distance when not using flash and removes the overlay completely when using flash
 - Updates berry yield and grow time to OrAs values
 - Allows you to also get the other bike once you beat the E4
-- Increases all bag item slot limits to 999 (like for berries)
+- Increases all bag item slot limits to 999 (like for berries) 
+- Increases bag capacity
 - Adds a Pokéball collector to Sootopolis that gifts Johto Pokéballs
 - Adds a land connection between the two halves of Sootopolis
 - Adds option to invert B button behavior (always run)

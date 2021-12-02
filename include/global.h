@@ -999,7 +999,7 @@ struct SaveBlock1
     u8 unk3C88[10][21];
     struct SaveTrainerHill trainerHill;
     struct WaldaPhrase waldaPhrase;
-}; // size = 14520
+}; // size = 14600, max = 16336
 
 extern struct SaveBlock1* gSaveBlock1Ptr;
 
