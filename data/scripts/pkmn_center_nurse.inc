@@ -1,6 +1,7 @@
 Common_EventScript_PkmnCenterNurse:: @ 827191E
     lock
     faceplayer
+    call Common_EventScript_PkmnCenterNurse_CheckTime
     setvar VAR_0x8004, 0
     specialvar VAR_RESULT, CountPlayerTrainerStars
     compare VAR_RESULT, 4
@@ -11,6 +12,35 @@ Common_EventScript_PkmnCenterNurse:: @ 827191E
     compare VAR_RESULT, NO
     goto_if_eq EventScript_PkmnCenterNurse_Goodbye
     end
+
+Common_EventScript_PkmnCenterNurse_CheckTime::
+    gettime
+    compare VAR_0x8000, 5
+    goto_if_lt Common_EventScript_PkmnCenterNurse_Night
+    compare VAR_0x8000, 9
+    goto_if_lt Common_EventScript_PkmnCenterNurse_Morning
+    compare VAR_0x8000, 17
+    goto_if_lt Common_EventScript_PkmnCenterNurse_Day
+    compare VAR_0x8000, 21
+    goto_if_lt Common_EventScript_PkmnCenterNurse_Evening
+    goto Common_EventScript_PkmnCenterNurse_Night
+    return
+
+Common_EventScript_PkmnCenterNurse_Day::
+    msgbox gText_HelloAndWelcome
+    return
+
+Common_EventScript_PkmnCenterNurse_Night::
+    msgbox gText_HelloAndWelcome
+    return
+
+Common_EventScript_PkmnCenterNurse_Morning::
+    msgbox gText_GoodMorningAndWelcome
+    return
+
+Common_EventScript_PkmnCenterNurse_Evening::
+    msgbox gText_GoodEveningAndWelcome
+    return
 
 EventScript_PkmnCenterNurse_Goodbye:: @ 8271954
     message gText_WeHopeToSeeYouAgain

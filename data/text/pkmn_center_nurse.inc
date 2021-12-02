@@ -1,6 +1,16 @@
-gText_WouldYouLikeToRestYourPkmn:: @ 82726EB
+gText_HelloAndWelcome::
     .string "Hello, and welcome to\n"
-    .string "the POKéMON CENTER.\p"
+    .string "the POKéMON CENTER.$"
+
+gText_GoodMorningAndWelcome::
+    .string "Good morning, and welcome to\n"
+    .string "the POKéMON CENTER.$"
+
+gText_GoodEveningAndWelcome::
+    .string "Good evening, and welcome to\n"
+    .string "the POKéMON CENTER.$"
+
+gText_WouldYouLikeToRestYourPkmn:: @ 82726EB
     .string "We restore your tired POKéMON\n"
     .string "to full health.\p"
     .string "Would you like to rest your POKéMON?$"
@@ -18,8 +28,6 @@ gText_WeHopeToSeeYouAgain:: @ 82727DB
     .string "We hope to see you again!$"
 
 gText_WelcomeCutShort:: @ 82727F5
-    .string "Hello, and welcome to\n"
-    .string "the POKéMON CENTER.\p"
     .string "We restore your tired POKéMON\n"
     .string "to full health.\p"
     .string "Would you like to…$"
