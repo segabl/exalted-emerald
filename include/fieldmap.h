@@ -52,4 +52,6 @@ void SpriteCB_HallOfFameMonitor(struct Sprite *);
 void FieldInitRegionMap(MainCallback callback);
 void sub_8088B94(int x, int y, int a2);
 
+u16 GetTimeOfDayTint();
+
 #endif //GUARD_FIELDMAP_H

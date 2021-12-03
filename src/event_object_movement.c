@@ -117,7 +117,7 @@ static void RemoveEventObjectIfOutsideView(struct EventObject *);
 static void sub_808E1B8(u8, s16, s16);
 static void SetPlayerAvatarEventObjectIdAndObjectId(u8, u8);
 static void sub_808E38C(struct EventObject *);
-static u8 sub_808E8F4(const struct SpritePalette *);
+static u8 LoadSpritePaletteIfTagExists(const struct SpritePalette *);
 static u8 FindEventObjectPaletteIndexByTag(u16);
 static void sub_808EAB0(u16, u8);
 static bool8 EventObjectDoesZCoordMatch(struct EventObject *, u8);
@@ -1974,34 +1974,24 @@ static void LoadEventObjectPalette(u16 paletteTag)
 
     if (i != EVENT_OBJ_PAL_TAG_NONE) // always true
     {
-        sub_808E8F4(&sEventObjectSpritePalettes[i]);
+        LoadSpritePaletteIfTagExists(&sEventObjectSpritePalettes[i]);
     }
 }
 
-void Unused_LoadEventObjectPaletteSet(u16 *paletteTags)
-{
-    u8 i;
-
-    for (i = 0; paletteTags[i] != EVENT_OBJ_PAL_TAG_NONE; i++)
-    {
-        LoadEventObjectPalette(paletteTags[i]);
-    }
-}
-
-static u8 sub_808E8F4(const struct SpritePalette *spritePalette)
+static u8 LoadSpritePaletteIfTagExists(const struct SpritePalette *spritePalette)
 {
     if (IndexOfSpritePaletteTag(spritePalette->tag) != 0xFF)
     {
         return 0xFF;
     }
-    return LoadSpritePalette(spritePalette);
+    return LoadTintedSpritePalette(spritePalette, GetTimeOfDayTint());
 }
 
 void PatchObjectPalette(u16 paletteTag, u8 paletteSlot)
 {
     u8 paletteIndex = FindEventObjectPaletteIndexByTag(paletteTag);
 
-    LoadPalette(sEventObjectSpritePalettes[paletteIndex].data, 16 * paletteSlot + 0x100, 0x20);
+    LoadTintedPalette(sEventObjectSpritePalettes[paletteIndex].data, 16 * paletteSlot + 0x100, 0x20, GetTimeOfDayTint(), FALSE);
 }
 
 void PatchObjectPaletteRange(const u16 *paletteTags, u8 minSlot, u8 maxSlot)

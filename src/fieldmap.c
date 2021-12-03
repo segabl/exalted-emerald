@@ -14,7 +14,11 @@
 #include "secret_base.h"
 #include "trainer_hill.h"
 #include "tv.h"
+#include "rtc.h"
+#include "event_data.h"
+#include "constants/map_types.h"
 #include "constants/rgb.h"
+#include "constants/flags.h"
 
 struct ConnectionFlags
 {
@@ -965,14 +969,33 @@ void copy_tileset_patterns_to_vram2(struct Tileset const *tileset, u16 numTiles,
     }
 }
 
-void nullsub_3(u16 a0, u16 a1)
+u16 GetTimeOfDayTint()
 {
+    if (FlagGet(FLAG_SYS_CLOCK_SET) && gMapHeader.mapType & (MAP_TYPE_CITY | MAP_TYPE_OCEAN_ROUTE | MAP_TYPE_ROUTE | MAP_TYPE_TOWN))
+    {
+        u8 h;
 
-}
+        RtcCalcLocalTime();
 
-void nullsub_90(void)
-{
+        h = gLocalTime.hours;
 
+        if (h >= 9 && h < 17) // Day (no tint)
+            return 0;
+        else if (h < 5 || h >= 21)
+            return RGB(10, 10, 20); // Night
+        else if (h < 7)
+            return RGB(15, 15, 25); // Early Morning
+        else if (h < 9)
+            return RGB(20, 20, 31); // Morning
+        else if (h >= 19)
+            return RGB(15, 10, 20); // Late Evening
+        else if (h >= 17)
+            return RGB(20, 10, 20); // Evening
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 void apply_map_tileset_palette(struct Tileset const *tileset, u16 destOffset, u16 size)
@@ -984,18 +1007,15 @@ void apply_map_tileset_palette(struct Tileset const *tileset, u16 destOffset, u1
         if (tileset->isSecondary == FALSE)
         {
             LoadPalette(&black, destOffset, 2);
-            LoadPalette(((u16*)tileset->palettes) + 1, destOffset + 1, size - 2);
-            nullsub_3(destOffset + 1, (size - 2) >> 1);
+            LoadTintedPalette(((u16*)tileset->palettes) + 1, destOffset + 1, size - 2, GetTimeOfDayTint(), FALSE);
         }
         else if (tileset->isSecondary == TRUE)
         {
-            LoadPalette(((u16*)tileset->palettes) + (NUM_PALS_IN_PRIMARY * 16), destOffset, size);
-            nullsub_3(destOffset, size >> 1);
+            LoadTintedPalette(((u16*)tileset->palettes) + (NUM_PALS_IN_PRIMARY * 16), destOffset, size, GetTimeOfDayTint(), FALSE);
         }
         else
         {
-            LoadCompressedPalette((u32*)tileset->palettes, destOffset, size);
-            nullsub_3(destOffset, size >> 1);
+            LoadTintedPalette((u16*)tileset->palettes, destOffset, size, GetTimeOfDayTint(), TRUE);
         }
     }
 }
