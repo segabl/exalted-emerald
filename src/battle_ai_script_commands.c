@@ -432,7 +432,7 @@ void BattleAI_SetupAIData(u8 defaultScoreMoves)
     gBattlerTarget = SetRandomTarget(sBattler_AI);
 }
 
-void BattleAI_PopulateKnownMoves(struct Pokemon* party, u8 partyIndex)
+void BattleAI_InitKnownMovesAndAbility(struct Pokemon* party, u8 partyIndex)
 {
     // We're initializing the known moves list for every mon with the move set
     // it would know if it was encountered in the wild at that level.
@@ -443,8 +443,17 @@ void BattleAI_PopulateKnownMoves(struct Pokemon* party, u8 partyIndex)
         u16 species = GetMonData(&party[i], MON_DATA_SPECIES_EGG);
         u8 typeMove1Slot = 0xFF;
         u8 typeMove2Slot = 0xFF;
+
         if (species == SPECIES_NONE || species == SPECIES_EGG)
             continue;
+
+        // Init random ability
+        if (gBaseStats[species].abilities[2] != ABILITY_NONE)
+            BATTLE_HISTORY->abilities[partyIndex][i] = gBaseStats[species].abilities[Random() % 3];
+        else
+            BATTLE_HISTORY->abilities[partyIndex][i] = gBaseStats[species].abilities[Random() & 1];
+
+        // Init moves
         k = 0;
         for (j = 0; gLevelUpLearnsets[species][j].move != LEVEL_UP_END; j++)
         {

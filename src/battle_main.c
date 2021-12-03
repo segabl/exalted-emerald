@@ -619,9 +619,9 @@ static void CB2_InitBattleInternal(void)
         if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS && !BATTLE_TWO_VS_ONE_OPPONENT)
             CreateNPCTrainerParty(&gEnemyParty[3], gTrainerBattleOpponent_B, FALSE);
         SetWildMonHeldItem();
-        BattleAI_PopulateKnownMoves(gPlayerParty, 0);
+        BattleAI_InitKnownMovesAndAbility(gPlayerParty, 0);
         if (gBattleTypeFlags & BATTLE_TYPE_MULTI && gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER)
-            BattleAI_PopulateKnownMoves(gEnemyParty, 1);
+            BattleAI_InitKnownMovesAndAbility(gEnemyParty, 1);
     }
 
     gMain.inBattle = TRUE;

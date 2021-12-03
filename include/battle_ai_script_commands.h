@@ -14,7 +14,7 @@ u16 AI_GetTypeEffectiveness(u16 move, u8 battlerAtk, u8 battlerDef);
 void BattleAI_SetupItems(void);
 void BattleAI_SetupFlags(void);
 void BattleAI_SetupAIData(u8 defaultScoreMoves);
-void BattleAI_PopulateKnownMoves(struct Pokemon *party, u8 partyIndex);
+void BattleAI_InitKnownMovesAndAbility(struct Pokemon *party, u8 partyIndex);
 void BattleAI_UpdateKnownMoves(u8 battlerId, u16 battlerMove);
 u8 BattleAI_ChooseMoveOrAction(void);
 bool32 IsTruantMonVulnerable(u32 battlerAI, u32 opposingBattler);
