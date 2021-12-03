@@ -92,6 +92,35 @@ void LoadPalette(const void *src, u16 offset, u16 size)
     CpuCopy16(src, gPlttBufferFaded + offset, size);
 }
 
+void LoadTintedPalette(const u16 *src, u16 offset, u16 size, u16 tintColor, bool8 compressed)
+{
+    if (compressed)
+    {
+        LZDecompressWram((u32*)src, gPaletteDecompressionBuffer);
+        src = (u16*)gPaletteDecompressionBuffer;
+    }
+
+    if (tintColor)
+    {
+        u16 r, g, b, rT, gT, bT, i;
+        rT = (tintColor >> 0) & 31;
+        gT = (tintColor >> 5) & 31;
+        bT = (tintColor >> 10) & 31;
+
+        for (i = 0; i < size / 2; i++) {
+            r = (((src[i] >> 0) & 31) * rT) / 31;
+            g = (((src[i] >> 5) & 31) * gT) / 31;
+            b = (((src[i] >> 10) & 31) * bT) / 31;
+
+            gPlttBufferUnfaded[offset + i] = gPlttBufferFaded[offset + i] = r | (g << 5) | (b << 10);
+        }
+    }
+    else
+    {
+        LoadPalette(src, offset, size);
+    }
+}
+
 void FillPalette(u16 value, u16 offset, u16 size)
 {
     CpuFill16(value, gPlttBufferUnfaded + offset, size);
