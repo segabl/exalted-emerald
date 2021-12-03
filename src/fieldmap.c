@@ -971,7 +971,8 @@ void copy_tileset_patterns_to_vram2(struct Tileset const *tileset, u16 numTiles,
 
 u16 GetTimeOfDayTint()
 {
-    if (FlagGet(FLAG_SYS_CLOCK_SET) && gMapHeader.mapType & (MAP_TYPE_CITY | MAP_TYPE_OCEAN_ROUTE | MAP_TYPE_ROUTE | MAP_TYPE_TOWN))
+    if (FlagGet(FLAG_SYS_CLOCK_SET)
+    && (gMapHeader.mapType == MAP_TYPE_CITY || gMapHeader.mapType == MAP_TYPE_OCEAN_ROUTE || gMapHeader.mapType == MAP_TYPE_ROUTE || gMapHeader.mapType == MAP_TYPE_TOWN))
     {
         u8 h;
 
