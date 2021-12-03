@@ -983,15 +983,15 @@ u16 GetTimeOfDayTint()
         if (h >= 9 && h < 17) // Day (no tint)
             return 0;
         else if (h < 5 || h >= 21)
-            return RGB(10, 10, 20); // Night
+            return RGB(15, 15, 25); // Night
         else if (h < 7)
-            return RGB(15, 15, 25); // Early Morning
+            return RGB(20, 20, 30); // Early Morning
         else if (h < 9)
-            return RGB(20, 20, 31); // Morning
+            return RGB(25, 25, 31); // Morning
         else if (h >= 19)
-            return RGB(15, 10, 20); // Late Evening
+            return RGB(20, 15, 25); // Late Evening
         else if (h >= 17)
-            return RGB(20, 10, 20); // Evening
+            return RGB(25, 15, 25); // Evening
     }
     else
     {
