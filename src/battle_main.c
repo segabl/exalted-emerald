@@ -1696,10 +1696,10 @@ static void sub_8038538(struct Sprite *sprite)
     }
 }
 
-static u8 CalculateScaledLevel(u16 level, u16 levelMin, u16 partyCountMod, u16 badgeMod)
+static u8 CalculateScaledLevel(u16 level, u16 levelMin, u16 partyCountMod, u16 numBadges)
 {
     if (level < levelMin)
-        level += (100 * (levelMin - level)) / (100 + partyCountMod * 10 + badgeMod * 25);
+        level += (100 * (levelMin - level)) / (100 + partyCountMod * 10 + (NUM_BADGES - numBadges) * 25);
     return level;
 }
 
@@ -1762,10 +1762,22 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && !(gBattleTypeFlags & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_TRAINER_HILL)))
     {
-        // If difficulty is set to hard, trainer levels are scaled based on the players max level mon
         u16 levelMin = 0;
-        u16 badgeMod = 8;
+        u16 numBadges = 0;
         u16 partyCountMod;
+        u8 ev;
+
+        // Count the number of obtained badges to scale some values off
+        for (i = FLAG_BADGE01_GET; i <= FLAG_BADGE08_GET; i ++)
+        {
+            if (FlagGet(i))
+                numBadges++;
+        }
+
+        // Scale effort values with amount of badges
+        ev = numBadges * 10;
+
+        // If difficulty is set to hard, trainer levels are scaled based on the players max level mon
         if (GAME_DIFFICULTY > 1 && FlagGet(FLAG_ADVENTURE_STARTED))
         {
             for (i = 0; i < PARTY_SIZE; i++)
@@ -1777,11 +1789,6 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                     if (lvl > levelMin)
                         levelMin = lvl;
                 }
-            }
-            for (i = FLAG_BADGE01_GET; i < FLAG_BADGE01_GET + 8; i ++)
-            {
-                if (FlagGet(i))
-                    badgeMod--;
             }
         }
 
@@ -1826,7 +1833,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 species = randomize ? RANDOMIZER_RAND((u32)&partyData[i]) : partyData[i].species;
 
                 personalityValue = CalculatePersonalityValue(&nameHash, species, partyData[i].personality, personalityValue);
-                level = CalculateScaledLevel(partyData[i].lvl, levelMin, partyCountMod, badgeMod);
+                level = CalculateScaledLevel(partyData[i].lvl, levelMin, partyCountMod, numBadges);
                 species = CheckLevelEvolution(species, partyData[i].lvl, level);
                 CreateMon(&party[i], species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
@@ -1835,6 +1842,9 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
                 pokeball = GetClassPokeball(personalityValue, gTrainers[trainerNum].trainerClass);
                 SetMonData(&party[i], MON_DATA_POKEBALL, &pokeball);
+
+                for (j = 0; j < NUM_STATS; j++)
+                    SetMonData(&party[i], MON_DATA_HP_EV + j, &ev);
                 break;
             }
             case F_TRAINER_PARTY_CUSTOM_MOVESET:
@@ -1844,7 +1854,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 species = randomize ? RANDOMIZER_RAND((u32)&partyData[i]) : partyData[i].species;
 
                 personalityValue = CalculatePersonalityValue(&nameHash, species, partyData[i].personality, personalityValue);
-                level = CalculateScaledLevel(partyData[i].lvl, levelMin, partyCountMod, badgeMod);
+                level = CalculateScaledLevel(partyData[i].lvl, levelMin, partyCountMod, numBadges);
                 species = CheckLevelEvolution(species, partyData[i].lvl, level);
                 CreateMon(&party[i], species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
@@ -1853,6 +1863,9 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
                 pokeball = GetClassPokeball(personalityValue, gTrainers[trainerNum].trainerClass);
                 SetMonData(&party[i], MON_DATA_POKEBALL, &pokeball);
+
+                for (j = 0; j < NUM_STATS; j++)
+                    SetMonData(&party[i], MON_DATA_HP_EV + j, &ev);
 
                 if (!randomize)
                 {
@@ -1872,7 +1885,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 species = randomize ? RANDOMIZER_RAND((u32)&partyData[i]) : partyData[i].species;
 
                 personalityValue = CalculatePersonalityValue(&nameHash, species, partyData[i].personality, personalityValue);
-                level = CalculateScaledLevel(partyData[i].lvl, levelMin, partyCountMod, badgeMod);
+                level = CalculateScaledLevel(partyData[i].lvl, levelMin, partyCountMod, numBadges);
                 species = CheckLevelEvolution(species, partyData[i].lvl, level);
                 CreateMon(&party[i], species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
@@ -1881,6 +1894,9 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
                 pokeball = GetClassPokeball(personalityValue, gTrainers[trainerNum].trainerClass);
                 SetMonData(&party[i], MON_DATA_POKEBALL, &pokeball);
+
+                for (j = 0; j < NUM_STATS; j++)
+                    SetMonData(&party[i], MON_DATA_HP_EV + j, &ev);
 
                 SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
                 break;
@@ -1892,7 +1908,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 species = randomize ? RANDOMIZER_RAND((u32)&partyData[i]) : partyData[i].species;
 
                 personalityValue = CalculatePersonalityValue(&nameHash, species, partyData[i].personality, personalityValue);
-                level = CalculateScaledLevel(partyData[i].lvl, levelMin, partyCountMod, badgeMod);
+                level = CalculateScaledLevel(partyData[i].lvl, levelMin, partyCountMod, numBadges);
                 species = CheckLevelEvolution(species, partyData[i].lvl, level);
                 CreateMon(&party[i], species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
@@ -1901,6 +1917,9 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
                 pokeball = GetClassPokeball(personalityValue, gTrainers[trainerNum].trainerClass);
                 SetMonData(&party[i], MON_DATA_POKEBALL, &pokeball);
+
+                for (j = 0; j < NUM_STATS; j++)
+                    SetMonData(&party[i], MON_DATA_HP_EV + j, &ev);
 
                 SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
 
