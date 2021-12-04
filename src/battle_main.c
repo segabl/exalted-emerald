@@ -1705,7 +1705,7 @@ static u8 CalculateScaledLevel(u16 level, u16 levelMin, u16 partyCountMod, u16 b
 
 static u16 CheckLevelEvolution(u16 species, u16 originalLevel, u16 scaledLevel)
 {
-    if (originalLevel + 10 > scaledLevel)
+    if (originalLevel + 5 > scaledLevel)
         return species;
     if (gEvolutionTable[species][0].targetSpecies == SPECIES_NONE || gEvolutionTable[species][0].method != EVO_LEVEL)
         return species;
