@@ -35,8 +35,8 @@ For DizzyEgg's modifications, check out <https://github.com/DizzyEggg/pokeemeral
 - Makes the Synchronize ability affect static encounters and gifted Pokémon
 - Updates the shiny chance to newer generations chance
 - Opens up the complete safari zone from the beginning and removes the step limit
-- Safari zone Pokémon have a minimum of 2 perfect IVs and a chance for their hidden ability
-- All legendary and gifted Pokémon have a minimum of 3 perfect IVs
+- Safari zone Pokémon have a minimum of 3 perfect IVs and a chance for their hidden ability
+- All legendary and gifted Pokémon have a minimum of 4 perfect IVs
 - Improves the IV rater to tell multiple maxed and also 0 stats
 - Allows the move relearner to teach moves from higher levels
 - Lets you remove HMs at any time and make TMs reusable

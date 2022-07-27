@@ -113,13 +113,13 @@ SouthernIsland_Interior_EventScript_Sign:: @ 8242B9A
 	end
 
 SouthernIsland_Interior_EventScript_SetLatiosBattleVars:: @ 8242BA4
-	setvar VAR_NUM_MAXED_IVS, 3
+	setvar VAR_NUM_MAXED_IVS, 4
 	setwildbattle SPECIES_LATIOS, 50, ITEM_SOUL_DEW
 	dowildbattle
 	return
 
 SouthernIsland_Interior_EventScript_SetLatiasBattleVars:: @ 8242BB7
-	setvar VAR_NUM_MAXED_IVS, 3
+	setvar VAR_NUM_MAXED_IVS, 4
 	setwildbattle SPECIES_LATIAS, 50, ITEM_SOUL_DEW
 	dowildbattle
 	return

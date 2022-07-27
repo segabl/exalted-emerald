@@ -67,7 +67,7 @@ static void CreateInitialRoamerMon(bool16 createLatios)
     else
         (&gSaveBlock1Ptr->roamer)->species = SPECIES_LATIOS;
 
-    VarSet(VAR_NUM_MAXED_IVS, 3);
+    VarSet(VAR_NUM_MAXED_IVS, 4);
     CreateMon(&gEnemyParty[0], (&gSaveBlock1Ptr->roamer)->species, 40, 0x20, 0, 0, OT_ID_PLAYER_ID, 0);
     (&gSaveBlock1Ptr->roamer)->level = 40;
     (&gSaveBlock1Ptr->roamer)->status = 0;

@@ -94,7 +94,7 @@ MossdeepCity_StevensHouse_EventScript_LeaveBeldum:: @ 822285B
 
 MossdeepCity_StevensHouse_EventScript_GiveBeldum:: @ 8222865
 	setvar VAR_TEMP_1, SPECIES_BELDUM
-	setvar VAR_NUM_MAXED_IVS, 3
+	setvar VAR_NUM_MAXED_IVS, 4
 	givemon SPECIES_BELDUM, 5
 	compare VAR_RESULT, 0
 	goto_if_eq MossdeepCity_StevensHouse_EventScript_SendBeldumParty

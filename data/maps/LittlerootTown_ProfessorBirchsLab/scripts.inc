@@ -298,7 +298,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_TakeYourTime:: @ 81FA061
 LittlerootTown_ProfessorBirchsLab_EventScript_GiveCyndaquil:: @ 81FA06C
 	bufferspeciesname 0, SPECIES_CYNDAQUIL
 	setvar VAR_TEMP_1, SPECIES_CYNDAQUIL
-	setvar VAR_NUM_MAXED_IVS, 3
+	setvar VAR_NUM_MAXED_IVS, 4
 	givemon SPECIES_CYNDAQUIL, 5
 	compare VAR_RESULT, 0
 	goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_SendCyndaquilToParty
@@ -344,7 +344,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedCyndaquil:: @ 81FA0FD
 LittlerootTown_ProfessorBirchsLab_EventScript_GiveTotodile:: @ 81FA10D
 	bufferspeciesname 0, SPECIES_TOTODILE
 	setvar VAR_TEMP_1, SPECIES_TOTODILE
-	setvar VAR_NUM_MAXED_IVS, 3
+	setvar VAR_NUM_MAXED_IVS, 4
 	givemon SPECIES_TOTODILE, 5
 	compare VAR_RESULT, 0
 	goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_SendTotodileToParty
@@ -390,7 +390,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedTotodile:: @ 81FA19E
 LittlerootTown_ProfessorBirchsLab_EventScript_GiveChikorita:: @ 81FA1AE
 	bufferspeciesname 0, SPECIES_CHIKORITA
 	setvar VAR_TEMP_1, SPECIES_CHIKORITA
-	setvar VAR_NUM_MAXED_IVS, 3
+	setvar VAR_NUM_MAXED_IVS, 4
 	givemon SPECIES_CHIKORITA, 5
 	compare VAR_RESULT, 0
 	goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_SendChikoritaToParty

@@ -56,7 +56,7 @@ NavelRock_Top_EventScript_HoOh:: @ 826916F
 	applymovement 1, NavelRock_Top_Movement_HoOhApproach
 	waitmovement 0
 	special RemoveCameraObject
-	setvar VAR_NUM_MAXED_IVS, 3
+	setvar VAR_NUM_MAXED_IVS, 4
 	setwildbattle SPECIES_HO_OH, 70, ITEM_NONE
 	dowildbattle
 	setflag FLAG_SYS_CTRL_OBJ_DELETE

@@ -909,7 +909,7 @@ static void CB2_GiveStarter(void)
 
     *GetVarPointer(VAR_STARTER_MON) = gSpecialVar_Result;
     starterMon = GetStarterPokemon(gSpecialVar_Result);
-    VarSet(VAR_NUM_MAXED_IVS, 3);  // Guarantee 3 maxed IVs
+    VarSet(VAR_NUM_MAXED_IVS, 4);
     ScriptGiveMon(starterMon, 5, ITEM_ORAN_BERRY, 0xFFFFFFFF, 0xFFFFFFFF, 0xFF);
     ResetTasks();
     PlayBattleBGM();

@@ -2113,8 +2113,8 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
                | (value & (0x1F << 20))
                | (value & (0x1F << 25));
 
-        // Safari zone has a minium of 2 maxed IVs
-        numMaxedIvs = FlagGet(FLAG_SYS_SAFARI_MODE) && VarGet(VAR_NUM_MAXED_IVS) < 2 ? 2 : VarGet(VAR_NUM_MAXED_IVS);
+        // Safari zone has a minium of 3 maxed IVs
+        numMaxedIvs = FlagGet(FLAG_SYS_SAFARI_MODE) && VarGet(VAR_NUM_MAXED_IVS) < 3 ? 3 : VarGet(VAR_NUM_MAXED_IVS);
         if (numMaxedIvs > 0)
         {
             u8 numMaxed, i;

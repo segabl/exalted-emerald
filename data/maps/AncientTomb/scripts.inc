@@ -66,7 +66,7 @@ AncientTomb_EventScript_Registeel:: @ 823905A
 	playmoncry SPECIES_REGISTEEL, 2
 	delay 40
 	waitmoncry
-	setvar VAR_NUM_MAXED_IVS, 3
+	setvar VAR_NUM_MAXED_IVS, 4
 	setwildbattle SPECIES_REGISTEEL, 40, ITEM_NONE
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special StartRegiBattle

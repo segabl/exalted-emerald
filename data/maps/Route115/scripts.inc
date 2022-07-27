@@ -152,7 +152,7 @@ Route115_EventScript_Snorlax::
 	playmoncry SPECIES_SNORLAX, 0
 	delay 40
 	waitmoncry
-	setvar VAR_NUM_MAXED_IVS, 3
+	setvar VAR_NUM_MAXED_IVS, 4
 	setwildbattle SPECIES_SNORLAX, 35, ITEM_LEFTOVERS
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	dowildbattle
