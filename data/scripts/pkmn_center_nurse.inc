@@ -1,6 +1,7 @@
 Common_EventScript_PkmnCenterNurse:: @ 827191E
     lock
     faceplayer
+    goto_if_set FLAG_TEMP_5, EventScript_PkmnCenterNurse_Goodbye
     call Common_EventScript_PkmnCenterNurse_CheckTime
     setvar VAR_0x8004, 0
     specialvar VAR_RESULT, CountPlayerTrainerStars
@@ -48,6 +49,7 @@ EventScript_PkmnCenterNurse_Goodbye:: @ 8271954
 
 @ VAR_0x8004 is 1 when player has Gold Card; jumps are identical
 EventScript_PkmnCenterNurse_HealPkmn:: @ 827195A
+    setflag FLAG_TEMP_5
     incrementgamestat GAME_STAT_USED_POKECENTER
     compare VAR_0x8004, 0
     call_if_eq EventScript_PkmnCenterNurse_IllTakeYourPkmn
