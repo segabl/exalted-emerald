@@ -542,7 +542,10 @@ static bool8 TryGenerateWildMonBattle(bool8 isDouble, const struct WildPokemonIn
         {
             u32 haNum = 2;
             struct Pokemon mon1 = gEnemyParty[0];
-            TryGenerateWildMon(monsInfo, area, WILD_CHECK_KEEN_EYE);
+            if (Random() % 2)
+                CreateWildMon(GetMonData(gEnemyParty, MON_DATA_SPECIES), mon1.level);
+            else
+                TryGenerateWildMon(monsInfo, area, WILD_CHECK_KEEN_EYE);
             gEnemyParty[1] = mon1;
             // Wild double battles have a chance for hidden abilities
             if ((Random() % WILD_DOUBLE_HA_CHANCE) == 0 && gBaseStats[GetMonData(gEnemyParty, MON_DATA_SPECIES)].abilities[haNum])
