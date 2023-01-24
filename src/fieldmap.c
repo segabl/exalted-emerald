@@ -980,18 +980,18 @@ u16 GetTimeOfDayTint()
 
         h = gLocalTime.hours;
 
-        if (h >= 9 && h < 17) // Day (no tint)
-            return 0;
-        else if (h < 5 || h >= 21)
-            return RGB(15, 15, 25); // Night
+        if (h < 5 || h >= 21)
+            return RGB(16, 16, 26); // Night
+        else if (h < 6)
+            return RGB(21, 21, 31); // Early Morning
         else if (h < 7)
-            return RGB(20, 20, 30); // Early Morning
-        else if (h < 9)
-            return RGB(25, 25, 31); // Morning
+            return RGB(26, 26, 31); // Morning
+        else if (h >= 20)
+            return RGB(21, 16, 26); // Late Evening
         else if (h >= 19)
-            return RGB(20, 15, 25); // Late Evening
-        else if (h >= 17)
-            return RGB(25, 15, 25); // Evening
+            return RGB(26, 16, 26); // Evening
+        else
+            return 0; // Day (no tint)
     }
     else
     {
