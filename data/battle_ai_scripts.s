@@ -265,8 +265,8 @@ AI_CBM_FollowMe:
 	end
 
 AI_CBM_HealBell:
-	if_status AI_TARGET, STATUS1_ANY, Score_Plus2
-	if_status_in_party AI_TARGET, STATUS1_ANY, Score_Plus2
+	if_status AI_USER, STATUS1_ANY, Score_Plus2
+	if_status_in_party AI_USER, STATUS1_ANY, Score_Plus2
 	score -10
 	end
 
