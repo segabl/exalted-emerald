@@ -1827,10 +1827,7 @@ static bool8 Fishing6(struct Task *task)
             u8 ability = GetMonAbility(&gPlayerParty[0]);
             if (ability == ABILITY_SUCTION_CUPS || ability  == ABILITY_STICKY_HOLD)
             {
-                if (Random() % 100 > 14)
-                {
-                    bite = TRUE;
-                }
+                bite = TRUE;
             }
         }
 
@@ -1867,11 +1864,9 @@ static bool8 Fishing7(struct Task *task)
 // We have a bite. Now, wait for the player to press A, or the timer to expire.
 static bool8 Fishing8(struct Task *task)
 {
-    const s16 reelTimeouts[3] = {50, 45, 40};
-
     AlignFishingAnimationFrames();
     task->tFrameCounter++;
-    if (task->tFrameCounter >= reelTimeouts[task->tFishingRod])
+    if (task->tFrameCounter >= 60)
         task->tStep = FISHING_GOT_AWAY;
     else if (gMain.newKeys & A_BUTTON)
         task->tStep++;
