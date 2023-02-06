@@ -521,16 +521,19 @@ void BattleAI_UpdateKnownMoves(u8 battlerId, u16 battlerMove)
             freeSlot = i;
             freeSlotMove = move;
         }
-        else if (power > 0 && gBattleMoves[move].type == type && gBattleMoves[freeSlotMove].power > 0)
+        else if (gBattleMoves[move].type == type && power > 0 && gBattleMoves[move].power > 0)
         {
-            // prefer replacing a non status move of the same type
-            freeSlot = i;
-            freeSlotMove = move;
-            sameType = TRUE;
+            // Prefer to replace same type non status move
+            if (!sameType || gBattleMoves[move].power < gBattleMoves[freeSlotMove].power)
+            {
+                freeSlot = i;
+                freeSlotMove = move;
+                sameType = TRUE;
+            }
         }
-        else if (gBattleMoves[move].power < gBattleMoves[freeSlotMove].power && (!sameType || gBattleMoves[move].type == type))
+        else if (!sameType && gBattleMoves[move].power <= gBattleMoves[freeSlotMove].power)
         {
-            // prefer replacing the weakest move
+            // Prefer to replace weakest move
             freeSlot = i;
             freeSlotMove = move;
         }

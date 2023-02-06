@@ -1747,6 +1747,57 @@ static u16 GetClassPokeball(u32 personalityValue, u8 trainerClass)
     return balls[(personalityValue >> 8) % numBalls];
 }
 
+static void GiveDefaultTrainerMoveset(struct Pokemon* mon)
+{
+    int j, k;
+
+    u16 species = GetMonData(mon, MON_DATA_SPECIES_EGG);
+    u8 typeMove1Slot = 0xFF;
+    u8 typeMove2Slot = 0xFF;
+    u16 moves[MAX_MON_MOVES] = { MOVE_NONE, };
+
+    // Init moves
+    k = 0;
+    for (j = 0; gLevelUpLearnsets[species][j].move != LEVEL_UP_END; j++)
+    {
+        u16 move = gLevelUpLearnsets[species][j].move;
+        if (gLevelUpLearnsets[species][j].level > mon->level)
+            break;
+        // Moves with the same typing as the pokemon are prioritized
+        if (gBattleMoves[move].power > 0 && gBattleMoves[move].type == gBaseStats[species].type1)
+        {
+            if (typeMove1Slot == 0xFF || gBattleMoves[move].power > gBattleMoves[moves[typeMove1Slot]].power)
+            {
+                typeMove1Slot = typeMove1Slot == 0xFF ? k : typeMove1Slot;
+                moves[typeMove1Slot] = move;
+                k++;
+            }
+        }
+        else if (gBattleMoves[move].power > 0 && gBattleMoves[move].type == gBaseStats[species].type2)
+        {
+            if (typeMove2Slot == 0xFF || gBattleMoves[move].power > gBattleMoves[moves[typeMove2Slot]].power)
+            {
+                typeMove2Slot = typeMove2Slot == 0xFF ? k : typeMove2Slot;
+                moves[typeMove2Slot] = move;
+                k++;
+            }
+        }
+        else
+        {
+            while (k == typeMove1Slot || k == typeMove2Slot)
+                k = ++k % MAX_MON_MOVES;
+            moves[k++] = move;
+        }
+        k = k % MAX_MON_MOVES;
+    }
+
+    for (j = 0; j < MAX_MON_MOVES; j++)
+    {
+        SetMonData(mon, MON_DATA_MOVE1 + j, &moves[j]);
+        SetMonData(mon, MON_DATA_PP1 + j, &gBattleMoves[moves[j]].pp);
+    }
+}
+
 static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 firstTrainer)
 {
     u32 nameHash = 0;
@@ -1845,6 +1896,8 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
                 for (j = 0; j < NUM_STATS; j++)
                     SetMonData(&party[i], MON_DATA_HP_EV + j, &ev);
+
+                GiveDefaultTrainerMoveset(&party[i]);
                 break;
             }
             case F_TRAINER_PARTY_CUSTOM_MOVESET:
@@ -1867,7 +1920,11 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 for (j = 0; j < NUM_STATS; j++)
                     SetMonData(&party[i], MON_DATA_HP_EV + j, &ev);
 
-                if (!randomize)
+                if (randomize)
+                {
+                    GiveDefaultTrainerMoveset(&party[i]);
+                }
+                else
                 {
                     // Only set moves when not randomized (to not end up with invalid moves)
                     for (j = 0; j < MAX_MON_MOVES; j++)
@@ -1899,6 +1956,8 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                     SetMonData(&party[i], MON_DATA_HP_EV + j, &ev);
 
                 SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
+
+                GiveDefaultTrainerMoveset(&party[i]);
                 break;
             }
             case F_TRAINER_PARTY_CUSTOM_MOVESET | F_TRAINER_PARTY_HELD_ITEM:
@@ -1923,7 +1982,11 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
                 SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
 
-                if (!randomize)
+                if (randomize)
+                {
+                    GiveDefaultTrainerMoveset(&party[i]);
+                }
+                else
                 {
                     // Only set moves when not randomized (to not end up with invalid moves)
                     for (j = 0; j < MAX_MON_MOVES; j++)
