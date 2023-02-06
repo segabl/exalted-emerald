@@ -1129,6 +1129,95 @@ AI_CheckViability:
 	if_effect EFFECT_FUTURE_SIGHT, AI_CV_FutureSight
 	if_effect EFFECT_TRICK_ROOM, AI_CV_TrickRoom
 	if_effect EFFECT_HIT_ESCAPE, AI_CV_HitEscape
+	if_effect EFFECT_POWER_SWAP, AI_CV_PowerSwap
+	if_effect EFFECT_GUARD_SWAP, AI_CV_GuardSwap
+	if_effect EFFECT_HEART_SWAP, AI_CV_HeartSwap
+	if_effect EFFECT_SPEED_SWAP, AI_CV_SpeedSwap
+	end
+
+AI_CV_PowerSwap:
+	if_stat_level_more_than AI_TARGET, STAT_ATK, 10, AI_CV_PowerSwap2
+	if_stat_level_more_than AI_TARGET, STAT_SPATK, 10, AI_CV_PowerSwap2
+	score -1
+	if_stat_level_more_than AI_TARGET, STAT_ATK, 8, AI_CV_PowerSwap2
+	if_stat_level_more_than AI_TARGET, STAT_SPATK, 8, AI_CV_PowerSwap2
+	score -1
+	if_stat_level_more_than AI_TARGET, STAT_ATK, 6, AI_CV_PowerSwap2
+	if_stat_level_more_than AI_TARGET, STAT_SPATK, 6, AI_CV_PowerSwap2
+	score -1
+	if_stat_level_more_than AI_TARGET, STAT_ATK, 4, AI_CV_PowerSwap2
+	if_stat_level_more_than AI_TARGET, STAT_SPATK, 4, AI_CV_PowerSwap2
+	score -1
+	if_stat_level_more_than AI_TARGET, STAT_ATK, 2, AI_CV_PowerSwap2
+	if_stat_level_more_than AI_TARGET, STAT_SPATK, 2, AI_CV_PowerSwap2
+	score -1
+	if_stat_level_more_than AI_TARGET, STAT_ATK, 0, AI_CV_PowerSwap2
+	if_stat_level_more_than AI_TARGET, STAT_SPATK, 0, AI_CV_PowerSwap2
+	score -1
+AI_CV_PowerSwap2:
+	if_stat_level_more_than AI_USER, STAT_ATK, 10, Score_Minus1
+	if_stat_level_more_than AI_USER, STAT_SPATK, 10, Score_Minus1
+	score +1
+	if_stat_level_more_than AI_USER, STAT_ATK, 8, Score_Minus1
+	if_stat_level_more_than AI_USER, STAT_SPATK, 8, Score_Minus1
+	score +1
+	if_stat_level_more_than AI_USER, STAT_ATK, 6, Score_Minus1
+	if_stat_level_more_than AI_USER, STAT_SPATK, 6, Score_Minus1
+	score +1
+	if_stat_level_more_than AI_USER, STAT_ATK, 4, Score_Minus1
+	if_stat_level_more_than AI_USER, STAT_SPATK, 4, Score_Minus1
+	score +1
+	if_stat_level_more_than AI_USER, STAT_ATK, 2, Score_Minus1
+	if_stat_level_more_than AI_USER, STAT_SPATK, 2, Score_Minus1
+	score +1
+	if_stat_level_more_than AI_USER, STAT_ATK, 0, Score_Minus1
+	if_stat_level_more_than AI_USER, STAT_SPATK, 0, Score_Minus1
+	end
+
+AI_CV_GuardSwap:
+	if_stat_level_more_than AI_TARGET, STAT_DEF, 10, AI_CV_GuardSwap2
+	if_stat_level_more_than AI_TARGET, STAT_SPDEF, 10, AI_CV_GuardSwap2
+	score -1
+	if_stat_level_more_than AI_TARGET, STAT_DEF, 8, AI_CV_GuardSwap2
+	if_stat_level_more_than AI_TARGET, STAT_SPDEF, 8, AI_CV_GuardSwap2
+	score -1
+	if_stat_level_more_than AI_TARGET, STAT_DEF, 6, AI_CV_GuardSwap2
+	if_stat_level_more_than AI_TARGET, STAT_SPDEF, 6, AI_CV_GuardSwap2
+	score -1
+	if_stat_level_more_than AI_TARGET, STAT_DEF, 4, AI_CV_GuardSwap2
+	if_stat_level_more_than AI_TARGET, STAT_SPDEF, 4, AI_CV_GuardSwap2
+	score -1
+	if_stat_level_more_than AI_TARGET, STAT_DEF, 2, AI_CV_GuardSwap2
+	if_stat_level_more_than AI_TARGET, STAT_SPDEF, 2, AI_CV_GuardSwap2
+	score -1
+	if_stat_level_more_than AI_TARGET, STAT_DEF, 0, AI_CV_GuardSwap2
+	if_stat_level_more_than AI_TARGET, STAT_SPDEF, 0, AI_CV_GuardSwap2
+	score -1
+AI_CV_GuardSwap2:
+	if_stat_level_more_than AI_USER, STAT_DEF, 10, Score_Minus1
+	if_stat_level_more_than AI_USER, STAT_SPDEF, 10, Score_Minus1
+	score +1
+	if_stat_level_more_than AI_USER, STAT_DEF, 8, Score_Minus1
+	if_stat_level_more_than AI_USER, STAT_SPDEF, 8, Score_Minus1
+	score +1
+	if_stat_level_more_than AI_USER, STAT_DEF, 6, Score_Minus1
+	if_stat_level_more_than AI_USER, STAT_SPDEF, 6, Score_Minus1
+	score +1
+	if_stat_level_more_than AI_USER, STAT_DEF, 4, Score_Minus1
+	if_stat_level_more_than AI_USER, STAT_SPDEF, 4, Score_Minus1
+	score +1
+	if_stat_level_more_than AI_USER, STAT_DEF, 2, Score_Minus1
+	if_stat_level_more_than AI_USER, STAT_SPDEF, 2, Score_Minus1
+	score +1
+	if_stat_level_more_than AI_USER, STAT_DEF, 0, Score_Minus1
+	if_stat_level_more_than AI_USER, STAT_SPDEF, 0, Score_Minus1
+	end
+
+AI_CV_HeartSwap:
+	end
+
+AI_CV_SpeedSwap:
+	if_target_faster Score_Plus2
 	end
 
 AI_CV_HitEscape:
