@@ -161,10 +161,12 @@ InsideOfTruck_EventScript_EnableRandomizer::
 	setvar VAR_0x8004, 1
 	setvar VAR_0x8005, 1
 	setvar VAR_0x8006, 1
+	setvar VAR_0x8007, 0
 	msgbox InsideOfTruck_Text_CustomizeRandomzer, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	call_if_eq InsideOfTruck_EventScript_RandomizerOptions
 	special EnableRandomizer
+	waitstate
 	msgbox InsideOfTruck_Text_RandomizerEnabled
 	goto InsideOfTruck_EventScript_GameSettings
 	end
@@ -176,6 +178,7 @@ InsideOfTruck_EventScript_RandomizerOptions::
 	copyvar VAR_0x8005, VAR_RESULT
 	msgbox InsideOfTruck_Text_EnableTrainerRandomizer, MSGBOX_YESNO
 	copyvar VAR_0x8006, VAR_RESULT
+	setvar VAR_0x8007, 1
 	return
 
 InsideOfTruck_EventScript_DisableRandomizer::

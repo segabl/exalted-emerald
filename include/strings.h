@@ -2967,5 +2967,6 @@ extern const u8 gText_Beauty3[];
 
 extern const u8 gText_Nuzlocke[];
 extern const u8 gText_Randomizer[];
+extern const u8 gText_RngSeed[];
 
 #endif // GUARD_STRINGS_H

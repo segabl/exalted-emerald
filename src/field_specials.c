@@ -4003,20 +4003,50 @@ void EnableNuzlockeMode(void)
     gSaveBlock2Ptr->nuzlockeShinyClause = gSpecialVar_0x8005;
 }
 
-void EnableRandomizer(void)
+static void CB_HandleGivenRngSeed(void)
 {
     u8 i;
     u16 seed = 0;
 
-    for (i = 0; gSaveBlock2Ptr->playerName[i] != EOS; i++) {
-        seed ^= gSaveBlock2Ptr->playerName[i] << 8 * (i % 2);
+    if (gStringVar2[0] == EOS)
+    {
+        seed = Random();
+    }
+    else
+    {
+        for (i = 0; gStringVar2[i] != EOS; i++) {
+            seed ^= gStringVar2[i] << 8 * (i % 2);
+        }
     }
 
-    FlagSet(FLAG_RANDOMIZER);
     gSaveBlock2Ptr->randomizerSeed = seed;
+    FlagSet(FLAG_RANDOMIZER);
+
+    CB2_ReturnToFieldContinueScriptPlayMapMusic();
+}
+
+void EnableRandomizer(void)
+{
+    u8 i;
+
     gSaveBlock2Ptr->randomizerGifted = gSpecialVar_0x8004;
     gSaveBlock2Ptr->randomizerWild = gSpecialVar_0x8005;
     gSaveBlock2Ptr->randomizerTrainer = gSpecialVar_0x8006;
+
+    if (!gSpecialVar_0x8007)
+    {
+        gStringVar2[0] = EOS;
+        CB_HandleGivenRngSeed();
+        return;
+    }
+
+    for (i = 0; i < 6; i++)
+    {
+        gStringVar2[i] = Random() & 1 ? 0xBB + Random() % 26 : 0xA1 + Random() % 10;
+    }
+    gStringVar2[6] = EOS;
+
+    DoNamingScreen(NAMING_SCREEN_RNG, gStringVar2, 0, 0, 0, CB_HandleGivenRngSeed);
 }
 
 /*  Summary of the Lilycove Trainer Fan Club, because it's a little messy

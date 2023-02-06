@@ -201,7 +201,7 @@ static u8 HandleKeyboardEvent(void);
 static u8 sub_80E45E0(void);
 static u8 GetInputEvent(void);
 static void SetInputState(u8);
-static void sub_80E4964(void);
+static void RunScreenInitFunc(void);
 static u8 GetTextCaretPosition(void);
 static void DeleteTextCharacter(void);
 static bool8 sub_80E4B54(void);
@@ -305,7 +305,7 @@ static void NamingScreen_Init(void)
     gNamingScreenData->template = sNamingScreenTemplates[gNamingScreenData->templateNum];
     gNamingScreenData->currentPage = gNamingScreenData->template->initialPage;
     gNamingScreenData->inputCharBaseXPos = (240 - gNamingScreenData->template->maxChars * 8) / 2 + 6;
-    if (gNamingScreenData->templateNum == 4)
+    if (gNamingScreenData->templateNum == NAMING_SCREEN_WALDA)
         gNamingScreenData->inputCharBaseXPos += 11;
     gNamingScreenData->keyRepeatStartDelayCopy = gKeyRepeatStartDelay;
     memset(gNamingScreenData->textBuffer, 0xFF, sizeof(gNamingScreenData->textBuffer));
@@ -458,7 +458,7 @@ static bool8 MainState_BeginFadeIn(void)
     nullsub_10(2, KBPAGE_LETTERS_LOWER);
     nullsub_10(1, KBPAGE_LETTERS_UPPER);
     sub_80E4D10();
-    sub_80E4964();
+    RunScreenInitFunc();
     sub_80E4EF0();
     CopyBgTilemapBufferToVram(1);
     CopyBgTilemapBufferToVram(2);
@@ -1473,14 +1473,14 @@ static void HandleDpadMovement(struct Task *task)
 #undef tKeyboardEvent
 #undef tKbFunctionKey
 
-static void sub_80E4894(void)
+static void InitScreen(void)
 {
     FillWindowPixelBuffer(gNamingScreenData->windows[3], PIXEL_FILL(1));
     AddTextPrinterParameterized(gNamingScreenData->windows[3], 1, gNamingScreenData->template->title, 8, 1, 0, 0);
     PutWindowTilemap(gNamingScreenData->windows[3]);
 }
 
-static void sub_80E48E8(void)
+static void InitMonNamingScreen(void)
 {
     u8 buffer[0x20];
 
@@ -1491,18 +1491,19 @@ static void sub_80E48E8(void)
     PutWindowTilemap(gNamingScreenData->windows[3]);
 }
 
-static void (*const gUnknown_0858BF58[])(void) =
+static void (*const gScreenInitFuncs[])(void) =
 {
-    sub_80E4894,
-    sub_80E4894,
-    sub_80E48E8,
-    sub_80E48E8,
-    sub_80E4894,
+    InitScreen,
+    InitScreen,
+    InitMonNamingScreen,
+    InitMonNamingScreen,
+    InitScreen,
+    InitScreen
 };
 
-static void sub_80E4964(void)
+static void RunScreenInitFunc(void)
 {
-    gUnknown_0858BF58[gNamingScreenData->templateNum]();
+    gScreenInitFuncs[gNamingScreenData->templateNum]();
 }
 
 static void TaskDummy3(void);
@@ -1829,22 +1830,22 @@ static bool8 IsLetter(u8 character)
 
 static void sub_80E5074(void)
 {
-    DoNamingScreen(0, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerGender, 0, 0, CB2_ReturnToFieldWithOpenMenu);
+    DoNamingScreen(NAMING_SCREEN_PLAYER, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerGender, 0, 0, CB2_ReturnToFieldWithOpenMenu);
 }
 
 static void sub_80E509C(void)
 {
-    DoNamingScreen(1, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerGender, 0, 0, CB2_ReturnToFieldWithOpenMenu);
+    DoNamingScreen(NAMING_SCREEN_BOX, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerGender, 0, 0, CB2_ReturnToFieldWithOpenMenu);
 }
 
 static void sub_80E50C4(void)
 {
-    DoNamingScreen(2, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerGender, 0, 0, CB2_ReturnToFieldWithOpenMenu);
+    DoNamingScreen(NAMING_SCREEN_CAUGHT_MON, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerGender, 0, 0, CB2_ReturnToFieldWithOpenMenu);
 }
 
 static void sub_80E50EC(void)
 {
-    DoNamingScreen(3, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerGender, 0, 0, CB2_ReturnToFieldWithOpenMenu);
+    DoNamingScreen(NAMING_SCREEN_MON, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerGender, 0, 0, CB2_ReturnToFieldWithOpenMenu);
 }
 
 //--------------------------------------------------
@@ -1884,6 +1885,17 @@ static const struct NamingScreenTemplate monNamingScreenTemplate =
     .title = gText_PkmnsNickname,
 };
 
+static const struct NamingScreenTemplate rngSeedScreenTemplate =
+{
+    .copyExistingString = 1,
+    .maxChars = 6,
+    .iconFunction = 2,
+    .addGenderIcon = 0,
+    .initialPage = KBPAGE_LETTERS_UPPER,
+    .unused = 35,
+    .title = gText_RngSeed,
+};
+
 static const struct NamingScreenTemplate wandaWordsScreenTemplate =
 {
     .copyExistingString = 1,
@@ -1902,6 +1914,7 @@ static const struct NamingScreenTemplate *const sNamingScreenTemplates[] =
     &monNamingScreenTemplate,
     &monNamingScreenTemplate,
     &wandaWordsScreenTemplate,
+    &rngSeedScreenTemplate
 };
 
 const struct OamData gOamData_858BFEC =
