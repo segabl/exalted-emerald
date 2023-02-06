@@ -463,8 +463,8 @@ Route103_Text_BrendanRoute103PostGame:
 	.string "A lot of things have happened\n"
 	.string "since we first met…\p"
 	.string "Say…\p"
-	.string "Do you want to have a POKéMON battle\n"
-	.string "for old time's sake?$"
+	.string "Since you're here,\n"
+	.string "do you want to have a POKéMON battle?$"
 
 Route103_Text_BrendanRoute103PostGameReconsider:
 	.string "BRENDAN: Changed your mind?\p"
@@ -488,14 +488,14 @@ Route103_Text_BrendanRoute103PostGameAfterBattle:
 
 Route103_Text_MayRoute103PostGame:
 	.string "MAY: Oh hey {PLAYER}!\p"
-	.string "This is the place where we met\n"
-	.string "for the first time, remember?\p"
+	.string "This is the place where we had\n"
+	.string "our first battle, remember?\p"
 	.string "Eheheh…\p"
 	.string "It's silly but…\p"
 	.string "It makes me kind of nostalgic…\p"
 	.string "Uhm, I was wondering…\p"
-	.string "Could we have a POKéMON battle\n"
-	.string "for old time's sake?$"
+	.string "Would you have another\n"
+	.string "POKéMON battle with me?$"
 
 Route103_Text_MayRoute103PostGameReconsider:
 	.string "MAY: Ah…\p"
