@@ -126,9 +126,6 @@ BerryTree_EventScript_PickBerry:: @ 8274448
 	waitmessage
 	waitfanfare
 	waitbuttonpress
-	message BerryTree_Text_PutAwayBerry
-	waitmessage
-	waitbuttonpress
 	release
 	end
 
@@ -172,15 +169,9 @@ BerryTree_EventScript_ItemUseWailmerPail:: @ 82744C0
 	special EventObjectInteractionGetBerryTreeData
 	lockall
 BerryTree_EventScript_WaterBerry:: @ 82744C4
-	special EventObjectInteractionGetBerryName
-	message BerryTree_Text_WateredTheBerry
-	waitmessage
 	special EventObjectInteractionWaterBerryTree
 	special DoWateringBerryTreeAnim
 	waitstate
-	message BerryTree_Text_PlantIsDelighted
-	waitmessage
-	waitbuttonpress
 	releaseall
 	end
 
