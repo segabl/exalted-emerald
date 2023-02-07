@@ -215,7 +215,7 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_GRAVITY, AI_CBM_Gravity
 	if_effect EFFECT_EMBARGO, AI_CBM_Embargo
 	if_effect EFFECT_LUCKY_CHANT, AI_CBM_LuckyChant
-	if_effect EFFECT_HEAL_PULSE, Score_Minus5
+	if_effect EFFECT_HEAL_PULSE, AI_CBM_HealPulse
 	if_effect EFFECT_QUASH, AI_CBM_Quash
 	if_effect EFFECT_GASTRO_ACID, AI_CBM_GastroAcid
 	if_effect EFFECT_HEAL_BLOCK, AI_CBM_HealBlock
@@ -257,6 +257,20 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_TAUNT, AI_CBM_Taunt
 	if_effect EFFECT_HEAL_BELL, AI_CBM_HealBell
 	if_effect EFFECT_FOLLOW_ME, AI_CBM_FollowMe
+	if_effect EFFECT_FALSE_SWIPE, Score_Minus5
+	if_effect EFFECT_SUCKER_PUNCH, AI_CBM_SuckerPunch
+	end
+
+AI_CBM_HealPulse:
+	if_not_double_battle Score_Minus30
+	if_target_is_ally AI_CBM_HealPulse2
+	goto Score_Minus30
+AI_CBM_HealPulse2:
+	if_hp_equal AI_TARGET, 100, Score_Minus5
+	end
+
+AI_CBM_SuckerPunch:
+	if_has_no_attacking_moves AI_USER, Score_Minus10
 	end
 
 AI_CBM_FollowMe:
@@ -345,6 +359,8 @@ AI_CBM_Bestow:
 
 AI_CBM_Bestow2:
 	if_holds_no_item AI_USER, Score_Minus10
+	if_holds_no_item AI_TARGET, AI_Ret
+	score -10
 	end
 
 AI_CBM_Acupressure:
@@ -392,6 +408,7 @@ AI_CBM_SimpleBeam:
 
 AI_CBM_Tailwind:
 	if_side_affecting AI_USER, SIDE_STATUS_TAILWIND, Score_Minus10
+	if_field_status STATUS_FIELD_TRICK_ROOM, Score_Minus10
 	end
 
 AI_CBM_QuiverDance:
@@ -1126,6 +1143,7 @@ AI_CheckViability:
 	if_effect EFFECT_PERISH_SONG, AI_CV_PerishSong
 	if_effect EFFECT_ROLLOUT, AI_CV_Rollout
 	if_effect EFFECT_MULTI_HIT, AI_CV_MultiHit
+	if_effect EFFECT_TRIPLE_KICK, AI_CV_MultiHit
 	if_effect EFFECT_FUTURE_SIGHT, AI_CV_FutureSight
 	if_effect EFFECT_TRICK_ROOM, AI_CV_TrickRoom
 	if_effect EFFECT_HIT_ESCAPE, AI_CV_HitEscape
@@ -1133,6 +1151,58 @@ AI_CheckViability:
 	if_effect EFFECT_GUARD_SWAP, AI_CV_GuardSwap
 	if_effect EFFECT_HEART_SWAP, AI_CV_HeartSwap
 	if_effect EFFECT_SPEED_SWAP, AI_CV_SpeedSwap
+	if_effect EFFECT_FURY_CUTTER, AI_CV_FuryCutter
+	if_effect EFFECT_TAILWIND, AI_CV_TailWind
+	if_effect EFFECT_EMBARGO, AI_CV_Embargo
+	if_effect EFFECT_SUCKER_PUNCH, AI_CV_SuckerPunch
+	if_effect EFFECT_HEAL_PULSE, AI_CV_HealPulse
+	if_effect EFFECT_HURRICANE, AI_CV_Hurricane
+	if_effect EFFECT_SPEED_UP_HIT, AI_CV_SpeedUp2
+	if_effect EFFECT_CLEAR_SMOG, AI_CV_ClearSmog
+	end
+
+AI_CV_ClearSmog:
+	if_stat_level_less_than AI_TARGET, STAT_ATK, 6, Score_Minus2
+	if_stat_level_less_than AI_TARGET, STAT_DEF, 6, Score_Minus2
+	if_stat_level_less_than AI_TARGET, STAT_SPEED, 6, Score_Minus2
+	if_stat_level_less_than AI_TARGET, STAT_SPATK, 6, Score_Minus2
+	if_stat_level_less_than AI_TARGET, STAT_SPDEF, 6, Score_Minus2
+	if_stat_level_less_than AI_TARGET, STAT_ACC, 6, Score_Minus2
+	if_stat_level_less_than AI_TARGET, STAT_EVASION, 6, Score_Minus2
+	end
+
+AI_CV_Hurricane:
+	get_weather
+	if_equal AI_WEATHER_RAIN, Score_Plus1
+	if_equal AI_WEATHER_SUN, Score_Minus2
+	end
+
+AI_CV_HealPulse:
+	if_hp_more_than AI_TARGET, 75, Score_Minus3
+	if_hp_more_than AI_TARGET, 50, Score_Minus1
+	end
+
+AI_CV_SuckerPunch:
+	if_random_less_than 128, AI_Ret
+	if_target_not_taunted Score_Minus1
+	end
+
+AI_CV_Embargo:
+	if_holds_no_item AI_TARGET, Score_Minus1
+	end
+
+AI_CV_TailWind:
+	if_double_battle Score_Plus2
+	end
+
+AI_CV_FuryCutter:
+	if_type_effectiveness AI_EFFECTIVENESS_x4, AI_CV_FuryCutter2
+	if_type_effectiveness AI_EFFECTIVENESS_x2, AI_CV_FuryCutter3
+AI_CV_FuryCutter2:
+	score +1
+AI_CV_FuryCutter3:
+	if_random_less_than 128, AI_Ret
+	score +1
 	end
 
 AI_CV_PowerSwap:
