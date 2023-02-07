@@ -1773,11 +1773,14 @@ static u16 GetClassPokeball(u32 personalityValue, u8 trainerClass)
     return balls[(personalityValue >> 8) % numBalls];
 }
 
+#define GET_MOVE_POWER(move) (gBattleMoves[move].power * (gBattleMoves[move].split == SPLIT_PHYSICAL ? atk : spAtk))
 static void GiveDefaultTrainerMoveset(struct Pokemon* mon)
 {
     int j, k;
 
     u16 species = GetMonData(mon, MON_DATA_SPECIES_EGG);
+    u32 atk = GetMonData(mon, MON_DATA_ATK);
+    u32 spAtk = GetMonData(mon, MON_DATA_SPATK);
     u8 typeMove1Slot = 0xFF;
     u8 typeMove2Slot = 0xFF;
     u16 moves[MAX_MON_MOVES] = { MOVE_NONE, };
@@ -1792,7 +1795,7 @@ static void GiveDefaultTrainerMoveset(struct Pokemon* mon)
         // Moves with the same typing as the pokemon are prioritized
         if (gBattleMoves[move].power > 0 && gBattleMoves[move].type == gBaseStats[species].type1)
         {
-            if (typeMove1Slot == 0xFF || gBattleMoves[move].power > gBattleMoves[moves[typeMove1Slot]].power)
+            if (typeMove1Slot == 0xFF || GET_MOVE_POWER(move) > GET_MOVE_POWER(moves[typeMove1Slot]))
             {
                 typeMove1Slot = typeMove1Slot == 0xFF ? k : typeMove1Slot;
                 moves[typeMove1Slot] = move;
@@ -1801,7 +1804,7 @@ static void GiveDefaultTrainerMoveset(struct Pokemon* mon)
         }
         else if (gBattleMoves[move].power > 0 && gBattleMoves[move].type == gBaseStats[species].type2)
         {
-            if (typeMove2Slot == 0xFF || gBattleMoves[move].power > gBattleMoves[moves[typeMove2Slot]].power)
+            if (typeMove2Slot == 0xFF || GET_MOVE_POWER(move) > GET_MOVE_POWER(moves[typeMove2Slot]))
             {
                 typeMove2Slot = typeMove2Slot == 0xFF ? k : typeMove2Slot;
                 moves[typeMove2Slot] = move;
