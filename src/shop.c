@@ -1131,6 +1131,8 @@ static void Task_ReturnToItemListAfterItemPurchase(u8 taskId)
         }
         else
         {
+            if (ItemId_GetPocket(tItemId) == POCKET_TM_HM)
+                RedrawListMenu(tListTaskId);
             BuyMenuReturnToItemList(taskId);
         }
     }
