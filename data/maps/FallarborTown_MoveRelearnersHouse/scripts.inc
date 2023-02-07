@@ -5,6 +5,7 @@ FallarborTown_MoveRelearnersHouse_EventScript_MoveRelearner:: @ 8201383
 	lockall
 	applymovement 1, Common_Movement_FacePlayer
 	waitmovement 0
+	goto_if_set FLAG_GIVEN_HEARTSCALE, FallarborTown_MoveRelearnersHouse_EventScript_AskTeachMoveGivenHeartscale
 	goto_if_set FLAG_TEMP_1, FallarborTown_MoveRelearnersHouse_EventScript_AskTeachMove
 	msgbox FallarborTown_MoveRelearnersHouse_Text_ImTheMoveTutor, MSGBOX_DEFAULT
 	setflag FLAG_TEMP_1
@@ -14,10 +15,20 @@ FallarborTown_MoveRelearnersHouse_EventScript_MoveRelearner:: @ 8201383
 FallarborTown_MoveRelearnersHouse_EventScript_AskTeachMove:: @ 82013A8
 	checkitem ITEM_HEART_SCALE, 1
 	compare VAR_RESULT, 0
-	goto_if_eq FallarborTown_MoveRelearnersHouse_EventScript_ComeBackWithHeartScale
+	goto_if_eq FallarborTown_MoveRelearnersHouse_EventScript_ComeBack
 	msgbox FallarborTown_MoveRelearnersHouse_Text_ThatsAHeartScaleWantMeToTeachMove, MSGBOX_YESNO
 	switch VAR_RESULT
-	case NO, FallarborTown_MoveRelearnersHouse_EventScript_ComeBackWithHeartScale
+	case NO, FallarborTown_MoveRelearnersHouse_EventScript_ComeBack
+	msgbox FallarborTown_MoveRelearnersHouse_Text_HandedOverHeartScale, MSGBOX_DEFAULT
+	setflag FLAG_GIVEN_HEARTSCALE
+	takeitem ITEM_HEART_SCALE, 1
+	goto FallarborTown_MoveRelearnersHouse_EventScript_ChooseMon
+	end
+
+FallarborTown_MoveRelearnersHouse_EventScript_AskTeachMoveGivenHeartscale::
+	msgbox FallarborTown_MoveRelearnersHouse_Text_WantMeToTeachMove, MSGBOX_YESNO
+	switch VAR_RESULT
+	case NO, FallarborTown_MoveRelearnersHouse_EventScript_ComeBack
 	goto FallarborTown_MoveRelearnersHouse_EventScript_ChooseMon
 	end
 
@@ -26,7 +37,7 @@ FallarborTown_MoveRelearnersHouse_EventScript_ChooseMon:: @ 82013D6
 	special ChooseMonForMoveRelearner
 	waitstate
 	compare VAR_0x8004, 255
-	goto_if_eq FallarborTown_MoveRelearnersHouse_EventScript_ComeBackWithHeartScale
+	goto_if_eq FallarborTown_MoveRelearnersHouse_EventScript_ComeBack
 	special IsSelectedMonEgg
 	compare VAR_RESULT, TRUE
 	goto_if_eq FallarborTown_MoveRelearnersHouse_EventScript_CantTeachEgg
@@ -41,9 +52,7 @@ FallarborTown_MoveRelearnersHouse_EventScript_ChooseMove:: @ 820140C
 	waitstate
 	compare VAR_0x8004, 0
 	goto_if_eq FallarborTown_MoveRelearnersHouse_EventScript_ChooseMon
-	msgbox FallarborTown_MoveRelearnersHouse_Text_HandedOverHeartScale, MSGBOX_DEFAULT
-	takeitem ITEM_HEART_SCALE, 1
-	goto FallarborTown_MoveRelearnersHouse_EventScript_ComeBackWithHeartScale
+	goto FallarborTown_MoveRelearnersHouse_EventScript_ComeBack
 	end
 
 FallarborTown_MoveRelearnersHouse_EventScript_NoMoveToTeachMon:: @ 8201436
@@ -58,6 +67,12 @@ FallarborTown_MoveRelearnersHouse_EventScript_CantTeachEgg:: @ 8201444
 
 FallarborTown_MoveRelearnersHouse_EventScript_ComeBackWithHeartScale:: @ 8201452
 	msgbox FallarborTown_MoveRelearnersHouse_Text_ComeBackWithHeartScale, MSGBOX_DEFAULT
+	releaseall
+	end
+
+FallarborTown_MoveRelearnersHouse_EventScript_ComeBack::
+	goto_if_unset FLAG_GIVEN_HEARTSCALE, FallarborTown_MoveRelearnersHouse_EventScript_ComeBackWithHeartScale
+	msgbox FallarborTown_MoveRelearnersHouse_Text_ComeBack, MSGBOX_DEFAULT
 	releaseall
 	end
 
@@ -77,6 +92,12 @@ FallarborTown_MoveRelearnersHouse_Text_ThatsAHeartScaleWantMeToTeachMove: @ 8201
 	.string "Let me guess, you want me to teach\n"
 	.string "a move?$"
 
+FallarborTown_MoveRelearnersHouse_Text_WantMeToTeachMove: @ 8201541
+	.string "Oh it's you!\p"
+	.string "Thanks again for the HEART SCALE!\p"
+	.string "Let me guess, you want me to teach\n"
+	.string "a move to your POKéMON?$"
+
 FallarborTown_MoveRelearnersHouse_Text_TutorWhichMon: @ 82015A5
 	.string "Which POKéMON needs tutoring?$"
 
@@ -89,12 +110,15 @@ FallarborTown_MoveRelearnersHouse_Text_DontHaveMoveToTeachPokemon: @ 82015DE
 	.string "I can teach that POKéMON.$"
 
 FallarborTown_MoveRelearnersHouse_Text_HandedOverHeartScale: @ 8201627
-	.string "{PLAYER} handed over one HEART SCALE\n"
-	.string "in exchange.$"
+	.string "{PLAYER} handed over one HEART SCALE.$"
 
 FallarborTown_MoveRelearnersHouse_Text_ComeBackWithHeartScale: @ 8201653
 	.string "If your POKéMON need to learn a move,\n"
 	.string "come back with a HEART SCALE.$"
+
+FallarborTown_MoveRelearnersHouse_Text_ComeBack:
+	.string "Come back any time if your\n"
+	.string "POKéMON need to learn a move.$"
 
 FallarborTown_MoveRelearnersHouse_Text_CantTeachEgg: @ 8201697
 	.string "Hunh? There isn't a single move that\n"
