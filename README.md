@@ -53,6 +53,7 @@ For DizzyEgg's modifications, check out <https://github.com/DizzyEggg/pokeemeral
 - Adds option to invert B button behavior (always run)
 - Adds a post-game rival battle to Route 103
 - Allows fainted Pokémon to gain EXP
+- Add quick switching Pokémon in the party menu using select button (Lunos)
 
 ## Cosmetic changes
 
