@@ -265,12 +265,12 @@
 #define FLAG_KINGSROCK_AFFECTED     0x20
 
 // Growth rates
-#define GROWTH_MEDIUM_FAST  0
-#define GROWTH_ERRATIC      1
-#define GROWTH_FLUCTUATING  2
-#define GROWTH_MEDIUM_SLOW  3
-#define GROWTH_FAST         4
-#define GROWTH_SLOW         5
+#define GROWTH_MEDIUM_FAST  0 // 1 000 000
+#define GROWTH_ERRATIC      1 // 600 000
+#define GROWTH_FLUCTUATING  2 // 1 640 000
+#define GROWTH_MEDIUM_SLOW  3 // 1 059 860
+#define GROWTH_FAST         4 // 800 000
+#define GROWTH_SLOW         5 // 1 250 000
 
 // Body colors for pokedex search
 #define BODY_COLOR_RED      0

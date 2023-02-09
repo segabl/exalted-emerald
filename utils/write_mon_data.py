@@ -172,21 +172,21 @@ if do_stats:
       if match and match[1] in mons_data:
         mon = mons_data[match[1]]
       if mon:
-        line = hp_regex.sub(f"\\g<1>{mon['stats'][5]['base_stat']}", line)
-        line = atk_regex.sub(f"\\g<1>{mon['stats'][4]['base_stat']}", line)
-        line = def_regex.sub(f"\\g<1>{mon['stats'][3]['base_stat']}", line)
-        line = sp_atk_regex.sub(f"\\g<1>{mon['stats'][2]['base_stat']}", line)
-        line = sp_def_regex.sub(f"\\g<1>{mon['stats'][1]['base_stat']}", line)
-        line = spd_regex.sub(f"\\g<1>{mon['stats'][0]['base_stat']}", line)
+        line = hp_regex.sub(f"\\g<1>{mon['stats'][0]['base_stat']}", line)
+        line = atk_regex.sub(f"\\g<1>{mon['stats'][1]['base_stat']}", line)
+        line = def_regex.sub(f"\\g<1>{mon['stats'][2]['base_stat']}", line)
+        line = sp_atk_regex.sub(f"\\g<1>{mon['stats'][3]['base_stat']}", line)
+        line = sp_def_regex.sub(f"\\g<1>{mon['stats'][4]['base_stat']}", line)
+        line = spd_regex.sub(f"\\g<1>{mon['stats'][5]['base_stat']}", line)
 
         line = exp_regex.sub(f"\\g<1>{mon['base_experience']}", line)
 
-        line = hp_yield_regex.sub(f"\\g<1>{mon['stats'][5]['effort']}", line)
-        line = atk_yield_regex.sub(f"\\g<1>{mon['stats'][4]['effort']}", line)
-        line = def_yield_regex.sub(f"\\g<1>{mon['stats'][3]['effort']}", line)
-        line = sp_atk_yield_regex.sub(f"\\g<1>{mon['stats'][2]['effort']}", line)
-        line = sp_def_yield_regex.sub(f"\\g<1>{mon['stats'][1]['effort']}", line)
-        line = spd_yield_regex.sub(f"\\g<1>{mon['stats'][0]['effort']}", line)
+        line = hp_yield_regex.sub(f"\\g<1>{mon['stats'][0]['effort']}", line)
+        line = atk_yield_regex.sub(f"\\g<1>{mon['stats'][1]['effort']}", line)
+        line = def_yield_regex.sub(f"\\g<1>{mon['stats'][2]['effort']}", line)
+        line = sp_atk_yield_regex.sub(f"\\g<1>{mon['stats'][3]['effort']}", line)
+        line = sp_def_yield_regex.sub(f"\\g<1>{mon['stats'][4]['effort']}", line)
+        line = spd_yield_regex.sub(f"\\g<1>{mon['stats'][5]['effort']}", line)
 
       output += line
 
