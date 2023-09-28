@@ -4227,7 +4227,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
             if ((itemEffect[cmdIndex] & ITEM0_X_ATTACK)
              && gBattleMons[gActiveBattler].statStages[STAT_ATK] < 12)
             {
-                gBattleMons[gActiveBattler].statStages[STAT_ATK] += itemEffect[cmdIndex] & ITEM0_X_ATTACK;
+                gBattleMons[gActiveBattler].statStages[STAT_ATK] += 2;
                 if (gBattleMons[gActiveBattler].statStages[STAT_ATK] > 12)
                     gBattleMons[gActiveBattler].statStages[STAT_ATK] = 12;
                 retVal = FALSE;
@@ -4238,7 +4238,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
             if ((itemEffect[cmdIndex] & ITEM1_X_DEFEND)
              && gBattleMons[gActiveBattler].statStages[STAT_DEF] < 12)
             {
-                gBattleMons[gActiveBattler].statStages[STAT_DEF] += (itemEffect[cmdIndex] & ITEM1_X_DEFEND) >> 4;
+                gBattleMons[gActiveBattler].statStages[STAT_DEF] += 2;
                 if (gBattleMons[gActiveBattler].statStages[STAT_DEF] > 12)
                     gBattleMons[gActiveBattler].statStages[STAT_DEF] = 12;
                 retVal = FALSE;
@@ -4246,7 +4246,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
             if ((itemEffect[cmdIndex] & ITEM1_X_SPEED)
              && gBattleMons[gActiveBattler].statStages[STAT_SPEED] < 12)
             {
-                gBattleMons[gActiveBattler].statStages[STAT_SPEED] += itemEffect[cmdIndex] & ITEM1_X_SPEED;
+                gBattleMons[gActiveBattler].statStages[STAT_SPEED] += 2;
                 if (gBattleMons[gActiveBattler].statStages[STAT_SPEED] > 12)
                     gBattleMons[gActiveBattler].statStages[STAT_SPEED] = 12;
                 retVal = FALSE;
@@ -4257,7 +4257,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
             if ((itemEffect[cmdIndex] & ITEM2_X_ACCURACY)
              && gBattleMons[gActiveBattler].statStages[STAT_ACC] < 12)
             {
-                gBattleMons[gActiveBattler].statStages[STAT_ACC] += (itemEffect[cmdIndex] & ITEM2_X_ACCURACY) >> 4;
+                gBattleMons[gActiveBattler].statStages[STAT_ACC] += 2;
                 if (gBattleMons[gActiveBattler].statStages[STAT_ACC] > 12)
                     gBattleMons[gActiveBattler].statStages[STAT_ACC] = 12;
                 retVal = FALSE;
@@ -4265,9 +4265,17 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
             if ((itemEffect[cmdIndex] & ITEM2_X_SPATK)
              && gBattleMons[gActiveBattler].statStages[STAT_SPATK] < 12)
             {
-                gBattleMons[gActiveBattler].statStages[STAT_SPATK] += itemEffect[cmdIndex] & ITEM2_X_SPATK;
+                gBattleMons[gActiveBattler].statStages[STAT_SPATK] += 2;
                 if (gBattleMons[gActiveBattler].statStages[STAT_SPATK] > 12)
                     gBattleMons[gActiveBattler].statStages[STAT_SPATK] = 12;
+                retVal = FALSE;
+            }
+            if ((itemEffect[cmdIndex] & ITEM2_X_SPDEF)
+             && gBattleMons[gActiveBattler].statStages[STAT_SPDEF] < 12)
+            {
+                gBattleMons[gActiveBattler].statStages[STAT_SPDEF] += 2;
+                if (gBattleMons[gActiveBattler].statStages[STAT_SPDEF] > 12)
+                    gBattleMons[gActiveBattler].statStages[STAT_SPDEF] = 12;
                 retVal = FALSE;
             }
             break;
@@ -4824,7 +4832,7 @@ u8 GetItemEffectParamOffset(u16 itemId, u8 effectByte, u8 effectBit)
 static void BufferStatRoseMessage(s32 arg0)
 {
     gBattlerTarget = gBattlerInMenuId;
-    StringCopy(gBattleTextBuff1, gStatNamesTable[sStatsToRaise[arg0]]);
+    StringCopy(gBattleTextBuff1, gStatNamesTable[arg0]);
     StringCopy(gBattleTextBuff2, gText_StatRose);
     BattleStringExpandPlaceholdersToDisplayedString(gText_PkmnsStatChanged2);
 }
@@ -4838,26 +4846,24 @@ u8 *UseStatIncreaseItem(u16 itemId)
 
     gPotentialItemEffectBattler = gBattlerInMenuId;
 
-    for (i = 0; i < 3; i++)
+    if (itemEffect[0] & ITEM0_X_ATTACK)
+        BufferStatRoseMessage(1);
+    else if (itemEffect[1] & ITEM1_X_DEFEND)
+        BufferStatRoseMessage(2);
+    else if (itemEffect[1] & ITEM1_X_SPEED)
+        BufferStatRoseMessage(3);
+    else if (itemEffect[2] & ITEM2_X_SPATK)
+        BufferStatRoseMessage(4);
+    else if (itemEffect[2] & ITEM2_X_SPDEF)
+        BufferStatRoseMessage(5);
+    else if (itemEffect[2] & ITEM2_X_ACCURACY)
+        BufferStatRoseMessage(6);
+    else if (itemEffect[0] & ITEM0_DIRE_HIT)
     {
-        if (itemEffect[i] & (ITEM0_X_ATTACK | ITEM1_X_SPEED | ITEM2_X_SPATK))
-            BufferStatRoseMessage(i * 2);
-
-        if (itemEffect[i] & (ITEM0_DIRE_HIT | ITEM1_X_DEFEND | ITEM2_X_ACCURACY))
-        {
-            if (i != 0) // Dire Hit is the only ITEM0 above
-            {
-                BufferStatRoseMessage(i * 2 + 1);
-            }
-            else
-            {
-                gBattlerAttacker = gBattlerInMenuId;
-                BattleStringExpandPlaceholdersToDisplayedString(gText_PkmnGettingPumped);
-            }
-        }
+        gBattlerAttacker = gBattlerInMenuId;
+        BattleStringExpandPlaceholdersToDisplayedString(gText_PkmnGettingPumped);
     }
-
-    if (itemEffect[3] & ITEM3_GUARD_SPEC)
+    else if (itemEffect[3] & ITEM3_GUARD_SPEC)
     {
         gBattlerAttacker = gBattlerInMenuId;
         BattleStringExpandPlaceholdersToDisplayedString(gText_PkmnShroudedInMist);

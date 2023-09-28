@@ -318,49 +318,49 @@ const u8 gItemEffect_GuardSpec[8] = {
 };
 
 const u8 gItemEffect_DireHit[8] = {
-    [0] = 2 << 4,
+    [0] = ITEM0_DIRE_HIT,
     [5] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
     [6] = 1,
     [7] = 1,
 };
 
 const u8 gItemEffect_XAttack[8] = {
-    [0] = 1,
+    [0] = ITEM0_X_ATTACK,
     [5] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
     [6] = 1,
     [7] = 1,
 };
 
 const u8 gItemEffect_XDefend[8] = {
-    [1] = 1 << 4,
+    [1] = ITEM1_X_DEFEND,
     [5] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
     [6] = 1,
     [7] = 1,
 };
 
 const u8 gItemEffect_XSpeed[8] = {
-    [1] = 1,
+    [1] = ITEM1_X_SPEED,
     [5] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
     [6] = 1,
     [7] = 1,
 };
 
 const u8 gItemEffect_XAccuracy[8] = {
-    [2] = 1 << 4,
+    [2] = ITEM2_X_ACCURACY,
     [5] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
     [6] = 1,
     [7] = 1,
 };
 
 const u8 gItemEffect_XSpecialAttack[8] = {
-    [2] = 1,
+    [2] = ITEM2_X_SPATK,
     [5] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
     [6] = 1,
     [7] = 1,
 };
 
 const u8 gItemEffect_XSpecialDefense[8] = {
-    [2] = 1,
+    [2] = ITEM2_X_SPDEF,
     [5] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
     [6] = 1,
     [7] = 1,
