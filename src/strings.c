@@ -251,6 +251,10 @@ const u8 gText_TheBattle[] = _("the battle");
 const u8 gText_ThePokemonList[] = _("the POKéMON LIST");
 const u8 gText_TheShop[] = _("the shop");
 const u8 gText_ThePC[] = _("the PC");
+const u8 gText_ExpShareOn[] = _("The EXP. SHARE is currently OFF.\nDo you want to turn it on?");
+const u8 gText_ExpShareOff[] = _("The EXP. SHARE is currently ON.\nDo you want to turn it off?");
+const u8 gText_ExpShareTurnedOn[] = _("The EXP. SHARE has been turned on.{PAUSE_UNTIL_PRESS}");
+const u8 gText_ExpShareTurnedOff[] = _("The EXP. SHARE has been turned off.{PAUSE_UNTIL_PRESS}");
 
 const u8 *const gReturnToXStringsTable[] =
 {

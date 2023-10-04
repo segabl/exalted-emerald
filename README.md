@@ -15,7 +15,7 @@ For DizzyEgg's modifications, check out <https://github.com/DizzyEggg/pokeemeral
 - Adds optional Nuzlocke mode and randomizer (can be enabled in the truck after starting a new game)
 - Adds a chance for wild double battles (using sweet scent causes wild encounters to always be double battles)
 - Adds hidden abilities (Pokémon with HA can be found in the safari zone or rarely in wild double battles)
-- Updates EXP mechanics (All Pokémon part of the battle receive full EXP)
+- Updates EXP and EXP share mechanics (All Pokémon receive full EXP)
 - Makes all regular Pokémon obtainable (legendaries to be done)
 - Improves AI code to allow AI to predict moves and switch Pokémon if appropriate
 - Increases rematchable trainers' party sizes and levels over time
@@ -46,7 +46,7 @@ For DizzyEgg's modifications, check out <https://github.com/DizzyEggg/pokeemeral
 - Increases view distance when not using flash and removes the overlay completely when using flash
 - Updates berry yield and grow time to OrAs values
 - Allows you to also get the other bike once you beat the E4
-- Increases all bag item slot limits to 999 (like for berries) 
+- Increases all bag item slot limits to 999 (like for berries)
 - Increases bag capacity
 - Adds a Pokéball collector to Sootopolis that gifts Johto Pokéballs
 - Adds a land connection between the two halves of Sootopolis

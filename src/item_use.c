@@ -60,6 +60,10 @@ static void CheckForHiddenItemsInMapConnection(u8 taskId);
 static void sub_80FDC00(u8 taskId);
 static void ItemUseOnFieldCB_Bike(u8 taskId);
 static void ItemUseOnFieldCB_Rod(u8);
+static void ItemUseOnFieldCB_ExpShare(u8);
+static void ToggleExpShareYesNo(u8 taskId);
+static void ToggleExpShare(u8 taskId);
+static void ToggleExpShareEnd(u8 taskId);
 static void ItemUseOnFieldCB_Itemfinder(u8);
 static void ItemUseOnFieldCB_Berry(u8 taskId);
 static void ItemUseOnFieldCB_WailmerPailBerry(u8 taskId);
@@ -96,6 +100,12 @@ static const struct YesNoFuncTable sUseTMHMYesNoFuncTable =
 {
     .yesFunc = UseTMHM,
     .noFunc = BagMenu_InitListsMenu,
+};
+
+static const struct YesNoFuncTable sToggleExpShareYesNoFuncTable =
+{
+    .yesFunc = ToggleExpShare,
+    .noFunc = ToggleExpShareEnd,
 };
 
 // .text
@@ -273,6 +283,58 @@ static void ItemUseOnFieldCB_Rod(u8 taskId)
 {
     StartFishing(ItemId_GetSecondaryId(gSpecialVar_ItemId));
     DestroyTask(taskId);
+}
+
+void ItemUseOutOfBattle_ExpShare(u8 taskId)
+{
+    const u8* text = FlagGet(FLAG_EXP_SHARE_ON) ? gText_ExpShareOff : gText_ExpShareOn;
+
+    if (!gTasks[taskId].tUsingRegisteredKeyItem)
+        DisplayItemMessage(taskId, 1, text, ToggleExpShareYesNo);
+    else
+        DisplayItemMessageOnField(taskId, text, ToggleExpShareYesNo);
+}
+
+static void ToggleExpShareYesNo(u8 taskId)
+{
+    if (!gTasks[taskId].tUsingRegisteredKeyItem)
+    {
+        BagMenu_YesNo(taskId, 5, &sToggleExpShareYesNoFuncTable);
+    }
+    else
+    {
+        DisplayYesNoMenuDefaultYes();
+        DoYesNoFuncWithChoice(taskId, &sToggleExpShareYesNoFuncTable);
+    }
+}
+
+static void ToggleExpShare(u8 taskId)
+{
+    const u8* text = FlagGet(FLAG_EXP_SHARE_ON) ? gText_ExpShareTurnedOff : gText_ExpShareTurnedOn;
+
+    if (FlagGet(FLAG_EXP_SHARE_ON))
+        FlagClear(FLAG_EXP_SHARE_ON);
+    else
+        FlagSet(FLAG_EXP_SHARE_ON);
+
+    PlaySE(SE_SAVE);
+    if (!gTasks[taskId].tUsingRegisteredKeyItem)
+        DisplayItemMessage(taskId, 1, text, ToggleExpShareEnd);
+    else
+        DisplayItemMessageOnField(taskId, text, ToggleExpShareEnd);
+}
+
+static void ToggleExpShareEnd(u8 taskId)
+{
+    if (!gTasks[taskId].tUsingRegisteredKeyItem)
+        BagMenu_InitListsMenu(taskId);
+    else
+    {
+        ClearDialogWindowAndFrame(0, 1);
+        DestroyTask(taskId);
+        ScriptUnfreezeEventObjects();
+        ScriptContext2_Disable();
+    }
 }
 
 void ItemUseOutOfBattle_Itemfinder(u8 var)

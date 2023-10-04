@@ -2700,19 +2700,6 @@ const struct Item gItems[] =
         .secondaryId = 0,
     },
 
-    [ITEM_EXP_SHARE] =
-    {
-        .name = _("EXP. SHARE"),
-        .itemId = ITEM_EXP_SHARE,
-        .price = 3000,
-        .holdEffect = HOLD_EFFECT_EXP_SHARE,
-        .description = sExpShareDesc,
-        .pocket = POCKET_ITEMS,
-        .type = 4,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .secondaryId = 0,
-    },
-
     [ITEM_QUICK_CLAW] =
     {
         .name = _("QUICK CLAW"),
@@ -3675,6 +3662,20 @@ const struct Item gItems[] =
     },
 
 // Key items
+
+    [ITEM_EXP_SHARE] =
+    {
+        .name = _("EXP. SHARE"),
+        .itemId = ITEM_EXP_SHARE,
+        .price = 0,
+        .description = sExpShareDesc,
+        .importance = 1,
+        .unk19 = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = 2,
+        .fieldUseFunc = ItemUseOutOfBattle_ExpShare,
+        .secondaryId = 0,
+    },
 
     [ITEM_MACH_BIKE] =
     {
