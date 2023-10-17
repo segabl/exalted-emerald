@@ -140,7 +140,7 @@ void TryDrawRepelMenu(void)
 void HandleRepelMenuChoice(void)
 {
     gSpecialVar_0x8004 = VarGet(VAR_0x8004 + gSpecialVar_Result); // Get item Id;
-    VarSet(VAR_REPEL_STEP_COUNT, ItemId_GetHoldEffectParam(gSpecialVar_0x8004));
+    VarSet(VAR_REPEL_STEP_COUNT, 10 * ItemId_GetHoldEffectParam(gSpecialVar_0x8004));
 }
 
 #define tLeft           data[0]
