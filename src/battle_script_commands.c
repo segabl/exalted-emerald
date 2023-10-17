@@ -3433,6 +3433,7 @@ static void Cmd_getexp(void)
         if (gBattleControllerExecFlags == 0)
         {
             bool8 gainExp = gBattleStruct->sentInPokes & 1;
+            u16 species = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_SPECIES_EGG);
 
             gBattleStruct->sentInPokes >>= 1;
             gBattleMoveDamage = 0; // used for exp
@@ -3449,8 +3450,7 @@ static void Cmd_getexp(void)
                 gBattleStruct->wildVictorySong++;
             }
 
-            if (!gainExp || GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_SPECIES) == SPECIES_NONE
-            || GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_LEVEL) == MAX_LEVEL)
+            if (!gainExp || species == SPECIES_NONE || species == SPECIES_EGG || GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_LEVEL) == MAX_LEVEL)
             {
                 gBattleScripting.getexpState = 5;
             }
