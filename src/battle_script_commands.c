@@ -3463,8 +3463,11 @@ static void Cmd_getexp(void)
                     gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
 
                 // Slight EXP boost/reduction based on level difference
-                i = 100 + (gBattleMons[gBattlerFainted].level - gPlayerParty[gBattleStruct->expGetterMonId].level);
-                gBattleMoveDamage = (gBattleMoveDamage * i) / 100;
+                i = (s32)gBattleMons[gBattlerFainted].level - (s32)gPlayerParty[gBattleStruct->expGetterMonId].level;
+                if (i > 0)
+                    gBattleMoveDamage = (gBattleMoveDamage * (100 + i * 5)) / 100;
+                else if (i < 0)
+                    gBattleMoveDamage = (gBattleMoveDamage * (100 + i)) / 100;
 
                 if (IsTradedMon(&gPlayerParty[gBattleStruct->expGetterMonId]))
                 {
