@@ -26,7 +26,7 @@
 
 extern const u8 EventScript_RepelWoreOff[];
 
-#define NUM_FEEBAS_SPOTS    20
+#define NUM_FEEBAS_SPOTS    30
 
 // this file's functions
 static u16 FeebasRandom(void);
