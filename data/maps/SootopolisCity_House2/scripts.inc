@@ -32,6 +32,12 @@ SootopolisCity_House2_EventScript_BallCollector::
 	compare VAR_RESULT, FALSE
 	goto_if_eq Common_EventScript_ShowBagIsFull
 	setflag FLAG_DAILY_BALL_COLLECTOR_RECEIVED_BALL
+	msgbox SootopolisCity_House2_Text_ShareBallsWithYou2, MSGBOX_DEFAULT
+	random NUM_BALL_COLLECTOR_BALLS
+	addvar VAR_RESULT, FIRST_BALL_COLLECTOR_BALL
+	giveitem_std VAR_RESULT
+	compare VAR_RESULT, FALSE
+	goto_if_eq Common_EventScript_ShowBagIsFull
 	goto SootopolisCity_House2_EventScript_ReceivedBallToday
 	end
 
@@ -60,8 +66,11 @@ SootopolisCity_House2_Text_ShareBallsWithYou:
 	.string "trips all over the world…\p"
 	.string "Here, let me give you one.$"
 
+SootopolisCity_House2_Text_ShareBallsWithYou2:
+	.string "You can have this one too.$"
+
 SootopolisCity_House2_Text_ThisOneWasPopular:
-	.string "This BALL was made in the\n"
-	.string "JOHTO region from a regional\l"
-	.string "fruit known as APRICORN.\p"
-	.string "It's quite popular there!$"
+	.string "These BALLS were made in the JOHTO\n"
+	.string "region from a regional fruit known\l"
+	.string "as APRICORN.\p"
+	.string "They are quite popular there!$"

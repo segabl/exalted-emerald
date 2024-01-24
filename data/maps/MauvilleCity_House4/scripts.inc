@@ -30,7 +30,7 @@ MauvilleCity_House4_Text_DoYouGetToEverGrande:
 MauvilleCity_House4_Text_DontMindMyBrother:
 	.string "Please don't mind my brother…\p"
 	.string "He's just repeating silly phrases\n"
-	.string "that he has heard online…\p"
+	.string "he heard on the internet…\p"
 	.string "Here, you can have this!$"
 
 MauvilleCity_House4_Text_ExplainRound:

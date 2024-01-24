@@ -88,7 +88,5 @@ PacifidlogTown_House3_Text_KnowAboutTeamRocket:
 	.string "Have you heard about TEAM ROCKET?\p"
 	.string "Apparently they managed to\n"
 	.string "blow up ROUTE 1 in KANTO with an\l"
-	.string "OBSCENELY LARGE BOMB!\p"
-	.string "I shudder at what criminal groups\n"
-	.string "are willing to do to reach their goals!$"
+	.string "OBSCENELY LARGE BOMB!$"
 
