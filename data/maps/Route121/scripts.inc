@@ -3,6 +3,8 @@ Route121_MapScripts:: @ 81F5DFC
 
 Route121_EventScript_Woman:: @ 81F5DFD
 	msgbox Route121_Text_AheadLoomsMtPyre, MSGBOX_NPC
+	call Common_EventScript_OutOfCenterPartyHeal
+	msgbox Route121_Text_AheadLoomsMtPyre_Healed, MSGBOX_NPC
 	end
 
 Route121_EventScript_MtPyrePierSign:: @ 81F5E06
@@ -205,8 +207,15 @@ Route121_Text_OkayMoveOutToMtPyre: @ 81F605A
 
 Route121_Text_AheadLoomsMtPyre: @ 81F607F
 	.string "Ahead looms MT. PYRE…\p"
-	.string "It is a natural monument to the spirits \n"
-	.string "of departed POKéMON…$"
+	.string "It is a natural monument to the spirits\n"
+	.string "of departed POKéMON.\p"
+	.string "Are you headed there?\p"
+	.string "Let me make sure your\n"
+	.string "POKéMON are healthy.$"
+
+Route121_Text_AheadLoomsMtPyre_Healed:
+	.string "That's better.\n"
+	.string "You're good to go now.$"
 
 Route121_Text_MtPyrePierSign: @ 81F60D3
 	.string "MT. PYRE PIER\p"
