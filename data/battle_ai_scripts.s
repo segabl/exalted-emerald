@@ -2438,6 +2438,9 @@ AI_CV_Snore:
 
 AI_CV_LockOn:
 	if_status3 AI_USER, STATUS3_ALWAYS_HITS, Score_Minus10
+	get_last_used_bank_move AI_USER
+	get_move_effect_from_result
+	if_equal EFFECT_LOCK_ON, Score_Minus10
 	if_random_less_than 128, AI_CV_LockOn_End
 	score +2
 

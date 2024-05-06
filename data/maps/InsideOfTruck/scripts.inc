@@ -15,6 +15,7 @@ InsideOfTruck_OnResume: @ 823BF01
 
 InsideOfTruck_EventScript_SetIntroFlags:: @ 823BF04
 	lockall
+@	call InsideOfTruck_EventScript_Debug
 	setflag FLAG_HIDE_MAP_NAME_POPUP
 	checkplayergender
 	compare VAR_RESULT, MALE
@@ -81,7 +82,8 @@ InsideOfTruck_EventScript_Debug::
 	giveitem ITEM_HM05, 1
 	giveitem ITEM_HM06, 1
 	giveitem ITEM_HM07, 1
-	givemon SPECIES_MEW, 100
+	givemon SPECIES_SWELLOW, 100
+	givemon SPECIES_LAPRAS, 100
 	return
 
 InsideOfTruck_EventScript_GameSettings::
