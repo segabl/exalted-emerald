@@ -6577,7 +6577,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_WIDE_GUARD] =
     {
-        .effect = EFFECT_PROTECT,
+        .effect = EFFECT_WIDE_GUARD,
         .power = 0,
         .type = TYPE_ROCK,
         .accuracy = 0,
@@ -7026,7 +7026,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_QUICK_GUARD] =
     {
-        .effect = EFFECT_PROTECT,
+        .effect = EFFECT_WIDE_GUARD,
         .power = 0,
         .type = TYPE_FIGHTING,
         .accuracy = 0,
@@ -8113,7 +8113,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_CRAFTY_SHIELD] =
     {
-        .effect = EFFECT_PROTECT,
+        .effect = EFFECT_WIDE_GUARD,
         .power = 0,
         .type = TYPE_FAIRY,
         .accuracy = 0,

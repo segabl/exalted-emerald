@@ -101,7 +101,7 @@ static void Cmd_if_equal_u32(void);
 static void Cmd_if_not_equal_u32(void);
 static void Cmd_if_user_goes(void);
 static void Cmd_if_cant_use_belch(void);
-static void Cmd_nullsub_2A(void);
+static void Cmd_has_priority_move(void);
 static void Cmd_nullsub_2B(void);
 static void Cmd_count_usable_party_mons(void);
 static void Cmd_get_considered_move(void);
@@ -228,7 +228,7 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
     Cmd_if_not_equal_u32,                           // 0x27
     Cmd_if_user_goes,                               // 0x28
     Cmd_if_cant_use_belch,                          // 0x29
-    Cmd_nullsub_2A,                                 // 0x2A
+    Cmd_has_priority_move,                          // 0x2A
     Cmd_nullsub_2B,                                 // 0x2B
     Cmd_count_usable_party_mons,                    // 0x2C
     Cmd_get_considered_move,                        // 0x2D
@@ -1649,8 +1649,33 @@ static void Cmd_if_user_goes(void)
     }
 }
 
-static void Cmd_nullsub_2A(void)
+static void Cmd_has_priority_move(void)
 {
+    u8 i;
+    bool8 found = FALSE;
+    u32 battlerId = BattleAI_GetWantedBattler(gAIScriptPtr[1]);
+
+    SaveBattlerData(battlerId);
+    SetBattlerData(battlerId);
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
+        u16 move = gBattleMons[battlerId].moves[i];
+
+        if (move == 0 || move == 0xFFFF)
+            continue;
+
+        if (gBattleMoves[move].power > 0 && GetMovePriority(battlerId, move) > 0)
+        {
+            found = TRUE;
+            break;
+        }
+    }
+    RestoreBattlerData(battlerId);
+
+    if (found)
+        gAIScriptPtr = T1_READ_PTR(gAIScriptPtr + 2);
+    else
+        gAIScriptPtr += 6;
 }
 
 static void Cmd_nullsub_2B(void)

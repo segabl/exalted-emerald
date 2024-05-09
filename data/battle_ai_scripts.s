@@ -259,6 +259,7 @@ AI_CheckBadMove_CheckEffect: @ 82DC045
 	if_effect EFFECT_FOLLOW_ME, AI_CBM_FollowMe
 	if_effect EFFECT_FALSE_SWIPE, Score_Minus5
 	if_effect EFFECT_SUCKER_PUNCH, AI_CBM_SuckerPunch
+	if_effect EFFECT_WIDE_GUARD, AI_CBM_Protect
 	end
 
 AI_CBM_HealPulse:
@@ -1159,6 +1160,33 @@ AI_CheckViability:
 	if_effect EFFECT_HURRICANE, AI_CV_Hurricane
 	if_effect EFFECT_SPEED_UP_HIT, AI_CV_SpeedUp2
 	if_effect EFFECT_CLEAR_SMOG, AI_CV_ClearSmog
+	if_effect EFFECT_WIDE_GUARD, AI_CV_WideGuard
+	end
+
+AI_CV_WideGuard:
+@	get_protect_count AI_USER
+@	if_more_than 2, Score_Minus10
+@	if_more_than 1, Score_Minus5
+@	if_has_move AI_TARGET, MOVE_FAKE_OUT, AI_CV_WideGuard2
+@	has_priority_move AI_TARGET, AI_CV_WideGuard3
+	score -10
+	end
+
+AI_CV_WideGuard2:
+	is_first_turn_for AI_TARGET
+	if_equal 1, Score_Plus10
+AI_CV_WideGuard3:
+	if_not_double_battle AI_Ret
+	if_battler_absent AI_TARGET_PARTNER, AI_Ret
+	score +2
+	if_has_move AI_TARGET_PARTNER, MOVE_FAKE_OUT, AI_CV_WideGuard4
+	goto AI_CV_WideGuard5
+
+AI_CV_WideGuard4:
+	is_first_turn_for AI_TARGET_PARTNER
+	if_equal 1, Score_Plus10
+AI_CV_WideGuard5:
+	has_priority_move AI_TARGET_PARTNER, Score_Plus2
 	end
 
 AI_CV_ClearSmog:

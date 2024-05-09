@@ -251,8 +251,10 @@
 	.4byte \ptr
 	.endm
 
-	.macro nullsub_2A
+	.macro has_priority_move battler:req, ptr:req
 	.byte 0x2a
+	.byte \battler
+	.4byte \ptr
 	.endm
 
 	.macro nullsub_2B
